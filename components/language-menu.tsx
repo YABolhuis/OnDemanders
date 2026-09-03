@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
 function FlagNl({ className }: { className?: string }) {
@@ -14,21 +12,20 @@ function FlagNl({ className }: { className?: string }) {
 }
 
 function FlagEn({ className }: { className?: string }) {
-  const uid = useId().replace(/:/g, "");
   return (
     <svg viewBox="0 0 60 30" className={className} aria-hidden>
-      <clipPath id={`${uid}-s`}>
+      <clipPath id="flag-en-s">
         <path d="M0 0h60v30H0z" />
       </clipPath>
-      <clipPath id={`${uid}-t`}>
+      <clipPath id="flag-en-t">
         <path d="M30 15h30v15zv15H30zH0V15zV0h30z" />
       </clipPath>
-      <g clipPath={`url(#${uid}-s)`}>
+      <g clipPath="url(#flag-en-s)">
         <path d="M0 0h60v30H0z" fill="#012169" />
         <path d="m0 0 60 30m0-30L0 30" stroke="#fff" strokeWidth="6" />
         <path
           d="m0 0 60 30m0-30L0 30"
-          clipPath={`url(#${uid}-t)`}
+          clipPath="url(#flag-en-t)"
           stroke="#C8102E"
           strokeWidth="4"
         />
@@ -75,89 +72,35 @@ function CircleFlag({ children }: { children: ReactNode }) {
   );
 }
 
-const languages = [
-  { id: "nl", label: "Nederlands", Flag: FlagNl },
+const dropdownLanguages = [
   { id: "en", label: "English", Flag: FlagEn },
   { id: "de", label: "Deutsch", Flag: FlagDe },
   { id: "pl", label: "Polski", Flag: FlagPl },
   { id: "es", label: "Español", Flag: FlagEs },
 ] as const;
 
-const dropdownLanguages = languages.filter((item) => item.id !== "nl");
-
 export function LanguageMenu() {
-  const [language, setLanguage] = useState<(typeof languages)[number]["id"]>("nl");
-  const [open, setOpen] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-  const current = languages.find((item) => item.id === language) ?? languages[0];
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    function onPointerDown(event: PointerEvent) {
-      if (!rootRef.current?.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    }
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
-    }
-
-    document.addEventListener("pointerdown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("pointerdown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [open]);
-
   return (
-    <div ref={rootRef} className="relative">
-      <button
-        type="button"
-        aria-label="Taal"
-        aria-expanded={open}
-        aria-haspopup="listbox"
-        onClick={() => setOpen((value) => !value)}
-        className="flex h-7 items-center gap-2 bg-transparent py-0 font-[Arial,Helvetica,sans-serif] text-[13px] text-white outline-none"
-      >
+    <details className="relative">
+      <summary className="flex h-7 cursor-pointer list-none items-center gap-2 font-[Arial,Helvetica,sans-serif] text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden">
         <CircleFlag>
-          <current.Flag className="size-full" />
+          <FlagNl className="size-full" />
         </CircleFlag>
-        <span>{current.label}</span>
+        <span>Nederlands</span>
         <ChevronDown className="size-3.5 text-white" strokeWidth={2} />
-      </button>
-      {open ? (
-        <ul
-          role="listbox"
-          className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10"
-        >
-          {dropdownLanguages.map((item) => (
-            <li key={item.id}>
-              <button
-                type="button"
-                role="option"
-                aria-selected={item.id === language}
-                onClick={() => {
-                  setLanguage(item.id);
-                  setOpen(false);
-                }}
-                className="flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-left font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] hover:bg-[#f4f4f4]"
-              >
-                <CircleFlag>
-                  <item.Flag className="size-full" />
-                </CircleFlag>
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
+      </summary>
+      <ul className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10">
+        {dropdownLanguages.map((item) => (
+          <li key={item.id}>
+            <span className="flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222]">
+              <CircleFlag>
+                <item.Flag className="size-full" />
+              </CircleFlag>
+              {item.label}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </details>
   );
 }

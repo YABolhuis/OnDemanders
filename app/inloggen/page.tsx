@@ -3,7 +3,7 @@ import Image from "next/image";
 import { LoginCard } from "@/components/login-card";
 
 export const metadata: Metadata = {
-  title: "Login",
+  title: "Inloggen",
   description: "Inloggen",
 };
 

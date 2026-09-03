@@ -9,7 +9,7 @@ export function LoginCard() {
   return (
     <div className="w-full max-w-[400px] border-t-4 border-[#0055d4] bg-white px-8 pt-6 pb-7 shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
       <h1 className="mb-5 font-[Arial,Helvetica,sans-serif] text-[28px] font-bold text-[#222]">
-        Login
+        Inloggen
       </h1>
 
       <form
@@ -24,7 +24,7 @@ export function LoginCard() {
             name="username"
             type="text"
             autoComplete="username"
-            placeholder="Username"
+            placeholder="Gebruikersnaam"
             className="h-full min-w-0 flex-1 bg-white px-3 font-[Arial,Helvetica,sans-serif] text-sm text-[#222] outline-none placeholder:text-[#b0b0b0]"
           />
         </label>
@@ -37,7 +37,7 @@ export function LoginCard() {
             name="password"
             type={showPassword ? "text" : "password"}
             autoComplete="current-password"
-            placeholder="Password"
+            placeholder="Wachtwoord"
             className="h-full min-w-0 flex-1 bg-white px-3 font-[Arial,Helvetica,sans-serif] text-sm text-[#222] outline-none placeholder:text-[#b0b0b0]"
           />
           <button
@@ -58,21 +58,21 @@ export function LoginCard() {
           href="#"
           className="self-end pt-0.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#0055d4] hover:underline"
         >
-          Problem with logging in?
+          Probleem met inloggen?
         </a>
 
         <button
           type="submit"
           className="mt-1 h-11 w-full rounded-sm bg-[#0055d4] font-[Arial,Helvetica,sans-serif] text-[15px] font-semibold text-white hover:bg-[#004bbd]"
         >
-          Login
+          Inloggen
         </button>
       </form>
 
       <p className="mt-6 text-center font-[Arial,Helvetica,sans-serif] text-[13px] text-[#666]">
-        Don&apos;t have an account?{" "}
+        Nog geen account?{" "}
         <a href="#" className="text-[#0055d4] hover:underline">
-          Try the free trial
+          Aanmelden
         </a>
       </p>
     </div>

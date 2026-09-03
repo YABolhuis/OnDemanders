@@ -73,10 +73,10 @@ function RectFlag({ children }: { children: ReactNode }) {
 }
 
 const dropdownLanguages = [
-  { id: "en", label: "English", Flag: FlagEn },
-  { id: "de", label: "Deutsch", Flag: FlagDe },
-  { id: "pl", label: "Polski", Flag: FlagPl },
-  { id: "es", label: "Español", Flag: FlagEs },
+  { id: "en", label: "Engels", Flag: FlagEn },
+  { id: "de", label: "Duits", Flag: FlagDe },
+  { id: "pl", label: "Pools", Flag: FlagPl },
+  { id: "es", label: "Spaans", Flag: FlagEs },
 ] as const;
 
 export function LanguageMenu() {

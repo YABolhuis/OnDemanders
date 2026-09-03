@@ -1,9 +1,8 @@
 import Image from "next/image";
+import { Menu } from "lucide-react";
 import { LanguageMenu } from "@/components/language-menu";
 
 export default function DashboardPage() {
-  const gebruiker = "Y.A. Bolhuis";
-
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <header className="relative z-10 w-full shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
@@ -31,9 +30,14 @@ export default function DashboardPage() {
             ))}
           </nav>
           <div className="ml-auto flex items-center gap-2">
-            <span className="h-7 flex items-center rounded-none border border-[#d91222] px-3 font-[Arial,Helvetica,sans-serif] text-[13px] font-normal text-[#d91222]">
-              {gebruiker}
-            </span>
+            <button
+              type="button"
+              aria-label="Mijn account"
+              className="flex h-9 items-center gap-3 rounded-md border border-[#d8d8d8] bg-white px-4 font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222] hover:bg-[#fafafa]"
+            >
+              Mijn account
+              <Menu className="size-4" strokeWidth={2} aria-hidden />
+            </button>
           </div>
         </div>
       </header>

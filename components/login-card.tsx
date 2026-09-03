@@ -7,7 +7,7 @@ export function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full max-w-[400px] border-t-4 border-[#0055d4] bg-[#f0f1f2] px-8 pt-6 pb-7">
+    <div className="w-full max-w-[400px] border-t-4 border-[#0055d4] bg-white px-8 pt-6 pb-7 shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
       <h1 className="mb-5 font-[Arial,Helvetica,sans-serif] text-[28px] font-bold text-[#222]">
         Inloggen
       </h1>

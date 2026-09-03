@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LanguageMenu } from "@/components/language-menu";
 
@@ -20,6 +21,8 @@ export default function Home() {
           />
           <div className="ml-auto flex items-center gap-2">
             <Button
+              nativeButton={false}
+              render={<Link href="/inloggen" />}
               variant="outline"
               className="h-7 rounded-none border-[#d91222] bg-white px-3 text-[13px] font-normal font-[Arial,Helvetica,sans-serif] text-[#d91222] hover:bg-[#d91222]/5 hover:text-[#d91222]"
             >

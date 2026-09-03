@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { LanguageMenu } from "@/components/language-menu";
 import { DistanceSlider } from "@/components/distance-slider";
+import { VakgebiedList } from "@/components/vakgebied-list";
 import { AccountMenu } from "@/components/account-menu";
 
 export default function DashboardPage() {
@@ -41,23 +42,7 @@ export default function DashboardPage() {
         <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-5">
           <div className="font-[Arial,Helvetica,sans-serif]">
             <DistanceSlider />
-            <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">
-              Vakgebied
-            </h2>
-            <div className="space-y-3">
-              {["Schilder", "Stukadoor", "Dakdekker", "Loodgieter"].map((item) => (
-                <label
-                  key={item}
-                  className="flex items-center gap-2 text-[15px] text-[#163a6b]"
-                >
-                  <input
-                    type="checkbox"
-                    className="size-3.5 rounded-sm border border-[#bfc4cc] bg-white accent-[#1d5fd1]"
-                  />
-                  <span>{item}</span>
-                </label>
-              ))}
-            </div>
+            <VakgebiedList />
           </div>
         </aside>
         <main className="flex-1 bg-white" />

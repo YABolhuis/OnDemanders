@@ -64,10 +64,10 @@ function FlagEs({ className }: { className?: string }) {
   );
 }
 
-function CircleFlag({ children }: { children: ReactNode }) {
+function RectFlag({ children }: { children: ReactNode }) {
   return (
-    <span className="relative size-5 shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.12)]">
-      <span className="absolute inset-[-35%]">{children}</span>
+    <span className="relative h-3.5 w-5 shrink-0 overflow-hidden shadow-[0_0_0_1px_rgba(0,0,0,0.15)]">
+      <span className="absolute inset-0">{children}</span>
     </span>
   );
 }
@@ -83,9 +83,9 @@ export function LanguageMenu() {
   return (
     <details className="relative">
       <summary className="flex h-7 cursor-pointer list-none items-center gap-2 font-[Arial,Helvetica,sans-serif] text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden">
-        <CircleFlag>
+        <RectFlag>
           <FlagNl className="size-full" />
-        </CircleFlag>
+        </RectFlag>
         <span>Nederlands</span>
         <ChevronDown className="size-3.5 text-white" strokeWidth={2} />
       </summary>
@@ -93,9 +93,9 @@ export function LanguageMenu() {
         {dropdownLanguages.map((item) => (
           <li key={item.id}>
             <span className="flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222]">
-              <CircleFlag>
+              <RectFlag>
                 <item.Flag className="size-full" />
-              </CircleFlag>
+              </RectFlag>
               {item.label}
             </span>
           </li>

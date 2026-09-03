@@ -42,38 +42,39 @@ export function DistanceSlider() {
       <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">
         Afstand
       </h2>
-      <input
-        type="text"
-        value={postcode}
-        onChange={(event) => setPostcode(event.target.value.toUpperCase())}
-        placeholder="Postcode"
-        aria-label="Postcode"
-        className="mb-2 h-9 w-full border border-[#d0d0d0] bg-white px-3 text-[14px] text-[#333] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
-      />
-      <div ref={rootRef} className="relative">
-        <button
-          type="button"
-          aria-expanded={open}
-          aria-haspopup="listbox"
-          onClick={() => setOpen((value) => !value)}
-          className={`flex h-9 w-full items-center justify-between border bg-white px-3 text-left text-[14px] ${
-            open
-              ? "border-[#1d5fd1] text-[#1d5fd1]"
-              : "border-[#d0d0d0] text-[#333]"
-          }`}
-        >
-          <span>{distance}</span>
-          {open ? (
-            <ChevronUp className="size-4 shrink-0" strokeWidth={2} />
-          ) : (
-            <ChevronDown className="size-4 shrink-0" strokeWidth={2} />
-          )}
-        </button>
-        {open ? (
-          <ul
-            role="listbox"
-            className="absolute top-full right-0 left-0 z-50 border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+      <div className="flex items-start gap-1">
+        <input
+          type="text"
+          value={postcode}
+          onChange={(event) => setPostcode(event.target.value.toUpperCase())}
+          placeholder="Postcode"
+          aria-label="Postcode"
+          className="h-9 w-[88px] shrink-0 border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#333] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+        />
+        <div ref={rootRef} className="relative min-w-0 flex-1">
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-haspopup="listbox"
+            onClick={() => setOpen((value) => !value)}
+            className={`flex h-9 w-full items-center justify-between gap-1 border bg-white px-2 text-left text-[13px] ${
+              open
+                ? "border-[#1d5fd1] text-[#1d5fd1]"
+                : "border-[#d0d0d0] text-[#333]"
+            }`}
           >
+            <span className="min-w-0 truncate">{distance}</span>
+            {open ? (
+              <ChevronUp className="size-4 shrink-0" strokeWidth={2} />
+            ) : (
+              <ChevronDown className="size-4 shrink-0" strokeWidth={2} />
+            )}
+          </button>
+          {open ? (
+            <ul
+              role="listbox"
+              className="absolute top-full right-0 left-0 z-50 min-w-[10.5rem] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+            >
             {distances.map((option) => (
               <li key={option}>
                 <button
@@ -94,7 +95,8 @@ export function DistanceSlider() {
               </li>
             ))}
           </ul>
-        ) : null}
+          ) : null}
+        </div>
       </div>
     </div>
   );

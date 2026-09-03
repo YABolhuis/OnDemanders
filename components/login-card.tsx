@@ -1,16 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
 
 export function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
-  const router = useRouter();
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    router.push("/dashboard");
+    window.location.href = "/dashboard";
   }
 
   return (
@@ -19,10 +17,7 @@ export function LoginCard() {
         Inloggen
       </h1>
 
-      <form
-        className="flex flex-col gap-3"
-        onSubmit={handleSubmit}
-      >
+      <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
         <label className="flex h-11 overflow-hidden rounded-sm border border-[#cfcfcf] bg-white focus-within:border-[#0055d4]">
           <span className="flex w-11 shrink-0 items-center justify-center border-r border-[#cfcfcf] bg-[#f3f3f3] text-[#4a4a4a]">
             <User className="size-4" strokeWidth={2} aria-hidden />
@@ -50,7 +45,7 @@ export function LoginCard() {
           <button
             type="button"
             aria-label={showPassword ? "Wachtwoord verbergen" : "Wachtwoord tonen"}
-            onClick={() => setShowPassword((value) => !value)}
+            onClick={() => setShowPassword((v) => !v)}
             className="flex w-10 shrink-0 items-center justify-center text-[#222]"
           >
             {showPassword ? (

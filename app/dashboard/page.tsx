@@ -5,7 +5,7 @@ export default function DashboardPage() {
   const gebruiker = "Y.A. Bolhuis";
 
   return (
-    <div className="flex min-h-full flex-col bg-white">
+    <div className="flex min-h-screen flex-col bg-white">
       <header className="relative z-10 w-full shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
         <div className="flex h-8 w-full items-center justify-end bg-[#111111] pr-4">
           <LanguageMenu />
@@ -38,7 +38,7 @@ export default function DashboardPage() {
         </div>
       </header>
       <div className="flex flex-1">
-        <aside className="w-[280px] shrink-0 border-r border-[#e6e6e6] bg-white" />
+        <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb]" />
         <main className="flex-1 bg-white" />
       </div>
     </div>

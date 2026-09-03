@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Menu } from "lucide-react";
 import { LanguageMenu } from "@/components/language-menu";
+import { DistanceSlider } from "@/components/distance-slider";
 
 export default function DashboardPage() {
   const gebruiker = "Y.A. Bolhuis";
@@ -46,6 +47,7 @@ export default function DashboardPage() {
       <div className="flex flex-1">
         <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-5">
           <div className="font-[Arial,Helvetica,sans-serif]">
+            <DistanceSlider />
             <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">
               Vakgebied
             </h2>

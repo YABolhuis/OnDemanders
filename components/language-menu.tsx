@@ -112,13 +112,13 @@ export function LanguageMenu() {
         aria-expanded={open}
         aria-haspopup="listbox"
         onClick={() => setOpen((value) => !value)}
-        className="flex h-7 items-center gap-2 rounded-md border border-[#dcdcdc] bg-white py-0 pr-2 pl-1.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] outline-none"
+        className="flex h-7 items-center gap-2 bg-transparent py-0 font-[Arial,Helvetica,sans-serif] text-[13px] text-white outline-none"
       >
         <CircleFlag>
           <current.Flag className="size-full" />
         </CircleFlag>
         <span>{current.label}</span>
-        <ChevronDown className="size-3.5 text-[#666]" strokeWidth={2} />
+        <ChevronDown className="size-3.5 text-white" strokeWidth={2} />
       </button>
       {open ? (
         <ul

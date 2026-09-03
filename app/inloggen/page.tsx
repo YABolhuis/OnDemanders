@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <main className="flex min-h-full flex-col items-center bg-[#f0f1f2] px-4 pt-16 pb-12">
+    <main className="flex min-h-screen flex-1 flex-col items-center bg-[#f0f1f2] px-4 pt-16 pb-12">
       <Image
         src="/optisend-logo.png"
         alt="Optisend"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,9 +9,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-function FlagNl() {
+function FlagNl({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 9 6" className="h-3.5 w-[21px] overflow-hidden rounded-[1px] shadow-[0_0_0_1px_rgba(0,0,0,0.15)]" aria-hidden>
+    <svg viewBox="0 0 9 6" className={className} aria-hidden>
       <rect width="9" height="2" fill="#AE1C28" />
       <rect y="2" width="9" height="2" fill="#FFFFFF" />
       <rect y="4" width="9" height="2" fill="#21468B" />
@@ -18,10 +19,10 @@ function FlagNl() {
   );
 }
 
-function FlagEn() {
+function FlagEn({ className }: { className?: string }) {
   const uid = useId().replace(/:/g, "");
   return (
-    <svg viewBox="0 0 60 30" className="h-3.5 w-[21px] overflow-hidden rounded-[1px] shadow-[0_0_0_1px_rgba(0,0,0,0.15)]" aria-hidden>
+    <svg viewBox="0 0 60 30" className={className} aria-hidden>
       <clipPath id={`${uid}-s`}>
         <path d="M0 0h60v30H0z" />
       </clipPath>
@@ -44,9 +45,9 @@ function FlagEn() {
   );
 }
 
-function FlagDe() {
+function FlagDe({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 5 3" className="h-3.5 w-[21px] overflow-hidden rounded-[1px] shadow-[0_0_0_1px_rgba(0,0,0,0.15)]" aria-hidden>
+    <svg viewBox="0 0 5 3" className={className} aria-hidden>
       <rect width="5" height="1" fill="#000000" />
       <rect y="1" width="5" height="1" fill="#DD0000" />
       <rect y="2" width="5" height="1" fill="#FFCE00" />
@@ -54,12 +55,20 @@ function FlagDe() {
   );
 }
 
-function FlagPl() {
+function FlagPl({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 8 5" className="h-3.5 w-[21px] overflow-hidden rounded-[1px] shadow-[0_0_0_1px_rgba(0,0,0,0.15)]" aria-hidden>
+    <svg viewBox="0 0 8 5" className={className} aria-hidden>
       <rect width="8" height="5" fill="#FFFFFF" />
       <rect y="2.5" width="8" height="2.5" fill="#DC143C" />
     </svg>
+  );
+}
+
+function CircleFlag({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="relative size-5 shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.12)]">
+      <span className="absolute inset-[-35%]">{children}</span>
+    </span>
   );
 }
 
@@ -78,18 +87,24 @@ export function LanguageMenu() {
     <DropdownMenu>
       <DropdownMenuTrigger
         aria-label="Taal"
-        className="flex h-8 items-center outline-none"
+        className="flex h-7 items-center gap-2 rounded-md border border-[#dcdcdc] bg-white py-0 pr-2 pl-1.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] outline-none"
       >
-        <current.Flag />
+        <CircleFlag>
+          <current.Flag className="size-full" />
+        </CircleFlag>
+        <span>{current.label}</span>
+        <ChevronDown className="size-3.5 text-[#666]" strokeWidth={2} />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[10rem] w-auto">
+      <DropdownMenuContent align="end" className="min-w-[12rem] w-auto rounded-lg p-1">
         {languages.map((item) => (
           <DropdownMenuItem
             key={item.id}
             onClick={() => setLanguage(item.id)}
-            className="gap-2 font-[Arial,Helvetica,sans-serif] text-[13px]"
+            className="gap-2.5 rounded-md px-2 py-1.5 font-[Arial,Helvetica,sans-serif] text-[13px]"
           >
-            <item.Flag />
+            <CircleFlag>
+              <item.Flag className="size-full" />
+            </CircleFlag>
             {item.label}
           </DropdownMenuItem>
         ))}

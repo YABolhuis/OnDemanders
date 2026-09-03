@@ -40,7 +40,7 @@ export function DistanceSlider() {
   return (
     <div className="mb-6 font-[Arial,Helvetica,sans-serif]">
       <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">
-        Afstand vanaf postcode
+        Afstand
       </h2>
       <input
         type="text"

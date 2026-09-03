@@ -59,6 +59,10 @@ export function VakgebiedList() {
         title="Type pand"
         items={["Woning", "Nieuwbouw", "Bedrijfspand / kantoor"]}
       />
+      <CheckboxFilter
+        title="Omvang van het werk"
+        items={["< 1 dag", "1 - 5 dagen", "> 1 week"]}
+      />
     </div>
   );
 }

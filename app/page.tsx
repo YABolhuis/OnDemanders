@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex min-h-full flex-col bg-white">
       <header className="relative z-10 w-full shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
-        <div className="flex h-10 w-full items-center justify-end bg-[#111111] pr-4">
+        <div className="flex h-8 w-full items-center justify-end bg-[#111111] pr-4">
           <LanguageMenu />
         </div>
         <div className="flex h-14 w-full items-center border-b border-[#e6e6e6] bg-white pl-6 pr-4">

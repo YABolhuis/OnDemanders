@@ -66,6 +66,7 @@ function FlagEs({ className }: { className?: string }) {
     </svg>
   );
 }
+
 function CircleFlag({ children }: { children: ReactNode }) {
   return (
     <span className="relative size-5 shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.12)]">

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Menu } from "lucide-react";
 import { LanguageMenu } from "@/components/language-menu";
 import { DistanceSlider } from "@/components/distance-slider";
+import { AccountMenu } from "@/components/account-menu";
 
 export default function DashboardPage() {
   const gebruiker = "Y.A. Bolhuis";
@@ -33,14 +33,7 @@ export default function DashboardPage() {
             ))}
           </nav>
           <div className="ml-auto flex items-center gap-2">
-            <button
-              type="button"
-              aria-label="Accountmenu"
-              className="flex h-9 items-center gap-3 rounded-md border border-[#d8d8d8] bg-white px-4 font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222] hover:bg-[#fafafa]"
-            >
-              {gebruiker}
-              <Menu className="size-4" strokeWidth={2} aria-hidden />
-            </button>
+            <AccountMenu gebruiker={gebruiker} />
           </div>
         </div>
       </header>

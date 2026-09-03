@@ -57,7 +57,7 @@ export default function DashboardPage() {
                 >
                   <input
                     type="checkbox"
-                    className="size-5 rounded-sm border border-[#bfc4cc] bg-white accent-[#1d5fd1]"
+                    className="size-3.5 rounded-sm border border-[#bfc4cc] bg-white accent-[#1d5fd1]"
                   />
                   <span>{item}</span>
                 </label>

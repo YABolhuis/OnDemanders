@@ -15,7 +15,7 @@ export default function LoginPage() {
         alt="Optisend"
         width={954}
         height={210}
-        className="mb-8 h-10 w-auto"
+          className="mb-8 h-7 w-auto"
         priority
       />
       <LoginCard />

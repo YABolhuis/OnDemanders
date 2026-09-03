@@ -1,10 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
 
 export function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+
+  function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    router.push("/dashboard");
+  }
 
   return (
     <div className="w-full max-w-[400px] border-t-4 border-[#0055d4] bg-white px-8 pt-6 pb-7 shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
@@ -14,7 +21,7 @@ export function LoginCard() {
 
       <form
         className="flex flex-col gap-3"
-        onSubmit={(event) => event.preventDefault()}
+        onSubmit={handleSubmit}
       >
         <label className="flex h-11 overflow-hidden rounded-sm border border-[#cfcfcf] bg-white focus-within:border-[#0055d4]">
           <span className="flex w-11 shrink-0 items-center justify-center border-r border-[#cfcfcf] bg-[#f3f3f3] text-[#4a4a4a]">

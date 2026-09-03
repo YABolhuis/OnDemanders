@@ -52,7 +52,7 @@ export default function DashboardPage() {
               Vakgebied
             </h2>
             <div className="space-y-3">
-              {["Schilder", "Stukadoor"].map((item) => (
+              {["Schilder", "Stukadoor", "Dakdekker", "Loodgieter"].map((item) => (
                 <label
                   key={item}
                   className="flex items-center gap-2 text-[15px] text-[#163a6b]"

@@ -37,7 +37,10 @@ export default function DashboardPage() {
           </div>
         </div>
       </header>
-      <main className="flex-1 bg-white" />
+      <div className="flex flex-1">
+        <aside className="w-[280px] shrink-0 border-r border-[#e6e6e6] bg-white" />
+        <main className="flex-1 bg-white" />
+      </div>
     </div>
   );
 }

@@ -4,34 +4,10 @@ import { useState } from "react";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
 
 export function LoginCard() {
-  const [paper, setPaper] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full max-w-[400px] border-t-4 border-[#0055d4] bg-white px-8 pt-5 pb-7 shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
-      <div className="mb-4 flex items-center justify-end gap-2 text-[13px] font-[Arial,Helvetica,sans-serif]">
-        <span className={paper ? "text-[#9aa0a6]" : "font-medium text-[#0055d4]"}>
-          Live
-        </span>
-        <button
-          type="button"
-          role="switch"
-          aria-checked={paper}
-          aria-label="Live of Paper"
-          onClick={() => setPaper((value) => !value)}
-          className="relative h-[22px] w-[40px] shrink-0 rounded-full bg-[#d0d0d0]"
-        >
-          <span
-            className={`absolute top-[2px] size-[18px] rounded-full bg-white shadow-sm transition-transform ${
-              paper ? "left-[20px]" : "left-[2px]"
-            }`}
-          />
-        </button>
-        <span className={paper ? "font-medium text-[#0055d4]" : "text-[#9aa0a6]"}>
-          Paper
-        </span>
-      </div>
-
+    <div className="w-full max-w-[400px] border-t-4 border-[#0055d4] bg-white px-8 pt-6 pb-7 shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
       <h1 className="mb-5 font-[Arial,Helvetica,sans-serif] text-[28px] font-bold text-[#222]">
         Login
       </h1>

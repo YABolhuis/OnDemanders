@@ -58,6 +58,14 @@ function FlagPl({ className }: { className?: string }) {
   );
 }
 
+function FlagEs({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 6 4" className={className} aria-hidden>
+      <rect width="6" height="4" fill="#AA151B" />
+      <rect y="1" width="6" height="2" fill="#F1BF00" />
+    </svg>
+  );
+}
 function CircleFlag({ children }: { children: ReactNode }) {
   return (
     <span className="relative size-5 shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.12)]">
@@ -71,7 +79,10 @@ const languages = [
   { id: "en", label: "English", Flag: FlagEn },
   { id: "de", label: "Deutsch", Flag: FlagDe },
   { id: "pl", label: "Polski", Flag: FlagPl },
+  { id: "es", label: "Español", Flag: FlagEs },
 ] as const;
+
+const dropdownLanguages = languages.filter((item) => item.id !== "nl");
 
 export function LanguageMenu() {
   const [language, setLanguage] = useState<(typeof languages)[number]["id"]>("nl");
@@ -125,7 +136,7 @@ export function LanguageMenu() {
           role="listbox"
           className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10"
         >
-          {languages.map((item) => (
+          {dropdownLanguages.map((item) => (
             <li key={item.id}>
               <button
                 type="button"

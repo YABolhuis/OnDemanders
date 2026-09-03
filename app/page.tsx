@@ -9,7 +9,7 @@ export default function Home() {
           alt="Optisend"
           width={954}
           height={210}
-          className="h-9 w-auto"
+          className="h-6 w-auto"
           priority
         />
       </header>

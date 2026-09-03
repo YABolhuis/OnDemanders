@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <div className="flex min-h-full flex-col bg-white">
-      <header className="relative z-10 flex h-14 w-full items-center border-b border-[#e6e6e6] bg-white pl-6 pr-4 shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
+      <header className="relative z-10 w-full shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
+        <div className="h-8 w-full bg-[#192351]" />
+        <div className="flex h-14 w-full items-center border-b border-[#e6e6e6] bg-white pl-6 pr-4">
         <Image
           src="/optisend-logo.png"
           alt="Optisend"
@@ -23,6 +25,7 @@ export default function Home() {
           <Button className="h-7 rounded-none border-0 bg-[#d91222] px-3 text-[13px] font-normal font-[Arial,Helvetica,sans-serif] text-white hover:bg-[#c0101e]">
             Account openen
           </Button>
+        </div>
         </div>
       </header>
       <main className="flex-1 bg-white" />

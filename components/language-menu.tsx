@@ -1,13 +1,7 @@
 "use client";
 
-import { useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 function FlagNl({ className }: { className?: string }) {
   return (
@@ -81,12 +75,43 @@ const languages = [
 
 export function LanguageMenu() {
   const [language, setLanguage] = useState<(typeof languages)[number]["id"]>("nl");
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
   const current = languages.find((item) => item.id === language) ?? languages[0];
 
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    function onPointerDown(event: PointerEvent) {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger
+    <div ref={rootRef} className="relative">
+      <button
+        type="button"
         aria-label="Taal"
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        onClick={() => setOpen((value) => !value)}
         className="flex h-7 items-center gap-2 rounded-md border border-[#dcdcdc] bg-white py-0 pr-2 pl-1.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] outline-none"
       >
         <CircleFlag>
@@ -94,21 +119,33 @@ export function LanguageMenu() {
         </CircleFlag>
         <span>{current.label}</span>
         <ChevronDown className="size-3.5 text-[#666]" strokeWidth={2} />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[12rem] w-auto rounded-lg p-1">
-        {languages.map((item) => (
-          <DropdownMenuItem
-            key={item.id}
-            onClick={() => setLanguage(item.id)}
-            className="gap-2.5 rounded-md px-2 py-1.5 font-[Arial,Helvetica,sans-serif] text-[13px]"
-          >
-            <CircleFlag>
-              <item.Flag className="size-full" />
-            </CircleFlag>
-            {item.label}
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </button>
+      {open ? (
+        <ul
+          role="listbox"
+          className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10"
+        >
+          {languages.map((item) => (
+            <li key={item.id}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={item.id === language}
+                onClick={() => {
+                  setLanguage(item.id);
+                  setOpen(false);
+                }}
+                className="flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-left font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] hover:bg-[#f4f4f4]"
+              >
+                <CircleFlag>
+                  <item.Flag className="size-full" />
+                </CircleFlag>
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
   );
 }

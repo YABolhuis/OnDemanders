@@ -19,6 +19,17 @@ export default function DashboardPage() {
             className="h-6 w-auto"
             priority
           />
+          <nav className="ml-8 hidden items-center gap-7 lg:flex">
+            {["Klussen", "Agenda", "Financiën"].map((item) => (
+              <a
+                key={item}
+                href="#"
+                className="font-[Arial,Helvetica,sans-serif] text-[14px] text-[#333] hover:text-[#d91222]"
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
           <div className="ml-auto flex items-center gap-2">
             <span className="h-7 flex items-center rounded-none border border-[#d91222] px-3 font-[Arial,Helvetica,sans-serif] text-[13px] font-normal text-[#d91222]">
               {gebruiker}

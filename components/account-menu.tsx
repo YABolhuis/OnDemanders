@@ -45,7 +45,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         <Menu className="size-4" strokeWidth={2} aria-hidden />
       </button>
       {open ? (
-        <div className="absolute top-[calc(100%+10px)] right-0 z-50 w-[260px]">
+        <div className="absolute top-[calc(100%+10px)] right-0 z-[60] w-[260px]">
           <span className="absolute -top-2 right-8 size-4 rotate-45 bg-white shadow-[-1px_-1px_2px_rgba(0,0,0,0.06)]" />
           <div className="relative flex h-[220px] flex-col rounded-sm bg-white p-4 shadow-[0_4px_18px_rgba(0,0,0,0.16)]">
             <button

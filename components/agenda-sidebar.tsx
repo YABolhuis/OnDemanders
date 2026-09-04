@@ -64,7 +64,7 @@ export function AgendaSidebar() {
   });
 
   return (
-    <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 bg-[#1b1f3b] px-4 py-5 font-[Arial,Helvetica,sans-serif] text-white">
+    <aside className="relative z-0 min-h-[calc(100vh-88px)] w-[280px] shrink-0 bg-[#1b1f3b] px-4 py-5 font-[Arial,Helvetica,sans-serif] text-white">
       <button
         type="button"
         className="mb-5 flex h-10 w-full items-center overflow-hidden rounded-md bg-[#6b7cff] text-[14px] font-medium"

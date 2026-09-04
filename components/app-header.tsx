@@ -16,7 +16,7 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
   const pathname = usePathname();
 
   return (
-    <header className="relative z-10 w-full shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
+    <header className="relative z-50 w-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
       <div className="flex h-8 w-full items-center justify-end bg-[#111111] pr-4">
         <LanguageMenu />
       </div>

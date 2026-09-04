@@ -61,7 +61,7 @@ export function AgendaWeekView() {
   const label = useMemo(() => rangeLabel(weekStart), [weekStart]);
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col bg-white">
+    <div className="relative z-0 flex min-h-0 flex-1 flex-col bg-white">
       <div className="flex h-11 w-full shrink-0 items-center gap-4 bg-[#1b1f3b] px-4 font-[Arial,Helvetica,sans-serif] text-white">
         <button
           type="button"

@@ -1,5 +1,6 @@
 import { AppHeader } from "@/components/app-header";
 import { AgendaSidebar } from "@/components/agenda-sidebar";
+import { AgendaToolbar } from "@/components/agenda-toolbar";
 
 export default function AgendaPage() {
   return (
@@ -7,7 +8,10 @@ export default function AgendaPage() {
       <AppHeader gebruiker="Y.A. Bolhuis" />
       <div className="flex flex-1">
         <AgendaSidebar />
-        <main className="flex-1 bg-white" />
+        <div className="flex min-w-0 flex-1 flex-col">
+          <AgendaToolbar />
+          <main className="flex-1 bg-white" />
+        </div>
       </div>
     </div>
   );

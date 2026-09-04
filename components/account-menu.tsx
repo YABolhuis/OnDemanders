@@ -65,10 +65,10 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
               </button>
               <button
                 type="button"
-                className="flex h-10 w-full items-center justify-between gap-2 rounded-md bg-[#d7e8fb] px-3 text-left font-[Arial,Helvetica,sans-serif] text-[13px] font-medium text-[#1d5fd1] hover:bg-[#c9dff8]"
+                className="flex h-10 w-full items-center gap-2 rounded-md bg-[#d7e8fb] px-3 text-left font-[Arial,Helvetica,sans-serif] text-[13px] font-medium text-[#1d5fd1] hover:bg-[#c9dff8]"
               >
-                Mijn favorieten
                 <Heart className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+                Mijn favorieten
               </button>
             </div>
             <div className="flex-1" />

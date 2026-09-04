@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 import { AppHeader } from "@/components/app-header";
 import { DistanceSlider } from "@/components/distance-slider";
 import { VakgebiedList } from "@/components/vakgebied-list";
+import { KlusLijst } from "@/components/klus-lijst";
 
 export default function KlussenPage() {
   return (
@@ -27,7 +28,9 @@ export default function KlussenPage() {
             <VakgebiedList />
           </div>
         </aside>
-        <main className="flex-1 bg-white" />
+        <main className="min-w-0 flex-1 bg-white px-6 py-5">
+          <KlusLijst />
+        </main>
       </div>
     </div>
   );

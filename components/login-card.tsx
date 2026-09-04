@@ -7,13 +7,13 @@ export function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full max-w-[400px] border-t-4 border-[#0055d4] bg-white px-8 pt-6 pb-7 shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
+    <div className="w-full max-w-[400px] overflow-hidden rounded-md border-t-4 border-[#0055d4] bg-white px-8 pt-6 pb-7 shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
       <h1 className="mb-5 font-[Arial,Helvetica,sans-serif] text-[28px] font-bold text-[#222]">
         Inloggen
       </h1>
 
       <form className="flex flex-col gap-3" method="GET" action="/klussen">
-        <label className="flex h-11 overflow-hidden rounded-sm border border-[#cfcfcf] bg-white focus-within:border-[#0055d4]">
+        <label className="flex h-11 overflow-hidden rounded-md border border-[#cfcfcf] bg-white focus-within:border-[#0055d4]">
           <span className="flex w-11 shrink-0 items-center justify-center border-r border-[#cfcfcf] bg-[#f3f3f3] text-[#4a4a4a]">
             <User className="size-4" strokeWidth={2} aria-hidden />
           </span>
@@ -26,7 +26,7 @@ export function LoginCard() {
           />
         </label>
 
-        <label className="flex h-11 overflow-hidden rounded-sm border border-[#cfcfcf] bg-white focus-within:border-[#0055d4]">
+        <label className="flex h-11 overflow-hidden rounded-md border border-[#cfcfcf] bg-white focus-within:border-[#0055d4]">
           <span className="flex w-11 shrink-0 items-center justify-center border-r border-[#cfcfcf] bg-[#f3f3f3] text-[#8a8a8a]">
             <Lock className="size-4" strokeWidth={2} aria-hidden />
           </span>
@@ -60,7 +60,7 @@ export function LoginCard() {
 
         <button
           type="submit"
-          className="mt-1 h-11 w-full rounded-sm bg-[#0055d4] font-[Arial,Helvetica,sans-serif] text-[15px] font-semibold text-white hover:bg-[#004bbd]"
+          className="mt-1 h-11 w-full rounded-md bg-[#0055d4] font-[Arial,Helvetica,sans-serif] text-[15px] font-semibold text-white hover:bg-[#004bbd]"
         >
           Inloggen
         </button>

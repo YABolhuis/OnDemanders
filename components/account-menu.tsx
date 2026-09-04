@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Menu } from "lucide-react";
+import { Database, Menu, Settings } from "lucide-react";
 
 export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
@@ -48,6 +48,20 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         <div className="absolute top-[calc(100%+10px)] right-0 z-50 w-[260px]">
           <span className="absolute -top-2 right-8 size-4 rotate-45 bg-white shadow-[-1px_-1px_2px_rgba(0,0,0,0.06)]" />
           <div className="relative flex h-[220px] flex-col rounded-sm bg-white p-4 shadow-[0_4px_18px_rgba(0,0,0,0.16)]">
+            <button
+              type="button"
+              className="flex h-10 w-full items-center gap-2 rounded-md bg-[#d7e8fb] px-3 text-left font-[Arial,Helvetica,sans-serif] text-[13px] font-medium text-[#1d5fd1] hover:bg-[#c9dff8]"
+            >
+              <span className="relative size-5 shrink-0">
+                <Database className="size-5" strokeWidth={2} aria-hidden />
+                <Settings
+                  className="absolute -right-0.5 -bottom-0.5 size-2.5 fill-[#d7e8fb]"
+                  strokeWidth={2.5}
+                  aria-hidden
+                />
+              </span>
+              profiel & instellingen
+            </button>
             <div className="flex-1" />
             <a
               href="/"

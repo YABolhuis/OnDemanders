@@ -143,37 +143,46 @@ export function ProfielInstellingen() {
           </form>
         ) : (
           <form
-            className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)]"
+            className="mt-12 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
             onSubmit={(event) => event.preventDefault()}
           >
-            <h2 className="text-[20px] font-bold">Wachtwoord aanpassen</h2>
-            <div>
-              <Field
-                label="Huidig wachtwoord"
-                type="password"
-                placeholder="Vul hier je huidige wachtwoord in"
-              />
-              <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div>
-                  <Field
-                    label="Nieuw wachtwoord"
+            <h2 className="w-full shrink-0 text-[22px] leading-none font-bold lg:w-[250px]">
+              Wachtwoord aanpassen
+            </h2>
+            <div className="min-w-0 w-full max-w-[760px] flex-1">
+              <label className="block text-[14px] text-white">
+                Huidig wachtwoord
+                <input
+                  type="password"
+                  placeholder="Vul hier je huidige wachtwoord in"
+                  className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                />
+              </label>
+              <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+                <label className="block text-[14px] text-white">
+                  Nieuw wachtwoord
+                  <input
                     type="password"
                     placeholder="Vul hier je nieuwe wachtwoord in"
+                    className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
                   />
-                  <p className="mt-2 text-[12px] leading-5 text-[#9aa8b0]">
+                  <span className="mt-2 block text-[12px] leading-5 text-[#b7c3ca]">
                     Minimaal 8 karakters, een combinatie van hoofdletters en
                     kleine letters, minimaal één cijfer en één speciaal karakter.
-                  </p>
-                </div>
-                <Field
-                  label="Herhaal nieuw wachtwoord"
-                  type="password"
-                  placeholder="Herhaal hier je nieuwe wachtwoord"
-                />
+                  </span>
+                </label>
+                <label className="block text-[14px] text-white">
+                  Herhaal nieuw wachtwoord
+                  <input
+                    type="password"
+                    placeholder="Herhaal hier je nieuwe wachtwoord"
+                    className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                  />
+                </label>
               </div>
               <button
                 type="submit"
-                className="mt-8 rounded-md bg-[#8e562e] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#7c4a28]"
+                className="mt-8 rounded-lg bg-[#8e562e] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#7c4a28]"
               >
                 Wachtwoord aanpassen
               </button>

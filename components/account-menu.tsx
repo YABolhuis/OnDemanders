@@ -49,8 +49,8 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
           <span className="absolute -top-2 right-8 size-4 rotate-45 bg-white shadow-[-1px_-1px_2px_rgba(0,0,0,0.06)]" />
           <div className="relative flex min-h-[220px] flex-col rounded-sm bg-white p-4 shadow-[0_4px_18px_rgba(0,0,0,0.16)]">
             <div className="flex flex-col gap-2">
-              <button
-                type="button"
+              <a
+                href="/profiel"
                 className="flex h-10 w-full items-center gap-2 rounded-md bg-[#d7e8fb] px-3 text-left font-[Arial,Helvetica,sans-serif] text-[13px] font-medium text-[#1d5fd1] hover:bg-[#c9dff8]"
               >
                 <span className="relative size-5 shrink-0">
@@ -62,7 +62,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                   />
                 </span>
                 profiel & instellingen
-              </button>
+              </a>
               <button
                 type="button"
                 className="flex h-10 w-full items-center gap-2 rounded-md bg-[#d7e8fb] px-3 text-left font-[Arial,Helvetica,sans-serif] text-[13px] font-medium text-[#1d5fd1] hover:bg-[#c9dff8]"

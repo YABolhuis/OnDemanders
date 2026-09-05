@@ -24,7 +24,37 @@ export function ProfielInstellingen() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-88px)] bg-[#24333d] px-8 py-10 font-[Arial,Helvetica,sans-serif] text-white">
+    <div className="flex min-h-[calc(100vh-88px)] bg-[#24333d] font-[Arial,Helvetica,sans-serif] text-white">
+      <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 border-r border-white/10 bg-[#1b2730] px-4 py-6">
+        <p className="mb-4 px-2 text-[13px] font-semibold text-[#9aa8b0]">
+          Menu
+        </p>
+        <nav className="flex flex-col gap-1">
+          <button
+            type="button"
+            onClick={() => setTab("persoonlijk")}
+            className={`rounded-md px-3 py-2 text-left text-[14px] ${
+              tab === "persoonlijk"
+                ? "bg-white/10 font-medium text-[#8fd14f]"
+                : "text-[#d5dde2] hover:bg-white/5"
+            }`}
+          >
+            Persoonlijk
+          </button>
+          <button
+            type="button"
+            onClick={() => setTab("account")}
+            className={`rounded-md px-3 py-2 text-left text-[14px] ${
+              tab === "account"
+                ? "bg-white/10 font-medium text-[#8fd14f]"
+                : "text-[#d5dde2] hover:bg-white/5"
+            }`}
+          >
+            Accountinstellingen
+          </button>
+        </nav>
+      </aside>
+      <div className="min-w-0 flex-1 px-8 py-10">
       <div className="mx-auto max-w-5xl">
         <h1 className="text-[32px] font-bold">Mijn account</h1>
         <p className="mt-1 text-[15px] text-[#c5ced4]">Bekijk en bewerk je gegevens.</p>
@@ -190,6 +220,7 @@ export function ProfielInstellingen() {
             </div>
           </form>
         )}
+      </div>
       </div>
     </div>
   );

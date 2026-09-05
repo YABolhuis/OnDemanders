@@ -146,19 +146,20 @@ export function ProfielInstellingen() {
             className="mt-12 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
             onSubmit={(event) => event.preventDefault()}
           >
-            <h2 className="w-full shrink-0 text-[22px] leading-none font-bold lg:w-[250px]">
+            <h2 className="w-full shrink-0 text-[16px] leading-none font-semibold lg:w-[250px]">
               Wachtwoord aanpassen
             </h2>
             <div className="min-w-0 w-full max-w-[760px] flex-1">
-              <label className="block text-[14px] text-white">
-                Huidig wachtwoord
-                <input
-                  type="password"
-                  placeholder="Vul hier je huidige wachtwoord in"
-                  className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
-                />
-              </label>
-              <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <label className="block text-[14px] text-white">
+                  Huidig wachtwoord
+                  <input
+                    type="password"
+                    placeholder="Vul hier je huidige wachtwoord in"
+                    className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                  />
+                </label>
+                <div className="hidden md:block" />
                 <label className="block text-[14px] text-white">
                   Nieuw wachtwoord
                   <input

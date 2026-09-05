@@ -283,14 +283,13 @@ function NotificatieSectie({
         <h2 className="text-[16px] font-semibold">{titel}</h2>
         <p className="mt-2 text-[13px] leading-5 text-[#c5ced4]">{beschrijving}</p>
       </div>
-      <div className="flex min-w-0 w-full max-w-[480px] flex-1 flex-col gap-3">
+      <div className="flex min-w-0 w-full max-w-[480px] flex-1 flex-col gap-2">
         {items.map((item) => (
           <label
             key={item.id}
-            className="flex cursor-pointer items-center gap-4 rounded-full bg-[#1e2c35] px-4 py-2.5"
+            className="flex h-8 cursor-pointer items-center gap-2.5 rounded-full bg-[#1b2730] pr-4 pl-2"
           >
             <Switch
-              size="lg"
               checked={aan[item.id]}
               onCheckedChange={(checked) =>
                 setAan((huidig) => ({ ...huidig, [item.id]: checked }))
@@ -298,7 +297,9 @@ function NotificatieSectie({
               className="data-checked:bg-[#2bbbad] data-unchecked:bg-[#5d6e78]"
               aria-label={item.label}
             />
-            <span className="text-[14px] text-white">{item.label}</span>
+            <span className="text-[13px] leading-none text-white">
+              {item.label}
+            </span>
           </label>
         ))}
       </div>

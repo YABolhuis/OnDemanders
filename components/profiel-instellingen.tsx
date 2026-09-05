@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { Calendar, Camera } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 
 type Tab = "persoonlijk" | "account";
 
@@ -172,57 +173,136 @@ export function ProfielInstellingen() {
             </button>
           </form>
         ) : (
-          <form
-            className="mt-12 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
-            onSubmit={(event) => event.preventDefault()}
-          >
-            <h2 className="w-full shrink-0 text-[16px] leading-none font-semibold lg:w-[250px]">
-              Wachtwoord aanpassen
-            </h2>
-            <div className="min-w-0 w-full max-w-[480px] flex-1">
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <label className="block text-[14px] text-white">
-                  Huidig wachtwoord
-                  <input
-                    type="password"
-                    placeholder="Vul hier je huidige wachtwoord in"
-                    className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
-                  />
-                </label>
-                <div className="hidden md:block" />
-                <label className="block text-[14px] text-white">
-                  Nieuw wachtwoord
-                  <input
-                    type="password"
-                    placeholder="Vul hier je nieuwe wachtwoord in"
-                    className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
-                  />
-                  <span className="mt-2 block text-[12px] leading-5 text-[#b7c3ca]">
-                    Minimaal 8 karakters, een combinatie van hoofdletters en
-                    kleine letters, minimaal één cijfer en één speciaal karakter.
-                  </span>
-                </label>
-                <label className="block text-[14px] text-white">
-                  Herhaal nieuw wachtwoord
-                  <input
-                    type="password"
-                    placeholder="Herhaal hier je nieuwe wachtwoord"
-                    className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
-                  />
-                </label>
-              </div>
-              <button
-                type="submit"
-                className="mt-8 rounded-lg bg-[#8e562e] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#7c4a28]"
-              >
+          <div className="mt-12 flex flex-col gap-16">
+            <form
+              className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <h2 className="w-full shrink-0 text-[16px] leading-none font-semibold lg:w-[250px]">
                 Wachtwoord aanpassen
-              </button>
-            </div>
-          </form>
+              </h2>
+              <div className="min-w-0 w-full max-w-[480px] flex-1">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <label className="block text-[14px] text-white">
+                    Huidig wachtwoord
+                    <input
+                      type="password"
+                      placeholder="Vul hier je huidige wachtwoord in"
+                      className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                    />
+                  </label>
+                  <div className="hidden md:block" />
+                  <label className="block text-[14px] text-white">
+                    Nieuw wachtwoord
+                    <input
+                      type="password"
+                      placeholder="Vul hier je nieuwe wachtwoord in"
+                      className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                    />
+                    <span className="mt-2 block text-[12px] leading-5 text-[#b7c3ca]">
+                      Minimaal 8 karakters, een combinatie van hoofdletters en
+                      kleine letters, minimaal één cijfer en één speciaal
+                      karakter.
+                    </span>
+                  </label>
+                  <label className="block text-[14px] text-white">
+                    Herhaal nieuw wachtwoord
+                    <input
+                      type="password"
+                      placeholder="Herhaal hier je nieuwe wachtwoord"
+                      className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                    />
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  className="mt-8 rounded-lg bg-[#8e562e] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#7c4a28]"
+                >
+                  Wachtwoord aanpassen
+                </button>
+              </div>
+            </form>
+
+            <NotificatieSectie
+              titel="E-mail notificaties"
+              beschrijving="Pas hier je e-mail notificatie instellingen aan."
+              items={[
+                { id: "email-chat", label: "Nieuw chatbericht." },
+                { id: "email-sollicitatie", label: "Updates over je sollicitatie." },
+                {
+                  id: "email-opdracht",
+                  label: "Updates over je geplaatste opdracht.",
+                  startAan: false,
+                },
+              ]}
+            />
+
+            <NotificatieSectie
+              titel="WhatsApp notificaties"
+              beschrijving="Pas hier je WhatsApp notificatie instellingen aan."
+              items={[
+                { id: "wa-chat", label: "Nieuw chatbericht." },
+                { id: "wa-sollicitatie", label: "Updates over je sollicitatie." },
+                {
+                  id: "wa-opdracht",
+                  label: "Updates over je geplaatste opdracht.",
+                  startAan: false,
+                },
+              ]}
+            />
+          </div>
         )}
       </div>
       </div>
     </div>
+  );
+}
+
+type NotificatieItem = {
+  id: string;
+  label: string;
+  startAan?: boolean;
+};
+
+function NotificatieSectie({
+  titel,
+  beschrijving,
+  items,
+}: {
+  titel: string;
+  beschrijving: string;
+  items: NotificatieItem[];
+}) {
+  const [aan, setAan] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(items.map((item) => [item.id, item.startAan !== false]))
+  );
+
+  return (
+    <section className="flex flex-col gap-6 border-t border-white/10 pt-12 lg:flex-row lg:items-start lg:gap-16">
+      <div className="w-full shrink-0 lg:w-[250px]">
+        <h2 className="text-[16px] font-semibold">{titel}</h2>
+        <p className="mt-2 text-[13px] leading-5 text-[#c5ced4]">{beschrijving}</p>
+      </div>
+      <div className="flex min-w-0 w-full max-w-[480px] flex-1 flex-col gap-3">
+        {items.map((item) => (
+          <label
+            key={item.id}
+            className="flex cursor-pointer items-center gap-4 rounded-full bg-[#1e2c35] px-4 py-2.5"
+          >
+            <Switch
+              size="lg"
+              checked={aan[item.id]}
+              onCheckedChange={(checked) =>
+                setAan((huidig) => ({ ...huidig, [item.id]: checked }))
+              }
+              className="data-checked:bg-[#2bbbad] data-unchecked:bg-[#5d6e78]"
+              aria-label={item.label}
+            />
+            <span className="text-[14px] text-white">{item.label}</span>
+          </label>
+        ))}
+      </div>
+    </section>
   );
 }
 

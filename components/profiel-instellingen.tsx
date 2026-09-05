@@ -143,24 +143,41 @@ export function ProfielInstellingen() {
           </form>
         ) : (
           <form
-            className="mt-8 max-w-xl"
+            className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)]"
             onSubmit={(event) => event.preventDefault()}
           >
-            <h2 className="text-[20px] font-bold">Accountinstellingen</h2>
-            <p className="mt-1 text-[13px] text-[#c5ced4]">
-              Beheer je inloggegevens en voorkeuren.
-            </p>
-            <div className="mt-6 space-y-5">
-              <Field label="Huidig wachtwoord" type="password" />
-              <Field label="Nieuw wachtwoord" type="password" />
-              <Field label="Herhaal nieuw wachtwoord" type="password" />
+            <h2 className="text-[20px] font-bold">Wachtwoord aanpassen</h2>
+            <div>
+              <Field
+                label="Huidig wachtwoord"
+                type="password"
+                placeholder="Vul hier je huidige wachtwoord in"
+              />
+              <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
+                <div>
+                  <Field
+                    label="Nieuw wachtwoord"
+                    type="password"
+                    placeholder="Vul hier je nieuwe wachtwoord in"
+                  />
+                  <p className="mt-2 text-[12px] leading-5 text-[#9aa8b0]">
+                    Minimaal 8 karakters, een combinatie van hoofdletters en
+                    kleine letters, minimaal één cijfer en één speciaal karakter.
+                  </p>
+                </div>
+                <Field
+                  label="Herhaal nieuw wachtwoord"
+                  type="password"
+                  placeholder="Herhaal hier je nieuwe wachtwoord"
+                />
+              </div>
+              <button
+                type="submit"
+                className="mt-8 rounded-md bg-[#8e562e] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#7c4a28]"
+              >
+                Wachtwoord aanpassen
+              </button>
             </div>
-            <button
-              type="submit"
-              className="mt-8 rounded-md bg-[#c06a3a] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#b05e32]"
-            >
-              Wijzigingen opslaan
-            </button>
           </form>
         )}
       </div>
@@ -171,10 +188,12 @@ export function ProfielInstellingen() {
 function Field({
   label,
   defaultValue,
+  placeholder,
   type = "text",
 }: {
   label: string;
   defaultValue?: string;
+  placeholder?: string;
   type?: string;
 }) {
   return (
@@ -183,7 +202,8 @@ function Field({
       <input
         type={type}
         defaultValue={defaultValue}
-        className="mt-1.5 h-11 w-full rounded-md border border-white/25 bg-[#1b2730] px-3 text-[14px] text-white outline-none focus:border-[#8fd14f]"
+        placeholder={placeholder}
+        className="mt-1.5 h-11 w-full rounded-md border border-white/25 bg-[#1b2730] px-3 text-[14px] text-white outline-none placeholder:text-[#8b98a0] focus:border-[#8fd14f]"
       />
     </label>
   );

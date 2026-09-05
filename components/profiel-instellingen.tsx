@@ -149,14 +149,14 @@ export function ProfielInstellingen() {
             <h2 className="w-full shrink-0 text-[16px] leading-none font-semibold lg:w-[250px]">
               Wachtwoord aanpassen
             </h2>
-            <div className="min-w-0 w-full max-w-[760px] flex-1">
+            <div className="min-w-0 w-full max-w-[480px] flex-1">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <label className="block text-[14px] text-white">
                   Huidig wachtwoord
                   <input
                     type="password"
                     placeholder="Vul hier je huidige wachtwoord in"
-                    className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                    className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
                   />
                 </label>
                 <div className="hidden md:block" />
@@ -165,7 +165,7 @@ export function ProfielInstellingen() {
                   <input
                     type="password"
                     placeholder="Vul hier je nieuwe wachtwoord in"
-                    className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                    className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
                   />
                   <span className="mt-2 block text-[12px] leading-5 text-[#b7c3ca]">
                     Minimaal 8 karakters, een combinatie van hoofdletters en
@@ -177,7 +177,7 @@ export function ProfielInstellingen() {
                   <input
                     type="password"
                     placeholder="Herhaal hier je nieuwe wachtwoord"
-                    className="mt-2 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                    className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
                   />
                 </label>
               </div>

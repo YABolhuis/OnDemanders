@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { ChevronDown, Heart } from "lucide-react";
 
-const PER_PAGE_OPTIONS = [5, 10, 20] as const;
+const PER_PAGE_OPTIONS = [6, 8, 10] as const;
 
 const klussen = [
   {
@@ -235,7 +235,7 @@ const klussen = [
 
 export function KlusLijst() {
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(5);
+  const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
   const [page, setPage] = useState(1);
 
   const pageCount = Math.max(1, Math.ceil(klussen.length / perPage));

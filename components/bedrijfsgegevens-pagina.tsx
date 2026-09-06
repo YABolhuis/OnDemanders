@@ -1,8 +1,45 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { useRef, useState } from "react";
+import { ChevronDown, FileText, Upload, X } from "lucide-react";
+
+type Tab = "gegevens" | "documenten";
+
+type DocumentSlot = {
+  id: string;
+  titel: string;
+  beschrijving: string;
+};
+
+const documenten: DocumentSlot[] = [
+  {
+    id: "kvk",
+    titel: "Recent KvK-uittreksel",
+    beschrijving:
+      "Upload een uittreksel van de Kamer van Koophandel dat niet ouder is dan drie maanden (PDF of afbeelding, max. 10MB).",
+  },
+  {
+    id: "betalingsgedrag",
+    titel: "Verklaring betalingsgedrag",
+    beschrijving:
+      "Upload een recente verklaring betalingsgedrag van de Belastingdienst (PDF of afbeelding, max. 10MB).",
+  },
+];
 
 export function BedrijfsgegevensPagina() {
+  const [tab, setTab] = useState<Tab>("gegevens");
+  const [bestanden, setBestanden] = useState<Record<string, File | null>>({
+    kvk: null,
+    betalingsgedrag: null,
+  });
+
+  function onBestand(id: string, file: File | null) {
+    if (file && file.size > 10 * 1024 * 1024) {
+      return;
+    }
+    setBestanden((huidig) => ({ ...huidig, [id]: file }));
+  }
+
   return (
     <div className="flex min-h-[calc(100vh-88px)] bg-[#24333d] font-[Arial,Helvetica,sans-serif] text-white">
       <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 border-r border-white/10 bg-[#1b2730] px-4 py-6">
@@ -10,9 +47,28 @@ export function BedrijfsgegevensPagina() {
           Menu
         </p>
         <nav className="flex flex-col gap-1">
-          <span className="rounded-md bg-white/10 px-3 py-2 text-left text-[14px] font-medium text-[#8fd14f]">
+          <button
+            type="button"
+            onClick={() => setTab("gegevens")}
+            className={`rounded-md px-3 py-2 text-left text-[14px] ${
+              tab === "gegevens"
+                ? "bg-white/10 font-medium text-[#8fd14f]"
+                : "text-[#d5dde2] hover:bg-white/5"
+            }`}
+          >
             Bedrijfsgegevens
-          </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setTab("documenten")}
+            className={`rounded-md px-3 py-2 text-left text-[14px] ${
+              tab === "documenten"
+                ? "bg-white/10 font-medium text-[#8fd14f]"
+                : "text-[#d5dde2] hover:bg-white/5"
+            }`}
+          >
+            Documenten
+          </button>
         </nav>
       </aside>
       <div className="min-w-0 flex-1 px-8 py-10">
@@ -22,81 +78,189 @@ export function BedrijfsgegevensPagina() {
             Deze gegevens worden gebruikt op je profiel en op facturen.
           </p>
 
-          <form
-            className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
-            onSubmit={(event) => event.preventDefault()}
-          >
-            <div className="w-full shrink-0 lg:w-[250px]">
-              <h2 className="text-[20px] font-bold">Bedrijfsregistratie</h2>
-            <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
-              Je bedrijf staat bij ons geregistreerd met deze gegevens. Is er
-              iets gewijzigd? Geef het hier aan ons door.
-            </p>
-          </div>
-
-          <div className="min-w-0 w-full flex-1">
-            <div className="grid grid-cols-1 items-end gap-x-8 gap-y-6 md:grid-cols-2">
-              <Field label="KvK-nummer" defaultValue="12345678" readOnly />
-              <p className="pb-2 text-[13px] leading-5 text-[#c5ced4]">
-                KvK-nummer wijzigen?{" "}
-                <a
-                  href="mailto:yabolhuis.optisend@gmail.com"
-                  className="font-medium text-[#e08a3c] hover:underline"
-                >
-                  Neem contact op
-                </a>{" "}
-                met de klantenservice.
-              </p>
-
-              <Field label="Bedrijfsnaam" defaultValue="Optisend" />
-              <Field label="BTW-nummer" defaultValue="NL123456789B01" />
-
-              <Field
-                label="Vestigingsadres"
-                defaultValue="Zuiderweide 23"
-              />
-              <Field
-                label="Postcode"
-                defaultValue="9989CJ"
-                className="md:max-w-[200px]"
-              />
-
-              <Field label="Vestigingsplaats" defaultValue="Warffum" />
-              <label className="block text-[13px] text-[#c5ced4]">
-                Land
-                <span className="relative mt-1.5 block">
-                  <select
-                    defaultValue="Nederland"
-                    className="h-12 w-full appearance-none rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 pr-10 text-[14px] text-white outline-none focus:border-[#8fd14f]"
-                  >
-                    <option>Nederland</option>
-                    <option>België</option>
-                    <option>Duitsland</option>
-                  </select>
-                  <ChevronDown
-                    className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-white/70"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                </span>
-              </label>
-
-              <Field
-                label="Website (optioneel)"
-                placeholder="Vul hier uw website in"
-              />
-            </div>
-
+          <div className="mt-8 flex gap-8 border-b border-white/15">
             <button
-              type="submit"
-              className="mt-8 rounded-md bg-[#c06a3a] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#b05e32]"
+              type="button"
+              onClick={() => setTab("gegevens")}
+              className={`pb-3 text-[15px] ${
+                tab === "gegevens"
+                  ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
+                  : "text-[#d5dde2]"
+              }`}
             >
-              Wijzigingen opslaan
+              Bedrijfsgegevens
+            </button>
+            <button
+              type="button"
+              onClick={() => setTab("documenten")}
+              className={`pb-3 text-[15px] ${
+                tab === "documenten"
+                  ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
+                  : "text-[#d5dde2]"
+              }`}
+            >
+              Documenten
             </button>
           </div>
-        </form>
+
+          {tab === "gegevens" ? (
+            <BedrijfsregistratieForm />
+          ) : (
+            <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">
+              <div className="w-full shrink-0 lg:w-[250px]">
+                <h2 className="text-[20px] font-bold">Documenten</h2>
+                <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
+                  Lever hier een recent KvK-uittreksel en een verklaring
+                  betalingsgedrag aan. Zonder deze stukken kunnen we je bedrijf
+                  niet volledig verifiëren.
+                </p>
+              </div>
+              <div className="flex min-w-0 w-full flex-1 flex-col gap-5">
+                {documenten.map((item) => (
+                  <DocumentUpload
+                    key={item.id}
+                    item={item}
+                    bestand={bestanden[item.id] ?? null}
+                    onBestand={(file) => onBestand(item.id, file)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
+    </div>
+  );
+}
+
+function BedrijfsregistratieForm() {
+  return (
+    <form
+      className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
+      onSubmit={(event) => event.preventDefault()}
+    >
+      <div className="w-full shrink-0 lg:w-[250px]">
+        <h2 className="text-[20px] font-bold">Bedrijfsregistratie</h2>
+        <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
+          Je bedrijf staat bij ons geregistreerd met deze gegevens. Is er iets
+          gewijzigd? Geef het hier aan ons door.
+        </p>
+      </div>
+
+      <div className="min-w-0 w-full flex-1">
+        <div className="grid grid-cols-1 items-end gap-x-8 gap-y-6 md:grid-cols-2">
+          <Field label="KvK-nummer" defaultValue="12345678" readOnly />
+          <p className="pb-2 text-[13px] leading-5 text-[#c5ced4]">
+            KvK-nummer wijzigen?{" "}
+            <a
+              href="mailto:yabolhuis.optisend@gmail.com"
+              className="font-medium text-[#e08a3c] hover:underline"
+            >
+              Neem contact op
+            </a>{" "}
+            met de klantenservice.
+          </p>
+
+          <Field label="Bedrijfsnaam" defaultValue="Optisend" />
+          <Field label="BTW-nummer" defaultValue="NL123456789B01" />
+
+          <Field label="Vestigingsadres" defaultValue="Zuiderweide 23" />
+          <Field
+            label="Postcode"
+            defaultValue="9989CJ"
+            className="md:max-w-[200px]"
+          />
+
+          <Field label="Vestigingsplaats" defaultValue="Warffum" />
+          <label className="block text-[13px] text-[#c5ced4]">
+            Land
+            <span className="relative mt-1.5 block">
+              <select
+                defaultValue="Nederland"
+                className="h-12 w-full appearance-none rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 pr-10 text-[14px] text-white outline-none focus:border-[#8fd14f]"
+              >
+                <option>Nederland</option>
+                <option>België</option>
+                <option>Duitsland</option>
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-white/70"
+                strokeWidth={2}
+                aria-hidden
+              />
+            </span>
+          </label>
+
+          <Field
+            label="Website (optioneel)"
+            placeholder="Vul hier uw website in"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="mt-8 rounded-md bg-[#c06a3a] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#b05e32]"
+        >
+          Wijzigingen opslaan
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function DocumentUpload({
+  item,
+  bestand,
+  onBestand,
+}: {
+  item: DocumentSlot;
+  bestand: File | null;
+  onBestand: (file: File | null) => void;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  return (
+    <div className="rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-5 py-4">
+      <h3 className="text-[15px] font-semibold">{item.titel}</h3>
+      <p className="mt-1 text-[13px] leading-5 text-[#c5ced4]">
+        {item.beschrijving}
+      </p>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="application/pdf,image/*"
+        className="hidden"
+        onChange={(event) => {
+          onBestand(event.target.files?.[0] ?? null);
+          event.target.value = "";
+        }}
+      />
+      {bestand ? (
+        <div className="mt-4 flex items-center justify-between gap-3 rounded-md bg-[#24333d] px-3 py-2">
+          <span className="flex min-w-0 items-center gap-2 text-[13px]">
+            <FileText className="size-4 shrink-0 text-[#8fd14f]" strokeWidth={2} />
+            <span className="truncate">{bestand.name}</span>
+          </span>
+          <button
+            type="button"
+            aria-label={`${item.titel} verwijderen`}
+            onClick={() => onBestand(null)}
+            className="shrink-0 text-[#c5ced4] hover:text-white"
+          >
+            <X className="size-4" strokeWidth={2} />
+          </button>
+        </div>
+      ) : (
+        <p className="mt-3 text-[13px] text-[#9aa8b0]">Nog geen bestand gekozen.</p>
+      )}
+      <button
+        type="button"
+        onClick={() => inputRef.current?.click()}
+        className="mt-4 inline-flex items-center gap-2 rounded-md border border-white/35 px-4 py-2 text-[14px] hover:bg-white/10"
+      >
+        <Upload className="size-4" strokeWidth={2} />
+        {bestand ? "Ander bestand kiezen" : "Bestand uploaden"}
+      </button>
     </div>
   );
 }

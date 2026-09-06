@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Database, Heart, Menu, Settings } from "lucide-react";
+import { Building2, Database, Heart, Menu, Settings } from "lucide-react";
 
 export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
@@ -62,6 +62,13 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                   />
                 </span>
                 profiel & instellingen
+              </a>
+              <a
+                href="/bedrijfsgegevens"
+                className="flex h-10 w-full items-center gap-2 rounded-md bg-[#d7e8fb] px-3 text-left font-[Arial,Helvetica,sans-serif] text-[13px] font-medium text-[#1d5fd1] hover:bg-[#c9dff8]"
+              >
+                <Building2 className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+                Bedrijfsgegevens
               </a>
               <button
                 type="button"

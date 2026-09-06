@@ -7,7 +7,7 @@ import { LanguageMenu } from "@/components/language-menu";
 import { AccountMenu } from "@/components/account-menu";
 
 const navItems = [
-  { href: "/klussen", label: "Klussen" },
+  { href: "/klussen", label: "Opdrachten" },
   { href: "/agenda", label: "Agenda" },
   { href: "/financien", label: "Financiën" },
 ] as const;

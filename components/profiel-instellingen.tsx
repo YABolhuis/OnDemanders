@@ -227,7 +227,7 @@ export function ProfielInstellingen() {
               titel="E-mail notificaties"
               beschrijving="Pas hier je e-mail notificatie instellingen aan."
               items={[
-                { id: "email-chat", label: "Nieuw chatbericht." },
+                { id: "email-chat", label: "Nieuwe klus" },
                 { id: "email-sollicitatie", label: "Updates over je sollicitatie." },
                 {
                   id: "email-opdracht",
@@ -241,7 +241,7 @@ export function ProfielInstellingen() {
               titel="WhatsApp notificaties"
               beschrijving="Pas hier je WhatsApp notificatie instellingen aan."
               items={[
-                { id: "wa-chat", label: "Nieuw chatbericht." },
+                { id: "wa-chat", label: "Nieuwe klus" },
                 { id: "wa-sollicitatie", label: "Updates over je sollicitatie." },
                 {
                   id: "wa-opdracht",

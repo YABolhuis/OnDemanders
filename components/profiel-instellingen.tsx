@@ -245,7 +245,7 @@ function NotificatieSectie({
         {items.map((item) => (
           <label
             key={item.id}
-            className="flex h-8 cursor-pointer items-center gap-2.5 rounded-full bg-[#1b2730] pr-4 pl-2"
+            className="flex h-8 cursor-pointer items-center gap-2.5 rounded-[var(--radius-control)] bg-[#1b2730] pr-4 pl-2"
           >
             <Switch
               checked={aan[item.id]}

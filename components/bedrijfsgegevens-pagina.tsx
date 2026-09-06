@@ -16,12 +16,18 @@ export function BedrijfsgegevensPagina() {
         </nav>
       </aside>
       <div className="min-w-0 flex-1 px-8 py-10">
-        <form
-          className="mx-auto flex max-w-5xl flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <div className="w-full shrink-0 lg:w-[250px]">
-            <h1 className="text-[20px] font-bold">Bedrijfsregistratie</h1>
+        <div className="mx-auto max-w-5xl">
+          <h1 className="text-[32px] font-bold">Bedrijfsgegevens</h1>
+          <p className="mt-1 text-[15px] text-[#c5ced4]">
+            Deze gegevens worden gebruikt op je profiel en op facturen.
+          </p>
+
+          <form
+            className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <div className="w-full shrink-0 lg:w-[250px]">
+              <h2 className="text-[20px] font-bold">Bedrijfsregistratie</h2>
             <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
               Je bedrijf staat bij ons geregistreerd met deze gegevens. Is er
               iets gewijzigd? Geef het hier aan ons door.
@@ -89,6 +95,7 @@ export function BedrijfsgegevensPagina() {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );

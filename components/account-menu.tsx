@@ -75,7 +75,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                 className="flex h-10 w-full items-center gap-2 rounded-md bg-[#d7e8fb] px-3 text-left font-[Arial,Helvetica,sans-serif] text-[13px] font-medium text-[#1d5fd1] hover:bg-[#c9dff8]"
               >
                 <Heart className="size-4 shrink-0" strokeWidth={2} aria-hidden />
-                Mijn favorieten
+                Favoriete opdrachten
               </button>
             </div>
             <div className="flex-1" />

@@ -3,7 +3,13 @@
 import { useRef, useState } from "react";
 import { ChevronDown, FileText, Upload, X } from "lucide-react";
 
-type Tab = "gegevens" | "documenten";
+type Tab = "gegevens" | "facturatie" | "documenten";
+
+const tabs: { id: Tab; label: string }[] = [
+  { id: "gegevens", label: "Bedrijfsgegevens" },
+  { id: "facturatie", label: "Facturatiegegevens" },
+  { id: "documenten", label: "Documenten" },
+];
 
 type DocumentSlot = {
   id: string;
@@ -47,28 +53,20 @@ export function BedrijfsgegevensPagina() {
           Menu
         </p>
         <nav className="flex flex-col gap-1">
-          <button
-            type="button"
-            onClick={() => setTab("gegevens")}
-            className={`rounded-md px-3 py-2 text-left text-[14px] ${
-              tab === "gegevens"
-                ? "bg-white/10 font-medium text-[#8fd14f]"
-                : "text-[#d5dde2] hover:bg-white/5"
-            }`}
-          >
-            Bedrijfsgegevens
-          </button>
-          <button
-            type="button"
-            onClick={() => setTab("documenten")}
-            className={`rounded-md px-3 py-2 text-left text-[14px] ${
-              tab === "documenten"
-                ? "bg-white/10 font-medium text-[#8fd14f]"
-                : "text-[#d5dde2] hover:bg-white/5"
-            }`}
-          >
-            Documenten
-          </button>
+          {tabs.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => setTab(item.id)}
+              className={`rounded-md px-3 py-2 text-left text-[14px] ${
+                tab === item.id
+                  ? "bg-white/10 font-medium text-[#8fd14f]"
+                  : "text-[#d5dde2] hover:bg-white/5"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </nav>
       </aside>
       <div className="min-w-0 flex-1 px-8 py-10">
@@ -79,32 +77,26 @@ export function BedrijfsgegevensPagina() {
           </p>
 
           <div className="mt-8 flex gap-8 border-b border-white/15">
-            <button
-              type="button"
-              onClick={() => setTab("gegevens")}
-              className={`pb-3 text-[15px] ${
-                tab === "gegevens"
-                  ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
-                  : "text-[#d5dde2]"
-              }`}
-            >
-              Bedrijfsgegevens
-            </button>
-            <button
-              type="button"
-              onClick={() => setTab("documenten")}
-              className={`pb-3 text-[15px] ${
-                tab === "documenten"
-                  ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
-                  : "text-[#d5dde2]"
-              }`}
-            >
-              Documenten
-            </button>
+            {tabs.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setTab(item.id)}
+                className={`pb-3 text-[15px] ${
+                  tab === item.id
+                    ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
+                    : "text-[#d5dde2]"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
           {tab === "gegevens" ? (
             <BedrijfsregistratieForm />
+          ) : tab === "facturatie" ? (
+            <FacturatieForm />
           ) : (
             <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">
               <div className="w-full shrink-0 lg:w-[250px]">
@@ -208,6 +200,72 @@ function BedrijfsregistratieForm() {
   );
 }
 
+function FacturatieForm() {
+  return (
+    <form
+      className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
+      onSubmit={(event) => event.preventDefault()}
+    >
+      <div className="w-full shrink-0 lg:w-[250px]">
+        <h2 className="text-[20px] font-bold">Facturatiegegevens</h2>
+        <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
+          Deze gegevens gebruiken we voor facturen en uitbetalingen. Controleer
+          of IBAN en factuuradres kloppen.
+        </p>
+      </div>
+
+      <div className="min-w-0 w-full flex-1">
+        <div className="grid grid-cols-1 items-end gap-x-8 gap-y-6 md:grid-cols-2">
+          <Field
+            label="Factuur-e-mailadres"
+            defaultValue="yabolhuis.optisend@gmail.com"
+            type="email"
+          />
+          <label className="block text-[13px] text-[#c5ced4]">
+            Betalingstermijn
+            <span className="relative mt-1.5 block">
+              <select
+                defaultValue="14 dagen"
+                className="h-12 w-full appearance-none rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 pr-10 text-[14px] text-white outline-none focus:border-[#8fd14f]"
+              >
+                <option>14 dagen</option>
+                <option>30 dagen</option>
+                <option>60 dagen</option>
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-white/70"
+                strokeWidth={2}
+                aria-hidden
+              />
+            </span>
+          </label>
+          <Field label="IBAN" defaultValue="NL12 ABNA 0123 4567 89" />
+          <Field label="Tenaamstelling" defaultValue="Optisend" />
+          <Field
+            label="Factuuradres"
+            defaultValue="Zuiderweide 23"
+            className="md:col-span-2"
+          />
+          <Field label="Postcode" defaultValue="9989CJ" />
+          <Field label="Plaats" defaultValue="Warffum" />
+          <Field
+            label="Extra vermelding op factuur (optioneel)"
+            placeholder="Bijvoorbeeld inkoopordernummer"
+            className="md:col-span-2"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="mt-8 rounded-md bg-[#c06a3a] px-5 py-2.5 text-[14px] font-medium text-white hover:bg-[#b05e32]"
+        >
+          Wijzigingen opslaan
+        </button>
+      </div>
+    </form>
+  );
+}
+
 function DocumentUpload({
   item,
   bestand,
@@ -270,19 +328,21 @@ function Field({
   defaultValue,
   placeholder,
   readOnly = false,
+  type = "text",
   className = "",
 }: {
   label: string;
   defaultValue?: string;
   placeholder?: string;
   readOnly?: boolean;
+  type?: string;
   className?: string;
 }) {
   return (
     <label className={`block text-[13px] text-[#c5ced4] ${className}`}>
       {label}
       <input
-        type="text"
+        type={type}
         defaultValue={defaultValue}
         placeholder={placeholder}
         readOnly={readOnly}

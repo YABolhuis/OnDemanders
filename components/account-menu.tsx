@@ -58,9 +58,9 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
               <Image
                 src="/token-logo.png"
                 alt=""
-                width={28}
-                height={28}
-                className="size-7 shrink-0"
+                width={16}
+                height={16}
+                className="size-4 shrink-0"
               />
               <span className="text-[13px] text-[#666]">
                 {TOKEN_SALDO.toLocaleString("nl-NL")}

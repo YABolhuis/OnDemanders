@@ -109,6 +109,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
               <div className="mt-3 flex items-center justify-between gap-3 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222]">
                 <span>Online voor berichten</span>
                 <Switch
+                  size="sm"
                   checked={online}
                   onCheckedChange={setOnline}
                   className="[&_svg]:hidden data-checked:bg-[#2d9b4f] data-unchecked:bg-[#595959]"

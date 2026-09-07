@@ -2,16 +2,30 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Building2, CircleUser, Heart, LogOut, Settings, User } from "lucide-react";
+import {
+  Building2,
+  ChevronDown,
+  ChevronUp,
+  CircleUser,
+  Heart,
+  LogOut,
+  Moon,
+  Settings,
+  Sun,
+  User,
+} from "lucide-react";
 
 const TOKEN_SALDO = 25;
 
 export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const [theme, setTheme] = useState<"licht" | "donker">("licht");
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) {
+      setThemeOpen(false);
       return;
     }
 
@@ -103,6 +117,50 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
               </button>
             </div>
             <div className="flex-1" />
+            <div className="mt-3 border-t border-[#e6e6e6] pt-2">
+              <button
+                type="button"
+                aria-expanded={themeOpen}
+                onClick={() => setThemeOpen((value) => !value)}
+                className="flex h-10 w-full items-center gap-2 px-1 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] hover:bg-[#fafafa]"
+              >
+                {theme === "licht" ? (
+                  <Sun className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+                ) : (
+                  <Moon className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+                )}
+                <span className="min-w-0 flex-1 text-left">
+                  Thema: {theme === "licht" ? "Licht" : "Donker"}
+                </span>
+                {themeOpen ? (
+                  <ChevronUp className="size-4 shrink-0 text-[#555]" strokeWidth={2} aria-hidden />
+                ) : (
+                  <ChevronDown className="size-4 shrink-0 text-[#555]" strokeWidth={2} aria-hidden />
+                )}
+              </button>
+              {themeOpen ? (
+                <div className="mb-2 ml-6 flex flex-col">
+                  <button
+                    type="button"
+                    onClick={() => setTheme("licht")}
+                    className={`h-8 px-1 text-left font-[Arial,Helvetica,sans-serif] text-[13px] ${
+                      theme === "licht" ? "font-medium text-[#1d5fd1]" : "text-[#333] hover:text-[#1d5fd1]"
+                    }`}
+                  >
+                    Licht
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTheme("donker")}
+                    className={`h-8 px-1 text-left font-[Arial,Helvetica,sans-serif] text-[13px] ${
+                      theme === "donker" ? "font-medium text-[#1d5fd1]" : "text-[#333] hover:text-[#1d5fd1]"
+                    }`}
+                  >
+                    Donker
+                  </button>
+                </div>
+              ) : null}
+            </div>
             <a
               href="/"
               className="flex h-10 items-center justify-center gap-2 rounded-[3px] bg-[#0055d4] font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-white hover:bg-[#004bbd]"

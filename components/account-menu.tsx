@@ -68,7 +68,9 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         <span className="relative inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
           <User className="size-3.5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
           <span
-            className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-[#e31c3d] ring-2 ring-white"
+            className={`absolute -top-0.5 -right-0.5 size-2.5 rounded-full ring-2 ring-white ${
+              online ? "bg-[#2d9b4f]" : "bg-[#e31c3d]"
+            }`}
             aria-hidden
           />
         </span>
@@ -81,6 +83,12 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
               <div className="flex items-center gap-3">
                 <span className="relative inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
                   <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+                  <span
+                    className={`absolute -top-0.5 -right-0.5 size-2.5 rounded-full ring-2 ring-white ${
+                      online ? "bg-[#2d9b4f]" : "bg-[#e31c3d]"
+                    }`}
+                    aria-hidden
+                  />
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="truncate font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222]">

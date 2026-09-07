@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Building2, Database, Heart, Menu, Settings } from "lucide-react";
+import { Building2, Database, Heart, Menu, Settings, User } from "lucide-react";
 
 const TOKEN_SALDO = 25;
 
@@ -42,9 +42,16 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         aria-label="Accountmenu"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
-        className="flex h-9 items-center gap-3 rounded-md border border-[#d8d8d8] bg-white px-4 font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222] hover:bg-[#fafafa]"
+        className="flex h-9 items-center gap-2 rounded-md border border-[#d8d8d8] bg-white px-3 font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222] hover:bg-[#fafafa]"
       >
         {gebruiker}
+        <span className="relative inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
+          <User className="size-3.5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+          <span
+            className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-[#e31c3d] ring-2 ring-white"
+            aria-hidden
+          />
+        </span>
         <Menu className="size-4" strokeWidth={2} aria-hidden />
       </button>
       {open ? (

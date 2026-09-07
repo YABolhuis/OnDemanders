@@ -53,7 +53,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
           <div className="relative flex min-h-[260px] flex-col rounded-sm bg-white p-4 shadow-[0_4px_18px_rgba(0,0,0,0.16)]">
             <div
               className="mb-3 flex items-center gap-2.5 px-1 font-[Arial,Helvetica,sans-serif]"
-              aria-label={`${TOKEN_SALDO.toLocaleString("nl-NL")} tokens`}
+              aria-label={`${TOKEN_SALDO.toLocaleString("nl-NL")} credits`}
             >
               <Image
                 src="/token-logo.png"
@@ -65,7 +65,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
               <span className="text-[13px] text-[#666]">
                 {TOKEN_SALDO.toLocaleString("nl-NL")}
               </span>
-              <span className="text-[13px] text-[#666]">tokens</span>
+              <span className="text-[13px] text-[#666]">credits</span>
             </div>
             <div className="flex flex-col gap-2">
               <a

@@ -97,9 +97,9 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                   <Image
                     src="/token-logo.png"
                     alt=""
-                    width={16}
-                    height={16}
-                    className="size-4 shrink-0"
+                    width={14}
+                    height={14}
+                    className="size-3.5 shrink-0 opacity-60"
                   />
                   <span className="tracking-tight">
                     {`${TOKEN_SALDO.toLocaleString("nl-NL")}\u2009credits`}

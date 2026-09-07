@@ -82,7 +82,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                 <span className="relative inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
                   <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
                 </span>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <p className="truncate font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222]">
                     Yan Bolhuis
                   </p>
@@ -90,21 +90,21 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                     Ondernemer
                   </p>
                 </div>
-              </div>
-              <div
-                className="mt-3 flex items-center gap-1.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#666]"
-                aria-label={`${TOKEN_SALDO.toLocaleString("nl-NL")} credits`}
-              >
-                <Image
-                  src="/token-logo.png"
-                  alt=""
-                  width={16}
-                  height={16}
-                  className="size-4 shrink-0"
-                />
-                <span className="tracking-tight">
-                  {`${TOKEN_SALDO.toLocaleString("nl-NL")}\u2009credits`}
-                </span>
+                <div
+                  className="flex shrink-0 items-center gap-1 self-start pt-0.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#666]"
+                  aria-label={`${TOKEN_SALDO.toLocaleString("nl-NL")} credits`}
+                >
+                  <Image
+                    src="/token-logo.png"
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="size-4 shrink-0"
+                  />
+                  <span className="tracking-tight">
+                    {`${TOKEN_SALDO.toLocaleString("nl-NL")}\u2009credits`}
+                  </span>
+                </div>
               </div>
               <div className="mt-3 flex items-center justify-between gap-3 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222]">
                 <span>Online voor berichten</span>

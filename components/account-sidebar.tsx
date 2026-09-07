@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 const items = [
   { href: "/profiel", label: "Mijn account" },
   { href: "/mijn-profiel", label: "Mijn profiel" },
+  { href: "/abonement-credits", label: "Abonement & credits" },
 ] as const;
 
 export function AccountSidebar() {

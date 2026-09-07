@@ -24,7 +24,7 @@ function Switch({
     >
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"
-        className="pointer-events-none flex items-center justify-center rounded-full bg-white ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 group-data-[size=xs]/switch:size-2 group-data-[size=lg]/switch:size-5 group-data-[size=default]/switch:data-checked:translate-x-[16px] group-data-[size=sm]/switch:data-checked:translate-x-[10px] group-data-[size=xs]/switch:data-checked:translate-x-[18px] group-data-[size=lg]/switch:data-checked:translate-x-[20px] group-data-[size=default]/switch:data-unchecked:translate-x-0 group-data-[size=sm]/switch:data-unchecked:translate-x-0 group-data-[size=xs]/switch:data-unchecked:translate-x-0 group-data-[size=lg]/switch:data-unchecked:translate-x-0"
+        className="pointer-events-none flex items-center justify-center rounded-full bg-white ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 group-data-[size=xs]/switch:size-2 group-data-[size=lg]/switch:size-5 group-data-[size=default]/switch:data-checked:translate-x-[16px] group-data-[size=sm]/switch:data-checked:translate-x-[10px] group-data-[size=xs]/switch:data-checked:translate-x-[14px] group-data-[size=lg]/switch:data-checked:translate-x-[20px] group-data-[size=default]/switch:data-unchecked:translate-x-0 group-data-[size=sm]/switch:data-unchecked:translate-x-0 group-data-[size=xs]/switch:data-unchecked:translate-x-0 group-data-[size=lg]/switch:data-unchecked:translate-x-0"
       >
         <Check
           className="hidden size-2.5 text-[#2bbbad] group-data-checked/switch:block"

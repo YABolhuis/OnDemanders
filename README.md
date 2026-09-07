@@ -1,6 +1,6 @@
-# Platform
+# Optisend
 
-Website-platform voor pc. Deze versie toont alleen een lege menubalk bovenaan.
+Nederlandse website voor opdrachten, agenda, financiën en accountbeheer.
 
 ## Lokaal starten
 
@@ -10,3 +10,5 @@ npm run dev
 ```
 
 Open [http://localhost:43123](http://localhost:43123).
+
+Thema Licht/Donker staat in het accountmenu (rechtsboven na inloggen) en wordt lokaal onthouden.

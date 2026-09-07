@@ -27,7 +27,7 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
             alt="Optisend"
             width={954}
             height={210}
-            className="h-6 w-auto"
+            className="theme-logo h-6 w-auto"
             priority
           />
         </Link>

@@ -16,7 +16,7 @@ export default function Home() {
             alt="Optisend"
             width={954}
             height={210}
-            className="h-6 w-auto"
+            className="theme-logo h-6 w-auto"
             priority
           />
           <div className="ml-auto flex items-center gap-2">

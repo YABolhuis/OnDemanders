@@ -16,6 +16,7 @@ import {
   User,
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import { useTheme } from "@/components/theme-provider";
 
 const TOKEN_SALDO = 25;
 
@@ -25,7 +26,7 @@ const itemClass =
 export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
-  const [theme, setTheme] = useState<"licht" | "donker">("licht");
+  const { theme, setTheme } = useTheme();
   const [online, setOnline] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -107,7 +108,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                     alt=""
                     width={12}
                     height={12}
-                    className="size-3 shrink-0 [filter:brightness(0)_invert(40%)]"
+                    className="token-logo size-3 shrink-0 [filter:brightness(0)_invert(40%)]"
                   />
                   <span className="tracking-tight">
                     {`${TOKEN_SALDO.toLocaleString("nl-NL")}\u2009credits`}

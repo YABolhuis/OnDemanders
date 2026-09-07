@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { AccountSidebar } from "@/components/account-sidebar";
 
 export function AbonementCreditsPagina() {
@@ -14,30 +13,56 @@ export function AbonementCreditsPagina() {
             Bekijk je abonnement en het aantal credits op je account.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="rounded-[var(--radius-control)] border border-white/15 bg-[#1b2730] px-5 py-4">
-              <p className="text-[13px] text-[#9aa8b0]">Abonnement</p>
-              <p className="mt-1 text-[18px] font-semibold">Starter</p>
-              <p className="mt-2 text-[13px] leading-5 text-[#c5ced4]">
-                Je huidige pakket voor ondernemers op Optisend.
+          <div className="mt-10 max-w-3xl">
+            <section className="border-b border-white/15 py-8 first:pt-0">
+              <h2 className="text-[16px] font-semibold">Huidig abonnement</h2>
+              <p className="mt-2 text-[15px] text-[#d5dde2]">Starter</p>
+              <button
+                type="button"
+                className="mt-4 h-9 border border-white/30 px-4 text-[14px] font-medium text-[#8fd14f] hover:bg-white/5"
+              >
+                Bekijk of wijzig abonnement
+              </button>
+            </section>
+
+            <section className="border-b border-white/15 py-8">
+              <h2 className="text-[16px] font-semibold">Beschikbare credits</h2>
+              <p className="mt-2 text-[15px] text-[#d5dde2]">25</p>
+              <div className="mt-4 flex flex-wrap items-center gap-5">
+                <button
+                  type="button"
+                  className="h-9 bg-[#8fd14f] px-4 text-[14px] font-medium text-[#1b2730] hover:bg-[#7fc43f]"
+                >
+                  Credits kopen
+                </button>
+                <button
+                  type="button"
+                  className="text-[14px] font-medium text-[#8fd14f] hover:underline"
+                >
+                  Creditsgeschiedenis bekijken
+                </button>
+              </div>
+            </section>
+
+            <section className="border-b border-white/15 py-8">
+              <h2 className="text-[16px] font-semibold">Credits bij abonnement</h2>
+              <p className="mt-2 text-[15px] text-[#d5dde2]">10 per maand</p>
+              <p className="mt-3 max-w-xl text-[13px] leading-5 text-[#9aa8b0]">
+                Ongebruikte credits aan het einde van je factuurperiode gaan mee
+                naar de volgende maand (tot 200).{" "}
+                <button
+                  type="button"
+                  className="font-medium text-[#8fd14f] hover:underline"
+                >
+                  Meer informatie
+                </button>
               </p>
-            </div>
-            <div className="rounded-[var(--radius-control)] border border-white/15 bg-[#1b2730] px-5 py-4">
-              <p className="text-[13px] text-[#9aa8b0]">Credits</p>
-              <p className="mt-2 flex items-center gap-1.5 text-[18px]">
-                <Image
-                  src="/token-logo.png"
-                  alt=""
-                  width={18}
-                  height={18}
-                  className="size-[18px] shrink-0"
-                />
-                <span>25 credits</span>
-              </p>
-              <p className="mt-2 text-[13px] leading-5 text-[#c5ced4]">
-                Credits gebruik je om te reageren op opdrachten.
-              </p>
-            </div>
+            </section>
+
+            <section className="py-8">
+              <h2 className="text-[16px] font-semibold">Abonnementskosten</h2>
+              <p className="mt-2 text-[15px] text-[#d5dde2]">Gratis</p>
+            </section>
           </div>
         </div>
       </div>

@@ -62,9 +62,8 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                 height={16}
                 className="size-4 shrink-0"
               />
-              <span>
-                {TOKEN_SALDO.toLocaleString("nl-NL")}
-                credits
+              <span className="tracking-tight">
+                {`${TOKEN_SALDO.toLocaleString("nl-NL")}\u2009credits`}
               </span>
             </div>
             <div className="flex flex-col gap-2">

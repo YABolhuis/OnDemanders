@@ -109,10 +109,9 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
               <div className="mt-3 flex items-center justify-between gap-3 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222]">
                 <span>Online voor berichten</span>
                 <Switch
-                  size="sm"
                   checked={online}
                   onCheckedChange={setOnline}
-                  className="data-checked:bg-[#222] data-unchecked:bg-[#d0d0d0]"
+                  className="[&_svg]:hidden data-checked:bg-[#2d9b4f] data-unchecked:bg-[#595959]"
                   aria-label="Online voor berichten"
                 />
               </div>

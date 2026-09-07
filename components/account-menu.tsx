@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Building2, Database, Heart, Settings, User } from "lucide-react";
+import { Building2, Database, Heart, LogOut, Settings, User } from "lucide-react";
 
 const TOKEN_SALDO = 25;
 
@@ -105,8 +105,9 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
             <div className="flex-1" />
             <a
               href="/"
-              className="flex h-10 items-center justify-center rounded-[3px] bg-[#0055d4] font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-white hover:bg-[#004bbd]"
+              className="flex h-10 items-center justify-center gap-2 rounded-[3px] bg-[#0055d4] font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-white hover:bg-[#004bbd]"
             >
+              <LogOut className="size-4 shrink-0" strokeWidth={2} aria-hidden />
               Uitloggen
             </a>
           </div>

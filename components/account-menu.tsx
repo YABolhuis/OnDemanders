@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Building2, Database, Heart, Menu, Settings } from "lucide-react";
 
-const TOKEN_SALDO = 1250;
+const TOKEN_SALDO = 25;
 
 export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
@@ -52,7 +52,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
           <span className="absolute -top-2 right-8 size-4 rotate-45 bg-white shadow-[-1px_-1px_2px_rgba(0,0,0,0.06)]" />
           <div className="relative flex min-h-[260px] flex-col rounded-sm bg-white p-4 shadow-[0_4px_18px_rgba(0,0,0,0.16)]">
             <div
-              className="mb-3 flex items-center gap-2.5 px-1 font-[Arial,Helvetica,sans-serif]"
+              className="mb-3 flex items-center gap-1.5 px-1 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#666]"
               aria-label={`${TOKEN_SALDO.toLocaleString("nl-NL")} credits`}
             >
               <Image
@@ -62,10 +62,10 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                 height={16}
                 className="size-4 shrink-0"
               />
-              <span className="text-[13px] text-[#666]">
+              <span>
                 {TOKEN_SALDO.toLocaleString("nl-NL")}
+                credits
               </span>
-              <span className="text-[13px] text-[#666]">credits</span>
             </div>
             <div className="flex flex-col gap-2">
               <a

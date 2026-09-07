@@ -62,7 +62,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                 height={28}
                 className="size-7 shrink-0"
               />
-              <span className="text-[16px] font-semibold text-[#222]">
+              <span className="text-[13px] text-[#666]">
                 {TOKEN_SALDO.toLocaleString("nl-NL")}
               </span>
               <span className="text-[13px] text-[#666]">tokens</span>

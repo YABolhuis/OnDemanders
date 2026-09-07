@@ -308,8 +308,8 @@ export function KlusLijst() {
               <div className="flex w-[140px] shrink-0 flex-col">
                 <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
                 <p className="mt-1 flex items-center gap-0.5 text-[12px] text-[#555]">
-                  {klus.city}
                   <MapPin className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
+                  {klus.city}
                 </p>
                 <p
                   className={`mt-auto pt-2 text-[12px] ${

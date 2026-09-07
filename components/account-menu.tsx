@@ -42,7 +42,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         aria-label="Accountmenu"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
-        className="flex h-9 items-center gap-2 rounded-md border border-[#d8d8d8] bg-white px-3 font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222] hover:bg-[#fafafa]"
+        className="flex h-9 items-center gap-2 rounded-md bg-white px-3 font-[Arial,Helvetica,sans-serif] text-[14px] font-medium text-[#222] hover:bg-[#fafafa]"
       >
         {gebruiker}
         <span className="relative inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">

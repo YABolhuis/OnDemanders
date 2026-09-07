@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Building2, Database, Heart, Menu, Settings, User } from "lucide-react";
+import { Building2, Database, Heart, Settings, User } from "lucide-react";
 
 const TOKEN_SALDO = 25;
 
@@ -52,7 +52,6 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
             aria-hidden
           />
         </span>
-        <Menu className="size-4" strokeWidth={2} aria-hidden />
       </button>
       {open ? (
         <div className="absolute top-[calc(100%+10px)] right-0 z-[60] w-[260px]">

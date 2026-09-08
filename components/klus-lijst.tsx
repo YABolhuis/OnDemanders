@@ -37,9 +37,9 @@ export function KlusLijst() {
           return (
             <article
               key={klus.id}
-              className="flex gap-4 rounded-[var(--radius-control)] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(0,0,0,0.10),0_1px_3px_rgba(0,0,0,0.06)]"
+              className="flex gap-4 rounded-[3px] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(0,0,0,0.10),0_1px_3px_rgba(0,0,0,0.06)]"
             >
-              <div className="relative h-[118px] w-[158px] shrink-0 overflow-hidden rounded-[var(--radius-control)] bg-[#eee]">
+              <div className="relative h-[118px] w-[158px] shrink-0 overflow-hidden rounded-[3px] bg-[#eee]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={klus.image}

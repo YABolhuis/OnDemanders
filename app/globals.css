@@ -218,10 +218,6 @@ html.dark .border-\[\#f0f0f0\] {
   border-color: #3a3a3a;
 }
 
-html.dark .border-\[\#b8b5b0\] {
-  border-color: #5a5a5a;
-}
-
 html.dark .divide-\[\#e6e6e6\] > :not(:first-child),
 html.dark .divide-\[\#ececec\] > :not(:first-child) {
   border-color: #3a3a3a;

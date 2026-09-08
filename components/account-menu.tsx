@@ -66,7 +66,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         className="flex items-center gap-2.5 rounded-[3px] bg-transparent py-0.5 pr-0.5 pl-1 hover:bg-[#f5f5f5]"
       >
         <span className="header-account-type hidden text-right sm:block">
-          <span className="block text-[15px] font-bold leading-snug text-[#1c1e21]">
+          <span className="block text-[13px] font-bold leading-snug text-[#1c1e21]">
             Yan Bolhuis
           </span>
           <span className="block text-[12px] font-normal leading-snug text-[#65676b]">

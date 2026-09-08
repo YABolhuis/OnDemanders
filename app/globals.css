@@ -310,7 +310,7 @@ html.dark img.token-logo {
 }
 
 .chat-dock {
-  left: max(1.5rem, calc((100vw - 1280px) / 2 + 1.5rem));
+  left: 1.5rem;
 }
 
 .site-nav-link {

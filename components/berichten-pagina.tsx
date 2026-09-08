@@ -32,9 +32,9 @@ export function BerichtenPagina() {
           onSelect={setSelectedId}
         />
       </aside>
-      <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 items-stretch justify-center bg-[#f4f6f8] px-8 py-8">
+      <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 items-stretch justify-center bg-[#f4f6f8] px-20 py-8">
         {gesprek ? (
-          <div className="h-[calc(100vh-57px-4rem)] w-full max-w-[1080px]">
+          <div className="h-[calc(100vh-57px-4rem)] w-full">
             <BerichtenVenster key={gesprek.id} gesprek={gesprek} />
           </div>
         ) : (

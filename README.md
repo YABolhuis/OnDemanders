@@ -1,6 +1,6 @@
 # Optisend
 
-Nederlandse website voor opdrachten, agenda, financiën en accountbeheer.
+Nederlandse website om opdrachten en aannemers te vinden.
 
 ## Lokaal starten
 
@@ -11,4 +11,4 @@ npm run dev
 
 Open [http://localhost:43123](http://localhost:43123).
 
-Thema Licht/Donker staat in het accountmenu (rechtsboven na inloggen) en wordt lokaal onthouden. Klik op een opdrachtitel om de advertentiepagina te openen.
+Na inloggen: **Vind opdrachten** (`/klussen`) en **Vind aannemers** (`/aannemers`). Thema Licht/Donker staat in het accountmenu (rechtsboven) en wordt lokaal onthouden.

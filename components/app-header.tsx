@@ -8,9 +8,8 @@ import { AccountMenu } from "@/components/account-menu";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
 
 const navItems = [
-  { href: "/klussen", label: "Opdrachten" },
-  { href: "/agenda", label: "Agenda" },
-  { href: "/financien", label: "Financiën" },
+  { href: "/klussen", label: "Vind opdrachten" },
+  { href: "/aannemers", label: "Vind aannemers" },
 ] as const;
 
 export function AppHeader({ gebruiker }: { gebruiker: string }) {
@@ -39,7 +38,8 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
           </Link>
           <nav className="ml-10 hidden h-full items-stretch gap-12 lg:flex">
             {navItems.map((item) => {
-              const active = pathname === item.href;
+              const active =
+                pathname === item.href || pathname.startsWith(`${item.href}/`);
               return (
                 <Link
                   key={item.href}

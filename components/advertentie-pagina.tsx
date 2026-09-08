@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Heart, User } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
+import { BerichtComposer } from "@/components/bericht-composer";
 import type { Klus } from "@/lib/klussen";
 
 export function AdvertentiePagina({ klus }: { klus: Klus }) {
@@ -37,10 +38,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           {klus.description}
         </p>
         <div className="mt-auto flex justify-end pt-10">
-          <p className="max-w-[340px] rounded-[12px] bg-[#d4cdc2] px-4 py-3 text-[14px] leading-5 text-[#222]">
-            Een vriendelijke herinnering: we willen deze klus graag deze week
-            inplannen. Reageer als je beschikbaar bent.
-          </p>
+          <BerichtComposer naam={klus.seller} />
         </div>
       </div>
 

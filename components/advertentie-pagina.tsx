@@ -11,7 +11,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
 
   return (
     <div className="flex min-h-[calc(100vh-88px)] flex-col bg-white font-[Arial,Helvetica,sans-serif] lg:flex-row lg:items-stretch">
-      <div className="min-w-0 flex-1 px-6 py-6">
+      <div className="flex min-h-[calc(100vh-88px)] min-w-0 flex-1 flex-col px-6 py-6">
         <Link
           href="/klussen"
           className="text-[13px] text-[#1d5fd1] hover:underline"
@@ -36,6 +36,12 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         <p className="mt-5 max-w-2xl text-[15px] leading-6 text-[#333]">
           {klus.description}
         </p>
+        <div className="mt-auto flex justify-end pt-10">
+          <p className="max-w-[340px] rounded-[12px] bg-[#d4cdc2] px-4 py-3 text-[14px] leading-5 text-[#222]">
+            Een vriendelijke herinnering: we willen deze klus graag deze week
+            inplannen. Reageer als je beschikbaar bent.
+          </p>
+        </div>
       </div>
 
       <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">

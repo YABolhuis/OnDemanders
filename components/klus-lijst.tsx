@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Heart } from "lucide-react";
+import { ChevronDown, Clock, Eye, Heart } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import { klussen } from "@/lib/klussen";
 
@@ -37,29 +37,22 @@ export function KlusLijst() {
           return (
             <article
               key={klus.id}
-              className="flex gap-4 rounded-[3px] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(0,0,0,0.10),0_1px_3px_rgba(0,0,0,0.06)]"
+              className="relative rounded-[3px] bg-white px-5 py-5 pr-14 shadow-[0_4px_18px_rgba(0,0,0,0.10),0_1px_3px_rgba(0,0,0,0.06)]"
             >
-              <div className="relative h-[118px] w-[158px] shrink-0 overflow-hidden rounded-[3px] bg-[#eee]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={klus.image}
-                  alt=""
-                  className="size-full object-cover"
+              <button
+                type="button"
+                aria-label="Bewaar klus"
+                aria-pressed={saved}
+                onClick={() => toggleFavorite(klus.id)}
+                className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
+              >
+                <Heart
+                  className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#6b6b6b]"}`}
+                  strokeWidth={2}
                 />
-                <button
-                  type="button"
-                  aria-label="Bewaar klus"
-                  aria-pressed={saved}
-                  onClick={() => toggleFavorite(klus.id)}
-                  className="absolute top-2 right-2 flex size-7 items-center justify-center rounded-full bg-white shadow-sm"
-                >
-                  <Heart
-                    className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#777]"}`}
-                    strokeWidth={2}
-                  />
-                </button>
-              </div>
+              </button>
 
+              <div className="flex gap-4">
               <div className="flex min-w-0 flex-1 flex-col">
                 <h2 className="text-[16px] font-bold text-[#1a1a1a]">
                   <Link
@@ -100,6 +93,18 @@ export function KlusLijst() {
                 >
                   {klus.extra}
                 </p>
+              </div>
+              </div>
+
+              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-[12px] text-[#8a8a8a]">
+                <span className="inline-flex items-center gap-1.5">
+                  <Eye className="size-3.5" strokeWidth={2} aria-hidden />
+                  {klus.views} keer bekeken
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Clock className="size-3.5" strokeWidth={2} aria-hidden />
+                  {klus.postedAt}
+                </span>
               </div>
             </article>
           );

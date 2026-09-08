@@ -68,43 +68,28 @@ export function KlusLijst() {
                 <p className="mt-auto pt-2 text-[12px] text-[#555]">{klus.tags}</p>
               </div>
 
-              <div className="flex w-[130px] shrink-0 flex-col">
+              <div className="flex w-[148px] shrink-0 flex-col">
                 <p className="text-[15px] font-bold text-[#1a1a1a]">
                   {klus.price}
                 </p>
                 <p className="mt-1 text-[12px] text-[#777]">{klus.when}</p>
-                <p className="mt-auto pt-2 text-[12px] font-medium text-[#2f9e44]">
-                  {klus.badge}
+                <p className="mt-auto flex items-center gap-1.5 pt-2 text-[12px] text-[#8a8a8a]">
+                  <Eye className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
+                  {klus.views} keer bekeken
                 </p>
               </div>
 
-              <div className="flex w-[140px] shrink-0 flex-col">
+              <div className="flex w-[168px] shrink-0 flex-col">
                 <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
                 <p className="mt-1 flex items-center gap-1 text-[12px] text-[#555]">
                   <PlaatsPin />
                   {klus.city}
                 </p>
-                <p
-                  className={`mt-auto pt-2 text-[12px] ${
-                    klus.extra === "Bezoek website"
-                      ? "font-medium text-[#1d5fd1]"
-                      : "text-[#555]"
-                  }`}
-                >
-                  {klus.extra}
+                <p className="mt-auto flex items-center gap-1.5 pt-2 text-[12px] text-[#8a8a8a]">
+                  <Clock className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
+                  {klus.postedAt}
                 </p>
               </div>
-              </div>
-
-              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-[12px] text-[#8a8a8a]">
-                <span className="inline-flex items-center gap-1.5">
-                  <Eye className="size-3.5" strokeWidth={2} aria-hidden />
-                  {klus.views} keer bekeken
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Clock className="size-3.5" strokeWidth={2} aria-hidden />
-                  {klus.postedAt}
-                </span>
               </div>
             </article>
           );

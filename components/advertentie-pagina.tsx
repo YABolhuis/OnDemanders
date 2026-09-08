@@ -81,7 +81,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             href="/abonement-credits"
             className="mt-3 flex h-11 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-4 text-[15px] font-semibold text-white hover:bg-[#108a00]"
           >
-            Credits kopen om te reageren
+            Direct reageren
           </Link>
           <button
             type="button"

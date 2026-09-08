@@ -5,8 +5,19 @@ import { Paperclip, Send, Smile, User, X } from "lucide-react";
 
 const MAX_LENGTH = 2500;
 
-export function BerichtComposer({ naam }: { naam: string }) {
-  const [open, setOpen] = useState(false);
+export function BerichtComposer({
+  naam,
+  unlocked,
+  open,
+  highlight,
+  onOpenChange,
+}: {
+  naam: string;
+  unlocked: boolean;
+  open: boolean;
+  highlight: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   const [bericht, setBericht] = useState("");
   const [emojiOpen, setEmojiOpen] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -15,9 +26,18 @@ export function BerichtComposer({ naam }: { naam: string }) {
     return (
       <button
         type="button"
-        onClick={() => setOpen(true)}
-        className="fixed bottom-5 left-6 z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]"
-        aria-label={`Bericht ${naam}`}
+        disabled={!unlocked}
+        onClick={() => {
+          if (unlocked) {
+            onOpenChange(true);
+          }
+        }}
+        className={`fixed bottom-5 left-6 z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] ${
+          highlight ? "chat-activate" : ""
+        } ${unlocked ? "hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]" : "cursor-not-allowed opacity-80"}`}
+        aria-label={
+          unlocked ? `Bericht ${naam}` : `Chat is vergrendeld. Gebruik Direct reageren.`
+        }
       >
         <span className="relative inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
           <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
@@ -45,7 +65,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
     "Do you think you can deliver an order by...",
   ];
 
-  const canSend = bericht.trim().length > 0;
+  const canSend = unlocked && bericht.trim().length > 0;
 
   function voegEmojiToe(emoji: string) {
     setBericht((current) => `${current}${emoji}`.slice(0, MAX_LENGTH));
@@ -73,7 +93,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
         <button
           type="button"
           aria-label="Sluiten"
-          onClick={() => setOpen(false)}
+          onClick={() => onOpenChange(false)}
           className="mt-0.5 flex size-8 items-center justify-center text-[#74767e] hover:text-[#404145]"
         >
           <X className="size-5" strokeWidth={2} />
@@ -90,6 +110,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
           id="advertentie-bericht"
           value={bericht}
           maxLength={MAX_LENGTH}
+          disabled={!unlocked}
           onChange={(event) => setBericht(event.target.value)}
           placeholder={`Ask ${naam} a question or share your project details (requirements, timeline, budget, etc.)`}
           className="min-h-[48px] w-full resize-none border-0 bg-transparent text-[15px] leading-6 text-[#404145] outline-none placeholder:text-[#b2b2b8]"
@@ -100,7 +121,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
               <button
                 key={suggestion}
                 type="button"
-                onClick={() => setBericht(suggestion)}
+                onClick={() => unlocked && setBericht(suggestion)}
                 className="max-w-full truncate rounded-full border border-[#e4e5e7] bg-white px-3 py-1.5 text-left text-[13px] text-[#404145] hover:bg-[#f5f5f5]"
               >
                 {suggestion}
@@ -108,7 +129,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
             ))}
           </div>
         ) : null}
-        <p className="mt-6 text-right text-[12px] text-[#b2b2b8]">
+        <p className="mt-4 text-right text-[12px] text-[#b2b2b8]">
           {bericht.length}/{MAX_LENGTH}
         </p>
       </div>

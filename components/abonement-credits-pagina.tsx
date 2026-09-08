@@ -1,8 +1,10 @@
 "use client";
 
 import { AccountSidebar } from "@/components/account-sidebar";
+import { useCredits } from "@/components/credits-provider";
 
 export function AbonementCreditsPagina() {
+  const { saldo } = useCredits();
   return (
     <div className="flex min-h-[calc(100vh-88px)] bg-[#24333d] font-[Arial,Helvetica,sans-serif] text-white">
       <AccountSidebar />
@@ -30,7 +32,9 @@ export function AbonementCreditsPagina() {
 
           <section className="py-8">
             <h2 className="text-[16px] font-semibold">Beschikbare credits</h2>
-            <p className="mt-2 text-[15px] text-[#d5dde2]">25</p>
+            <p className="mt-2 text-[15px] text-[#d5dde2]">
+              {saldo.toLocaleString("nl-NL")}
+            </p>
             <div className="mt-4 flex flex-wrap items-center gap-5">
               <button
                 type="button"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CreditsProvider } from "@/components/credits-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full bg-background text-foreground">
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <CreditsProvider>{children}</CreditsProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -17,8 +17,7 @@ import {
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "@/components/theme-provider";
-
-const TOKEN_SALDO = 25;
+import { useCredits } from "@/components/credits-provider";
 
 const itemClass =
   "flex h-10 w-full items-center gap-3 px-4 text-left font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] hover:bg-[#f5f5f5]";
@@ -27,6 +26,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { saldo } = useCredits();
   const [online, setOnline] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -101,7 +101,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                 </div>
                 <div
                   className="flex shrink-0 items-center gap-1 self-start pt-0.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#666]"
-                  aria-label={`${TOKEN_SALDO.toLocaleString("nl-NL")} credits`}
+                  aria-label={`${saldo.toLocaleString("nl-NL")} credits`}
                 >
                   <Image
                     src="/token-logo.png"
@@ -111,7 +111,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                     className="token-logo size-3 shrink-0 [filter:brightness(0)_invert(40%)]"
                   />
                   <span className="tracking-tight">
-                    {`${TOKEN_SALDO.toLocaleString("nl-NL")}\u2009credits`}
+                    {`${saldo.toLocaleString("nl-NL")}\u2009credits`}
                   </span>
                 </div>
               </div>

@@ -11,7 +11,7 @@ function initialen(naam: string) {
 
 export function BerichtenLijst() {
   return (
-    <ul className="-mx-5 mt-3 border-t border-[#e9edef]">
+    <ul className="-mx-4 mt-3 border-t border-[#e9edef]">
       {gesprekken.map((gesprek) => (
         <li key={gesprek.id}>
           <button

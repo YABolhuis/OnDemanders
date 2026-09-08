@@ -107,7 +107,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
             >
               <Heart
-                className={`size-4 ${saved ? "fill-[#6b6b6b] text-[#6b6b6b]" : "text-[#6b6b6b]"}`}
+                className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#6b6b6b]"}`}
                 strokeWidth={2}
                 aria-hidden
               />

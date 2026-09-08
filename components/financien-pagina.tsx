@@ -125,7 +125,7 @@ export function FinancienPagina() {
     .reduce((som, item) => som + parseBedrag(item.bedrag), 0);
 
   return (
-    <div className="flex flex-1 items-start bg-white">
+    <div className="flex flex-1 bg-white">
       <FilterSidebar>
           <div className="relative mb-6">
             <Search

@@ -61,12 +61,12 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
       <div className="flex min-h-[calc(100vh-88px)] min-w-0 flex-1 flex-col px-6 py-6">
         <Link
           href="/klussen"
-          className="inline-flex items-center gap-2.5 text-[13px] text-[#222] hover:underline"
+          className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"
         >
           <span className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white">
             <ArrowLeft className="size-4 text-[#6b6b6b]" strokeWidth={2} aria-hidden />
           </span>
-          terug naar opdrachten
+          <span className="hover:underline">terug naar opdrachten</span>
         </Link>
         <h1 className="mt-5 text-[26px] font-bold text-[#1a1a1a]">
           {klus.title}
@@ -98,34 +98,36 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
 
       <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">
         <div className="border-b border-[#e6e6e6] px-5 py-5">
-          <button
-            type="button"
-            onClick={directReageren}
-            onAnimationEnd={() => setShakeGroen(false)}
-            className={`flex h-8 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-3 text-[13px] font-semibold text-white hover:bg-[#108a00] ${
-              shakeGroen ? "groene-shake" : ""
-            }`}
-          >
-            Direct reageren
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label={saved ? "Advertentie bewaard" : "Advertentie bewaren"}
+              aria-pressed={saved}
+              onClick={() => setSaved((value) => !value)}
+              className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#9aa8b3] bg-[#24333d]"
+            >
+              <Heart
+                className={`size-4 ${saved ? "fill-[#c5d0d8] text-[#c5d0d8]" : "text-[#c5d0d8]"}`}
+                strokeWidth={2}
+                aria-hidden
+              />
+            </button>
+            <button
+              type="button"
+              onClick={directReageren}
+              onAnimationEnd={() => setShakeGroen(false)}
+              className={`flex h-8 min-w-0 flex-1 items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-3 text-[13px] font-semibold text-white hover:bg-[#108a00] ${
+                shakeGroen ? "groene-shake" : ""
+              }`}
+            >
+              Direct reageren
+            </button>
+          </div>
           {!unlocked ? (
             <p className="mt-1.5 text-center text-[11px] text-[#777]">
               Kost {CHAT_KOST} credit
             </p>
           ) : null}
-          <button
-            type="button"
-            aria-pressed={saved}
-            onClick={() => setSaved((value) => !value)}
-            className="mt-2 flex h-8 w-full items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[#14a800] bg-white px-3 text-[13px] font-semibold text-[#14a800] hover:bg-[#14a800]/5"
-          >
-            <Heart
-              className={`size-3.5 ${saved ? "fill-[#14a800]" : ""}`}
-              strokeWidth={2}
-              aria-hidden
-            />
-            {saved ? "Advertentie bewaard" : "Advertentie bewaren"}
-          </button>
         </div>
         <div className="flex items-start gap-3 px-5 py-5">
           <span

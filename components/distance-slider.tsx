@@ -73,7 +73,7 @@ export function DistanceSlider() {
           {open ? (
             <ul
               role="listbox"
-              className="absolute top-full right-0 left-0 z-50 min-w-[10.5rem] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+              className="absolute top-full right-0 left-0 z-50 mt-1 min-w-[10.5rem] rounded-[12px] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
             >
             {distances.map((option) => (
               <li key={option}>

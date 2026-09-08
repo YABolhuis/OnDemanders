@@ -16,7 +16,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]"
+        className="fixed bottom-5 left-6 z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]"
         aria-label={`Bericht ${naam}`}
       >
         <span className="relative inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
@@ -53,8 +53,8 @@ export function BerichtComposer({ naam }: { naam: string }) {
   }
 
   return (
-    <div className="w-full max-w-[420px] overflow-hidden rounded-[12px] border border-[#e4e5e7] bg-white font-[Arial,Helvetica,sans-serif] shadow-[0_4px_18px_rgba(0,0,0,0.12)]">
-      <div className="flex items-start gap-3 px-4 py-3">
+    <div className="fixed bottom-5 left-6 z-[70] flex max-h-[calc(100vh-6.5rem)] w-[min(420px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[12px] border border-[#e4e5e7] bg-white font-[Arial,Helvetica,sans-serif] shadow-[0_4px_18px_rgba(0,0,0,0.12)]">
+      <div className="flex shrink-0 items-start gap-3 px-4 py-3">
         <span className="relative mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
           <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
           <span
@@ -82,7 +82,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
 
       <hr className="border-0 border-t border-[#e4e5e7]" />
 
-      <div className="px-4 pt-4 pb-3">
+      <div className="min-h-0 flex-1 overflow-y-auto px-4 pt-4 pb-3">
         <label className="sr-only" htmlFor="advertentie-bericht">
           Bericht aan {naam}
         </label>
@@ -92,7 +92,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
           maxLength={MAX_LENGTH}
           onChange={(event) => setBericht(event.target.value)}
           placeholder={`Ask ${naam} a question or share your project details (requirements, timeline, budget, etc.)`}
-          className="min-h-[56px] w-full resize-none border-0 bg-transparent text-[15px] leading-6 text-[#404145] outline-none placeholder:text-[#b2b2b8]"
+          className="min-h-[48px] w-full resize-none border-0 bg-transparent text-[15px] leading-6 text-[#404145] outline-none placeholder:text-[#b2b2b8]"
         />
         {bericht.length === 0 ? (
           <div className="mt-3 flex flex-col items-start gap-2">
@@ -115,7 +115,7 @@ export function BerichtComposer({ naam }: { naam: string }) {
 
       <hr className="border-0 border-t border-[#e4e5e7]" />
 
-      <div className="flex items-center gap-1 px-3 py-2.5">
+      <div className="flex shrink-0 items-center gap-1 px-3 py-2.5">
         <div className="relative">
           <button
             type="button"

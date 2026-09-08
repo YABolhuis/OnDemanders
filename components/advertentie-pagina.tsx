@@ -34,12 +34,10 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           </div>
           <p className="text-[14px] font-medium text-[#2f9e44]">{klus.badge}</p>
         </div>
-        <p className="mt-5 max-w-2xl text-[15px] leading-6 text-[#333]">
+        <p className="mt-5 max-w-2xl pb-24 text-[15px] leading-6 text-[#333]">
           {klus.description}
         </p>
-        <div className="mt-auto flex justify-start pt-10">
-          <BerichtComposer naam={klus.seller} />
-        </div>
+        <BerichtComposer naam={klus.seller} />
       </div>
 
       <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Bell } from "lucide-react";
 import { LanguageMenu } from "@/components/language-menu";
 import { AccountMenu } from "@/components/account-menu";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
@@ -71,6 +72,25 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
             })}
           </nav>
           <div className="ml-auto flex items-center gap-2">
+            <button
+              type="button"
+              className="flex h-8 items-center gap-1.5 rounded-[3px] bg-[#eceff1] px-2.5 font-[Arial,Helvetica,sans-serif] text-[13px] font-semibold text-[#1a1a1a] hover:bg-[#e4e7ea]"
+            >
+              <span
+                className="flex size-4 items-center justify-center rounded-full bg-[#1a1a1a] font-[Arial,Helvetica,sans-serif] text-[10px] font-bold leading-none text-white"
+                aria-hidden
+              >
+                ?
+              </span>
+              Help
+            </button>
+            <button
+              type="button"
+              aria-label="Meldingen"
+              className="flex size-8 items-center justify-center rounded-[3px] bg-[#eceff1] text-[#1a1a1a] hover:bg-[#e4e7ea]"
+            >
+              <Bell className="size-4" strokeWidth={2} aria-hidden />
+            </button>
             <AccountMenu gebruiker={gebruiker} />
           </div>
         </div>

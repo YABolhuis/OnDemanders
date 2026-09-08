@@ -63,18 +63,24 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         aria-label="Accountmenu"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
-        className="flex h-9 items-center gap-2 rounded-md bg-white px-3 font-[Arial,Helvetica,sans-serif] text-[14px] font-medium text-[#222] hover:bg-[#fafafa]"
+        className="flex items-center gap-2.5 rounded-[3px] bg-transparent py-0.5 pr-0.5 pl-1 hover:bg-[#f5f5f5]"
       >
-        {gebruiker}
-        <span className="relative inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
-          <User className="size-3.5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
-          <span
-            className={`absolute -top-0.5 -right-0.5 size-2.5 rounded-full ring-2 ring-white ${
-              online ? "bg-[#2d9b4f]" : "bg-[#e31c3d]"
-            }`}
-            aria-hidden
-          />
+        <span className="hidden text-left sm:block">
+          <span className="block font-[Arial,Helvetica,sans-serif] text-[13px] font-bold leading-tight text-[#1a1a1a]">
+            Yan Bolhuis
+          </span>
+          <span className="block font-[Arial,Helvetica,sans-serif] text-[11px] leading-tight text-[#888]">
+            bolhuisyan@gmail.com
+          </span>
         </span>
+        <span className="relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#d9d9d9]">
+          <User className="size-4 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+        </span>
+        {open ? (
+          <ChevronUp className="size-4 shrink-0 text-[#333]" strokeWidth={2} aria-hidden />
+        ) : (
+          <ChevronDown className="size-4 shrink-0 text-[#333]" strokeWidth={2} aria-hidden />
+        )}
       </button>
       {open ? (
         <div className="absolute top-[calc(100%+10px)] right-0 z-[60] w-[280px]">

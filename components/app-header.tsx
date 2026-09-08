@@ -47,17 +47,19 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="site-nav-link relative flex items-center gap-1.5 hover:text-[#222]"
+                  className="site-nav-link relative flex items-center hover:text-[#222]"
                 >
-                  {item.label}
-                  {item.href === "/berichten" && ongelezen > 0 ? (
-                    <span
-                      className="mb-0.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 font-[Arial,Helvetica,sans-serif] text-[10px] font-semibold text-white"
-                      aria-label={`${ongelezen} ongelezen berichten`}
-                    >
-                      {ongelezen}
-                    </span>
-                  ) : null}
+                  <span className="relative inline-block">
+                    {item.label}
+                    {item.href === "/berichten" && ongelezen > 0 ? (
+                      <span
+                        className="absolute -top-2 -right-2.5 z-10 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 font-[Arial,Helvetica,sans-serif] text-[10px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+                        aria-label={`${ongelezen} ongelezen berichten`}
+                      >
+                        {ongelezen}
+                      </span>
+                    ) : null}
+                  </span>
                   {active ? (
                     <span
                       aria-hidden

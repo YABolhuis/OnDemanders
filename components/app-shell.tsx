@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { AppHeader } from "@/components/app-header";
+import { SITE_WIDTH_CLASS } from "@/lib/site-width";
 
 export function AppShell({
   gebruiker,
@@ -14,7 +15,7 @@ export function AppShell({
     <div className="flex min-h-screen flex-col bg-background">
       <AppHeader gebruiker={gebruiker} />
       <div
-        className={`mx-auto flex w-full max-w-[1200px] flex-1 flex-col ${contentClassName}`}
+        className={`${SITE_WIDTH_CLASS} flex flex-1 flex-col ${contentClassName}`}
       >
         {children}
       </div>

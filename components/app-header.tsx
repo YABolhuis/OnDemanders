@@ -44,7 +44,7 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative flex items-center font-[Arial,Helvetica,sans-serif] text-[13px] font-normal text-[#222] hover:text-[#222]"
+                  className="site-nav-link relative flex items-center hover:text-[#222]"
                 >
                   {item.label}
                   {active ? (

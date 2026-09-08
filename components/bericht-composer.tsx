@@ -35,7 +35,7 @@ export function BerichtComposer({
             onLockedClick();
           }
         }}
-        className={`fixed bottom-5 left-6 z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] ${
+        className={`chat-dock fixed bottom-5 z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] ${
           highlight ? "chat-activate" : ""
         } ${unlocked ? "hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]" : ""}`}
         aria-label={
@@ -76,7 +76,7 @@ export function BerichtComposer({
   }
 
   return (
-    <div className="fixed bottom-5 left-6 z-[70] flex max-h-[calc(100vh-6.5rem)] w-[min(420px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[12px] border border-[#e4e5e7] bg-white font-[Arial,Helvetica,sans-serif] shadow-[0_4px_18px_rgba(0,0,0,0.12)]">
+    <div className="chat-dock fixed bottom-5 z-[70] flex max-h-[calc(100vh-6.5rem)] w-[min(420px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[12px] border border-[#e4e5e7] bg-white font-[Arial,Helvetica,sans-serif] shadow-[0_4px_18px_rgba(0,0,0,0.12)]">
       <div className="flex shrink-0 items-start gap-3 px-4 py-3">
         <span className="relative mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
           <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />

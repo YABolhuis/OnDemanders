@@ -291,3 +291,7 @@ html.dark img.token-logo {
 .groene-shake {
   animation: groene-shake 0.4s ease-in-out;
 }
+
+.chat-dock {
+  left: max(1.5rem, calc((100vw - 1280px) / 2 + 1.5rem));
+}

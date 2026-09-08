@@ -36,16 +36,6 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         <p className="mt-5 max-w-2xl text-[15px] leading-6 text-[#333]">
           {klus.description}
         </p>
-        <div className="mt-6 border-t border-[#e6e6e6] pt-4">
-          <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
-          <p className="mt-1 flex items-center gap-1 text-[13px] text-[#555]">
-            <PlaatsPin />
-            {klus.city}
-            {klus.extra !== "Bezoek website" ? (
-              <span className="text-[#777]">· {klus.extra}</span>
-            ) : null}
-          </p>
-        </div>
       </div>
 
       <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">
@@ -70,13 +60,25 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             {saved ? "Advertentie bewaard" : "Advertentie bewaren"}
           </button>
         </div>
-        <div className="px-5 py-5">
+        <div className="flex items-start gap-3 px-5 py-5">
           <span
-            className="inline-flex size-10 items-center justify-center rounded-full bg-[#d9d9d9]"
-            aria-label={`Profiel van ${klus.seller}`}
+            className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
+            aria-hidden
           >
-            <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+            <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
           </span>
+          <div className="min-w-0">
+            <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
+            <p className="mt-1 flex items-center gap-1 text-[13px] text-[#555]">
+              <PlaatsPin />
+              {klus.city}
+              {klus.extra !== "Bezoek website" ? (
+                <span className="text-[#777]">· {klus.extra}</span>
+              ) : (
+                <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
+              )}
+            </p>
+          </div>
         </div>
       </aside>
     </div>

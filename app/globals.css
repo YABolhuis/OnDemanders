@@ -158,6 +158,10 @@ html.dark .bg-\[\#eee\] {
   background-color: #1c1c1c;
 }
 
+html.dark .bg-\[\#f3f2ef\] {
+  background-color: #2a2a2a;
+}
+
 html.dark .border-\[\#e4e5e7\] {
   border-color: #3a3a3a;
 }

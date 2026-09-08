@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
+import { FilterSidebar } from "@/components/filter-sidebar";
 
 type Sectie = "overzicht" | "facturen" | "betalingen";
 
@@ -124,9 +125,8 @@ export function FinancienPagina() {
     .reduce((som, item) => som + parseBedrag(item.bedrag), 0);
 
   return (
-    <div className="flex flex-1">
-      <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-5">
-        <div className="font-[Arial,Helvetica,sans-serif]">
+    <div className="flex flex-1 items-start bg-white">
+      <FilterSidebar>
           <div className="relative mb-6">
             <Search
               className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-[#6b6b6b]"
@@ -199,8 +199,7 @@ export function FinancienPagina() {
               onToggle={(id) => toggle(statussen, id, setStatussen)}
             />
           </div>
-        </div>
-      </aside>
+      </FilterSidebar>
 
       <main className="min-w-0 flex-1 bg-white px-6 py-5 font-[Arial,Helvetica,sans-serif]">
         <h1 className="text-[22px] font-semibold text-[#1f2f46]">

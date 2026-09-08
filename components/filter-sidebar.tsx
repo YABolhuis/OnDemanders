@@ -2,10 +2,8 @@ import type { ReactNode } from "react";
 
 export function FilterSidebar({ children }: { children: ReactNode }) {
   return (
-    <aside className="w-[288px] shrink-0 self-start px-3 py-5">
-      <div className="rounded-[3px] bg-[#f9fafb] p-5">
-        {children}
-      </div>
+    <aside className="min-h-[calc(100vh-57px)] w-[288px] shrink-0 border-r border-[#c4c1bb] bg-[#f9fafb] px-4 py-5">
+      {children}
     </aside>
   );
 }

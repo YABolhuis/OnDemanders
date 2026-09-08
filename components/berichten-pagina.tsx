@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import { BerichtenLijst } from "@/components/berichten-lijst";
 import { BerichtenVenster } from "@/components/berichten-venster";
+import { FilterSidebar } from "@/components/filter-sidebar";
 import { gesprekken, gesprekOpId } from "@/lib/berichten";
 
 export function BerichtenPagina() {
@@ -12,7 +13,7 @@ export function BerichtenPagina() {
 
   return (
     <div className="flex flex-1 bg-[#f4f6f8]">
-      <aside className="min-h-[calc(100vh-57px)] w-[288px] shrink-0 border-r border-[#c4c1bb] bg-[#f9fafb] px-4 py-5">
+      <FilterSidebar>
         <div className="relative">
           <Search
             className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-[#6b6b6b]"
@@ -23,7 +24,7 @@ export function BerichtenPagina() {
             type="search"
             placeholder="Zoeken"
             aria-label="Zoeken in berichten"
-            className="berichten-zoek h-9 w-full rounded-full border border-[#d0d0d0] bg-white pr-3 pl-8 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+              className="sidebar-zoek h-9 w-full rounded-full border border-[#d0d0d0] bg-white pr-3 pl-8 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
           />
         </div>
         <BerichtenLijst
@@ -31,7 +32,7 @@ export function BerichtenPagina() {
           selectedId={selectedId}
           onSelect={setSelectedId}
         />
-      </aside>
+      </FilterSidebar>
       <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 items-stretch justify-center bg-[#f4f6f8] px-20 py-8">
         {gesprek ? (
           <div className="h-[calc(100vh-57px-4rem)] w-full">

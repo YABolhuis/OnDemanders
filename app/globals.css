@@ -328,6 +328,6 @@ html.dark .site-nav-link {
   font-family: var(--font-inter), "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
-input.berichten-zoek {
+input.sidebar-zoek {
   border-radius: 9999px;
 }

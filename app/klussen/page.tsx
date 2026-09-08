@@ -7,8 +7,8 @@ import { KlusLijst } from "@/components/klus-lijst";
 
 export default function KlussenPage() {
   return (
-    <AppShell gebruiker="Y.A. Bolhuis">
-      <div className="flex flex-1 bg-white">
+    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#f4f6f8]">
+      <div className="flex flex-1 bg-[#f4f6f8]">
         <FilterSidebar>
           <div className="relative mb-6">
             <Search
@@ -26,7 +26,7 @@ export default function KlussenPage() {
           <DistanceSlider />
           <VakgebiedList />
         </FilterSidebar>
-        <main className="min-w-0 flex-1 bg-white">
+        <main className="min-w-0 flex-1 bg-[#f4f6f8]">
           <KlusLijst />
         </main>
       </div>

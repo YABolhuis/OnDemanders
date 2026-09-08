@@ -99,7 +99,7 @@ export function KlusLijst() {
     <div>
       <nav
         aria-label="Opdrachten filteren"
-        className="flex gap-8 border-b border-[#e6e6e6] px-6"
+        className="flex gap-8 border-b border-[#e6e6e6] bg-white px-10"
       >
         {tabs.map((item) => {
           const actief = item.id === tab;
@@ -126,13 +126,13 @@ export function KlusLijst() {
         })}
       </nav>
 
-      <div className="px-6 py-5">
+      <div className="p-10">
         {zichtbaar.length === 0 ? (
           <p className="py-16 text-center text-[13px] text-[#667781]">
             {leegTekst}
           </p>
         ) : (
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-10">
             {zichtbaar.map((klus) => {
               const saved = favorites.includes(klus.id);
               return (

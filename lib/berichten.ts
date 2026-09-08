@@ -11,6 +11,7 @@ export type Gesprek = {
   bericht: string;
   tijd: string;
   ongelezen: number;
+  favoriet: boolean;
   berichten: ChatBericht[];
 };
 
@@ -21,6 +22,7 @@ export const gesprekken: Gesprek[] = [
     bericht: "Kunnen jullie morgen langs komen voor de woonkamer?",
     tijd: "18:24",
     ongelezen: 2,
+    favoriet: true,
     berichten: [
       {
         id: "1a",
@@ -42,6 +44,7 @@ export const gesprekken: Gesprek[] = [
     bericht: "Foto's van het stucwerk heb ik meegestuurd.",
     tijd: "Gisteren",
     ongelezen: 0,
+    favoriet: true,
     berichten: [
       {
         id: "2a",
@@ -63,6 +66,7 @@ export const gesprekken: Gesprek[] = [
     bericht: "De dakpannen zijn besteld, ik laat het weten.",
     tijd: "11:03",
     ongelezen: 1,
+    favoriet: false,
     berichten: [
       {
         id: "3a",
@@ -84,6 +88,7 @@ export const gesprekken: Gesprek[] = [
     bericht: "Bedankt, de lekkage is verholpen.",
     tijd: "Ma",
     ongelezen: 0,
+    favoriet: false,
     berichten: [
       {
         id: "4a",

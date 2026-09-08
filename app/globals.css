@@ -214,8 +214,11 @@ html.dark .border-\[\#d0d0d0\],
 html.dark .border-\[\#ececec\],
 html.dark .border-\[\#cfcfcf\],
 html.dark .border-\[\#bfc4cc\],
-html.dark .border-\[\#b8b5b0\],
 html.dark .border-\[\#f0f0f0\] {
+  border-color: #3a3a3a;
+}
+
+html.dark .border-\[\#b8b5b0\] {
   border-color: #5a5a5a;
 }
 

@@ -97,34 +97,34 @@ export function KlusLijst() {
 
   return (
     <div>
-      <nav
-        aria-label="Opdrachten filteren"
-        className="flex gap-8 border-b border-[#e6e6e6] bg-white px-10"
-      >
-        {tabs.map((item) => {
-          const actief = item.id === tab;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => kiesTab(item.id)}
-              className={`relative h-12 shrink-0 text-[14px] ${
-                actief
-                  ? "font-semibold text-[#1a1a1a]"
-                  : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
-              }`}
-            >
-              {item.label}
-              {actief ? (
-                <span
-                  aria-hidden
-                  className="absolute inset-x-0 bottom-0 h-[3px] bg-[#333]"
-                />
-              ) : null}
-            </button>
-          );
-        })}
-      </nav>
+      <div className="relative bg-[#f4f6f8] px-10">
+        <nav aria-label="Opdrachten filteren" className="flex gap-8">
+          {tabs.map((item) => {
+            const actief = item.id === tab;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => kiesTab(item.id)}
+                className={`relative h-12 shrink-0 text-[14px] ${
+                  actief
+                    ? "font-semibold text-[#1a1a1a]"
+                    : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
+                }`}
+              >
+                {item.label}
+                {actief ? (
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
+                  />
+                ) : null}
+              </button>
+            );
+          })}
+        </nav>
+        <div aria-hidden className="h-px bg-[#e6e6e6]" />
+      </div>
 
       <div className="p-10">
         {zichtbaar.length === 0 ? (

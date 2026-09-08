@@ -82,7 +82,7 @@ const dropdownLanguages = [
 export function LanguageMenu() {
   return (
     <details className="relative">
-      <summary className="flex h-7 cursor-pointer list-none items-center gap-2 font-[Arial,Helvetica,sans-serif] text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden">
+      <summary className="flex h-7 cursor-pointer list-none items-center gap-2 text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden">
         <RectFlag>
           <FlagNl className="size-full" />
         </RectFlag>
@@ -92,7 +92,7 @@ export function LanguageMenu() {
       <ul className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10">
         {dropdownLanguages.map((item) => (
           <li key={item.id}>
-            <span className="flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222]">
+            <span className="flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] text-[#222]">
               <RectFlag>
                 <item.Flag className="size-full" />
               </RectFlag>

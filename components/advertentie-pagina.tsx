@@ -57,7 +57,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-88px)] flex-col bg-white font-[Arial,Helvetica,sans-serif] lg:flex-row lg:items-stretch">
+    <div className="flex min-h-[calc(100vh-88px)] flex-col bg-white lg:flex-row lg:items-stretch">
       <div className="flex min-h-[calc(100vh-88px)] min-w-0 flex-1 flex-col px-6 py-6">
         <Link
           href="/klussen"

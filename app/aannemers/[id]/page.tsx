@@ -22,7 +22,7 @@ export default async function AannemerPage({
 
   return (
     <AppShell gebruiker="Y.A. Bolhuis">
-      <main className="px-6 py-6 font-[Arial,Helvetica,sans-serif]">
+      <main className="px-6 py-6">
         <Link
           href="/aannemers"
           className="text-[13px] text-[#1d5fd1] hover:underline"

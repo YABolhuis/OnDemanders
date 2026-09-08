@@ -21,18 +21,18 @@ export function BerichtenLijst() {
             }`}
           >
             <span
-              className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#dfe5e7] font-[Arial,Helvetica,sans-serif] text-[14px] font-medium text-[#54656f]"
+              className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#dfe5e7] text-[14px] font-medium text-[#54656f]"
               aria-hidden
             >
               {initialen(gesprek.naam)}
             </span>
             <span className="min-w-0 flex-1 border-b border-[#e9edef] pb-3">
               <span className="flex items-baseline justify-between gap-2">
-                <span className="truncate font-[Arial,Helvetica,sans-serif] text-[15px] text-[#111b21]">
+                <span className="truncate text-[15px] text-[#111b21]">
                   {gesprek.naam}
                 </span>
                 <span
-                  className={`shrink-0 font-[Arial,Helvetica,sans-serif] text-[11px] ${
+                  className={`shrink-0 text-[11px] ${
                     gesprek.ongelezen > 0 ? "text-[#25d366]" : "text-[#667781]"
                   }`}
                 >
@@ -40,11 +40,11 @@ export function BerichtenLijst() {
                 </span>
               </span>
               <span className="mt-0.5 flex items-center justify-between gap-2">
-                <span className="truncate font-[Arial,Helvetica,sans-serif] text-[13px] text-[#667781]">
+                <span className="truncate text-[13px] text-[#667781]">
                   {gesprek.bericht}
                 </span>
                 {gesprek.ongelezen > 0 ? (
-                  <span className="flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[#25d366] font-[Arial,Helvetica,sans-serif] text-[10px] font-semibold text-white">
+                  <span className="flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[#25d366] text-[10px] font-semibold text-white">
                     {gesprek.ongelezen}
                   </span>
                 ) : null}

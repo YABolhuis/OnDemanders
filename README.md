@@ -9,6 +9,6 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:43123](http://localhost:43123).
+Open [http://localhost:43123](http://localhost:43123). De site gebruikt **Inter**, hetzelfde lettertype als MailerLite.
 
 Na inloggen: **Vind opdrachten** (`/klussen`), **Vind aannemers** (`/aannemers`) en **Berichten** (`/berichten`). Thema Licht/Donker staat in het accountmenu (rechtsboven) en wordt lokaal onthouden.

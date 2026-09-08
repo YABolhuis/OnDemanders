@@ -20,7 +20,7 @@ import { useTheme } from "@/components/theme-provider";
 import { useCredits } from "@/components/credits-provider";
 
 const itemClass =
-  "flex h-10 w-full items-center gap-3 px-4 text-left font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222] hover:bg-[#f5f5f5]";
+  "flex h-10 w-full items-center gap-3 px-4 text-left text-[13px] text-[#222] hover:bg-[#f5f5f5]";
 
 export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
@@ -98,15 +98,15 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                   />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate font-[Arial,Helvetica,sans-serif] text-[14px] font-semibold text-[#222]">
+                  <p className="truncate text-[14px] font-semibold text-[#222]">
                     Yan Bolhuis
                   </p>
-                  <p className="font-[Arial,Helvetica,sans-serif] text-[12px] text-[#777]">
+                  <p className=" text-[12px] text-[#777]">
                     Ondernemer
                   </p>
                 </div>
                 <div
-                  className="flex shrink-0 items-center gap-1 self-start pt-0.5 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#666]"
+                  className="flex shrink-0 items-center gap-1 self-start pt-0.5 text-[13px] text-[#666]"
                   aria-label={`${saldo.toLocaleString("nl-NL")} credits`}
                 >
                   <Image
@@ -121,7 +121,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                   </span>
                 </div>
               </div>
-              <div className="mt-3 flex items-center justify-between gap-3 font-[Arial,Helvetica,sans-serif] text-[13px] text-[#222]">
+              <div className="mt-3 flex items-center justify-between gap-3 text-[13px] text-[#222]">
                 <span>Online voor berichten</span>
                 <Switch
                   size="xs"
@@ -182,7 +182,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                   <button
                     type="button"
                     onClick={() => setTheme("licht")}
-                    className={`flex h-8 w-full items-center text-left font-[Arial,Helvetica,sans-serif] text-[13px] ${
+                    className={`flex h-8 w-full items-center text-left text-[13px] ${
                       theme === "licht" ? "font-medium text-[#1d5fd1]" : "text-[#333] hover:text-[#1d5fd1]"
                     }`}
                   >
@@ -191,7 +191,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                   <button
                     type="button"
                     onClick={() => setTheme("donker")}
-                    className={`flex h-8 w-full items-center text-left font-[Arial,Helvetica,sans-serif] text-[13px] ${
+                    className={`flex h-8 w-full items-center text-left text-[13px] ${
                       theme === "donker" ? "font-medium text-[#1d5fd1]" : "text-[#333] hover:text-[#1d5fd1]"
                     }`}
                   >

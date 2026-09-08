@@ -30,7 +30,7 @@ export function AannemerLijst() {
   }
 
   return (
-    <div className="font-[Arial,Helvetica,sans-serif]">
+    <div>
       <div className="divide-y divide-[#e6e6e6]">
         {zichtbaar.map((aannemer) => {
           const saved = favorites.includes(aannemer.id);

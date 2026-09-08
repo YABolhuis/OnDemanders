@@ -54,7 +54,7 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
                     {item.label}
                     {item.href === "/berichten" && ongelezen > 0 ? (
                       <span
-                        className="absolute -top-2 -right-2.5 z-10 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 font-[Arial,Helvetica,sans-serif] text-[10px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+                        className="absolute -top-2 -right-2.5 z-10 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 text-[10px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
                         aria-label={`${ongelezen} ongelezen berichten`}
                       >
                         {ongelezen}
@@ -77,7 +77,7 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
               className="header-account-type flex h-8 items-center gap-1.5 rounded-[3px] bg-[#eceff1] px-2.5 text-[14px] font-bold text-[#1c1e21] hover:bg-[#e4e7ea]"
             >
               <span
-                className="flex size-4 items-center justify-center rounded-full bg-[#1a1a1a] font-[Arial,Helvetica,sans-serif] text-[10px] font-bold leading-none text-white"
+                className="flex size-4 items-center justify-center rounded-full bg-[#1a1a1a] text-[10px] font-bold leading-none text-white"
                 aria-hidden
               >
                 ?

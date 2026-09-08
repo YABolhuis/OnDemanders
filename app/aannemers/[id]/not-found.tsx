@@ -4,7 +4,7 @@ import { AppShell } from "@/components/app-shell";
 export default function AannemerNietGevonden() {
   return (
     <AppShell gebruiker="Y.A. Bolhuis">
-      <main className="px-6 py-16 font-[Arial,Helvetica,sans-serif]">
+      <main className="px-6 py-16">
         <h1 className="text-[22px] font-bold text-[#1a1a1a]">
           Aannemer niet gevonden
         </h1>

@@ -30,11 +30,11 @@ export default function Home() {
                 nativeButton={false}
                 render={<Link href="/inloggen" />}
                 variant="outline"
-                className="h-7 border-[#d91222] bg-white px-3 text-[13px] font-normal font-[Arial,Helvetica,sans-serif] text-[#d91222] hover:bg-[#d91222]/5 hover:text-[#d91222]"
+                className="h-7 border-[#d91222] bg-white px-3 text-[13px] font-normal text-[#d91222] hover:bg-[#d91222]/5 hover:text-[#d91222]"
               >
                 Inloggen
               </Button>
-              <Button className="h-7 border-0 bg-[#d91222] px-3 text-[13px] font-normal font-[Arial,Helvetica,sans-serif] text-white hover:bg-[#c0101e]">
+              <Button className="h-7 border-0 bg-[#d91222] px-3 text-[13px] font-normal text-white hover:bg-[#c0101e]">
                 Account openen
               </Button>
             </div>

@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --radius-control: 3px;
@@ -314,7 +314,7 @@ html.dark img.token-logo {
 }
 
 .site-nav-link {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), "Segoe UI", "Helvetica Neue", sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: #222;

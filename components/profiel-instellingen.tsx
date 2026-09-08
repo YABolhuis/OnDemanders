@@ -26,7 +26,7 @@ export function ProfielInstellingen() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-88px)] bg-[#24333d] font-[Arial,Helvetica,sans-serif] text-white">
+    <div className="flex min-h-[calc(100vh-88px)] bg-[#24333d] text-white">
       <AccountSidebar />
       <div className="min-w-0 flex-1 px-8 py-10">
         <div className="mx-auto max-w-5xl">

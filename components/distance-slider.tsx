@@ -38,7 +38,7 @@ export function DistanceSlider() {
   }, [open]);
 
   return (
-    <div className="mb-6 font-[Arial,Helvetica,sans-serif]">
+    <div className="mb-6">
       <h2 className="mb-3 text-[13px] font-semibold text-[#222]">
         Afstand
       </h2>

@@ -30,7 +30,7 @@ export function KlusLijst() {
   }
 
   return (
-    <div className="font-[Arial,Helvetica,sans-serif]">
+    <div>
       <div className="flex flex-col gap-5">
         {zichtbaar.map((klus) => {
           const saved = favorites.includes(klus.id);

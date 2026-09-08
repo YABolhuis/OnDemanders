@@ -46,7 +46,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         <div className="border-b border-[#e6e6e6] px-5 py-5">
           <Link
             href="/abonement-credits"
-            className="flex h-11 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-4 text-[15px] font-semibold text-white hover:bg-[#108a00]"
+            className="flex h-8 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-3 text-[13px] font-semibold text-white hover:bg-[#108a00]"
           >
             Direct reageren
           </Link>
@@ -54,10 +54,10 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             type="button"
             aria-pressed={saved}
             onClick={() => setSaved((value) => !value)}
-            className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[#14a800] bg-white px-4 text-[15px] font-semibold text-[#14a800] hover:bg-[#14a800]/5"
+            className="mt-2 flex h-8 w-full items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[#14a800] bg-white px-3 text-[13px] font-semibold text-[#14a800] hover:bg-[#14a800]/5"
           >
             <Heart
-              className={`size-4 ${saved ? "fill-[#14a800]" : ""}`}
+              className={`size-3.5 ${saved ? "fill-[#14a800]" : ""}`}
               strokeWidth={2}
               aria-hidden
             />

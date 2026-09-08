@@ -158,8 +158,21 @@ html.dark .bg-\[\#eee\] {
   background-color: #1c1c1c;
 }
 
-html.dark .bg-\[\#f9fafb\] {
+html.dark .bg-\[\#f9fafb\],
+html.dark .bg-\[\#f4f6f8\] {
   background-color: #2a2a2a;
+}
+
+html.dark .text-\[\#1e3a5f\] {
+  color: #d6deea;
+}
+
+html.dark .text-\[\#4a5f78\] {
+  color: #c5ced8;
+}
+
+html.dark .text-\[\#8b9aab\] {
+  color: #9aa3ad;
 }
 
 html.dark .border-\[\#e4e5e7\] {

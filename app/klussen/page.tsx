@@ -26,7 +26,7 @@ export default function KlussenPage() {
           <DistanceSlider />
           <VakgebiedList />
         </FilterSidebar>
-        <main className="min-w-0 flex-1 bg-white px-6 py-5">
+        <main className="min-w-0 flex-1 bg-[#f4f6f8] px-6 py-5">
           <KlusLijst />
         </main>
       </div>

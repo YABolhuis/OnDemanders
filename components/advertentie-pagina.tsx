@@ -104,10 +104,10 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               aria-label={saved ? "Advertentie bewaard" : "Advertentie bewaren"}
               aria-pressed={saved}
               onClick={() => setSaved((value) => !value)}
-              className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#9aa8b3] bg-[#24333d]"
+              className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
             >
               <Heart
-                className={`size-4 ${saved ? "fill-[#c5d0d8] text-[#c5d0d8]" : "text-[#c5d0d8]"}`}
+                className={`size-4 ${saved ? "fill-[#6b6b6b] text-[#6b6b6b]" : "text-[#6b6b6b]"}`}
                 strokeWidth={2}
                 aria-hidden
               />

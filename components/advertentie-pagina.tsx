@@ -37,7 +37,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         <p className="mt-5 max-w-2xl text-[15px] leading-6 text-[#333]">
           {klus.description}
         </p>
-        <div className="mt-auto flex justify-end pt-10">
+        <div className="mt-auto flex justify-start pt-10">
           <BerichtComposer naam={klus.seller} />
         </div>
       </div>

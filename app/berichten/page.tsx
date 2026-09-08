@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
 import { FilterSidebar } from "@/components/filter-sidebar";
+import { BerichtenLijst } from "@/components/berichten-lijst";
 
 export default function BerichtenPage() {
   return (
@@ -21,6 +22,7 @@ export default function BerichtenPage() {
                 className="h-9 w-full rounded-[3px] border border-[#d0d0d0] bg-white pr-3 pl-8 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
               />
             </div>
+            <BerichtenLijst />
           </div>
         </FilterSidebar>
         <main className="flex min-w-0 flex-1 items-center justify-center px-6 py-10">

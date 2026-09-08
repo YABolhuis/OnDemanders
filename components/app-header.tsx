@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { LanguageMenu } from "@/components/language-menu";
 import { AccountMenu } from "@/components/account-menu";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
+import { aantalOngelezenBerichten } from "@/lib/berichten";
 
 const navItems = [
   { href: "/klussen", label: "Vind opdrachten" },
@@ -15,6 +16,7 @@ const navItems = [
 
 export function AppHeader({ gebruiker }: { gebruiker: string }) {
   const pathname = usePathname();
+  const ongelezen = aantalOngelezenBerichten();
 
   return (
     <header className="relative z-50 w-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
@@ -45,9 +47,17 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="site-nav-link relative flex items-center hover:text-[#222]"
+                  className="site-nav-link relative flex items-center gap-1.5 hover:text-[#222]"
                 >
                   {item.label}
+                  {item.href === "/berichten" && ongelezen > 0 ? (
+                    <span
+                      className="mb-0.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 font-[Arial,Helvetica,sans-serif] text-[10px] font-semibold text-white"
+                      aria-label={`${ongelezen} ongelezen berichten`}
+                    >
+                      {ongelezen}
+                    </span>
+                  ) : null}
                   {active ? (
                     <span
                       aria-hidden

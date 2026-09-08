@@ -97,7 +97,7 @@ export function KlusLijst() {
 
   return (
     <div>
-      <div className="relative bg-[#f4f6f8] px-10">
+      <div className="relative bg-[#f4f6f8] pl-20 pr-10">
         <nav aria-label="Opdrachten filteren" className="flex gap-8">
           {tabs.map((item) => {
             const actief = item.id === tab;
@@ -126,7 +126,7 @@ export function KlusLijst() {
         <div aria-hidden className="h-px bg-[#e6e6e6]" />
       </div>
 
-      <div className="p-10">
+      <div className="pt-10 pr-10 pb-10 pl-20">
         {zichtbaar.length === 0 ? (
           <p className="py-16 text-center text-[13px] text-[#667781]">
             {leegTekst}

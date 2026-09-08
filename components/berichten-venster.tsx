@@ -90,48 +90,14 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
         })}
       </div>
 
-      <div className="shrink-0 border-t border-[#e6e6e6] px-4 py-3">
+      <div className="shrink-0 overflow-visible border-t border-[#e6e6e6] px-4 py-2.5">
         <form
-          className="flex items-end gap-2"
+          className="flex flex-col gap-1"
           onSubmit={(event) => {
             event.preventDefault();
             verstuur();
           }}
         >
-          <div className="relative">
-            <button
-              type="button"
-              aria-label="Emoji"
-              aria-expanded={emojiOpen}
-              onClick={() => setEmojiOpen((open) => !open)}
-              className="flex size-9 shrink-0 items-center justify-center text-[#74767e] hover:text-[#404145]"
-            >
-              <Smile className="size-[18px]" strokeWidth={2} aria-hidden />
-            </button>
-            {emojiOpen ? (
-              <div className="absolute bottom-10 left-0 z-10 flex gap-1 rounded-md border border-[#e4e5e7] bg-white p-1.5 shadow-md">
-                {["😊", "👍", "👋", "🙏"].map((emoji) => (
-                  <button
-                    key={emoji}
-                    type="button"
-                    className="flex size-8 items-center justify-center text-[16px] hover:bg-[#f5f5f5]"
-                    onClick={() => voegEmojiToe(emoji)}
-                  >
-                    {emoji}
-                  </button>
-                ))}
-              </div>
-            ) : null}
-          </div>
-          <button
-            type="button"
-            aria-label="Bijlage"
-            onClick={() => fileRef.current?.click()}
-            className="flex size-9 shrink-0 items-center justify-center text-[#74767e] hover:text-[#404145]"
-          >
-            <Paperclip className="size-[18px]" strokeWidth={2} aria-hidden />
-          </button>
-          <input ref={fileRef} type="file" className="hidden" />
           <label className="sr-only" htmlFor="chat-bericht">
             Bericht aan {gesprek.naam}
           </label>
@@ -147,20 +113,56 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
             }}
             rows={1}
             placeholder="Typ een bericht"
-            className="min-h-10 max-h-32 flex-1 resize-none border-0 bg-transparent px-2 py-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6]"
+            className="min-h-10 min-w-0 w-full resize-none border-0 bg-transparent px-1 py-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6]"
           />
-          <button
-            type="submit"
-            disabled={tekst.trim().length === 0}
-            className={`flex h-9 shrink-0 items-center gap-1.5 px-3 text-[13px] font-medium ${
-              tekst.trim().length > 0
-                ? "bg-[#222] text-white hover:bg-[#000]"
-                : "bg-[#f0f0f0] text-[#b0b0b0]"
-            }`}
-          >
-            <Send className="size-3.5" strokeWidth={2} aria-hidden />
-            Versturen
-          </button>
+          <div className="flex items-center gap-0.5">
+            <div className="relative">
+              <button
+                type="button"
+                aria-label="Emoji"
+                aria-expanded={emojiOpen}
+                onClick={() => setEmojiOpen((open) => !open)}
+                className="inline-flex size-9 shrink-0 items-center justify-center text-[#54656f] hover:text-[#111b21]"
+              >
+                <Smile className="h-[22px] w-[22px]" strokeWidth={1.75} />
+              </button>
+              {emojiOpen ? (
+                <div className="absolute bottom-10 left-0 z-10 flex gap-1 rounded-md border border-[#e4e5e7] bg-white p-1.5 shadow-md">
+                  {["😊", "👍", "👋", "🙏"].map((emoji) => (
+                    <button
+                      key={emoji}
+                      type="button"
+                      className="inline-flex size-8 items-center justify-center text-[16px] hover:bg-[#f5f5f5]"
+                      onClick={() => voegEmojiToe(emoji)}
+                    >
+                      {emoji}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+            <button
+              type="button"
+              aria-label="Bijlage"
+              onClick={() => fileRef.current?.click()}
+              className="inline-flex size-9 shrink-0 items-center justify-center text-[#54656f] hover:text-[#111b21]"
+            >
+              <Paperclip className="h-[22px] w-[22px]" strokeWidth={1.75} />
+            </button>
+            <input ref={fileRef} type="file" className="hidden" />
+            <button
+              type="submit"
+              disabled={tekst.trim().length === 0}
+              className={`ml-auto inline-flex h-9 shrink-0 items-center gap-1.5 px-3 text-[13px] font-medium ${
+                tekst.trim().length > 0
+                  ? "bg-[#222] text-white hover:bg-[#000]"
+                  : "bg-[#f0f0f0] text-[#b0b0b0]"
+              }`}
+            >
+              <Send className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+              Versturen
+            </button>
+          </div>
         </form>
       </div>
     </section>

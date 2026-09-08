@@ -29,11 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full bg-background text-foreground">
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
-        <ThemeProvider>
-          <div className="mx-auto flex min-h-full w-full max-w-[1200px] flex-col">
-            {children}
-          </div>
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

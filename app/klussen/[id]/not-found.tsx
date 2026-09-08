@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { AppHeader } from "@/components/app-header";
+import { AppShell } from "@/components/app-shell";
 
 export default function AdvertentieNietGevonden() {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
-      <AppHeader gebruiker="Y.A. Bolhuis" />
+    <AppShell gebruiker="Y.A. Bolhuis">
       <main className="px-6 py-16 font-[Arial,Helvetica,sans-serif]">
         <h1 className="text-[22px] font-bold text-[#1a1a1a]">
           Advertentie niet gevonden
@@ -19,6 +18,6 @@ export default function AdvertentieNietGevonden() {
           Terug naar opdrachten
         </Link>
       </main>
-    </div>
+    </AppShell>
   );
 }

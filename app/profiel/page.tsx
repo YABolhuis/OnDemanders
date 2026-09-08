@@ -1,11 +1,10 @@
-import { AppHeader } from "@/components/app-header";
+import { AppShell } from "@/components/app-shell";
 import { ProfielInstellingen } from "@/components/profiel-instellingen";
 
 export default function ProfielPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#24333d]">
-      <AppHeader gebruiker="Y.A. Bolhuis" />
+    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#24333d]">
       <ProfielInstellingen />
-    </div>
+    </AppShell>
   );
 }

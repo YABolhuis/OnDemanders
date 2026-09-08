@@ -1,13 +1,12 @@
 import { Search } from "lucide-react";
-import { AppHeader } from "@/components/app-header";
+import { AppShell } from "@/components/app-shell";
 import { DistanceSlider } from "@/components/distance-slider";
 import { VakgebiedList } from "@/components/vakgebied-list";
 import { KlusLijst } from "@/components/klus-lijst";
 
 export default function KlussenPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
-      <AppHeader gebruiker="Y.A. Bolhuis" />
+    <AppShell gebruiker="Y.A. Bolhuis">
       <div className="flex flex-1">
         <aside className="min-h-[calc(100vh-88px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-5">
           <div className="font-[Arial,Helvetica,sans-serif]">
@@ -32,6 +31,6 @@ export default function KlussenPage() {
           <KlusLijst />
         </main>
       </div>
-    </div>
+    </AppShell>
   );
 }

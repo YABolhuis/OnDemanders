@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { AppHeader } from "@/components/app-header";
+import { AppShell } from "@/components/app-shell";
 import { AdvertentiePagina } from "@/components/advertentie-pagina";
 import { getKlus, klussen } from "@/lib/klussen";
 
@@ -32,9 +32,8 @@ export default async function AdvertentieRoute({
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
-      <AppHeader gebruiker="Y.A. Bolhuis" />
+    <AppShell gebruiker="Y.A. Bolhuis">
       <AdvertentiePagina klus={klus} />
-    </div>
+    </AppShell>
   );
 }

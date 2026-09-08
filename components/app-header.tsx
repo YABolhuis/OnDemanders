@@ -10,6 +10,7 @@ import { SITE_WIDTH_CLASS } from "@/lib/site-width";
 const navItems = [
   { href: "/klussen", label: "Vind opdrachten" },
   { href: "/aannemers", label: "Vind aannemers" },
+  { href: "/berichten", label: "Berichten" },
 ] as const;
 
 export function AppHeader({ gebruiker }: { gebruiker: string }) {

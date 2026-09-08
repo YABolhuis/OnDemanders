@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Heart, User } from "lucide-react";
+import { ArrowLeft, Heart, User } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import { BerichtComposer } from "@/components/bericht-composer";
 import { useCredits } from "@/components/credits-provider";
@@ -61,9 +61,12 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
       <div className="flex min-h-[calc(100vh-88px)] min-w-0 flex-1 flex-col px-6 py-6">
         <Link
           href="/klussen"
-          className="text-[13px] text-[#1d5fd1] hover:underline"
+          className="inline-flex items-center gap-2.5 text-[13px] text-[#222] hover:underline"
         >
-          Terug naar opdrachten
+          <span className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white">
+            <ArrowLeft className="size-4 text-[#6b6b6b]" strokeWidth={2} aria-hidden />
+          </span>
+          terug naar opdrachten
         </Link>
         <h1 className="mt-5 text-[26px] font-bold text-[#1a1a1a]">
           {klus.title}

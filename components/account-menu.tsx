@@ -83,8 +83,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         )}
       </button>
       {open ? (
-        <div className="absolute top-[calc(100%+10px)] right-0 z-[60] w-[280px]">
-          <span className="absolute -top-2 right-8 size-4 rotate-45 bg-white shadow-[-1px_-1px_2px_rgba(0,0,0,0.06)]" />
+        <div className="absolute top-[calc(100%+8px)] right-0 z-[60] w-[280px]">
           <div className="relative overflow-hidden rounded-md bg-white shadow-[0_4px_18px_rgba(0,0,0,0.16)]">
             <div className="px-4 py-3">
               <div className="flex items-center gap-3">

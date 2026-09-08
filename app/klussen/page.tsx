@@ -20,7 +20,7 @@ export default function KlussenPage() {
                 type="search"
                 placeholder="Zoeken"
                 aria-label="Zoeken"
-                className="h-9 w-full border border-[#d0d0d0] bg-white pr-3 pl-8 text-[14px] text-[#333] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+                className="h-9 w-full border border-[#d0d0d0] bg-white pr-3 pl-8 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
               />
             </div>
             <DistanceSlider />

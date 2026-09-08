@@ -39,7 +39,7 @@ export function DistanceSlider() {
 
   return (
     <div className="mb-6 font-[Arial,Helvetica,sans-serif]">
-      <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">
+      <h2 className="mb-3 text-[13px] font-semibold text-[#222]">
         Afstand
       </h2>
       <div className="flex items-start gap-1">
@@ -49,7 +49,7 @@ export function DistanceSlider() {
           onChange={(event) => setPostcode(event.target.value.toUpperCase())}
           placeholder="Postcode"
           aria-label="Postcode"
-          className="h-9 w-[88px] shrink-0 border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#333] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+          className="h-9 w-[88px] shrink-0 border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
         />
         <div ref={rootRef} className="relative min-w-0 flex-1">
           <button
@@ -60,7 +60,7 @@ export function DistanceSlider() {
             className={`flex h-9 w-full items-center justify-between gap-1 border bg-white px-2 text-left text-[13px] ${
               open
                 ? "border-[#1d5fd1] text-[#1d5fd1]"
-                : "border-[#d0d0d0] text-[#333]"
+                : "border-[#d0d0d0] text-[#222]"
             }`}
           >
             <span className="min-w-0 truncate">{distance}</span>
@@ -85,7 +85,7 @@ export function DistanceSlider() {
                     setDistance(option);
                     setOpen(false);
                   }}
-                  className="flex w-full items-center justify-between px-3 py-2 text-left text-[14px] text-[#333] hover:bg-[#f5f7fa]"
+                  className="flex w-full items-center justify-between px-3 py-2 text-left text-[13px] text-[#222] hover:bg-[#f5f7fa]"
                 >
                   {option}
                   {option === distance ? (

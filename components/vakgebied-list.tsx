@@ -15,12 +15,12 @@ function CheckboxFilter({
 
   return (
     <div>
-      <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">{title}</h2>
+      <h2 className="mb-3 text-[13px] font-semibold text-[#222]">{title}</h2>
       <div className="space-y-3">
         {visible.map((item) => (
           <label
             key={item}
-            className="flex items-center gap-2 text-[15px] text-[#163a6b]"
+            className="flex items-center gap-2 text-[13px] font-normal text-[#222]"
           >
             <input
               type="checkbox"
@@ -34,7 +34,7 @@ function CheckboxFilter({
         <button
           type="button"
           onClick={() => setExpanded((value) => !value)}
-          className="mt-3 flex items-center gap-1 text-[14px] font-medium text-[#1d5fd1] underline underline-offset-2"
+          className="mt-3 flex items-center gap-1 text-[13px] text-[#222] hover:underline"
         >
           {expanded ? "Lees minder" : "Lees meer"}
           {expanded ? (

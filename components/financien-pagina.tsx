@@ -61,12 +61,14 @@ function CheckboxGroep({
 }) {
   return (
     <div>
-      <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">{titel}</h2>
+      <h2 className="mb-3 font-[Arial,Helvetica,sans-serif] text-[13px] font-semibold text-[#222]">
+        {titel}
+      </h2>
       <div className="space-y-3">
         {items.map((item) => (
           <label
             key={item.id}
-            className="flex items-center gap-2 text-[15px] text-[#163a6b]"
+            className="flex items-center gap-2 font-[Arial,Helvetica,sans-serif] text-[13px] font-normal text-[#222]"
           >
             <input
               type="checkbox"
@@ -159,7 +161,7 @@ export function FinancienPagina() {
           </nav>
 
           <div className="mb-6">
-            <h2 className="mb-3 text-[16px] font-semibold text-[#1f2f46]">
+            <h2 className="mb-3 font-[Arial,Helvetica,sans-serif] text-[13px] font-semibold text-[#222]">
               Periode
             </h2>
             <select

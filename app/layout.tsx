@@ -27,9 +27,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="min-h-full bg-background text-foreground">
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <div className="mx-auto flex min-h-full w-full max-w-[1200px] flex-col">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

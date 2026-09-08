@@ -3,17 +3,10 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Heart } from "lucide-react";
-import { klussen, type Klus } from "@/lib/klussen";
+import { PlaatsPin } from "@/components/plaats-pin";
+import { klussen } from "@/lib/klussen";
 
 const PER_PAGE_OPTIONS = [6, 8, 10] as const;
-
-function duurVanTags(tags: string) {
-  return tags.split(" · ").at(-1)?.trim() ?? "";
-}
-
-function startdatum(klus: Klus) {
-  return klus.badge === "Spoed" ? "Zo snel mogelijk" : "in overleg";
-}
 
 export function KlusLijst() {
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -44,49 +37,69 @@ export function KlusLijst() {
           return (
             <article
               key={klus.id}
-              className="relative rounded-[10px] bg-white px-6 py-5 shadow-[0_2px_10px_rgba(30,50,80,0.08)]"
+              className="flex gap-4 rounded-[8px] bg-white px-5 py-5 shadow-[0_2px_10px_rgba(30,50,80,0.08)]"
             >
-              <button
-                type="button"
-                aria-label="Bewaar klus"
-                aria-pressed={saved}
-                onClick={() => toggleFavorite(klus.id)}
-                className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-full text-[#9aa8b5] hover:bg-[#f4f6f8]"
-              >
-                <Heart
-                  className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : ""}`}
-                  strokeWidth={2}
+              <div className="relative h-[118px] w-[158px] shrink-0 overflow-hidden rounded-[var(--radius-control)] bg-[#eee]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={klus.image}
+                  alt=""
+                  className="size-full object-cover"
                 />
-              </button>
-
-              <h2 className="pr-10 text-[20px] font-bold leading-snug text-[#1e3a5f]">
-                <Link href={`/klussen/${klus.id}`} className="hover:underline">
-                  {klus.title}
-                </Link>
-              </h2>
-
-              <div className="mt-4 flex items-center gap-4">
-                <div className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded bg-[#f4f6f8]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={klus.image}
-                    alt=""
-                    className="size-full object-cover"
+                <button
+                  type="button"
+                  aria-label="Bewaar klus"
+                  aria-pressed={saved}
+                  onClick={() => toggleFavorite(klus.id)}
+                  className="absolute top-2 right-2 flex size-7 items-center justify-center rounded-full bg-white shadow-sm"
+                >
+                  <Heart
+                    className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#777]"}`}
+                    strokeWidth={2}
                   />
-                </div>
+                </button>
+              </div>
 
-                <div className="grid min-w-0 flex-1 grid-cols-1 gap-x-10 sm:grid-cols-2">
-                  <div className="text-[14px] leading-6">
-                    <p className="text-[#4a5f78]">{klus.city}</p>
-                    <p className="text-[#8b9aab]">{klus.when}</p>
-                    <p className="text-[#8b9aab]">{klus.seller}</p>
-                  </div>
-                  <div className="text-[14px] leading-6">
-                    <p className="text-[#4a5f78]">{klus.price}</p>
-                    <p className="text-[#8b9aab]">{duurVanTags(klus.tags)}</p>
-                    <p className="text-[#8b9aab]">{startdatum(klus)}</p>
-                  </div>
-                </div>
+              <div className="flex min-w-0 flex-1 flex-col">
+                <h2 className="text-[16px] font-bold text-[#1a1a1a]">
+                  <Link
+                    href={`/klussen/${klus.id}`}
+                    className="hover:text-[#1d5fd1] hover:underline"
+                  >
+                    {klus.title}
+                  </Link>
+                </h2>
+                <p className="mt-1 line-clamp-2 text-[13px] leading-5 text-[#666]">
+                  {klus.description}
+                </p>
+                <p className="mt-auto pt-2 text-[12px] text-[#555]">{klus.tags}</p>
+              </div>
+
+              <div className="flex w-[130px] shrink-0 flex-col">
+                <p className="text-[15px] font-bold text-[#1a1a1a]">
+                  {klus.price}
+                </p>
+                <p className="mt-1 text-[12px] text-[#777]">{klus.when}</p>
+                <p className="mt-auto pt-2 text-[12px] font-medium text-[#2f9e44]">
+                  {klus.badge}
+                </p>
+              </div>
+
+              <div className="flex w-[140px] shrink-0 flex-col">
+                <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
+                <p className="mt-1 flex items-center gap-1 text-[12px] text-[#555]">
+                  <PlaatsPin />
+                  {klus.city}
+                </p>
+                <p
+                  className={`mt-auto pt-2 text-[12px] ${
+                    klus.extra === "Bezoek website"
+                      ? "font-medium text-[#1d5fd1]"
+                      : "text-[#555]"
+                  }`}
+                >
+                  {klus.extra}
+                </p>
               </div>
             </article>
           );

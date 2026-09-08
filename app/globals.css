@@ -324,6 +324,10 @@ html.dark .site-nav-link {
   color: #ececec;
 }
 
+.header-account-type {
+  font-family: var(--font-inter), "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
 input.berichten-zoek {
   border-radius: 9999px;
 }

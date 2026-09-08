@@ -74,7 +74,7 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
           <div className="ml-auto flex items-center gap-2">
             <button
               type="button"
-              className="flex h-8 items-center gap-1.5 rounded-[3px] bg-[#eceff1] px-2.5 font-[Arial,Helvetica,sans-serif] text-[13px] font-semibold text-[#1a1a1a] hover:bg-[#e4e7ea]"
+              className="header-account-type flex h-8 items-center gap-1.5 rounded-[3px] bg-[#eceff1] px-2.5 text-[14px] font-bold text-[#1c1e21] hover:bg-[#e4e7ea]"
             >
               <span
                 className="flex size-4 items-center justify-center rounded-full bg-[#1a1a1a] font-[Arial,Helvetica,sans-serif] text-[10px] font-bold leading-none text-white"

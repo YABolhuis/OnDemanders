@@ -72,7 +72,6 @@ export function KlusLijst() {
                 <p className="text-[15px] font-bold text-[#1a1a1a]">
                   {klus.price}
                 </p>
-                <p className="mt-1 text-[12px] text-[#777]">{klus.when}</p>
                 <p className="mt-auto flex items-center gap-1.5 pt-2 text-[12px] text-[#8a8a8a]">
                   <Eye className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
                   {klus.views} keer bekeken

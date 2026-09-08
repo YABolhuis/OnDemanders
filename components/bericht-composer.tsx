@@ -11,12 +11,14 @@ export function BerichtComposer({
   open,
   highlight,
   onOpenChange,
+  onLockedClick,
 }: {
   naam: string;
   unlocked: boolean;
   open: boolean;
   highlight: boolean;
   onOpenChange: (open: boolean) => void;
+  onLockedClick: () => void;
 }) {
   const [bericht, setBericht] = useState("");
   const [emojiOpen, setEmojiOpen] = useState(false);
@@ -26,15 +28,16 @@ export function BerichtComposer({
     return (
       <button
         type="button"
-        disabled={!unlocked}
         onClick={() => {
           if (unlocked) {
             onOpenChange(true);
+          } else {
+            onLockedClick();
           }
         }}
         className={`fixed bottom-5 left-6 z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] ${
           highlight ? "chat-activate" : ""
-        } ${unlocked ? "hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]" : "cursor-not-allowed opacity-80"}`}
+        } ${unlocked ? "hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]" : ""}`}
         aria-label={
           unlocked ? `Bericht ${naam}` : `Chat is vergrendeld. Gebruik Direct reageren.`
         }

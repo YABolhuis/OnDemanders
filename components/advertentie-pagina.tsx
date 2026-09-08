@@ -17,6 +17,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   const [saved, setSaved] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [highlight, setHighlight] = useState(false);
+  const [shakeGroen, setShakeGroen] = useState(false);
   const openTimer = useRef<number | null>(null);
   const unlocked = isChatUnlocked(klus.id);
 
@@ -27,6 +28,13 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
       }
     };
   }, []);
+
+  function wijsNaarGroeneKnop() {
+    setShakeGroen(false);
+    window.requestAnimationFrame(() => {
+      setShakeGroen(true);
+    });
+  }
 
   function directReageren() {
     if (chatOpen) {
@@ -81,6 +89,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           open={chatOpen}
           highlight={highlight}
           onOpenChange={setChatOpen}
+          onLockedClick={wijsNaarGroeneKnop}
         />
       </div>
 
@@ -89,7 +98,10 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           <button
             type="button"
             onClick={directReageren}
-            className="flex h-8 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-3 text-[13px] font-semibold text-white hover:bg-[#108a00]"
+            onAnimationEnd={() => setShakeGroen(false)}
+            className={`flex h-8 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-3 text-[13px] font-semibold text-white hover:bg-[#108a00] ${
+              shakeGroen ? "groene-shake" : ""
+            }`}
           >
             Direct reageren
           </button>

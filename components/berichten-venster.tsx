@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Send } from "lucide-react";
+import { useRef, useState } from "react";
+import { Paperclip, Send, Smile } from "lucide-react";
 import type { Gesprek } from "@/lib/berichten";
 
 function initialen(naam: string) {
@@ -16,6 +16,13 @@ function initialen(naam: string) {
 export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
   const [tekst, setTekst] = useState("");
   const [berichten, setBerichten] = useState(gesprek.berichten);
+  const [emojiOpen, setEmojiOpen] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  function voegEmojiToe(emoji: string) {
+    setTekst((huidig) => `${huidig}${emoji}`);
+    setEmojiOpen(false);
+  }
 
   function verstuur() {
     const inhoud = tekst.trim();
@@ -91,6 +98,40 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
             verstuur();
           }}
         >
+          <div className="relative">
+            <button
+              type="button"
+              aria-label="Emoji"
+              aria-expanded={emojiOpen}
+              onClick={() => setEmojiOpen((open) => !open)}
+              className="flex size-9 shrink-0 items-center justify-center text-[#74767e] hover:text-[#404145]"
+            >
+              <Smile className="size-[18px]" strokeWidth={2} aria-hidden />
+            </button>
+            {emojiOpen ? (
+              <div className="absolute bottom-10 left-0 z-10 flex gap-1 rounded-md border border-[#e4e5e7] bg-white p-1.5 shadow-md">
+                {["😊", "👍", "👋", "🙏"].map((emoji) => (
+                  <button
+                    key={emoji}
+                    type="button"
+                    className="flex size-8 items-center justify-center text-[16px] hover:bg-[#f5f5f5]"
+                    onClick={() => voegEmojiToe(emoji)}
+                  >
+                    {emoji}
+                  </button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          <button
+            type="button"
+            aria-label="Bijlage"
+            onClick={() => fileRef.current?.click()}
+            className="flex size-9 shrink-0 items-center justify-center text-[#74767e] hover:text-[#404145]"
+          >
+            <Paperclip className="size-[18px]" strokeWidth={2} aria-hidden />
+          </button>
+          <input ref={fileRef} type="file" className="hidden" />
           <label className="sr-only" htmlFor="chat-bericht">
             Bericht aan {gesprek.naam}
           </label>

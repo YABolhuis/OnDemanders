@@ -6,13 +6,37 @@ import { Paperclip, Send, Smile, User, X } from "lucide-react";
 const MAX_LENGTH = 2500;
 
 export function BerichtComposer({ naam }: { naam: string }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [bericht, setBericht] = useState("");
   const [emojiOpen, setEmojiOpen] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   if (!open) {
-    return null;
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]"
+        aria-label={`Bericht ${naam}`}
+      >
+        <span className="relative inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
+          <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+          <span
+            className="absolute right-0 bottom-0 size-2.5 rounded-full bg-[#b5b6ba] ring-2 ring-white"
+            aria-hidden
+          />
+        </span>
+        <span className="min-w-0">
+          <span className="block truncate text-[15px] font-bold text-[#404145]">
+            Message {naam}
+          </span>
+          <span className="mt-0.5 block text-[13px] text-[#74767e]">
+            Away • Avg. response time:{" "}
+            <span className="font-semibold">1 Hour</span>
+          </span>
+        </span>
+      </button>
+    );
   }
 
   const suggestions = [

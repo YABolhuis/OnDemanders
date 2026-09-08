@@ -49,7 +49,7 @@ export function DistanceSlider() {
           onChange={(event) => setPostcode(event.target.value.toUpperCase())}
           placeholder="Postcode"
           aria-label="Postcode"
-          className="h-9 w-[88px] shrink-0 rounded-[10px] border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+          className="h-9 w-[88px] shrink-0 rounded-[3px] border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
         />
         <div ref={rootRef} className="relative min-w-0 flex-1">
           <button
@@ -57,7 +57,7 @@ export function DistanceSlider() {
             aria-expanded={open}
             aria-haspopup="listbox"
             onClick={() => setOpen((value) => !value)}
-            className={`flex h-9 w-full items-center justify-between gap-1 rounded-[10px] border bg-white px-2 text-left text-[13px] ${
+            className={`flex h-9 w-full items-center justify-between gap-1 rounded-[3px] border bg-white px-2 text-left text-[13px] ${
               open
                 ? "border-[#1d5fd1] text-[#1d5fd1]"
                 : "border-[#d0d0d0] text-[#222]"
@@ -73,7 +73,7 @@ export function DistanceSlider() {
           {open ? (
             <ul
               role="listbox"
-              className="absolute top-full right-0 left-0 z-50 mt-1 min-w-[10.5rem] rounded-[12px] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+              className="absolute top-full right-0 left-0 z-50 mt-1 min-w-[10.5rem] rounded-[3px] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
             >
             {distances.map((option) => (
               <li key={option}>

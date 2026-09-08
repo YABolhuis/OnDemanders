@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Heart, Megaphone } from "lucide-react";
+import { Heart } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import type { Klus } from "@/lib/klussen";
 
@@ -19,14 +19,6 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           >
             Terug naar opdrachten
           </Link>
-          <div className="mt-4 overflow-hidden rounded-[var(--radius-control)] bg-[#eee]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={klus.image}
-              alt=""
-              className="h-[280px] w-full object-cover"
-            />
-          </div>
           <h1 className="mt-5 text-[26px] font-bold text-[#1a1a1a]">
             {klus.title}
           </h1>
@@ -58,28 +50,9 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         </div>
 
         <aside className="w-full shrink-0 lg:sticky lg:top-6 lg:w-[320px]">
-          <div className="bg-[#f2f2f2] px-4 py-4">
-            <div className="flex gap-3">
-              <Megaphone
-                className="mt-0.5 size-5 shrink-0 text-[#1a1a1a]"
-                strokeWidth={1.75}
-                aria-hidden
-              />
-              <p className="text-[14px] leading-5 text-[#1a1a1a]">
-                Je hebt credits nodig om te reageren. Daarmee laat je de
-                opdrachtgever zien dat je serieus bent.{" "}
-                <Link
-                  href="/abonement-credits"
-                  className="text-[#1d5fd1] underline"
-                >
-                  Meer informatie
-                </Link>
-              </p>
-            </div>
-          </div>
           <Link
             href="/abonement-credits"
-            className="mt-3 flex h-11 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-4 text-[15px] font-semibold text-white hover:bg-[#108a00]"
+            className="flex h-11 w-full items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-4 text-[15px] font-semibold text-white hover:bg-[#108a00]"
           >
             Direct reageren
           </Link>

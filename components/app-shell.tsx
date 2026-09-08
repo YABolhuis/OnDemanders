@@ -14,7 +14,7 @@ export function AppShell({
     <div className="flex min-h-screen flex-col bg-background">
       <AppHeader gebruiker={gebruiker} />
       <div
-        className={`mx-auto flex w-full max-w-[1000px] flex-1 flex-col ${contentClassName}`}
+        className={`mx-auto flex w-full max-w-[1200px] flex-1 flex-col ${contentClassName}`}
       >
         {children}
       </div>

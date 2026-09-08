@@ -323,3 +323,7 @@ html.dark img.token-logo {
 html.dark .site-nav-link {
   color: #ececec;
 }
+
+input.berichten-zoek {
+  border-radius: 9999px;
+}

@@ -79,15 +79,32 @@ const dropdownLanguages = [
   { id: "es", label: "Spaans", Flag: FlagEs },
 ] as const;
 
-export function LanguageMenu() {
+export function LanguageMenu({
+  variant = "bar",
+}: {
+  variant?: "bar" | "compact";
+}) {
+  const compact = variant === "compact";
+
   return (
     <details className="relative">
-      <summary className="flex h-7 cursor-pointer list-none items-center gap-2 text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden">
+      <summary
+        aria-label="Taal kiezen"
+        className={
+          compact
+            ? "flex h-8 cursor-pointer list-none items-center gap-1 rounded-[3px] bg-[#eceff1] px-2 outline-none hover:bg-[#e4e7ea] [&::-webkit-details-marker]:hidden"
+            : "flex h-7 cursor-pointer list-none items-center gap-2 text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden"
+        }
+      >
         <RectFlag>
           <FlagNl className="size-full" />
         </RectFlag>
-        <span>Nederlands</span>
-        <ChevronDown className="size-3.5 text-white" strokeWidth={2} />
+        {compact ? null : <span>Nederlands</span>}
+        <ChevronDown
+          className={compact ? "size-3.5 text-[#1a1a1a]" : "size-3.5 text-white"}
+          strokeWidth={2}
+          aria-hidden
+        />
       </summary>
       <ul className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10">
         {dropdownLanguages.map((item) => (

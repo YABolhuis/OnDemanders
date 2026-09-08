@@ -6,7 +6,7 @@ export default function BerichtenPage() {
   return (
     <AppShell gebruiker="Y.A. Bolhuis">
       <div className="flex flex-1 bg-white">
-        <aside className="min-h-[calc(100vh-88px)] w-[288px] shrink-0 border-r border-[#c4c1bb] bg-[#f9fafb] px-4 py-5">
+        <aside className="min-h-[calc(100vh-57px)] w-[288px] shrink-0 border-r border-[#c4c1bb] bg-[#f9fafb] px-4 py-5">
           <div className="relative">
             <Search
               className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-[#6b6b6b]"

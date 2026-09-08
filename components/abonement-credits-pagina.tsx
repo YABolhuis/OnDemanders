@@ -6,7 +6,7 @@ import { useCredits } from "@/components/credits-provider";
 export function AbonementCreditsPagina() {
   const { saldo } = useCredits();
   return (
-    <div className="flex min-h-[calc(100vh-88px)] bg-[#24333d] text-white">
+    <div className="flex min-h-[calc(100vh-57px)] bg-[#24333d] text-white">
       <AccountSidebar />
       <div className="min-w-0 flex-1 px-8 py-10">
         <div className="mx-auto max-w-5xl">

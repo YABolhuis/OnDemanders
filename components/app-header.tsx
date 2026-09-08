@@ -21,13 +21,6 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
 
   return (
     <header className="relative z-50 w-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
-      <div className="w-full bg-[#111111]">
-        <div
-          className={`${SITE_WIDTH_CLASS} flex h-8 items-center justify-end px-4`}
-        >
-          <LanguageMenu />
-        </div>
-      </div>
       <div className="w-full border-b border-[#e6e6e6] bg-white">
         <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-4`}>
           <Link href="/klussen">
@@ -72,18 +65,7 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
             })}
           </nav>
           <div className="ml-auto flex items-center gap-2">
-            <button
-              type="button"
-              className="header-account-type flex h-8 items-center gap-1.5 rounded-[3px] bg-[#eceff1] px-2.5 text-[14px] font-bold text-[#1c1e21] hover:bg-[#e4e7ea]"
-            >
-              <span
-                className="flex size-4 items-center justify-center rounded-full bg-[#1a1a1a] text-[10px] font-bold leading-none text-white"
-                aria-hidden
-              >
-                ?
-              </span>
-              Help
-            </button>
+            <LanguageMenu variant="compact" />
             <button
               type="button"
               aria-label="Meldingen"

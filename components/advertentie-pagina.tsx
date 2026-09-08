@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Heart, User } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import type { Klus } from "@/lib/klussen";
 
@@ -69,6 +69,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             />
             {saved ? "Advertentie bewaard" : "Advertentie bewaren"}
           </button>
+        </div>
+        <div className="px-5 py-5">
+          <span
+            className="inline-flex size-10 items-center justify-center rounded-full bg-[#d9d9d9]"
+            aria-label={`Profiel van ${klus.seller}`}
+          >
+            <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+          </span>
         </div>
       </aside>
     </div>

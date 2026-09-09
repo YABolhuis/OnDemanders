@@ -1,10 +1,5 @@
-import { AppShell } from "@/components/app-shell";
-import { OpdrachtenStart } from "@/components/opdrachten-start";
+import { redirect } from "next/navigation";
 
-export default function KlussenStartPage() {
-  return (
-    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#f3eee6]">
-      <OpdrachtenStart />
-    </AppShell>
-  );
+export default function KlussenPage() {
+  redirect("/klussen/vak/schilder");
 }

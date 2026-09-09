@@ -12,7 +12,7 @@ export default function VakgebiedNietGevonden() {
           Dit vakgebied bestaat niet. Kies een vak op de startpagina.
         </p>
         <Link
-          href="/klussen"
+          href="/klussen/vak/schilder"
           className="mt-6 inline-block text-[14px] text-[#1d5fd1] hover:underline"
         >
           Terug naar vakgebied kiezen

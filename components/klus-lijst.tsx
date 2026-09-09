@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Clock, Eye, Heart } from "lucide-react";
+import { ArrowUpDown, ChevronDown, Clock, Eye, Heart } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import { klussen, type Klus } from "@/lib/klussen";
 
@@ -15,7 +15,16 @@ const tabs = [
   { id: "uitnodigingen", label: "Uitnodigingen" },
 ] as const;
 
+const sorteerOpties = [
+  { id: "relevantie", label: "Relevantie" },
+  { id: "nieuwste", label: "Nieuwste eerst" },
+  { id: "prijs-hoog", label: "Prijs: hoog - laag" },
+  { id: "prijs-laag", label: "Prijs: laag - hoog" },
+  { id: "bekeken", label: "Meest bekeken" },
+] as const;
+
 type TabId = (typeof tabs)[number]["id"];
+type SorteerId = (typeof sorteerOpties)[number]["id"];
 
 const MAAND: Record<string, number> = {
   jan: 0,
@@ -31,6 +40,13 @@ const MAAND: Record<string, number> = {
   nov: 10,
   dec: 11,
 };
+
+function prijsWaarde(price: string) {
+  const getal = Number(
+    price.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+  );
+  return Number.isFinite(getal) ? getal : -1;
+}
 
 function postedTime(postedAt: string) {
   const match = postedAt.match(/^(\d{1,2}) (\w+) (\d{4}), (\d{2}):(\d{2})$/);
@@ -48,24 +64,54 @@ function postedTime(postedAt: string) {
 
 export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
   const [tab, setTab] = useState<TabId>("matches");
+  const [sorteer, setSorteer] = useState<SorteerId>("relevantie");
+  const [sorteerOpen, setSorteerOpen] = useState(false);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
   const [page, setPage] = useState(1);
+  const sorteerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sorteerOpen) {
+      return;
+    }
+
+    function onPointerDown(event: PointerEvent) {
+      if (!sorteerRef.current?.contains(event.target as Node)) {
+        setSorteerOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [sorteerOpen]);
 
   const gefilterd = useMemo(() => {
+    let lijst: Klus[];
     if (tab === "uitnodigingen") {
-      return [] as Klus[];
+      lijst = [];
+    } else if (tab === "opgeslagen") {
+      lijst = items.filter((klus) => favorites.includes(klus.id));
+    } else {
+      lijst = [...items];
     }
-    if (tab === "opgeslagen") {
-      return items.filter((klus) => favorites.includes(klus.id));
-    }
-    if (tab === "recent") {
-      return [...items].sort(
+
+    const gesorteerd = [...lijst];
+    if (sorteer === "nieuwste" || tab === "recent") {
+      gesorteerd.sort(
         (a, b) => postedTime(b.postedAt) - postedTime(a.postedAt)
       );
+    } else if (sorteer === "prijs-hoog") {
+      gesorteerd.sort((a, b) => prijsWaarde(b.price) - prijsWaarde(a.price));
+    } else if (sorteer === "prijs-laag") {
+      gesorteerd.sort((a, b) => prijsWaarde(a.price) - prijsWaarde(b.price));
+    } else if (sorteer === "bekeken") {
+      gesorteerd.sort((a, b) => b.views - a.views);
+    } else {
+      gesorteerd.sort((a, b) => b.views - a.views);
     }
-    return [...items].sort((a, b) => b.views - a.views);
-  }, [tab, favorites, items]);
+    return gesorteerd;
+  }, [tab, favorites, items, sorteer]);
 
   const pageCount = Math.max(1, Math.ceil(gefilterd.length / perPage));
   const currentPage = Math.min(page, pageCount);
@@ -98,31 +144,74 @@ export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
   return (
     <div>
       <div className="relative bg-[#f4f6f8] px-10 pt-10">
-        <nav aria-label="Opdrachten filteren" className="flex gap-8">
-          {tabs.map((item) => {
-            const actief = item.id === tab;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => kiesTab(item.id)}
-                className={`relative h-12 shrink-0 text-[14px] ${
-                  actief
-                    ? "font-semibold text-[#1a1a1a]"
-                    : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
-                }`}
+        <div className="flex items-end justify-between gap-4">
+          <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
+            {tabs.map((item) => {
+              const actief = item.id === tab;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => kiesTab(item.id)}
+                  className={`relative h-12 shrink-0 text-[14px] ${
+                    actief
+                      ? "font-semibold text-[#1a1a1a]"
+                      : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
+                  }`}
+                >
+                  {item.label}
+                  {actief ? (
+                    <span
+                      aria-hidden
+                      className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
+                    />
+                  ) : null}
+                </button>
+              );
+            })}
+          </nav>
+          <div ref={sorteerRef} className="relative mb-2 shrink-0">
+            <button
+              type="button"
+              aria-expanded={sorteerOpen}
+              aria-haspopup="listbox"
+              onClick={() => setSorteerOpen((open) => !open)}
+              className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
+            >
+              <ArrowUpDown className="size-3.5" strokeWidth={2} aria-hidden />
+              Sorteren op
+              <ChevronDown className="size-3.5 text-[#555]" strokeWidth={2} aria-hidden />
+            </button>
+            {sorteerOpen ? (
+              <ul
+                role="listbox"
+                className="absolute top-[calc(100%+4px)] right-0 z-20 min-w-[200px] rounded-md bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
               >
-                {item.label}
-                {actief ? (
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
-                  />
-                ) : null}
-              </button>
-            );
-          })}
-        </nav>
+                {sorteerOpties.map((optie) => (
+                  <li key={optie.id}>
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={sorteer === optie.id}
+                      onClick={() => {
+                        setSorteer(optie.id);
+                        setSorteerOpen(false);
+                        setPage(1);
+                      }}
+                      className={`flex h-9 w-full items-center px-3 text-left text-[13px] ${
+                        sorteer === optie.id
+                          ? "font-medium text-[#1d5fd1]"
+                          : "text-[#222] hover:bg-[#f5f5f5]"
+                      }`}
+                    >
+                      {optie.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        </div>
         <div aria-hidden className="h-px bg-[#e6e6e6]" />
       </div>
 

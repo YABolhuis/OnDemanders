@@ -11,4 +11,4 @@ npm run dev
 
 Open [http://localhost:43123](http://localhost:43123). De site gebruikt **Inter**, hetzelfde lettertype als MailerLite.
 
-Na inloggen: **Vind opdrachten** (`/klussen`) opent de lijst. Via **Filters** kies je een dienst en vul je postcode en afstand in. Schilders hebben extra filters in de sidebar; andere vakken starten met een lege sidebar. **Vind aannemers** (`/aannemers`) en **Berichten** (`/berichten`) blijven hetzelfde.
+Na inloggen: **Vind opdrachten** (`/klussen`) opent de lijst. Via **Filters** kies je een dienst en vul je postcode en afstand in. **Vind aannemers** (`/aannemers`) en **Berichten** (`/berichten`) blijven hetzelfde.

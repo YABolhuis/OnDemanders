@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
-import { FilterSidebar } from "@/components/filter-sidebar";
-import { VakgebiedList } from "@/components/vakgebied-list";
 import { KlusLijst } from "@/components/klus-lijst";
 import {
   getVakgebied,
@@ -28,16 +26,9 @@ export default async function KlussenVakPage({
 
   return (
     <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#f4f6f8]">
-      <div className="flex flex-1 bg-[#f4f6f8]">
-        <FilterSidebar>
-          {vak.heeftFilters ? (
-            <VakgebiedList />
-          ) : null}
-        </FilterSidebar>
-        <main className="min-w-0 flex-1 bg-[#f4f6f8]">
-          <KlusLijst items={items} vakSlug={vak.slug} />
-        </main>
-      </div>
+      <main className="min-w-0 flex-1 bg-[#f4f6f8]">
+        <KlusLijst items={items} vakSlug={vak.slug} />
+      </main>
     </AppShell>
   );
 }

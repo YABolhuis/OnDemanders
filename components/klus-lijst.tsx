@@ -215,7 +215,12 @@ export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
         <div aria-hidden className="h-px bg-[#e6e6e6]" />
       </div>
 
-      <div className="p-10">
+      <div className="px-10 pt-4 pb-10">
+        <p className="mb-6 text-[13px] text-[#555]">
+          {gefilterd.length === 1
+            ? "1 resultaat"
+            : `${gefilterd.length} resultaten`}
+        </p>
         {zichtbaar.length === 0 ? (
           <p className="py-16 text-center text-[13px] text-[#667781]">
             {leegTekst}

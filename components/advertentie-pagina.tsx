@@ -8,6 +8,7 @@ import { PlaatsPin } from "@/components/plaats-pin";
 import { BerichtComposer } from "@/components/bericht-composer";
 import { useCredits } from "@/components/credits-provider";
 import type { Klus } from "@/lib/klussen";
+import { vakSlugVanKlus } from "@/lib/vakgebieden";
 
 const CHAT_KOST = 1;
 
@@ -60,7 +61,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
     <div className="flex min-h-[calc(100vh-57px)] flex-col bg-white lg:flex-row lg:items-stretch">
       <div className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 flex-col px-6 py-6">
         <Link
-          href="/klussen"
+          href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
           className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"
         >
           <span className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white">

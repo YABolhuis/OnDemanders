@@ -46,7 +46,7 @@ function postedTime(postedAt: string) {
   ).getTime();
 }
 
-export function KlusLijst() {
+export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
   const [tab, setTab] = useState<TabId>("matches");
   const [favorites, setFavorites] = useState<string[]>([]);
   const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
@@ -57,15 +57,15 @@ export function KlusLijst() {
       return [] as Klus[];
     }
     if (tab === "opgeslagen") {
-      return klussen.filter((klus) => favorites.includes(klus.id));
+      return items.filter((klus) => favorites.includes(klus.id));
     }
     if (tab === "recent") {
-      return [...klussen].sort(
+      return [...items].sort(
         (a, b) => postedTime(b.postedAt) - postedTime(a.postedAt)
       );
     }
-    return [...klussen].sort((a, b) => b.views - a.views);
-  }, [tab, favorites]);
+    return [...items].sort((a, b) => b.views - a.views);
+  }, [tab, favorites, items]);
 
   const pageCount = Math.max(1, Math.ceil(gefilterd.length / perPage));
   const currentPage = Math.min(page, pageCount);
@@ -93,7 +93,7 @@ export function KlusLijst() {
       ? "Je hebt nog geen opgeslagen opdrachten."
       : tab === "uitnodigingen"
         ? "Je hebt nog geen uitnodigingen."
-        : null;
+        : "Geen opdrachten in dit vakgebied.";
 
   return (
     <div>

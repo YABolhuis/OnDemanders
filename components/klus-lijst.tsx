@@ -245,7 +245,7 @@ export function KlusLijst({
                 <div
                   role="dialog"
                   aria-label="Filters"
-                  className="absolute top-[calc(100%+4px)] left-0 z-30 w-[260px] overflow-hidden rounded-md bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
+                  className="absolute top-[calc(100%+4px)] left-0 z-30 w-[260px] rounded-md bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
                 >
                   <div className="flex border-b border-[#eee]" role="tablist">
                     {(

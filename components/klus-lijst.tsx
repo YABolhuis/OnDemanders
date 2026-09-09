@@ -188,20 +188,20 @@ export function KlusLijst({
       </div>
 
       <div className="px-10 pt-4 pb-10">
-        <div className="mb-6 flex items-center gap-4">
-          <p className="min-w-[120px] text-[13px] text-[#555]">
-            {gefilterd.length === 1
-              ? "1 resultaat"
-              : `${gefilterd.length} resultaten`}
-          </p>
-          <div className="flex flex-1 justify-center">
+        <div className="mb-6 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <p className="text-[13px] text-[#555]">
+              {gefilterd.length === 1
+                ? "1 resultaat"
+                : `${gefilterd.length} resultaten`}
+            </p>
             <div ref={dienstenRef} className="relative">
               <button
                 type="button"
                 aria-expanded={dienstenOpen}
                 aria-haspopup="listbox"
                 onClick={() => setDienstenOpen((open) => !open)}
-                className="inline-flex h-9 items-center gap-2 rounded-full border border-[#d0d0d0] bg-white px-4 text-[13px] text-[#222] hover:border-[#1d5fd1]"
+                className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
               >
                 Diensten
                 <ChevronDown className="size-3.5 text-[#555]" strokeWidth={2} aria-hidden />
@@ -209,7 +209,7 @@ export function KlusLijst({
               {dienstenOpen ? (
                 <ul
                   role="listbox"
-                  className="absolute top-[calc(100%+4px)] left-1/2 z-20 min-w-[180px] -translate-x-1/2 rounded-md bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
+                  className="absolute top-[calc(100%+4px)] left-0 z-20 min-w-[180px] rounded-md bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
                 >
                   {vakgebieden.map((vak) => (
                     <li key={vak.slug}>
@@ -235,7 +235,7 @@ export function KlusLijst({
               ) : null}
             </div>
           </div>
-          <div ref={sorteerRef} className="relative flex min-w-[120px] shrink-0 justify-end">
+          <div ref={sorteerRef} className="relative shrink-0">
             <button
               type="button"
               aria-expanded={sorteerOpen}

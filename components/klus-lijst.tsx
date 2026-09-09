@@ -3,9 +3,19 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowUpDown, ChevronDown, Clock, Eye, Heart, Search } from "lucide-react";
+import {
+  ArrowUpDown,
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  Eye,
+  Heart,
+  Search,
+} from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import { klussen, type Klus } from "@/lib/klussen";
+import { DISTANCES } from "@/components/distance-slider";
 import { vakgebieden } from "@/lib/vakgebieden";
 
 const PER_PAGE_OPTIONS = [6, 8, 10] as const;
@@ -75,16 +85,21 @@ export function KlusLijst({
   const [tab, setTab] = useState<TabId>("matches");
   const [sorteer, setSorteer] = useState<SorteerId>("relevantie");
   const [sorteerOpen, setSorteerOpen] = useState(false);
-  const [dienstenOpen, setDienstenOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [postcode, setPostcode] = useState("");
+  const [afstand, setAfstand] = useState<(typeof DISTANCES)[number]>(
+    "Alle afstanden..."
+  );
+  const [afstandOpen, setAfstandOpen] = useState(false);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
   const [page, setPage] = useState(1);
   const [zoek, setZoek] = useState("");
   const sorteerRef = useRef<HTMLDivElement>(null);
-  const dienstenRef = useRef<HTMLDivElement>(null);
+  const filtersRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sorteerOpen && !dienstenOpen) {
+    if (!sorteerOpen && !filtersOpen) {
       return;
     }
 
@@ -93,14 +108,15 @@ export function KlusLijst({
       if (!sorteerRef.current?.contains(target)) {
         setSorteerOpen(false);
       }
-      if (!dienstenRef.current?.contains(target)) {
-        setDienstenOpen(false);
+      if (!filtersRef.current?.contains(target)) {
+        setFiltersOpen(false);
+        setAfstandOpen(false);
       }
     }
 
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, [sorteerOpen, dienstenOpen]);
+  }, [sorteerOpen, filtersOpen]);
 
   const gefilterd = useMemo(() => {
     let lijst: Klus[];
@@ -206,43 +222,119 @@ export function KlusLijst({
                 ? "1 resultaat"
                 : `${gefilterd.length} resultaten`}
             </p>
-            <div ref={dienstenRef} className="relative">
+            <div ref={filtersRef} className="relative">
               <button
                 type="button"
-                aria-expanded={dienstenOpen}
-                aria-haspopup="listbox"
-                onClick={() => setDienstenOpen((open) => !open)}
+                aria-expanded={filtersOpen}
+                aria-haspopup="dialog"
+                onClick={() => {
+                  setFiltersOpen((open) => !open);
+                  setSorteerOpen(false);
+                  setAfstandOpen(false);
+                }}
                 className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
               >
-                Diensten
+                Filters
                 <ChevronDown className="size-3.5 text-[#555]" strokeWidth={2} aria-hidden />
               </button>
-              {dienstenOpen ? (
-                <ul
-                  role="listbox"
-                  className="absolute top-[calc(100%+4px)] left-0 z-20 min-w-[180px] rounded-md bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
+              {filtersOpen ? (
+                <div
+                  role="dialog"
+                  aria-label="Filters"
+                  className="absolute top-[calc(100%+4px)] left-0 z-30 w-[280px] rounded-md bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
                 >
-                  {vakgebieden.map((vak) => (
-                    <li key={vak.slug}>
+                  <div className="border-b border-[#eee] px-3 py-3">
+                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-[#9aa0a6]">
+                      Dienst
+                    </p>
+                    <ul role="listbox">
+                      {vakgebieden.map((vak) => (
+                        <li key={vak.slug}>
+                          <button
+                            type="button"
+                            role="option"
+                            aria-selected={vakSlug === vak.slug}
+                            onClick={() => {
+                              router.push(`/klussen/vak/${vak.slug}`);
+                            }}
+                            className={`flex h-8 w-full items-center rounded-[3px] px-2 text-left text-[13px] ${
+                              vakSlug === vak.slug
+                                ? "font-medium text-[#1d5fd1]"
+                                : "text-[#222] hover:bg-[#f5f5f5]"
+                            }`}
+                          >
+                            {vak.label}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="px-3 py-3">
+                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-[#9aa0a6]">
+                      Locatie
+                    </p>
+                    <input
+                      type="text"
+                      value={postcode}
+                      onChange={(event) =>
+                        setPostcode(event.target.value.toUpperCase())
+                      }
+                      placeholder="Postcode"
+                      aria-label="Postcode"
+                      className="mb-2 h-9 w-full rounded-[3px] border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+                    />
+                    <div className="relative">
                       <button
                         type="button"
-                        role="option"
-                        aria-selected={vakSlug === vak.slug}
-                        onClick={() => {
-                          setDienstenOpen(false);
-                          router.push(`/klussen/vak/${vak.slug}`);
-                        }}
-                        className={`flex h-9 w-full items-center px-3 text-left text-[13px] ${
-                          vakSlug === vak.slug
-                            ? "font-medium text-[#1d5fd1]"
-                            : "text-[#222] hover:bg-[#f5f5f5]"
+                        aria-expanded={afstandOpen}
+                        aria-haspopup="listbox"
+                        aria-label="Afstand"
+                        onClick={() => setAfstandOpen((open) => !open)}
+                        className={`flex h-9 w-full items-center justify-between gap-1 rounded-[3px] border bg-white px-2 text-left text-[13px] ${
+                          afstandOpen
+                            ? "border-[#1d5fd1] text-[#1d5fd1]"
+                            : "border-[#d0d0d0] text-[#222]"
                         }`}
                       >
-                        {vak.label}
+                        <span className="min-w-0 truncate">{afstand}</span>
+                        {afstandOpen ? (
+                          <ChevronUp className="size-4 shrink-0" strokeWidth={2} />
+                        ) : (
+                          <ChevronDown className="size-4 shrink-0" strokeWidth={2} />
+                        )}
                       </button>
-                    </li>
-                  ))}
-                </ul>
+                      {afstandOpen ? (
+                        <ul
+                          role="listbox"
+                          className="absolute top-full right-0 left-0 z-40 mt-1 rounded-[3px] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+                        >
+                          {DISTANCES.map((option) => (
+                            <li key={option}>
+                              <button
+                                type="button"
+                                role="option"
+                                aria-selected={option === afstand}
+                                onClick={() => {
+                                  setAfstand(option);
+                                  setAfstandOpen(false);
+                                }}
+                                className="flex w-full items-center justify-between px-3 py-2 text-left text-[13px] text-[#222] hover:bg-[#f5f7fa]"
+                              >
+                                {option}
+                                {option === afstand ? (
+                                  <Check
+                                    className="size-4 text-[#555]"
+                                    strokeWidth={2}
+                                  />
+                                ) : null}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
               ) : null}
             </div>
             <div className="relative min-w-[200px] max-w-sm flex-1">
@@ -269,7 +361,11 @@ export function KlusLijst({
               type="button"
               aria-expanded={sorteerOpen}
               aria-haspopup="listbox"
-              onClick={() => setSorteerOpen((open) => !open)}
+              onClick={() => {
+                setSorteerOpen((open) => !open);
+                setFiltersOpen(false);
+                setAfstandOpen(false);
+              }}
               className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
             >
               <ArrowUpDown className="size-3.5" strokeWidth={2} aria-hidden />

@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
-import { DistanceSlider } from "@/components/distance-slider";
 import { FilterSidebar } from "@/components/filter-sidebar";
 import { VakgebiedList } from "@/components/vakgebied-list";
 import { KlusLijst } from "@/components/klus-lijst";
@@ -32,10 +31,7 @@ export default async function KlussenVakPage({
       <div className="flex flex-1 bg-[#f4f6f8]">
         <FilterSidebar>
           {vak.heeftFilters ? (
-            <>
-              <DistanceSlider />
-              <VakgebiedList />
-            </>
+            <VakgebiedList />
           ) : null}
         </FilterSidebar>
         <main className="min-w-0 flex-1 bg-[#f4f6f8]">

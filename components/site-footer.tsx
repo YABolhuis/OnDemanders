@@ -16,18 +16,10 @@ function CircleIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex size-10 items-center justify-center rounded-full border border-white/35 text-white transition-colors hover:border-white hover:bg-white/10"
+      className="flex size-9 items-center justify-center rounded-full border border-[#d0d0d0] text-[#222] hover:border-[#1a1a1a]"
     >
       {children}
     </a>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
-      <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6" />
-    </svg>
   );
 }
 
@@ -49,31 +41,28 @@ function AndroidIcon() {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto bg-[#001e00] text-white">
-      <div className="flex flex-col gap-4 px-10 py-6 sm:flex-row sm:items-center sm:justify-between">
-        <CircleIcon href="https://www.instagram.com/" label="Instagram">
-          <InstagramIcon />
-        </CircleIcon>
+    <footer className="mt-auto border-t border-[#e6e6e6] bg-white text-[#555]">
+      <div className="flex justify-end px-10 py-5">
         <div className="flex items-center gap-3">
-          <span className="text-[13px] font-medium">Mobile app</span>
+          <span className="text-[13px] text-[#222]">Mobile app</span>
           <CircleIcon href="https://apps.apple.com/" label="App Store">
             <AppleIcon />
           </CircleIcon>
-          <CircleIcon
-            href="https://play.google.com/store"
-            label="Google Play"
-          >
+          <CircleIcon href="https://play.google.com/store" label="Google Play">
             <AndroidIcon />
           </CircleIcon>
         </div>
       </div>
-      <div className="border-t border-white/15 px-10 py-4">
-        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-white/80">
+      <div className="border-t border-[#e6e6e6] px-10 py-4">
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px]">
           <span>© 2026 Optisend</span>
-          <Link href="/privacy" className="hover:text-white hover:underline">
+          <Link href="/privacy" className="hover:text-[#1a1a1a] hover:underline">
             Privacy Policy
           </Link>
-          <Link href="/voorwaarden" className="hover:text-white hover:underline">
+          <Link
+            href="/voorwaarden"
+            className="hover:text-[#1a1a1a] hover:underline"
+          >
             Terms and Conditions
           </Link>
         </p>

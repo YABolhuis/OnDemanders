@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { AppHeader } from "@/components/app-header";
+import { SiteFooter } from "@/components/site-footer";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
 
 export function AppShell({
@@ -19,6 +20,7 @@ export function AppShell({
       >
         {children}
       </div>
+      <SiteFooter />
     </div>
   );
 }

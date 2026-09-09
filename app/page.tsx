@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LanguageMenu } from "@/components/language-menu";
+import { SiteFooter } from "@/components/site-footer";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
 
 export default function Home() {
@@ -42,6 +43,7 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1 bg-white" />
+      <SiteFooter />
     </div>
   );
 }

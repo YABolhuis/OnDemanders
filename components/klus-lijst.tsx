@@ -144,33 +144,42 @@ export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
   return (
     <div>
       <div className="relative bg-[#f4f6f8] px-10 pt-10">
-        <div className="flex items-end justify-between gap-4">
-          <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
-            {tabs.map((item) => {
-              const actief = item.id === tab;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => kiesTab(item.id)}
-                  className={`relative h-12 shrink-0 text-[14px] ${
-                    actief
-                      ? "font-semibold text-[#1a1a1a]"
-                      : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
-                  }`}
-                >
-                  {item.label}
-                  {actief ? (
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
-                    />
-                  ) : null}
-                </button>
-              );
-            })}
-          </nav>
-          <div ref={sorteerRef} className="relative mb-2 shrink-0">
+        <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
+          {tabs.map((item) => {
+            const actief = item.id === tab;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => kiesTab(item.id)}
+                className={`relative h-12 shrink-0 text-[14px] ${
+                  actief
+                    ? "font-semibold text-[#1a1a1a]"
+                    : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
+                }`}
+              >
+                {item.label}
+                {actief ? (
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
+                  />
+                ) : null}
+              </button>
+            );
+          })}
+        </nav>
+        <div aria-hidden className="h-px bg-[#e6e6e6]" />
+      </div>
+
+      <div className="px-10 pt-4 pb-10">
+        <div className="mb-6 flex items-center justify-between gap-4">
+          <p className="text-[13px] text-[#555]">
+            {gefilterd.length === 1
+              ? "1 resultaat"
+              : `${gefilterd.length} resultaten`}
+          </p>
+          <div ref={sorteerRef} className="relative shrink-0">
             <button
               type="button"
               aria-expanded={sorteerOpen}
@@ -212,15 +221,6 @@ export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
             ) : null}
           </div>
         </div>
-        <div aria-hidden className="h-px bg-[#e6e6e6]" />
-      </div>
-
-      <div className="px-10 pt-4 pb-10">
-        <p className="mb-6 text-[13px] text-[#555]">
-          {gefilterd.length === 1
-            ? "1 resultaat"
-            : `${gefilterd.length} resultaten`}
-        </p>
         {zichtbaar.length === 0 ? (
           <p className="py-16 text-center text-[13px] text-[#667781]">
             {leegTekst}

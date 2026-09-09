@@ -480,7 +480,7 @@ export function KlusLijst({
             {leegTekst}
           </p>
         ) : (
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-4">
             {zichtbaar.map((klus) => {
               const saved = favorites.includes(klus.id);
               return (

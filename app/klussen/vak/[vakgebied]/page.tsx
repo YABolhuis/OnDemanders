@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { Search } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
 import { DistanceSlider } from "@/components/distance-slider";
 import { FilterSidebar } from "@/components/filter-sidebar";
@@ -34,19 +33,6 @@ export default async function KlussenVakPage({
         <FilterSidebar>
           {vak.heeftFilters ? (
             <>
-              <div className="relative mb-6">
-                <Search
-                  className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-[#6b6b6b]"
-                  strokeWidth={2}
-                  aria-hidden
-                />
-                <input
-                  type="search"
-                  placeholder="Zoeken"
-                  aria-label="Zoeken"
-                  className="sidebar-zoek h-9 w-full rounded-full border border-[#d0d0d0] bg-white pr-3 pl-8 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
-                />
-              </div>
               <DistanceSlider />
               <VakgebiedList />
             </>

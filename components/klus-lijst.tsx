@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowUpDown, ChevronDown, Clock, Eye, Heart } from "lucide-react";
+import { ArrowUpDown, ChevronDown, Clock, Eye, Heart, Search } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import { klussen, type Klus } from "@/lib/klussen";
 import { vakgebieden } from "@/lib/vakgebieden";
@@ -79,6 +79,7 @@ export function KlusLijst({
   const [favorites, setFavorites] = useState<string[]>([]);
   const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
   const [page, setPage] = useState(1);
+  const [zoek, setZoek] = useState("");
   const sorteerRef = useRef<HTMLDivElement>(null);
   const dienstenRef = useRef<HTMLDivElement>(null);
 
@@ -111,6 +112,16 @@ export function KlusLijst({
       lijst = [...items];
     }
 
+    const term = zoek.trim().toLowerCase();
+    if (term) {
+      lijst = lijst.filter((klus) =>
+        [klus.title, klus.description, klus.tags, klus.city, klus.seller]
+          .join(" ")
+          .toLowerCase()
+          .includes(term)
+      );
+    }
+
     const gesorteerd = [...lijst];
     if (sorteer === "nieuwste" || tab === "recent") {
       gesorteerd.sort(
@@ -126,7 +137,7 @@ export function KlusLijst({
       gesorteerd.sort((a, b) => b.views - a.views);
     }
     return gesorteerd;
-  }, [tab, favorites, items, sorteer]);
+  }, [tab, favorites, items, sorteer, zoek]);
 
   const pageCount = Math.max(1, Math.ceil(gefilterd.length / perPage));
   const currentPage = Math.min(page, pageCount);
@@ -189,7 +200,7 @@ export function KlusLijst({
 
       <div className="px-10 pt-4 pb-10">
         <div className="mb-6 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+          <div className="flex min-w-0 flex-1 items-center gap-3">
             <p className="text-[13px] text-[#555]">
               {gefilterd.length === 1
                 ? "1 resultaat"
@@ -233,6 +244,24 @@ export function KlusLijst({
                   ))}
                 </ul>
               ) : null}
+            </div>
+            <div className="relative min-w-[200px] max-w-sm flex-1">
+              <Search
+                className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-[#6b6b6b]"
+                strokeWidth={2}
+                aria-hidden
+              />
+              <input
+                type="search"
+                value={zoek}
+                onChange={(event) => {
+                  setZoek(event.target.value);
+                  setPage(1);
+                }}
+                placeholder="Zoeken"
+                aria-label="Zoeken"
+                className="sidebar-zoek h-9 w-full rounded-full border border-[#d0d0d0] bg-white pr-3 pl-8 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+              />
             </div>
           </div>
           <div ref={sorteerRef} className="relative shrink-0">

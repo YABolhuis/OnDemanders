@@ -1,10 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AccountSidebar } from "@/components/account-sidebar";
 import { useCredits } from "@/components/credits-provider";
+import { leesAbonnement } from "@/lib/abonnement";
 
 export function AbonementCreditsPagina() {
   const { saldo } = useCredits();
+  const [planLabel, setPlanLabel] = useState("Starter");
+
+  useEffect(() => {
+    setPlanLabel(leesAbonnement() === "plus" ? "Freelancer Plus" : "Starter");
+  }, []);
   return (
     <div className="flex min-h-[calc(100vh-57px)] bg-[#24333d] text-white">
       <AccountSidebar />
@@ -19,13 +27,13 @@ export function AbonementCreditsPagina() {
 
           <section className="py-8">
             <h2 className="text-[16px] font-semibold">Huidig abonnement</h2>
-            <p className="mt-2 text-[15px] text-[#d5dde2]">Starter</p>
-            <button
-              type="button"
-              className="mt-4 h-9 border border-white/30 px-4 text-[14px] font-medium text-[#8fd14f] hover:bg-white/5"
+            <p className="mt-2 text-[15px] text-[#d5dde2]">{planLabel}</p>
+            <Link
+              href="/abonement"
+              className="mt-4 inline-flex h-9 items-center border border-white/30 px-4 text-[14px] font-medium text-[#8fd14f] hover:bg-white/5"
             >
               Bekijk of wijzig abonnement
-            </button>
+            </Link>
           </section>
 
           <hr className="border-0 border-t border-white/15" />

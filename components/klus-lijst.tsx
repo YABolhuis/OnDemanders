@@ -14,6 +14,7 @@ import {
   Search,
 } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
+import { FreelancerPlusBanner } from "@/components/freelancer-plus-banner";
 import { klussen, type Klus } from "@/lib/klussen";
 import { DISTANCES } from "@/components/distance-slider";
 import { vakgebieden } from "@/lib/vakgebieden";
@@ -189,31 +190,34 @@ export function KlusLijst({
   return (
     <div>
       <div className="relative bg-[#f4f6f8] px-10 pt-10">
-        <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
-          {tabs.map((item) => {
-            const actief = item.id === tab;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => kiesTab(item.id)}
-                className={`relative h-12 shrink-0 text-[14px] ${
-                  actief
-                    ? "font-semibold text-[#1a1a1a]"
-                    : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
-                }`}
-              >
-                {item.label}
-                {actief ? (
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
-                  />
-                ) : null}
-              </button>
-            );
-          })}
-        </nav>
+        <div className="flex min-w-0 items-end justify-between gap-4">
+          <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
+            {tabs.map((item) => {
+              const actief = item.id === tab;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => kiesTab(item.id)}
+                  className={`relative h-12 shrink-0 text-[14px] ${
+                    actief
+                      ? "font-semibold text-[#1a1a1a]"
+                      : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
+                  }`}
+                >
+                  {item.label}
+                  {actief ? (
+                    <span
+                      aria-hidden
+                      className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
+                    />
+                  ) : null}
+                </button>
+              );
+            })}
+          </nav>
+          <FreelancerPlusBanner />
+        </div>
         <div aria-hidden className="h-px bg-[#e6e6e6]" />
       </div>
 

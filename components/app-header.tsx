@@ -11,7 +11,6 @@ import { aantalOngelezenBerichten } from "@/lib/berichten";
 
 const navItems = [
   { href: "/klussen", label: "Vind opdrachten" },
-  { href: "/aannemers", label: "Vind aannemers" },
   { href: "/berichten", label: "Berichten" },
 ] as const;
 

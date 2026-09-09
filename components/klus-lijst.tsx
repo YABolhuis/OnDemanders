@@ -91,6 +91,8 @@ export function KlusLijst({
     "Alle afstanden..."
   );
   const [afstandOpen, setAfstandOpen] = useState(false);
+  const [filterTab, setFilterTab] = useState<"dienst" | "locatie">("dienst");
+  const [dienstOpen, setDienstOpen] = useState(false);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
   const [page, setPage] = useState(1);
@@ -111,6 +113,7 @@ export function KlusLijst({
       if (!filtersRef.current?.contains(target)) {
         setFiltersOpen(false);
         setAfstandOpen(false);
+        setDienstOpen(false);
       }
     }
 
@@ -231,6 +234,7 @@ export function KlusLijst({
                   setFiltersOpen((open) => !open);
                   setSorteerOpen(false);
                   setAfstandOpen(false);
+                  setDienstOpen(false);
                 }}
                 className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
               >
@@ -241,98 +245,166 @@ export function KlusLijst({
                 <div
                   role="dialog"
                   aria-label="Filters"
-                  className="absolute top-[calc(100%+4px)] left-0 z-30 w-[280px] rounded-md bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
+                  className="absolute top-[calc(100%+4px)] left-0 z-30 w-[260px] overflow-hidden rounded-md bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
                 >
-                  <div className="border-b border-[#eee] px-3 py-3">
-                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-[#9aa0a6]">
-                      Dienst
-                    </p>
-                    <ul role="listbox">
-                      {vakgebieden.map((vak) => (
-                        <li key={vak.slug}>
-                          <button
-                            type="button"
-                            role="option"
-                            aria-selected={vakSlug === vak.slug}
-                            onClick={() => {
-                              router.push(`/klussen/vak/${vak.slug}`);
-                            }}
-                            className={`flex h-8 w-full items-center rounded-[3px] px-2 text-left text-[13px] ${
-                              vakSlug === vak.slug
-                                ? "font-medium text-[#1d5fd1]"
-                                : "text-[#222] hover:bg-[#f5f5f5]"
-                            }`}
-                          >
-                            {vak.label}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="flex border-b border-[#eee]" role="tablist">
+                    {(
+                      [
+                        { id: "dienst" as const, label: "Dienst" },
+                        { id: "locatie" as const, label: "Locatie" },
+                      ] as const
+                    ).map((item) => {
+                      const actief = filterTab === item.id;
+                      return (
+                        <button
+                          key={item.id}
+                          type="button"
+                          role="tab"
+                          aria-selected={actief}
+                          onClick={() => {
+                            setFilterTab(item.id);
+                            setDienstOpen(false);
+                            setAfstandOpen(false);
+                          }}
+                          className={`relative h-9 flex-1 text-[13px] ${
+                            actief
+                              ? "font-semibold text-[#1a1a1a]"
+                              : "font-normal text-[#6b6b6b] hover:text-[#1a1a1a]"
+                          }`}
+                        >
+                          {item.label}
+                          {actief ? (
+                            <span
+                              aria-hidden
+                              className="absolute inset-x-3 bottom-0 h-[2px] bg-[#333]"
+                            />
+                          ) : null}
+                        </button>
+                      );
+                    })}
                   </div>
                   <div className="px-3 py-3">
-                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-[#9aa0a6]">
-                      Locatie
-                    </p>
-                    <input
-                      type="text"
-                      value={postcode}
-                      onChange={(event) =>
-                        setPostcode(event.target.value.toUpperCase())
-                      }
-                      placeholder="Postcode"
-                      aria-label="Postcode"
-                      className="mb-2 h-9 w-full rounded-[3px] border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
-                    />
-                    <div className="relative">
-                      <button
-                        type="button"
-                        aria-expanded={afstandOpen}
-                        aria-haspopup="listbox"
-                        aria-label="Afstand"
-                        onClick={() => setAfstandOpen((open) => !open)}
-                        className={`flex h-9 w-full items-center justify-between gap-1 rounded-[3px] border bg-white px-2 text-left text-[13px] ${
-                          afstandOpen
-                            ? "border-[#1d5fd1] text-[#1d5fd1]"
-                            : "border-[#d0d0d0] text-[#222]"
-                        }`}
-                      >
-                        <span className="min-w-0 truncate">{afstand}</span>
-                        {afstandOpen ? (
-                          <ChevronUp className="size-4 shrink-0" strokeWidth={2} />
-                        ) : (
-                          <ChevronDown className="size-4 shrink-0" strokeWidth={2} />
-                        )}
-                      </button>
-                      {afstandOpen ? (
-                        <ul
-                          role="listbox"
-                          className="absolute top-full right-0 left-0 z-40 mt-1 rounded-[3px] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+                    {filterTab === "dienst" ? (
+                      <div className="relative">
+                        <button
+                          type="button"
+                          aria-expanded={dienstOpen}
+                          aria-haspopup="listbox"
+                          aria-label="Dienst"
+                          onClick={() => {
+                            setDienstOpen((open) => !open);
+                            setAfstandOpen(false);
+                          }}
+                          className={`flex h-9 w-full items-center justify-between gap-1 rounded-[3px] border bg-white px-2 text-left text-[13px] ${
+                            dienstOpen
+                              ? "border-[#1d5fd1] text-[#1d5fd1]"
+                              : "border-[#d0d0d0] text-[#222]"
+                          }`}
                         >
-                          {DISTANCES.map((option) => (
-                            <li key={option}>
-                              <button
-                                type="button"
-                                role="option"
-                                aria-selected={option === afstand}
-                                onClick={() => {
-                                  setAfstand(option);
-                                  setAfstandOpen(false);
-                                }}
-                                className="flex w-full items-center justify-between px-3 py-2 text-left text-[13px] text-[#222] hover:bg-[#f5f7fa]"
-                              >
-                                {option}
-                                {option === afstand ? (
-                                  <Check
-                                    className="size-4 text-[#555]"
-                                    strokeWidth={2}
-                                  />
-                                ) : null}
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : null}
-                    </div>
+                          <span className="min-w-0 truncate">
+                            {vakgebieden.find((vak) => vak.slug === vakSlug)
+                              ?.label ?? "Kies een dienst"}
+                          </span>
+                          {dienstOpen ? (
+                            <ChevronUp className="size-4 shrink-0" strokeWidth={2} />
+                          ) : (
+                            <ChevronDown className="size-4 shrink-0" strokeWidth={2} />
+                          )}
+                        </button>
+                        {dienstOpen ? (
+                          <ul
+                            role="listbox"
+                            className="absolute top-full right-0 left-0 z-40 mt-1 max-h-56 overflow-y-auto rounded-[3px] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+                          >
+                            {vakgebieden.map((vak) => (
+                              <li key={vak.slug}>
+                                <button
+                                  type="button"
+                                  role="option"
+                                  aria-selected={vakSlug === vak.slug}
+                                  onClick={() => {
+                                    setDienstOpen(false);
+                                    router.push(`/klussen/vak/${vak.slug}`);
+                                  }}
+                                  className="flex w-full items-center justify-between px-3 py-2 text-left text-[13px] text-[#222] hover:bg-[#f5f7fa]"
+                                >
+                                  {vak.label}
+                                  {vakSlug === vak.slug ? (
+                                    <Check
+                                      className="size-4 text-[#555]"
+                                      strokeWidth={2}
+                                    />
+                                  ) : null}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
+                      </div>
+                    ) : (
+                      <>
+                        <input
+                          type="text"
+                          value={postcode}
+                          onChange={(event) =>
+                            setPostcode(event.target.value.toUpperCase())
+                          }
+                          placeholder="Postcode"
+                          aria-label="Postcode"
+                          className="mb-2 h-9 w-full rounded-[3px] border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+                        />
+                        <div className="relative">
+                          <button
+                            type="button"
+                            aria-expanded={afstandOpen}
+                            aria-haspopup="listbox"
+                            aria-label="Afstand"
+                            onClick={() => setAfstandOpen((open) => !open)}
+                            className={`flex h-9 w-full items-center justify-between gap-1 rounded-[3px] border bg-white px-2 text-left text-[13px] ${
+                              afstandOpen
+                                ? "border-[#1d5fd1] text-[#1d5fd1]"
+                                : "border-[#d0d0d0] text-[#222]"
+                            }`}
+                          >
+                            <span className="min-w-0 truncate">{afstand}</span>
+                            {afstandOpen ? (
+                              <ChevronUp className="size-4 shrink-0" strokeWidth={2} />
+                            ) : (
+                              <ChevronDown className="size-4 shrink-0" strokeWidth={2} />
+                            )}
+                          </button>
+                          {afstandOpen ? (
+                            <ul
+                              role="listbox"
+                              className="absolute top-full right-0 left-0 z-40 mt-1 rounded-[3px] border border-[#e6e6e6] bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+                            >
+                              {DISTANCES.map((option) => (
+                                <li key={option}>
+                                  <button
+                                    type="button"
+                                    role="option"
+                                    aria-selected={option === afstand}
+                                    onClick={() => {
+                                      setAfstand(option);
+                                      setAfstandOpen(false);
+                                    }}
+                                    className="flex w-full items-center justify-between px-3 py-2 text-left text-[13px] text-[#222] hover:bg-[#f5f7fa]"
+                                  >
+                                    {option}
+                                    {option === afstand ? (
+                                      <Check
+                                        className="size-4 text-[#555]"
+                                        strokeWidth={2}
+                                      />
+                                    ) : null}
+                                  </button>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               ) : null}
@@ -365,6 +437,7 @@ export function KlusLijst({
                 setSorteerOpen((open) => !open);
                 setFiltersOpen(false);
                 setAfstandOpen(false);
+                setDienstOpen(false);
               }}
               className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
             >

@@ -42,18 +42,7 @@ function AndroidIcon() {
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-[#e6e6e6] bg-white text-[#555]">
-      <div className="flex justify-end px-10 py-5">
-        <div className="flex items-center gap-3">
-          <span className="text-[13px] text-[#222]">Mobile app</span>
-          <CircleIcon href="https://apps.apple.com/" label="App Store">
-            <AppleIcon />
-          </CircleIcon>
-          <CircleIcon href="https://play.google.com/store" label="Google Play">
-            <AndroidIcon />
-          </CircleIcon>
-        </div>
-      </div>
-      <div className="border-t border-[#e6e6e6] px-10 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-10 py-4">
         <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px]">
           <span>© 2026 Optisend</span>
           <Link href="/privacy" className="hover:text-[#1a1a1a] hover:underline">
@@ -66,6 +55,15 @@ export function SiteFooter() {
             Terms and Conditions
           </Link>
         </p>
+        <div className="flex items-center gap-3">
+          <span className="text-[13px] text-[#222]">Mobile app</span>
+          <CircleIcon href="https://apps.apple.com/" label="App Store">
+            <AppleIcon />
+          </CircleIcon>
+          <CircleIcon href="https://play.google.com/store" label="Google Play">
+            <AndroidIcon />
+          </CircleIcon>
+        </div>
       </div>
     </footer>
   );

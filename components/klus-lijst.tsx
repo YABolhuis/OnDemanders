@@ -2,9 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowUpDown, ChevronDown, Clock, Eye, Heart } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import { klussen, type Klus } from "@/lib/klussen";
+import { vakgebieden } from "@/lib/vakgebieden";
 
 const PER_PAGE_OPTIONS = [6, 8, 10] as const;
 
@@ -62,29 +64,42 @@ function postedTime(postedAt: string) {
   ).getTime();
 }
 
-export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
+export function KlusLijst({
+  items = klussen,
+  vakSlug,
+}: {
+  items?: Klus[];
+  vakSlug?: string;
+}) {
+  const router = useRouter();
   const [tab, setTab] = useState<TabId>("matches");
   const [sorteer, setSorteer] = useState<SorteerId>("relevantie");
   const [sorteerOpen, setSorteerOpen] = useState(false);
+  const [dienstenOpen, setDienstenOpen] = useState(false);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
   const [page, setPage] = useState(1);
   const sorteerRef = useRef<HTMLDivElement>(null);
+  const dienstenRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sorteerOpen) {
+    if (!sorteerOpen && !dienstenOpen) {
       return;
     }
 
     function onPointerDown(event: PointerEvent) {
-      if (!sorteerRef.current?.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (!sorteerRef.current?.contains(target)) {
         setSorteerOpen(false);
+      }
+      if (!dienstenRef.current?.contains(target)) {
+        setDienstenOpen(false);
       }
     }
 
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, [sorteerOpen]);
+  }, [sorteerOpen, dienstenOpen]);
 
   const gefilterd = useMemo(() => {
     let lijst: Klus[];
@@ -173,13 +188,54 @@ export function KlusLijst({ items = klussen }: { items?: Klus[] }) {
       </div>
 
       <div className="px-10 pt-4 pb-10">
-        <div className="mb-6 flex items-center justify-between gap-4">
-          <p className="text-[13px] text-[#555]">
+        <div className="mb-6 flex items-center gap-4">
+          <p className="min-w-[120px] text-[13px] text-[#555]">
             {gefilterd.length === 1
               ? "1 resultaat"
               : `${gefilterd.length} resultaten`}
           </p>
-          <div ref={sorteerRef} className="relative shrink-0">
+          <div className="flex flex-1 justify-center">
+            <div ref={dienstenRef} className="relative">
+              <button
+                type="button"
+                aria-expanded={dienstenOpen}
+                aria-haspopup="listbox"
+                onClick={() => setDienstenOpen((open) => !open)}
+                className="inline-flex h-9 items-center gap-2 rounded-full border border-[#d0d0d0] bg-white px-4 text-[13px] text-[#222] hover:border-[#1d5fd1]"
+              >
+                Diensten
+                <ChevronDown className="size-3.5 text-[#555]" strokeWidth={2} aria-hidden />
+              </button>
+              {dienstenOpen ? (
+                <ul
+                  role="listbox"
+                  className="absolute top-[calc(100%+4px)] left-1/2 z-20 min-w-[180px] -translate-x-1/2 rounded-md bg-white py-1 shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
+                >
+                  {vakgebieden.map((vak) => (
+                    <li key={vak.slug}>
+                      <button
+                        type="button"
+                        role="option"
+                        aria-selected={vakSlug === vak.slug}
+                        onClick={() => {
+                          setDienstenOpen(false);
+                          router.push(`/klussen/vak/${vak.slug}`);
+                        }}
+                        className={`flex h-9 w-full items-center px-3 text-left text-[13px] ${
+                          vakSlug === vak.slug
+                            ? "font-medium text-[#1d5fd1]"
+                            : "text-[#222] hover:bg-[#f5f5f5]"
+                        }`}
+                      >
+                        {vak.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </div>
+          <div ref={sorteerRef} className="relative flex min-w-[120px] shrink-0 justify-end">
             <button
               type="button"
               aria-expanded={sorteerOpen}

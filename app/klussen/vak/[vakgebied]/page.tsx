@@ -53,7 +53,7 @@ export default async function KlussenVakPage({
           ) : null}
         </FilterSidebar>
         <main className="min-w-0 flex-1 bg-[#f4f6f8]">
-          <KlusLijst items={items} />
+          <KlusLijst items={items} vakSlug={vak.slug} />
         </main>
       </div>
     </AppShell>

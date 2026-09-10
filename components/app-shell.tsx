@@ -13,14 +13,22 @@ export function AppShell({
   contentClassName?: string;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <AppHeader gebruiker={gebruiker} />
-      <div
-        className={`${SITE_WIDTH_CLASS} flex flex-1 flex-col ${contentClassName}`}
-      >
-        {children}
+    <div className="flex min-h-screen bg-[#fafafa]">
+      <aside
+        aria-hidden
+        className="hidden w-[240px] shrink-0 border-r border-[#d0d0d0] bg-[#fafafa] lg:block"
+      />
+      <div className={`${SITE_WIDTH_CLASS} flex min-w-0 flex-1 flex-col`}>
+        <AppHeader gebruiker={gebruiker} />
+        <div className={`flex flex-1 flex-col ${contentClassName}`}>
+          {children}
+        </div>
+        <SiteFooter />
       </div>
-      <SiteFooter />
+      <aside
+        aria-hidden
+        className="hidden w-[240px] shrink-0 border-l border-[#d0d0d0] bg-[#fafafa] lg:block"
+      />
     </div>
   );
 }

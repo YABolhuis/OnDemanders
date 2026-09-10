@@ -19,8 +19,8 @@ export function AppHeader({ gebruiker }: { gebruiker: string }) {
   const ongelezen = aantalOngelezenBerichten();
 
   return (
-    <header className="relative z-50 w-full bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
-      <div className="w-full border-b border-[#e6e6e6] bg-white">
+    <header className="relative z-50 w-full bg-white">
+      <div className="w-full border-b border-[#d0d0d0] bg-white">
         <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-4`}>
           <Link href="/klussen">
             <Image

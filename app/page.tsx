@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 import { LanguageMenu } from "@/components/language-menu";
 import { SiteFooter } from "@/components/site-footer";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
@@ -26,18 +26,20 @@ export default function Home() {
               className="theme-logo h-6 w-auto"
               priority
             />
-            <div className="ml-auto flex items-center gap-2">
-              <Button
-                nativeButton={false}
-                render={<Link href="/inloggen" />}
-                variant="outline"
-                className="h-7 border-[#d91222] bg-white px-3 text-[13px] font-normal text-[#d91222] hover:bg-[#d91222]/5 hover:text-[#d91222]"
+            <div className="ml-auto flex items-center gap-4">
+              <Link
+                href="/inloggen"
+                className="inline-flex items-center gap-1 border-b border-[#111] pb-px text-[14px] font-medium text-[#111] hover:opacity-70"
               >
                 Inloggen
-              </Button>
-              <Button className="h-7 border-0 bg-[#d91222] px-3 text-[13px] font-normal text-white hover:bg-[#c0101e]">
+                <ArrowUpRight className="size-3.5" strokeWidth={2} aria-hidden />
+              </Link>
+              <Link
+                href="/inloggen"
+                className="inline-flex h-9 items-center rounded-full bg-[#171717] px-4 text-[14px] font-medium text-white hover:bg-[#0a0a0a] [border-radius:999px]"
+              >
                 Account openen
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

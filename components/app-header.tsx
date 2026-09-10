@@ -14,13 +14,21 @@ const navItems = [
   { href: "/berichten", label: "Berichten" },
 ] as const;
 
-export function AppHeader({ gebruiker }: { gebruiker: string }) {
+export function AppHeader({
+  gebruiker,
+  showEdge = true,
+}: {
+  gebruiker: string;
+  showEdge?: boolean;
+}) {
   const pathname = usePathname();
   const ongelezen = aantalOngelezenBerichten();
 
   return (
     <header className="relative z-50 w-full bg-[#fbfbfb]">
-      <div className="w-full border-b border-[#d0d0d0] bg-[#fbfbfb]">
+      <div
+        className={`w-full bg-[#fbfbfb] ${showEdge ? "border-b border-[#d0d0d0]" : ""}`}
+      >
         <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-4`}>
           <Link href="/klussen">
             <Image

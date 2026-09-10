@@ -14,6 +14,7 @@ import {
   Search,
 } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
+import { FreelancerPlusBanner } from "@/components/freelancer-plus-banner";
 import { LocatieZoek } from "@/components/locatie-zoek";
 import { klussen, type Klus } from "@/lib/klussen";
 import { DISTANCES } from "@/components/distance-slider";

@@ -29,14 +29,14 @@ export default function Home() {
             <div className="ml-auto flex items-center gap-4">
               <Link
                 href="/inloggen"
-                className="inline-flex h-9 items-center gap-1 rounded-[3px] border border-[#111] bg-white px-3 text-[14px] font-medium text-[#111] hover:bg-[#f5f5f5]"
+                className="inline-flex items-center gap-1 border-b border-[#111] pb-px text-[14px] font-medium text-[#111] hover:opacity-70"
               >
                 Inloggen
                 <ArrowUpRight className="size-3.5" strokeWidth={2} aria-hidden />
               </Link>
               <Link
                 href="/inloggen"
-                className="inline-flex h-9 items-center rounded-full bg-[#171717] px-4 text-[14px] font-medium text-white hover:bg-[#0a0a0a] [border-radius:999px]"
+                className="inline-flex h-9 items-center rounded-[3px] bg-[#171717] px-4 text-[14px] font-medium text-white hover:bg-[#0a0a0a]"
               >
                 Account openen
               </Link>

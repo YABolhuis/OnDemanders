@@ -2,6 +2,9 @@ import type { ReactNode } from "react";
 import { AppHeader } from "@/components/app-header";
 import { SiteFooter } from "@/components/site-footer";
 
+const rail =
+  "hidden bg-[#fbfbfb] lg:block border-[#d0d0d0]";
+
 export function AppShell({
   gebruiker,
   children,
@@ -12,48 +15,20 @@ export function AppShell({
   contentClassName?: string;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-[#fbfbfb]">
-      <div className="flex border-b border-[#d0d0d0]">
-        <div
-          aria-hidden
-          className="hidden w-[240px] shrink-0 bg-[#fbfbfb] lg:block"
-        />
-        <div className="min-w-0 flex-1">
-          <AppHeader gebruiker={gebruiker} showEdge={false} />
-        </div>
-        <div
-          aria-hidden
-          className="hidden w-[240px] shrink-0 bg-[#fbfbfb] lg:block"
-        />
+    <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
+      <div aria-hidden className={`${rail} border-r border-b`} />
+      <AppHeader gebruiker={gebruiker} />
+      <div aria-hidden className={`${rail} border-l border-b`} />
+
+      <aside aria-hidden className={`${rail} border-r`} />
+      <div className={`flex min-w-0 flex-col ${contentClassName}`}>
+        {children}
       </div>
-      <div className="flex min-h-0 flex-1 items-stretch">
-        <aside
-          aria-hidden
-          className="hidden w-[240px] shrink-0 border-r border-[#d0d0d0] bg-[#fbfbfb] lg:block"
-        />
-        <div
-          className={`flex min-w-0 flex-1 flex-col ${contentClassName}`}
-        >
-          {children}
-        </div>
-        <aside
-          aria-hidden
-          className="hidden w-[240px] shrink-0 border-l border-[#d0d0d0] bg-[#fbfbfb] lg:block"
-        />
-      </div>
-      <div className="flex border-t border-[#d0d0d0]">
-        <div
-          aria-hidden
-          className="hidden w-[240px] shrink-0 bg-[#fbfbfb] lg:block"
-        />
-        <div className="min-w-0 flex-1">
-          <SiteFooter showEdge={false} />
-        </div>
-        <div
-          aria-hidden
-          className="hidden w-[240px] shrink-0 bg-[#fbfbfb] lg:block"
-        />
-      </div>
+      <aside aria-hidden className={`${rail} border-l`} />
+
+      <div aria-hidden className={`${rail} border-r border-t`} />
+      <SiteFooter />
+      <div aria-hidden className={`${rail} border-l border-t`} />
     </div>
   );
 }

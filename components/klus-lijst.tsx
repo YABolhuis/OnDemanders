@@ -92,6 +92,11 @@ export function KlusLijst({
   const [afstand, setAfstand] = useState<(typeof DISTANCES)[number]>(
     "Alle afstanden..."
   );
+  const [actieveLocatie, setActieveLocatie] = useState("");
+  const [actieveAfstand, setActieveAfstand] = useState<
+    (typeof DISTANCES)[number]
+  >("Alle afstanden...");
+  const [conceptDienst, setConceptDienst] = useState(vakSlug ?? "schilder");
   const [afstandOpen, setAfstandOpen] = useState(false);
   const [dienstOpen, setDienstOpen] = useState(false);
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -132,6 +137,15 @@ export function KlusLijst({
       lijst = [...items];
     }
 
+    const plaats = actieveLocatie.trim().toLowerCase();
+    if (plaats) {
+      const kern = plaats.split(",")[0]?.trim() ?? plaats;
+      lijst = lijst.filter((klus) => {
+        const stad = klus.city.toLowerCase();
+        return plaats.includes(stad) || stad.includes(kern);
+      });
+    }
+
     const term = zoek.trim().toLowerCase();
     if (term) {
       lijst = lijst.filter((klus) =>
@@ -157,7 +171,7 @@ export function KlusLijst({
       gesorteerd.sort((a, b) => b.views - a.views);
     }
     return gesorteerd;
-  }, [tab, favorites, items, sorteer, zoek]);
+  }, [tab, favorites, items, sorteer, zoek, actieveLocatie]);
 
   const pageCount = Math.max(1, Math.ceil(gefilterd.length / perPage));
   const currentPage = Math.min(page, pageCount);
@@ -235,7 +249,14 @@ export function KlusLijst({
                 aria-expanded={filtersOpen}
                 aria-haspopup="dialog"
                 onClick={() => {
-                  setFiltersOpen((open) => !open);
+                  setFiltersOpen((open) => {
+                    if (!open) {
+                      setLocatie(actieveLocatie);
+                      setAfstand(actieveAfstand);
+                      setConceptDienst(vakSlug ?? "schilder");
+                    }
+                    return !open;
+                  });
                   setSorteerOpen(false);
                   setAfstandOpen(false);
                   setDienstOpen(false);
@@ -271,7 +292,7 @@ export function KlusLijst({
                       }`}
                     >
                       <span className="min-w-0 truncate">
-                        {vakgebieden.find((vak) => vak.slug === vakSlug)
+                        {vakgebieden.find((vak) => vak.slug === conceptDienst)
                           ?.label ?? "Kies een dienst"}
                       </span>
                       {dienstOpen ? (
@@ -290,15 +311,15 @@ export function KlusLijst({
                             <button
                               type="button"
                               role="option"
-                              aria-selected={vakSlug === vak.slug}
+                              aria-selected={conceptDienst === vak.slug}
                               onClick={() => {
+                                setConceptDienst(vak.slug);
                                 setDienstOpen(false);
-                                router.push(`/klussen/vak/${vak.slug}`);
                               }}
                               className="flex w-full items-center justify-between px-3 py-2 text-left text-[13px] text-[#222] hover:bg-[#f5f7fa]"
                             >
                               {vak.label}
-                              {vakSlug === vak.slug ? (
+                              {conceptDienst === vak.slug ? (
                                 <Check
                                   className="size-4 text-[#555]"
                                   strokeWidth={2}
@@ -374,6 +395,41 @@ export function KlusLijst({
                         ))}
                       </ul>
                     ) : null}
+                  </div>
+                  <div className="mt-3 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setLocatie("");
+                        setAfstand("Alle afstanden...");
+                        setConceptDienst(vakSlug ?? "schilder");
+                        setActieveLocatie("");
+                        setActieveAfstand("Alle afstanden...");
+                        setAfstandOpen(false);
+                        setDienstOpen(false);
+                        setPage(1);
+                      }}
+                      className="h-9 flex-1 rounded-[3px] border border-[#d0d0d0] bg-white text-[13px] font-medium text-[#222] hover:border-[#1d5fd1]"
+                    >
+                      Wissen
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActieveLocatie(locatie);
+                        setActieveAfstand(afstand);
+                        setAfstandOpen(false);
+                        setDienstOpen(false);
+                        setFiltersOpen(false);
+                        setPage(1);
+                        if (conceptDienst !== vakSlug) {
+                          router.push(`/klussen/vak/${conceptDienst}`);
+                        }
+                      }}
+                      className="h-9 flex-1 rounded-[3px] bg-[#1d5fd1] text-[13px] font-medium text-white hover:bg-[#1853b8]"
+                    >
+                      Toepassen
+                    </button>
                   </div>
                 </div>
               ) : null}

@@ -5,17 +5,17 @@ import { SiteFooter } from "@/components/site-footer";
 export function AppShell({
   gebruiker,
   children,
-  contentClassName = "bg-white",
+  contentClassName = "bg-[#f4f6f8]",
 }: {
   gebruiker: string;
   children: ReactNode;
   contentClassName?: string;
 }) {
   return (
-    <div className="flex min-h-screen bg-[#fafafa]">
+    <div className="flex min-h-screen items-stretch bg-[#f4f6f8]">
       <aside
         aria-hidden
-        className="hidden min-h-screen w-[240px] shrink-0 border-r border-[#d0d0d0] bg-[#fafafa] lg:block"
+        className="hidden w-[240px] shrink-0 border-r border-[#d0d0d0] bg-[#f4f6f8] lg:block"
       />
       <div className="flex min-w-0 flex-1 flex-col">
         <AppHeader gebruiker={gebruiker} />
@@ -26,7 +26,7 @@ export function AppShell({
       </div>
       <aside
         aria-hidden
-        className="hidden min-h-screen w-[240px] shrink-0 border-l border-[#d0d0d0] bg-[#fafafa] lg:block"
+        className="hidden w-[240px] shrink-0 border-l border-[#d0d0d0] bg-[#f4f6f8] lg:block"
       />
     </div>
   );

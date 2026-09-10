@@ -14,7 +14,7 @@ import {
   Search,
 } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
-import { FreelancerPlusBanner } from "@/components/freelancer-plus-banner";
+import { LocatieZoek } from "@/components/locatie-zoek";
 import { klussen, type Klus } from "@/lib/klussen";
 import { DISTANCES } from "@/components/distance-slider";
 import { vakgebieden } from "@/lib/vakgebieden";
@@ -87,7 +87,7 @@ export function KlusLijst({
   const [sorteer, setSorteer] = useState<SorteerId>("relevantie");
   const [sorteerOpen, setSorteerOpen] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [postcode, setPostcode] = useState("");
+  const [locatie, setLocatie] = useState("");
   const [afstand, setAfstand] = useState<(typeof DISTANCES)[number]>(
     "Alle afstanden..."
   );
@@ -248,7 +248,7 @@ export function KlusLijst({
                 <div
                   role="dialog"
                   aria-label="Filters"
-                  className="absolute top-[calc(100%+4px)] left-0 z-30 w-[260px] rounded-md bg-white px-3 py-3 shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
+                  className="absolute top-[calc(100%+4px)] left-0 z-30 w-[280px] rounded-md bg-white px-3 py-3 shadow-[0_4px_16px_rgba(0,0,0,0.12)] ring-1 ring-black/10"
                 >
                   <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-[#9aa0a6]">
                     Dienst
@@ -312,15 +312,14 @@ export function KlusLijst({
                   <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-[#9aa0a6]">
                     Locatie
                   </p>
-                  <input
-                    type="text"
-                    value={postcode}
-                    onChange={(event) =>
-                      setPostcode(event.target.value.toUpperCase())
-                    }
-                    placeholder="Postcode"
-                    aria-label="Postcode"
-                    className="mb-2 h-9 w-full rounded-[3px] border border-[#d0d0d0] bg-white px-2 text-[13px] text-[#222] outline-none placeholder:text-[#9aa0a6] focus:border-[#1d5fd1]"
+                  <LocatieZoek
+                    value={locatie}
+                    onChange={setLocatie}
+                    onderdrukt={dienstOpen || afstandOpen}
+                    onTyp={() => {
+                      setDienstOpen(false);
+                      setAfstandOpen(false);
+                    }}
                   />
                   <div className="relative">
                     <button

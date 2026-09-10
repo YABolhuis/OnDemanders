@@ -25,8 +25,8 @@ export default async function KlussenVakPage({
   const items = klussenVoorVakgebied(vak.slug);
 
   return (
-    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#f4f6f8]">
-      <main className="min-w-0 flex-1 bg-[#f4f6f8]">
+    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#fbfbfb]">
+      <main className="min-w-0 flex-1 bg-[#fbfbfb]">
         <KlusLijst items={items} vakSlug={vak.slug} />
       </main>
     </AppShell>

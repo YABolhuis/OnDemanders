@@ -189,10 +189,10 @@ export function KlusLijst({
 
   return (
     <div>
-      <div className="bg-[#f4f6f8] px-10 pt-6">
+      <div className="bg-[#fbfbfb] px-10 pt-6">
         <FreelancerPlusBanner />
       </div>
-      <div className="relative bg-[#f4f6f8] px-10 pt-4">
+      <div className="relative bg-[#fbfbfb] px-10 pt-4">
         <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
           {tabs.map((item) => {
             const actief = item.id === tab;

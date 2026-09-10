@@ -18,7 +18,7 @@ import { FreelancerPlusBanner } from "@/components/freelancer-plus-banner";
 import { LocatieZoek } from "@/components/locatie-zoek";
 import { klussen, type Klus } from "@/lib/klussen";
 import { DISTANCES } from "@/components/distance-slider";
-import { leesVestigingsplaats } from "@/lib/bedrijf";
+import { vakgebieden } from "@/lib/vakgebieden";
 
 const PER_PAGE_OPTIONS = [6, 8, 10] as const;
 
@@ -103,16 +103,8 @@ export function KlusLijst({
   const [perPage, setPerPage] = useState<(typeof PER_PAGE_OPTIONS)[number]>(6);
   const [page, setPage] = useState(1);
   const [zoek, setZoek] = useState("");
-  const [standaardLocatie, setStandaardLocatie] = useState("");
   const sorteerRef = useRef<HTMLDivElement>(null);
   const filtersRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const plaats = leesVestigingsplaats();
-    setStandaardLocatie(plaats);
-    setLocatie(plaats);
-    setActieveLocatie(plaats);
-  }, []);
 
   useEffect(() => {
     if (!sorteerOpen && !filtersOpen) {
@@ -408,10 +400,10 @@ export function KlusLijst({
                     <button
                       type="button"
                       onClick={() => {
-                        setLocatie(standaardLocatie);
+                        setLocatie("");
                         setAfstand("Alle afstanden...");
                         setConceptDienst(vakSlug ?? "schilder");
-                        setActieveLocatie(standaardLocatie);
+                        setActieveLocatie("");
                         setActieveAfstand("Alle afstanden...");
                         setAfstandOpen(false);
                         setDienstOpen(false);

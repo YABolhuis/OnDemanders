@@ -1,11 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, FileText, Upload, X } from "lucide-react";
-import {
-  leesVestigingsplaats,
-  slaVestigingsplaatsOp,
-} from "@/lib/bedrijf";
 
 type Tab = "gegevens" | "facturatie" | "documenten";
 
@@ -119,19 +115,10 @@ export function BedrijfsgegevensPagina() {
 }
 
 function BedrijfsregistratieForm() {
-  const [vestigingsplaats, setVestigingsplaats] = useState("");
-
-  useEffect(() => {
-    setVestigingsplaats(leesVestigingsplaats());
-  }, []);
-
   return (
     <form
       className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16"
-      onSubmit={(event) => {
-        event.preventDefault();
-        slaVestigingsplaatsOp(vestigingsplaats);
-      }}
+      onSubmit={(event) => event.preventDefault()}
     >
       <div className="w-full shrink-0 lg:w-[250px]">
         <h2 className="text-[20px] font-bold">Bedrijfsregistratie</h2>
@@ -165,15 +152,7 @@ function BedrijfsregistratieForm() {
             className="md:max-w-[200px]"
           />
 
-          <label className="block text-[13px] text-[#c5ced4]">
-            Vestigingsplaats
-            <input
-              type="text"
-              value={vestigingsplaats}
-              onChange={(event) => setVestigingsplaats(event.target.value)}
-              className="mt-1.5 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
-            />
-          </label>
+          <Field label="Vestigingsplaats" defaultValue="Warffum" />
           <label className="block text-[13px] text-[#c5ced4]">
             Land
             <span className="relative mt-1.5 block">

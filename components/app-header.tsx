@@ -29,7 +29,7 @@ export function AppHeader({
       <div
         className={`w-full bg-[#fbfbfb] ${showEdge ? "border-b border-[#d0d0d0]" : ""}`}
       >
-        <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-4`}>
+        <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-10`}>
           <Link href="/klussen">
             <Image
               src="/optisend-logo.png"

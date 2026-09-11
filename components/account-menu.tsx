@@ -73,8 +73,14 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
             bolhuisyan@gmail.com
           </span>
         </span>
-        <span className="relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#fbfbfb]">
-          <User className="size-4 text-[#fbfbfb]" strokeWidth={2} aria-hidden />
+        <span className="relative inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
+          <User className="size-4 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+          <span
+            className={`absolute -top-0.5 -right-0.5 size-2.5 rounded-full ring-2 ring-[#fbfbfb] ${
+              online ? "bg-[#2d9b4f]" : "bg-[#e31c3d]"
+            }`}
+            aria-hidden
+          />
         </span>
         {open ? (
           <ChevronUp className="size-4 shrink-0 text-[#333]" strokeWidth={2} aria-hidden />

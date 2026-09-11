@@ -74,7 +74,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
           </span>
         </span>
         <span className="relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#fbfbfb]">
-          <User className="size-4 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
+          <User className="size-4 text-[#fbfbfb]" strokeWidth={2} aria-hidden />
         </span>
         {open ? (
           <ChevronUp className="size-4 shrink-0 text-[#333]" strokeWidth={2} aria-hidden />

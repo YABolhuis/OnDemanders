@@ -10,7 +10,7 @@ export default function Home() {
       header={
         <header className="relative z-50 w-full bg-[#fbfbfb]">
           <div className="w-full border-b border-[#d0d0d0] bg-[#fbfbfb]">
-            <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-4`}>
+            <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-10`}>
               <Link href="/">
                 <Image
                   src="/optisend-logo.png"

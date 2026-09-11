@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { LanguageMenu } from "@/components/language-menu";
 import { SiteChrome } from "@/components/site-chrome";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
 
@@ -23,7 +22,6 @@ export default function Home() {
                 />
               </Link>
               <div className="ml-auto flex items-center gap-4">
-                <LanguageMenu variant="compact" />
                 <Link
                   href="/inloggen"
                   className="inline-flex items-center gap-1 border-b border-[#111] pb-px text-[14px] font-medium text-[#111] hover:opacity-70"

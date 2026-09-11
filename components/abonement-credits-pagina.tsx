@@ -1,25 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { AccountSidebar } from "@/components/account-sidebar";
+import { PlanBlokken } from "@/components/plan-blokken";
 import { useCredits } from "@/components/credits-provider";
 import {
-  abonnementLabel,
   dealVoorPlan,
   leesAbonnement,
+  type AbonnementPlan,
 } from "@/lib/abonnement";
 
 export function AbonementCreditsPagina() {
   const { saldo } = useCredits();
-  const [planLabel, setPlanLabel] = useState("Starter");
+  const [plan, setPlan] = useState<AbonnementPlan>("starter");
   const [kostenLabel, setKostenLabel] = useState("Gratis");
   const [creditsBijPlan, setCreditsBijPlan] = useState("10 per maand");
 
   useEffect(() => {
-    const plan = leesAbonnement();
-    const deal = dealVoorPlan(plan);
-    setPlanLabel(abonnementLabel(plan));
+    const huidig = leesAbonnement();
+    const deal = dealVoorPlan(huidig);
+    setPlan(huidig);
     setKostenLabel(deal ? `€ ${deal.prijs} per maand` : "Gratis");
     setCreditsBijPlan(
       deal ? `€ ${deal.tegoed} tegoed per maand` : "10 per maand"
@@ -40,13 +40,7 @@ export function AbonementCreditsPagina() {
 
           <section className="py-8">
             <h2 className="text-[16px] font-semibold">Huidig abonnement</h2>
-            <p className="mt-2 text-[15px] text-[#d5dde2]">{planLabel}</p>
-            <Link
-              href="/abonement"
-              className="mt-4 inline-flex h-9 items-center border border-white/30 px-4 text-[14px] font-medium text-[#8fd14f] hover:bg-white/5"
-            >
-              Bekijk of wijzig abonnement
-            </Link>
+            <PlanBlokken plan={plan} />
           </section>
 
           <hr className="border-0 border-t border-white/15" />

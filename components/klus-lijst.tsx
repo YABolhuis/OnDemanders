@@ -511,7 +511,7 @@ export function KlusLijst({
               return (
                 <article
                   key={klus.id}
-                  className="relative rounded-[3px] bg-white px-5 py-5 pr-14 shadow-[0_4px_18px_rgba(0,0,0,0.10),0_1px_3px_rgba(0,0,0,0.06)]"
+                  className="relative rounded-xl border border-[#e5e7eb] bg-white px-5 py-5 pr-14"
                 >
                   <button
                     type="button"

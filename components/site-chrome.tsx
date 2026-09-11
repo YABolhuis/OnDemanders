@@ -20,8 +20,13 @@ export function SiteChrome({
       {header}
       <div aria-hidden className={`${rail} border-l border-b`} />
 
-      <aside className={`${rail} border-r`}>{leftRail}</aside>
-      <div className={`flex min-w-0 flex-col ${contentClassName}`}>
+      <aside aria-hidden className={`${rail} border-r`} />
+      <div className={`relative flex min-w-0 flex-col ${contentClassName}`}>
+        {leftRail ? (
+          <div className="absolute top-0 -left-[240px] z-10 hidden w-[240px] lg:block">
+            {leftRail}
+          </div>
+        ) : null}
         {leftRail ? (
           <div className="border-b border-[#e6e6e6] lg:hidden">{leftRail}</div>
         ) : null}

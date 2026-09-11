@@ -15,16 +15,12 @@ export function SiteChrome({
   leftRail?: ReactNode;
 }) {
   return (
-    <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_240px] lg:grid-rows-[auto_auto_auto]">
+    <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
       <div aria-hidden className={`${rail} border-r border-b`} />
       {header}
       <div aria-hidden className={`${rail} border-l border-b`} />
 
-      {leftRail ? (
-        <aside className={`${rail} self-start border-r`}>{leftRail}</aside>
-      ) : (
-        <aside aria-hidden className={`${rail} border-r`} />
-      )}
+      <aside className={`${rail} border-r`}>{leftRail}</aside>
       <div className={`flex min-w-0 flex-col ${contentClassName}`}>
         {leftRail ? (
           <div className="border-b border-[#e6e6e6] lg:hidden">{leftRail}</div>

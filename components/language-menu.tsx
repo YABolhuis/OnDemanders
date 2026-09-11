@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Globe } from "lucide-react";
 
 function FlagNl({ className }: { className?: string }) {
   return (
@@ -92,14 +92,23 @@ export function LanguageMenu({
         aria-label="Taal kiezen"
         className={
           compact
-            ? "flex h-8 cursor-pointer list-none items-center gap-1 rounded-[3px] bg-[#eceff1] px-2 outline-none hover:bg-[#e4e7ea] [&::-webkit-details-marker]:hidden"
+            ? "flex h-8 cursor-pointer list-none items-center gap-1 rounded-[3px] bg-[#eceff1] px-2 text-[#1a1a1a] outline-none hover:bg-[#e4e7ea] [&::-webkit-details-marker]:hidden"
             : "flex h-7 cursor-pointer list-none items-center gap-2 text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden"
         }
       >
-        <RectFlag>
-          <FlagNl className="size-full" />
-        </RectFlag>
-        {compact ? null : <span>Nederlands</span>}
+        {compact ? (
+          <>
+            <Globe className="size-4 text-[#1a1a1a]" strokeWidth={2} aria-hidden />
+            <span className="text-[13px] font-medium">EN</span>
+          </>
+        ) : (
+          <>
+            <RectFlag>
+              <FlagNl className="size-full" />
+            </RectFlag>
+            <span>Nederlands</span>
+          </>
+        )}
         <ChevronDown
           className={compact ? "size-3.5 text-[#1a1a1a]" : "size-3.5 text-white"}
           strokeWidth={2}

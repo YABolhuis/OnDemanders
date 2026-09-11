@@ -72,10 +72,11 @@ export function AppHeader({
             })}
           </nav>
           <div className="ml-auto flex items-center gap-2">
+            <LanguageMenu variant="compact" />
             <button
               type="button"
               aria-label="Meldingen"
-              className="flex size-8 items-center justify-center rounded-[3px] bg-[#fbfbfb] text-[#1a1a1a] hover:bg-[#f0f0f0]"
+              className="flex size-8 items-center justify-center rounded-[3px] bg-[#eceff1] text-[#1a1a1a] hover:bg-[#e4e7ea]"
             >
               <Bell className="size-4" strokeWidth={2} aria-hidden />
             </button>

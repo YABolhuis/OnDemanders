@@ -21,9 +21,7 @@ export function SiteChrome({
       <div aria-hidden className={`${rail} border-l border-b`} />
 
       {leftRail ? (
-        <aside className={`${rail} border-r`}>
-          <div className="sticky top-14">{leftRail}</div>
-        </aside>
+        <aside className={`${rail} border-r`}>{leftRail}</aside>
       ) : (
         <aside aria-hidden className={`${rail} border-r`} />
       )}

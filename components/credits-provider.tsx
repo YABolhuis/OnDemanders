@@ -17,6 +17,7 @@ const START_SALDO = 25;
 type CreditsContextValue = {
   saldo: number;
   spendCredits: (aantal: number) => boolean;
+  addCredits: (aantal: number) => void;
   isChatUnlocked: (klusId: string) => boolean;
   unlockChat: (klusId: string) => void;
 };
@@ -62,6 +63,25 @@ export function CreditsProvider({ children }: { children: ReactNode }) {
     setUnlocked(readUnlocked());
   }, []);
 
+  const writeSaldo = useCallback((next: number) => {
+    setSaldo(next);
+    try {
+      localStorage.setItem(SALDO_KEY, String(next));
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const addCredits = useCallback(
+    (aantal: number) => {
+      if (aantal <= 0) {
+        return;
+      }
+      writeSaldo(saldo + aantal);
+    },
+    [saldo, writeSaldo]
+  );
+
   const spendCredits = useCallback(
     (aantal: number) => {
       if (aantal <= 0) {
@@ -70,16 +90,10 @@ export function CreditsProvider({ children }: { children: ReactNode }) {
       if (saldo < aantal) {
         return false;
       }
-      const next = saldo - aantal;
-      setSaldo(next);
-      try {
-        localStorage.setItem(SALDO_KEY, String(next));
-      } catch {
-        /* ignore */
-      }
+      writeSaldo(saldo - aantal);
       return true;
     },
-    [saldo]
+    [saldo, writeSaldo]
   );
 
   const isChatUnlocked = useCallback(
@@ -103,8 +117,8 @@ export function CreditsProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({ saldo, spendCredits, isChatUnlocked, unlockChat }),
-    [saldo, spendCredits, isChatUnlocked, unlockChat]
+    () => ({ saldo, spendCredits, addCredits, isChatUnlocked, unlockChat }),
+    [saldo, spendCredits, addCredits, isChatUnlocked, unlockChat]
   );
 
   return (

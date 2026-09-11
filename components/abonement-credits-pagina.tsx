@@ -4,14 +4,26 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AccountSidebar } from "@/components/account-sidebar";
 import { useCredits } from "@/components/credits-provider";
-import { leesAbonnement } from "@/lib/abonnement";
+import {
+  abonnementLabel,
+  dealVoorPlan,
+  leesAbonnement,
+} from "@/lib/abonnement";
 
 export function AbonementCreditsPagina() {
   const { saldo } = useCredits();
   const [planLabel, setPlanLabel] = useState("Starter");
+  const [kostenLabel, setKostenLabel] = useState("Gratis");
+  const [creditsBijPlan, setCreditsBijPlan] = useState("10 per maand");
 
   useEffect(() => {
-    setPlanLabel(leesAbonnement() === "plus" ? "Freelancer Plus" : "Starter");
+    const plan = leesAbonnement();
+    const deal = dealVoorPlan(plan);
+    setPlanLabel(abonnementLabel(plan));
+    setKostenLabel(deal ? `€ ${deal.prijs} per maand` : "Gratis");
+    setCreditsBijPlan(
+      deal ? `€ ${deal.tegoed} tegoed per maand` : "10 per maand"
+    );
   }, []);
   return (
     <div className="flex min-h-[calc(100vh-57px)] bg-[#24333d] text-white">
@@ -63,7 +75,7 @@ export function AbonementCreditsPagina() {
 
           <section className="py-8">
             <h2 className="text-[16px] font-semibold">Credits bij abonnement</h2>
-            <p className="mt-2 text-[15px] text-[#d5dde2]">10 per maand</p>
+            <p className="mt-2 text-[15px] text-[#d5dde2]">{creditsBijPlan}</p>
             <p className="mt-3 max-w-xl text-[13px] leading-5 text-[#9aa8b0]">
               Ongebruikte credits aan het einde van je factuurperiode gaan mee
               naar de volgende maand (tot 200).{" "}
@@ -80,7 +92,7 @@ export function AbonementCreditsPagina() {
 
           <section className="py-8">
             <h2 className="text-[16px] font-semibold">Abonnementskosten</h2>
-            <p className="mt-2 text-[15px] text-[#d5dde2]">Gratis</p>
+            <p className="mt-2 text-[15px] text-[#d5dde2]">{kostenLabel}</p>
           </section>
         </div>
       </div>

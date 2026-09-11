@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Tag, X } from "lucide-react";
-import { leesAbonnement } from "@/lib/abonnement";
+import { heeftFreelancerPlus, leesAbonnement } from "@/lib/abonnement";
 
 const DISMISS_KEY = "optisend-plus-banner-dismissed";
 
@@ -18,7 +18,7 @@ export function FreelancerPlusBanner() {
     } catch {
       /* ignore */
     }
-    if (leesAbonnement() === "plus") {
+    if (heeftFreelancerPlus(leesAbonnement())) {
       return;
     }
     setZichtbaar(true);

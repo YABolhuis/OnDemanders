@@ -22,35 +22,35 @@ export function MijnProfielPagina() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] bg-[#24333d] text-white">
+    <div className="flex min-h-[calc(100vh-57px)] bg-[#fbfbfb] text-[#1a1a1a]">
       <AccountSidebar />
       <div className="min-w-0 flex-1 px-8 py-10">
         <div className="mx-auto max-w-5xl">
           <h1 className="text-[32px] font-bold">Mijn profiel</h1>
-          <p className="mt-1 text-[15px] text-[#c5ced4]">
+          <p className="mt-1 text-[15px] text-[#555]">
             Vul hier het bedrijfsprofiel in dat opdrachtgevers van je zien.
           </p>
 
-          <div className="mt-8 flex gap-8 border-b border-white/15">
-            <span className="border-b-2 border-[#8fd14f] pb-3 text-[15px] font-medium text-[#8fd14f]">
+          <div className="mt-8 flex gap-8 border-b border-[#e6e6e6]">
+            <span className="border-b-2 border-[#1a1a1a] pb-3 text-[15px] font-medium text-[#1a1a1a]">
               Bedrijfsprofiel
             </span>
           </div>
 
           <form className="mt-8" onSubmit={(event) => event.preventDefault()}>
             <h2 className="text-[20px] font-bold">Bedrijfsprofiel</h2>
-            <p className="mt-1 text-[13px] text-[#c5ced4]">
+            <p className="mt-1 text-[13px] text-[#555]">
               Deze gegevens worden getoond op je publieke bedrijfsprofiel op het
               platform.
             </p>
 
             <div className="mt-6">
-              <div className="flex size-[88px] items-center justify-center overflow-hidden rounded-lg bg-[#3a4a54]">
+              <div className="flex size-[88px] items-center justify-center overflow-hidden rounded-lg bg-[#eceff1]">
                 {logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={logo} alt="" className="size-full object-cover" />
                 ) : (
-                  <Building2 className="size-8 text-white" strokeWidth={1.75} />
+                  <Building2 className="size-8 text-[#6a6a6a]" strokeWidth={1.75} />
                 )}
               </div>
               <input
@@ -63,11 +63,11 @@ export function MijnProfielPagina() {
               <button
                 type="button"
                 onClick={() => fileRef.current?.click()}
-                className="mt-3 rounded-md border border-white/35 px-4 py-2 text-[14px] hover:bg-white/10"
+                className="mt-3 rounded-md border border-[#d0d0d0] px-4 py-2 text-[14px] hover:bg-[#eceff1]"
               >
                 Upload bedrijfslogo
               </button>
-              <p className="mt-2 text-[12px] text-[#9aa8b0]">
+              <p className="mt-2 text-[12px] text-[#6b6b6b]">
                 Het logo mag max. 5MB groot zijn.
               </p>
             </div>
@@ -89,12 +89,12 @@ export function MijnProfielPagina() {
                 defaultValue="yabolhuis.optisend@gmail.com"
                 type="email"
               />
-              <label className="block text-[13px] text-[#c5ced4] md:col-span-2">
+              <label className="block text-[13px] text-[#555] md:col-span-2">
                 Over het bedrijf
                 <textarea
                   rows={5}
                   defaultValue="Optisend is een vakbedrijf voor schilderwerk, stucwerk en afbouw. We werken voor particulieren en bedrijven in de regio."
-                  className="mt-1.5 w-full rounded-md border border-white/25 bg-[#1b2730] px-3 py-2.5 text-[14px] text-white outline-none placeholder:text-[#8b98a0] focus:border-[#8fd14f]"
+                  className="mt-1.5 w-full rounded-md border border-[#e5e7eb] bg-white px-3 py-2.5 text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6] focus:border-[#1a1a1a]"
                 />
               </label>
             </div>
@@ -124,13 +124,13 @@ function Field({
   type?: string;
 }) {
   return (
-    <label className="block text-[13px] text-[#c5ced4]">
+    <label className="block text-[13px] text-[#555]">
       {label}
       <input
         type={type}
         defaultValue={defaultValue}
         placeholder={placeholder}
-        className="mt-1.5 h-11 w-full rounded-md border border-white/25 bg-[#1b2730] px-3 text-[14px] text-white outline-none placeholder:text-[#8b98a0] focus:border-[#8fd14f]"
+        className="mt-1.5 h-11 w-full rounded-md border border-[#e5e7eb] bg-white px-3 text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6] focus:border-[#1a1a1a]"
       />
     </label>
   );

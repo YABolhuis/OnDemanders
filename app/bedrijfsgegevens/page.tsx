@@ -3,7 +3,7 @@ import { BedrijfsgegevensPagina } from "@/components/bedrijfsgegevens-pagina";
 
 export default function BedrijfsgegevensPage() {
   return (
-    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#24333d]">
+    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#fbfbfb]">
       <BedrijfsgegevensPagina />
     </AppShell>
   );

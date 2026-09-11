@@ -26,23 +26,23 @@ export function ProfielInstellingen() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] bg-[#24333d] text-white">
+    <div className="flex min-h-[calc(100vh-57px)] bg-[#fbfbfb] text-[#1a1a1a]">
       <AccountSidebar />
       <div className="min-w-0 flex-1 px-8 py-10">
         <div className="mx-auto max-w-5xl">
           <h1 className="text-[32px] font-bold">Mijn account</h1>
-          <p className="mt-1 text-[15px] text-[#c5ced4]">
+          <p className="mt-1 text-[15px] text-[#555]">
             Bekijk en bewerk je gegevens.
           </p>
 
-          <div className="mt-8 flex gap-8 border-b border-white/15">
+          <div className="mt-8 flex gap-8 border-b border-[#e6e6e6]">
             <button
               type="button"
               onClick={() => setTab("persoonlijk")}
               className={`pb-3 text-[15px] ${
                 tab === "persoonlijk"
-                  ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
-                  : "text-[#d5dde2]"
+                  ? "border-b-2 border-[#1a1a1a] font-medium text-[#1a1a1a]"
+                  : "text-[#555]"
               }`}
             >
               Persoonlijk
@@ -52,8 +52,8 @@ export function ProfielInstellingen() {
               onClick={() => setTab("account")}
               className={`pb-3 text-[15px] ${
                 tab === "account"
-                  ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
-                  : "text-[#d5dde2]"
+                  ? "border-b-2 border-[#1a1a1a] font-medium text-[#1a1a1a]"
+                  : "text-[#555]"
               }`}
             >
               Accountinstellingen
@@ -63,18 +63,18 @@ export function ProfielInstellingen() {
           {tab === "persoonlijk" ? (
             <form className="mt-8" onSubmit={(event) => event.preventDefault()}>
               <h2 className="text-[20px] font-bold">Persoonsgegevens</h2>
-              <p className="mt-1 text-[13px] text-[#c5ced4]">
+              <p className="mt-1 text-[13px] text-[#555]">
                 Deze gegevens kunnen worden getoond aan andere gebruikers op het
                 platform.
               </p>
 
               <div className="mt-6">
-                <div className="flex size-[88px] items-center justify-center overflow-hidden rounded-lg bg-[#3a4a54]">
+                <div className="flex size-[88px] items-center justify-center overflow-hidden rounded-lg bg-[#eceff1]">
                   {photo ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={photo} alt="" className="size-full object-cover" />
                   ) : (
-                    <Camera className="size-8 text-white" strokeWidth={1.75} />
+                    <Camera className="size-8 text-[#6a6a6a]" strokeWidth={1.75} />
                   )}
                 </div>
                 <input
@@ -87,11 +87,11 @@ export function ProfielInstellingen() {
                 <button
                   type="button"
                   onClick={() => fileRef.current?.click()}
-                  className="mt-3 rounded-md border border-white/35 px-4 py-2 text-[14px] hover:bg-white/10"
+                  className="mt-3 rounded-md border border-[#d0d0d0] px-4 py-2 text-[14px] hover:bg-[#eceff1]"
                 >
                   Upload profielfoto
                 </button>
-                <p className="mt-2 text-[12px] text-[#9aa8b0]">
+                <p className="mt-2 text-[12px] text-[#6b6b6b]">
                   De profielfoto mag max. 5MB groot zijn.
                 </p>
               </div>
@@ -117,16 +117,16 @@ export function ProfielInstellingen() {
                   defaultValue="0649648516"
                   type="tel"
                 />
-                <label className="block text-[13px] text-[#c5ced4]">
+                <label className="block text-[13px] text-[#555]">
                   Geboortedatum (optioneel)
                   <span className="relative mt-1.5 block">
                     <input
                       type="text"
                       defaultValue="22-08-1997"
-                      className="h-11 w-full rounded-md border border-white/25 bg-[#1b2730] px-3 pr-10 text-[14px] text-white outline-none focus:border-[#8fd14f]"
+                      className="h-11 w-full rounded-md border border-[#e5e7eb] bg-white px-3 pr-10 text-[14px] text-[#1a1a1a] outline-none focus:border-[#1a1a1a]"
                     />
                     <Calendar
-                      className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-white/70"
+                      className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-[#6b6b6b]"
                       strokeWidth={2}
                     />
                   </span>
@@ -155,34 +155,34 @@ export function ProfielInstellingen() {
                 </h2>
                 <div className="min-w-0 w-full max-w-[480px] flex-1">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <label className="block text-[14px] text-white">
+                    <label className="block text-[14px] text-[#1a1a1a]">
                       Huidig wachtwoord
                       <input
                         type="password"
                         placeholder="Vul hier je huidige wachtwoord in"
-                        className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                        className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#e5e7eb] bg-white px-4 text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6] focus:border-[#1a1a1a]"
                       />
                     </label>
                     <div className="hidden md:block" />
-                    <label className="block text-[14px] text-white">
+                    <label className="block text-[14px] text-[#1a1a1a]">
                       Nieuw wachtwoord
                       <input
                         type="password"
                         placeholder="Vul hier je nieuwe wachtwoord in"
-                        className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                        className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#e5e7eb] bg-white px-4 text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6] focus:border-[#1a1a1a]"
                       />
-                      <span className="mt-2 block text-[12px] leading-5 text-[#b7c3ca]">
+                      <span className="mt-2 block text-[12px] leading-5 text-[#6b6b6b]">
                         Minimaal 8 karakters, een combinatie van hoofdletters en
                         kleine letters, minimaal één cijfer en één speciaal
                         karakter.
                       </span>
                     </label>
-                    <label className="block text-[14px] text-white">
+                    <label className="block text-[14px] text-[#1a1a1a]">
                       Herhaal nieuw wachtwoord
                       <input
                         type="password"
                         placeholder="Herhaal hier je nieuwe wachtwoord"
-                        className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f]"
+                        className="mt-2 h-12 w-full max-w-[220px] rounded-lg border border-[#e5e7eb] bg-white px-4 text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6] focus:border-[#1a1a1a]"
                       />
                     </label>
                   </div>
@@ -236,16 +236,16 @@ function NotificatieSectie({
   );
 
   return (
-    <section className="flex flex-col gap-6 border-t border-white/10 pt-12 lg:flex-row lg:items-start lg:gap-16">
+    <section className="flex flex-col gap-6 border-t border-[#e6e6e6] pt-12 lg:flex-row lg:items-start lg:gap-16">
       <div className="w-full shrink-0 lg:w-[250px]">
         <h2 className="text-[16px] font-semibold">{titel}</h2>
-        <p className="mt-2 text-[13px] leading-5 text-[#c5ced4]">{beschrijving}</p>
+        <p className="mt-2 text-[13px] leading-5 text-[#555]">{beschrijving}</p>
       </div>
       <div className="flex min-w-0 w-full max-w-[480px] flex-1 flex-col gap-2">
         {items.map((item) => (
           <label
             key={item.id}
-            className="flex h-8 cursor-pointer items-center gap-2.5 rounded-[var(--radius-control)] bg-[#1b2730] pr-4 pl-2"
+            className="flex h-8 cursor-pointer items-center gap-2.5 rounded-[var(--radius-control)] bg-[#eceff1] pr-4 pl-2"
           >
             <Switch
               checked={aan[item.id]}
@@ -255,7 +255,7 @@ function NotificatieSectie({
               className="data-checked:bg-[#2bbbad] data-unchecked:bg-[#5d6e78]"
               aria-label={item.label}
             />
-            <span className="text-[13px] leading-none text-white">
+            <span className="text-[13px] leading-none text-[#1a1a1a]">
               {item.label}
             </span>
           </label>
@@ -277,13 +277,13 @@ function Field({
   type?: string;
 }) {
   return (
-    <label className="block text-[13px] text-[#c5ced4]">
+    <label className="block text-[13px] text-[#555]">
       {label}
       <input
         type={type}
         defaultValue={defaultValue}
         placeholder={placeholder}
-        className="mt-1.5 h-11 w-full rounded-md border border-white/25 bg-[#1b2730] px-3 text-[14px] text-white outline-none placeholder:text-[#8b98a0] focus:border-[#8fd14f]"
+        className="mt-1.5 h-11 w-full rounded-md border border-[#e5e7eb] bg-white px-3 text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6] focus:border-[#1a1a1a]"
       />
     </label>
   );

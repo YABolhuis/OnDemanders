@@ -47,13 +47,13 @@ export function BedrijfsgegevensPagina() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] bg-[#24333d] text-white">
-      <aside className="min-h-[calc(100vh-57px)] w-[280px] shrink-0 border-r border-white/10 bg-[#1b2730] px-4 py-6">
-        <p className="mb-4 px-2 text-[13px] font-semibold text-[#9aa8b0]">
+    <div className="flex min-h-[calc(100vh-57px)] bg-[#fbfbfb] text-[#1a1a1a]">
+      <aside className="min-h-[calc(100vh-57px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-6">
+        <p className="mb-4 px-2 text-[13px] font-semibold text-[#6b6b6b]">
           Menu
         </p>
         <nav className="flex flex-col gap-1">
-          <span className="rounded-md bg-white/10 px-3 py-2 text-left text-[14px] font-medium text-[#8fd14f]">
+          <span className="rounded-md bg-[#eceff1] px-3 py-2 text-left text-[14px] font-medium text-[#1a1a1a]">
             Bedrijfsgegevens
           </span>
         </nav>
@@ -61,11 +61,11 @@ export function BedrijfsgegevensPagina() {
       <div className="min-w-0 flex-1 px-8 py-10">
         <div className="mx-auto max-w-5xl">
           <h1 className="text-[32px] font-bold">Bedrijfsgegevens</h1>
-          <p className="mt-1 text-[15px] text-[#c5ced4]">
+          <p className="mt-1 text-[15px] text-[#555]">
             Deze gegevens worden gebruikt op je profiel en op facturen.
           </p>
 
-          <div className="mt-8 flex gap-8 border-b border-white/15">
+          <div className="mt-8 flex gap-8 border-b border-[#e6e6e6]">
             {tabs.map((item) => (
               <button
                 key={item.id}
@@ -73,8 +73,8 @@ export function BedrijfsgegevensPagina() {
                 onClick={() => setTab(item.id)}
                 className={`pb-3 text-[15px] ${
                   tab === item.id
-                    ? "border-b-2 border-[#8fd14f] font-medium text-[#8fd14f]"
-                    : "text-[#d5dde2]"
+                    ? "border-b-2 border-[#1a1a1a] font-medium text-[#1a1a1a]"
+                    : "text-[#555]"
                 }`}
               >
                 {item.label}
@@ -90,7 +90,7 @@ export function BedrijfsgegevensPagina() {
             <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">
               <div className="w-full shrink-0 lg:w-[250px]">
                 <h2 className="text-[20px] font-bold">Documenten</h2>
-                <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
+                <p className="mt-3 text-[13px] leading-5 text-[#555]">
                   Lever hier een recent KvK-uittreksel en een verklaring
                   betalingsgedrag aan. Zonder deze stukken kunnen we je bedrijf
                   niet volledig verifiëren.
@@ -122,7 +122,7 @@ function BedrijfsregistratieForm() {
     >
       <div className="w-full shrink-0 lg:w-[250px]">
         <h2 className="text-[20px] font-bold">Bedrijfsregistratie</h2>
-        <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
+        <p className="mt-3 text-[13px] leading-5 text-[#555]">
           Je bedrijf staat bij ons geregistreerd met deze gegevens. Is er iets
           gewijzigd? Geef het hier aan ons door.
         </p>
@@ -131,7 +131,7 @@ function BedrijfsregistratieForm() {
       <div className="min-w-0 w-full flex-1">
         <div className="grid grid-cols-1 items-end gap-x-8 gap-y-6 md:grid-cols-2">
           <Field label="KvK-nummer" defaultValue="12345678" readOnly />
-          <p className="pb-2 text-[13px] leading-5 text-[#c5ced4]">
+          <p className="pb-2 text-[13px] leading-5 text-[#555]">
             KvK-nummer wijzigen?{" "}
             <a
               href="mailto:yabolhuis.optisend@gmail.com"
@@ -153,19 +153,19 @@ function BedrijfsregistratieForm() {
           />
 
           <Field label="Vestigingsplaats" defaultValue="Warffum" />
-          <label className="block text-[13px] text-[#c5ced4]">
+          <label className="block text-[13px] text-[#555]">
             Land
             <span className="relative mt-1.5 block">
               <select
                 defaultValue="Nederland"
-                className="h-12 w-full appearance-none rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 pr-10 text-[14px] text-white outline-none focus:border-[#8fd14f]"
+                className="h-12 w-full appearance-none rounded-lg border border-[#e5e7eb] bg-white px-4 pr-10 text-[14px] text-[#1a1a1a] outline-none focus:border-[#1a1a1a]"
               >
                 <option>Nederland</option>
                 <option>België</option>
                 <option>Duitsland</option>
               </select>
               <ChevronDown
-                className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-white/70"
+                className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-[#6b6b6b]"
                 strokeWidth={2}
                 aria-hidden
               />
@@ -197,7 +197,7 @@ function FacturatieForm() {
     >
       <div className="w-full shrink-0 lg:w-[250px]">
         <h2 className="text-[20px] font-bold">Facturatiegegevens</h2>
-        <p className="mt-3 text-[13px] leading-5 text-[#c5ced4]">
+        <p className="mt-3 text-[13px] leading-5 text-[#555]">
           Deze gegevens gebruiken we voor facturen en uitbetalingen. Controleer
           of IBAN en factuuradres kloppen.
         </p>
@@ -210,19 +210,19 @@ function FacturatieForm() {
             defaultValue="yabolhuis.optisend@gmail.com"
             type="email"
           />
-          <label className="block text-[13px] text-[#c5ced4]">
+          <label className="block text-[13px] text-[#555]">
             Betalingstermijn
             <span className="relative mt-1.5 block">
               <select
                 defaultValue="14 dagen"
-                className="h-12 w-full appearance-none rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 pr-10 text-[14px] text-white outline-none focus:border-[#8fd14f]"
+                className="h-12 w-full appearance-none rounded-lg border border-[#e5e7eb] bg-white px-4 pr-10 text-[14px] text-[#1a1a1a] outline-none focus:border-[#1a1a1a]"
               >
                 <option>14 dagen</option>
                 <option>30 dagen</option>
                 <option>60 dagen</option>
               </select>
               <ChevronDown
-                className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-white/70"
+                className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-[#6b6b6b]"
                 strokeWidth={2}
                 aria-hidden
               />
@@ -267,9 +267,9 @@ function DocumentUpload({
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-5 py-4">
+    <div className="rounded-lg border border-[#e5e7eb] bg-white px-5 py-4">
       <h3 className="text-[15px] font-semibold">{item.titel}</h3>
-      <p className="mt-1 text-[13px] leading-5 text-[#c5ced4]">
+      <p className="mt-1 text-[13px] leading-5 text-[#555]">
         {item.beschrijving}
       </p>
       <input
@@ -283,7 +283,7 @@ function DocumentUpload({
         }}
       />
       {bestand ? (
-        <div className="mt-4 flex items-center justify-between gap-3 rounded-md bg-[#24333d] px-3 py-2">
+        <div className="mt-4 flex items-center justify-between gap-3 rounded-md bg-[#f5f5f5] px-3 py-2">
           <span className="flex min-w-0 items-center gap-2 text-[13px]">
             <FileText className="size-4 shrink-0 text-[#8fd14f]" strokeWidth={2} />
             <span className="truncate">{bestand.name}</span>
@@ -292,18 +292,18 @@ function DocumentUpload({
             type="button"
             aria-label={`${item.titel} verwijderen`}
             onClick={() => onBestand(null)}
-            className="shrink-0 text-[#c5ced4] hover:text-white"
+            className="shrink-0 text-[#555] hover:text-[#1a1a1a]"
           >
             <X className="size-4" strokeWidth={2} />
           </button>
         </div>
       ) : (
-        <p className="mt-3 text-[13px] text-[#9aa8b0]">Nog geen bestand gekozen.</p>
+        <p className="mt-3 text-[13px] text-[#6b6b6b]">Nog geen bestand gekozen.</p>
       )}
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="mt-4 inline-flex items-center gap-2 rounded-md border border-white/35 px-4 py-2 text-[14px] hover:bg-white/10"
+        className="mt-4 inline-flex items-center gap-2 rounded-md border border-[#d0d0d0] px-4 py-2 text-[14px] hover:bg-[#eceff1]"
       >
         <Upload className="size-4" strokeWidth={2} />
         {bestand ? "Ander bestand kiezen" : "Bestand uploaden"}
@@ -328,14 +328,14 @@ function Field({
   className?: string;
 }) {
   return (
-    <label className={`block text-[13px] text-[#c5ced4] ${className}`}>
+    <label className={`block text-[13px] text-[#555] ${className}`}>
       {label}
       <input
         type={type}
         defaultValue={defaultValue}
         placeholder={placeholder}
         readOnly={readOnly}
-        className="mt-1.5 h-12 w-full rounded-lg border border-[#7f96a6] bg-[#1e2c35] px-4 text-[14px] text-white outline-none placeholder:text-[#8fa0ab] focus:border-[#8fd14f] read-only:cursor-default"
+        className="mt-1.5 h-12 w-full rounded-lg border border-[#e5e7eb] bg-white px-4 text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6] focus:border-[#1a1a1a] read-only:cursor-default"
       />
     </label>
   );

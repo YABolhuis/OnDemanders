@@ -3,7 +3,7 @@ import { MijnProfielPagina } from "@/components/mijn-profiel-pagina";
 
 export default function MijnProfielPage() {
   return (
-    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#24333d]">
+    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#fbfbfb]">
       <MijnProfielPagina />
     </AppShell>
   );

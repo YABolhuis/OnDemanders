@@ -12,8 +12,8 @@ export function AccountSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="min-h-[calc(100vh-57px)] w-[280px] shrink-0 border-r border-white/10 bg-[#1b2730] px-4 py-6">
-      <p className="mb-4 px-2 text-[13px] font-semibold text-[#9aa8b0]">Menu</p>
+    <aside className="min-h-[calc(100vh-57px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-6">
+      <p className="mb-4 px-2 text-[13px] font-semibold text-[#6b6b6b]">Menu</p>
       <nav className="flex flex-col gap-1">
         {items.map((item) => {
           const active = pathname === item.href;
@@ -23,8 +23,8 @@ export function AccountSidebar() {
               href={item.href}
               className={`rounded-md px-3 py-2 text-left text-[14px] ${
                 active
-                  ? "bg-white/10 font-medium text-[#8fd14f]"
-                  : "text-[#d5dde2] hover:bg-white/5"
+                  ? "bg-[#eceff1] font-medium text-[#1a1a1a]"
+                  : "text-[#333] hover:bg-[#eceff1]"
               }`}
             >
               {item.label}

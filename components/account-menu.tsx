@@ -73,7 +73,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
             bolhuisyan@gmail.com
           </span>
         </span>
-        <span className="relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#d9d9d9]">
+        <span className="relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#fbfbfb]">
           <User className="size-4 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
         </span>
         {open ? (

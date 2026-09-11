@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   LIDMAATSCHAP_DEALS,
   type LidmaatschapDeal,
@@ -59,16 +60,18 @@ export function PrijsTabel({
   facturatie,
   onFacturatie,
   onKies,
+  className,
 }: {
   plan: AbonnementPlan;
   facturatie: Facturatie;
   onFacturatie: (waarde: Facturatie) => void;
   onKies: (deal: LidmaatschapDeal) => void;
+  className?: string;
 }) {
   const jaarlijks = facturatie === "jaar";
 
   return (
-    <div className="mt-8 max-w-[980px]">
+    <div className={cn("mt-8 max-w-[980px]", className)}>
       <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
         <div
           className="inline-flex rounded-full bg-[#eef1f0] p-1"

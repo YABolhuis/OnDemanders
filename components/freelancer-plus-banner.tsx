@@ -43,7 +43,7 @@ export function FreelancerPlusBanner() {
       <p className="min-w-0 flex-1 text-[13px]">
         Vind opdrachten sneller: ontvang persoonlijke meldingen en pak de beste
         leads als eerste.{" "}
-        <Link href="/abonement" className="font-medium underline underline-offset-2">
+        <Link href="/abonement-credits" className="font-medium underline underline-offset-2">
           Word lid van Freelancer Plus
         </Link>
       </p>

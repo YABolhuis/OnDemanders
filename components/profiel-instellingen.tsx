@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import { Calendar, Camera } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import { AccountSidebar } from "@/components/account-sidebar";
 
 type Tab = "persoonlijk" | "account";
 
@@ -26,9 +25,7 @@ export function ProfielInstellingen() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] bg-[#fbfbfb] text-[#1a1a1a]">
-      <AccountSidebar />
-      <div className="min-w-0 flex-1 px-8 py-10">
+    <div className="min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a]">
         <div className="mx-auto max-w-5xl">
           <h1 className="text-[32px] font-bold">Mijn account</h1>
           <p className="mt-1 text-[15px] text-[#555]">
@@ -211,7 +208,6 @@ export function ProfielInstellingen() {
             </div>
           )}
         </div>
-      </div>
     </div>
   );
 }

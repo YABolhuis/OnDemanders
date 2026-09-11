@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { Building2 } from "lucide-react";
-import { AccountSidebar } from "@/components/account-sidebar";
 
 export function MijnProfielPagina() {
   const [logo, setLogo] = useState<string | null>(null);
@@ -22,9 +21,7 @@ export function MijnProfielPagina() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] bg-[#fbfbfb] text-[#1a1a1a]">
-      <AccountSidebar />
-      <div className="min-w-0 flex-1 px-8 py-10">
+    <div className="min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a]">
         <div className="mx-auto max-w-5xl">
           <h1 className="text-[32px] font-bold">Mijn profiel</h1>
           <p className="mt-1 text-[15px] text-[#555]">
@@ -107,7 +104,6 @@ export function MijnProfielPagina() {
             </button>
           </form>
         </div>
-      </div>
     </div>
   );
 }

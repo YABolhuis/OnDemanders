@@ -12,7 +12,7 @@ export function AccountSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="min-h-[calc(100vh-57px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-6">
+    <div className="px-4 py-6">
       <p className="mb-4 px-2 text-[13px] font-semibold text-[#6b6b6b]">Menu</p>
       <nav className="flex flex-col gap-1">
         {items.map((item) => {
@@ -32,6 +32,6 @@ export function AccountSidebar() {
           );
         })}
       </nav>
-    </aside>
+    </div>
   );
 }

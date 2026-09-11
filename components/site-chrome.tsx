@@ -7,10 +7,12 @@ export function SiteChrome({
   header,
   children,
   contentClassName = "bg-[#fbfbfb]",
+  leftRail,
 }: {
   header: ReactNode;
   children: ReactNode;
   contentClassName?: string;
+  leftRail?: ReactNode;
 }) {
   return (
     <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
@@ -18,8 +20,17 @@ export function SiteChrome({
       {header}
       <div aria-hidden className={`${rail} border-l border-b`} />
 
-      <aside aria-hidden className={`${rail} border-r`} />
+      {leftRail ? (
+        <aside className={`${rail} border-r`}>
+          <div className="sticky top-14">{leftRail}</div>
+        </aside>
+      ) : (
+        <aside aria-hidden className={`${rail} border-r`} />
+      )}
       <div className={`flex min-w-0 flex-col ${contentClassName}`}>
+        {leftRail ? (
+          <div className="border-b border-[#e6e6e6] lg:hidden">{leftRail}</div>
+        ) : null}
         {children}
       </div>
       <aside aria-hidden className={`${rail} border-l`} />

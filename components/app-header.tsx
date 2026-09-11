@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bell } from "lucide-react";
-import { LanguageMenu } from "@/components/language-menu";
 import { AccountMenu } from "@/components/account-menu";
 import { SITE_WIDTH_CLASS } from "@/lib/site-width";
 import { aantalOngelezenBerichten } from "@/lib/berichten";
@@ -72,7 +71,6 @@ export function AppHeader({
             })}
           </nav>
           <div className="ml-auto flex items-center gap-2">
-            <LanguageMenu variant="compact" />
             <button
               type="button"
               aria-label="Meldingen"

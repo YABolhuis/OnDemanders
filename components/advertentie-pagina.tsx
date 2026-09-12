@@ -73,10 +73,11 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         <div className="mt-6 grid grid-cols-1 items-start gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div>
             <h1 className="text-[32px] font-bold">{klus.title}</h1>
-            <div className="mt-5">
-              <p className="text-[13px] text-[#777]">Geplaatst</p>
-              <p className="text-[14px] text-[#333]">{klus.when}</p>
-            </div>
+            <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#eceff1] px-3 py-1.5 text-[13px] text-[#333]">
+              <span className="size-1.5 shrink-0 rounded-full bg-[#5b8def]" aria-hidden />
+              <span>Geplaatst</span>
+              <span className="text-[#555]">{klus.when}</span>
+            </p>
             <div className="mt-6 border-t border-[#e5e7eb] pt-4">
               <h2 className="text-[15px] font-medium text-[#555]">Beschrijving</h2>
               <p className="mt-3 pb-16 text-[15px] leading-6 text-[#333]">

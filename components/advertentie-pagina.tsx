@@ -70,7 +70,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           <span className="hover:underline">terug naar opdrachten</span>
         </Link>
 
-        <div className="mt-6 grid grid-cols-1 items-start gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,1fr)_400px]">
+        <div className="mt-6 grid grid-cols-1 items-start gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div>
             <h1 className="text-[32px] font-bold">{klus.title}</h1>
             <p className="mt-1 text-[15px] text-[#555]">{klus.tags}</p>

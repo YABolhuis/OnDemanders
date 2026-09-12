@@ -203,10 +203,10 @@ export function KlusLijst({
 
   return (
     <div>
-      <div className="bg-[#fbfbfb] px-12 pt-8 lg:pr-12">
+      <div className="bg-[#fbfbfb] px-14 pt-10 lg:pr-14">
         <FreelancerPlusBanner />
       </div>
-      <div className="relative bg-[#fbfbfb] px-12 pt-5 lg:pr-12">
+      <div className="relative bg-[#fbfbfb] px-14 pt-6 lg:pr-14">
         <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
           {tabs.map((item) => {
             const actief = item.id === tab;
@@ -235,7 +235,7 @@ export function KlusLijst({
         <div aria-hidden className="h-px bg-[#e6e6e6]" />
       </div>
 
-      <div className="px-12 pt-5 pb-12 lg:pr-12">
+      <div className="px-14 pt-6 pb-14 lg:pr-14">
         <div className="mb-6 flex items-center justify-between gap-4">
           <div className="flex min-w-0 flex-1 items-center gap-3">
             <p className="text-[13px] text-[#555]">
@@ -505,20 +505,20 @@ export function KlusLijst({
             {leegTekst}
           </p>
         ) : (
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-6">
             {zichtbaar.map((klus) => {
               const saved = favorites.includes(klus.id);
               return (
                 <article
                   key={klus.id}
-                  className="relative rounded-xl border border-[#e5e7eb] bg-white px-6 py-6 pr-16"
+                  className="relative rounded-xl border border-[#e5e7eb] bg-white px-7 py-7 pr-16"
                 >
                   <button
                     type="button"
                     aria-label="Bewaar klus"
                     aria-pressed={saved}
                     onClick={() => toggleFavorite(klus.id)}
-                    className="absolute top-5 right-5 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
+                    className="absolute top-6 right-6 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
                   >
                     <Heart
                       className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#6b6b6b]"}`}
@@ -526,7 +526,7 @@ export function KlusLijst({
                     />
                   </button>
 
-                  <div className="flex gap-5">
+                  <div className="flex gap-6">
                     <div className="flex min-w-0 flex-1 flex-col">
                       <h2 className="text-[16px] font-bold text-[#1a1a1a]">
                         <Link

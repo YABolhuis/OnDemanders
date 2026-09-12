@@ -78,9 +78,12 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               <p className="text-[13px] text-[#777]">Geplaatst</p>
               <p className="text-[14px] text-[#333]">{klus.when}</p>
             </div>
-            <p className="mt-5 pb-16 text-[15px] leading-6 text-[#333]">
-              {klus.description}
-            </p>
+            <div className="mt-6 border-t border-[#e5e7eb] pt-4">
+              <h2 className="text-[15px] font-medium text-[#555]">Beschrijving</h2>
+              <p className="mt-3 pb-16 text-[15px] leading-6 text-[#333]">
+                {klus.description}
+              </p>
+            </div>
           </div>
 
           <aside>

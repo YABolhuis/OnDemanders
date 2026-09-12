@@ -10,7 +10,7 @@ import { useCredits } from "@/components/credits-provider";
 import type { Klus } from "@/lib/klussen";
 import { vakSlugVanKlus } from "@/lib/vakgebieden";
 
-const CHAT_KOST = 1;
+const CHAT_KOST = 10;
 
 export function AdvertentiePagina({ klus }: { klus: Klus }) {
   const router = useRouter();
@@ -133,6 +133,9 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   Direct aannemen
                 </button>
               </div>
+              <p className="mt-2 text-center text-[12px] text-[#555]">
+                Deze klus kost {CHAT_KOST} credits
+              </p>
               <label className="mt-3 block">
                 <span className="sr-only">Jouw bod</span>
                 <span className="flex h-11 items-center gap-3 overflow-hidden rounded-xl border border-[#e5e7eb] bg-[#fbfbfb] px-3">

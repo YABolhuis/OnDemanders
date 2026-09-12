@@ -100,12 +100,12 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
       <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">
         <div className="px-5 py-5">
           <div
-            className={`rounded-2xl bg-[#2f2f2f] p-4 ${
+            className={`rounded-2xl bg-[#3a3a3a] p-4 shadow-[0_8px_28px_rgba(0,0,0,0.18)] ${
               shakeActie ? "groene-shake" : ""
             }`}
             onAnimationEnd={() => setShakeActie(false)}
           >
-            <div className="flex overflow-hidden rounded-lg">
+            <div className="flex overflow-hidden rounded-xl">
               <button
                 type="button"
                 onClick={startContact}
@@ -123,7 +123,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             </div>
             <label className="mt-3 block">
               <span className="sr-only">Jouw bod</span>
-              <span className="flex h-9 overflow-hidden rounded-lg bg-[#252525]">
+              <span className="flex h-9 overflow-hidden rounded-xl bg-[#2a2a2a]">
                 <span className="flex items-center px-3 text-[13px] font-medium text-[#c8c8c8]">
                   €
                 </span>

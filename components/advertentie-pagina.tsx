@@ -109,14 +109,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               <button
                 type="button"
                 onClick={startContact}
-                className="h-11 min-w-0 flex-1 rounded-full bg-[#16a34a] px-5 font-sans text-[13px] font-medium text-white hover:bg-[#15803d]"
+                className="h-11 min-w-0 flex-1 bg-[#16a34a] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#15803d]"
               >
                 Bieden
               </button>
               <button
                 type="button"
                 onClick={startContact}
-                className="h-11 min-w-0 flex-1 rounded-full bg-[#dc2626] px-5 font-sans text-[13px] font-medium text-white hover:bg-[#b91c1c]"
+                className="h-11 min-w-0 flex-1 bg-[#dc2626] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#b91c1c]"
               >
                 Direct aannemen
               </button>

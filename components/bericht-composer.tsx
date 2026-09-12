@@ -1,9 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Paperclip, Send, Smile, User, X } from "lucide-react";
 
 const MAX_LENGTH = 2500;
+const CHAT_BASIS_HOOGTE = 96;
+const FOOTER_RUIMTE = 20;
 
 export function BerichtComposer({
   naam,
@@ -22,7 +24,36 @@ export function BerichtComposer({
 }) {
   const [bericht, setBericht] = useState("");
   const [emojiOpen, setEmojiOpen] = useState(false);
+  const [bottomPx, setBottomPx] = useState(CHAT_BASIS_HOOGTE);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) {
+      return;
+    }
+
+    function plaatsBovenFooter() {
+      const balk = document.querySelector("footer");
+      if (!balk) {
+        return;
+      }
+      const bovenFooter =
+        window.innerHeight - balk.getBoundingClientRect().top + FOOTER_RUIMTE;
+      setBottomPx(Math.max(CHAT_BASIS_HOOGTE, bovenFooter));
+    }
+
+    plaatsBovenFooter();
+    window.addEventListener("scroll", plaatsBovenFooter, { passive: true });
+    window.addEventListener("resize", plaatsBovenFooter);
+    const observer = new ResizeObserver(plaatsBovenFooter);
+    observer.observe(footer);
+    return () => {
+      window.removeEventListener("scroll", plaatsBovenFooter);
+      window.removeEventListener("resize", plaatsBovenFooter);
+      observer.disconnect();
+    };
+  }, []);
 
   if (!open) {
     return (
@@ -35,9 +66,10 @@ export function BerichtComposer({
             onLockedClick();
           }
         }}
-        className={`chat-dock fixed bottom-5 z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] ${
+        className={`chat-dock fixed z-[70] flex items-center gap-3 rounded-full bg-white py-1.5 pr-5 pl-1.5 text-left shadow-[0_4px_16px_rgba(0,0,0,0.14)] ${
           highlight ? "chat-activate" : ""
         } ${unlocked ? "hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]" : ""}`}
+        style={{ bottom: bottomPx }}
         aria-label={
           unlocked ? `Bericht ${naam}` : `Chat is vergrendeld. Gebruik Bieden of Direct aannemen.`
         }
@@ -76,7 +108,10 @@ export function BerichtComposer({
   }
 
   return (
-    <div className="chat-dock fixed bottom-5 z-[70] flex max-h-[calc(100vh-6.5rem)] w-[min(420px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[12px] border border-[#e4e5e7] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.12)]">
+    <div
+      className="chat-dock fixed z-[70] flex max-h-[calc(100vh-6.5rem)] w-[min(420px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[12px] border border-[#e4e5e7] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.12)]"
+      style={{ bottom: bottomPx }}
+    >
       <div className="flex shrink-0 items-start gap-3 px-4 py-3">
         <span className="relative mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
           <User className="size-5 text-[#6a6a6a]" strokeWidth={2} aria-hidden />

@@ -164,6 +164,10 @@ html.dark .site-rail.site-rail-right {
   background-color: #191919;
 }
 
+html.dark footer.site-rail {
+  background-color: #191919;
+}
+
 html.dark .bg-white {
   background-color: #232323;
 }

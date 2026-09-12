@@ -37,7 +37,7 @@ export function SiteChrome({
 
       <div aria-hidden className={`${rail} border-r border-t`} />
       <SiteFooter />
-      <div aria-hidden className={`${railRight} border-t`} />
+      <div aria-hidden className={`${railRight}`} />
     </div>
   );
 }

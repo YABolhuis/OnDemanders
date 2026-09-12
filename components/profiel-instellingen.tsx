@@ -25,8 +25,8 @@ export function ProfielInstellingen() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a]">
-        <div className="mx-auto max-w-5xl">
+    <div className="min-h-[calc(100vh-57px)] bg-[#fbfbfb] py-10 pr-10 pl-8 text-[#1a1a1a]">
+        <div className="max-w-5xl">
           <h1 className="text-[32px] font-bold">Mijn account</h1>
           <p className="mt-1 text-[15px] text-[#555]">
             Bekijk en bewerk je gegevens.

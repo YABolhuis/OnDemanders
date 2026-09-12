@@ -137,7 +137,9 @@
     textarea,
     [role="button"],
     [role="combobox"]
-  ):not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+  ):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
+      .rounded-full
+    ) {
     border-radius: var(--radius-control);
   }
 }

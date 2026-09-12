@@ -58,7 +58,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] flex-col bg-white lg:flex-row lg:items-stretch">
+    <div className="flex min-h-[calc(100vh-57px)] flex-col bg-[#fbfbfb] lg:flex-row lg:items-stretch">
       <div className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 flex-col px-6 py-6">
         <Link
           href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
@@ -100,7 +100,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
       <aside className="w-full shrink-0 lg:w-[380px]">
         <div className="px-6 py-6">
           <div
-            className={`rounded-2xl bg-[#3a3a3a] p-5 shadow-[0_8px_28px_rgba(0,0,0,0.18)] ${
+            className={`relative rounded-xl border border-[#e5e7eb] bg-white px-5 py-5 ${
               shakeActie ? "groene-shake" : ""
             }`}
             onAnimationEnd={() => setShakeActie(false)}
@@ -123,23 +123,21 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             </div>
             <label className="mt-4 block">
               <span className="sr-only">Jouw bod</span>
-              <span className="flex h-11 overflow-hidden rounded-xl bg-[#2a2a2a]">
-                <span className="flex items-center px-4 text-[14px] font-medium text-[#c8c8c8]">
-                  €
-                </span>
+              <span className="flex h-11 items-center gap-3 overflow-hidden rounded-xl border border-[#e5e7eb] bg-[#fbfbfb] px-3">
+                <span className="text-[15px] font-bold text-[#1a1a1a]">€</span>
                 <input
                   type="text"
                   inputMode="decimal"
                   value={bod}
                   onChange={(event) => setBod(event.target.value)}
                   placeholder="Jouw bod"
-                  className="min-w-0 flex-1 bg-transparent px-3 text-[14px] text-white outline-none placeholder:text-[#8a8a8a]"
+                  className="h-full min-w-0 flex-1 bg-transparent text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6]"
                 />
               </span>
             </label>
           </div>
         </div>
-        <div className="flex items-start gap-3 px-5 py-5">
+        <div className="flex items-start gap-3 px-6 py-5">
           <span
             className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
             aria-hidden

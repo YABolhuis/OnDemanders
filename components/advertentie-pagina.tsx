@@ -58,8 +58,8 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] flex-col bg-[#fbfbfb] lg:flex-row lg:items-stretch">
-      <div className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 flex-col px-6 py-6">
+    <div className="min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a]">
+      <div className="mx-auto max-w-5xl">
         <Link
           href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
           className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"
@@ -69,95 +69,96 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           </span>
           <span className="hover:underline">terug naar opdrachten</span>
         </Link>
-        <h1 className="mt-5 text-[26px] font-bold text-[#1a1a1a]">
-          {klus.title}
-        </h1>
-        <p className="mt-2 text-[14px] text-[#555]">{klus.tags}</p>
-        <div className="mt-4 flex flex-wrap items-end gap-x-8 gap-y-2">
-          <div>
-            <p className="text-[13px] text-[#777]">Budget</p>
-            <p className="text-[20px] font-bold text-[#1a1a1a]">{klus.price}</p>
-          </div>
-          <div>
-            <p className="text-[13px] text-[#777]">Geplaatst</p>
-            <p className="text-[14px] text-[#333]">{klus.when}</p>
-          </div>
-          <p className="text-[14px] font-medium text-[#2f9e44]">{klus.badge}</p>
-        </div>
-        <p className="mt-5 max-w-2xl pb-24 text-[15px] leading-6 text-[#333]">
-          {klus.description}
-        </p>
-        <BerichtComposer
-          naam={klus.seller}
-          unlocked={unlocked}
-          open={chatOpen}
-          highlight={highlight}
-          onOpenChange={setChatOpen}
-          onLockedClick={wijsNaarActieKnoppen}
-        />
-      </div>
 
-      <aside className="w-full shrink-0 lg:w-[380px]">
-        <div className="px-6 py-6">
-          <div
-            className={`relative rounded-xl border border-[#e5e7eb] bg-white px-5 py-5 ${
-              shakeActie ? "groene-shake" : ""
-            }`}
-            onAnimationEnd={() => setShakeActie(false)}
-          >
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={startContact}
-                className="h-11 min-w-0 flex-1 bg-[#16a34a] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#15803d]"
-              >
-                Bieden
-              </button>
-              <button
-                type="button"
-                onClick={startContact}
-                className="h-11 min-w-0 flex-1 bg-[#dc2626] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#b91c1c]"
-              >
-                Direct aannemen
-              </button>
+        <div className="mt-6 grid grid-cols-1 items-start gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div>
+            <h1 className="text-[32px] font-bold">{klus.title}</h1>
+            <p className="mt-1 text-[15px] text-[#555]">{klus.tags}</p>
+            <div className="mt-5 flex flex-wrap items-end gap-x-8 gap-y-2">
+              <div>
+                <p className="text-[13px] text-[#777]">Budget</p>
+                <p className="text-[20px] font-bold">{klus.price}</p>
+              </div>
+              <div>
+                <p className="text-[13px] text-[#777]">Geplaatst</p>
+                <p className="text-[14px] text-[#333]">{klus.when}</p>
+              </div>
+              <p className="text-[14px] font-medium text-[#2f9e44]">{klus.badge}</p>
             </div>
-            <label className="mt-4 block">
-              <span className="sr-only">Jouw bod</span>
-              <span className="flex h-11 items-center gap-3 overflow-hidden rounded-xl border border-[#e5e7eb] bg-[#fbfbfb] px-3">
-                <span className="text-[15px] font-bold text-[#1a1a1a]">€</span>
-                <input
-                  type="text"
-                  inputMode="decimal"
-                  value={bod}
-                  onChange={(event) => setBod(event.target.value)}
-                  placeholder="Jouw bod"
-                  className="h-full min-w-0 flex-1 bg-transparent text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6]"
-                />
-              </span>
-            </label>
-          </div>
-        </div>
-        <div className="flex items-start gap-3 px-6 py-5">
-          <span
-            className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
-            aria-hidden
-          >
-            <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
-          </span>
-          <div className="min-w-0">
-            <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
-            <p className="mt-1 flex items-center gap-1 text-[13px] text-[#555]">
-              <PlaatsPin />
-              {klus.city}
-              {klus.extra !== "Bezoek website" ? (
-                <span className="text-[#777]">· {klus.extra}</span>
-              ) : (
-                <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
-              )}
+            <p className="mt-5 pb-16 text-[15px] leading-6 text-[#333]">
+              {klus.description}
             </p>
           </div>
+
+          <aside>
+            <div
+              className={`relative rounded-xl border border-[#e5e7eb] bg-white px-5 py-5 ${
+                shakeActie ? "groene-shake" : ""
+              }`}
+              onAnimationEnd={() => setShakeActie(false)}
+            >
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={startContact}
+                  className="h-11 min-w-0 flex-1 bg-[#16a34a] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#15803d]"
+                >
+                  Bieden
+                </button>
+                <button
+                  type="button"
+                  onClick={startContact}
+                  className="h-11 min-w-0 flex-1 bg-[#dc2626] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#b91c1c]"
+                >
+                  Direct aannemen
+                </button>
+              </div>
+              <label className="mt-3 block">
+                <span className="sr-only">Jouw bod</span>
+                <span className="flex h-11 items-center gap-3 overflow-hidden rounded-xl border border-[#e5e7eb] bg-[#fbfbfb] px-3">
+                  <span className="text-[15px] font-bold">€</span>
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    value={bod}
+                    onChange={(event) => setBod(event.target.value)}
+                    placeholder="Jouw bod"
+                    className="h-full min-w-0 flex-1 bg-transparent text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6]"
+                  />
+                </span>
+              </label>
+            </div>
+            <div className="mt-4 flex items-start gap-3">
+              <span
+                className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
+                aria-hidden
+              >
+                <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
+              </span>
+              <div className="min-w-0">
+                <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
+                <p className="mt-1 flex items-center gap-1 text-[13px] text-[#555]">
+                  <PlaatsPin />
+                  {klus.city}
+                  {klus.extra !== "Bezoek website" ? (
+                    <span className="text-[#777]">· {klus.extra}</span>
+                  ) : (
+                    <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
+                  )}
+                </p>
+              </div>
+            </div>
+          </aside>
         </div>
-      </aside>
+      </div>
+      <BerichtComposer
+        naam={klus.seller}
+        unlocked={unlocked}
+        open={chatOpen}
+        highlight={highlight}
+        onOpenChange={setChatOpen}
+        onLockedClick={wijsNaarActieKnoppen}
+      />
     </div>
   );
 }

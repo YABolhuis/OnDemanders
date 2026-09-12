@@ -325,6 +325,12 @@ html.dark img.token-logo {
   left: 1.5rem;
 }
 
+@media (min-width: 1024px) {
+  .chat-dock {
+    left: calc(240px + 0.75rem);
+  }
+}
+
 .site-nav-link {
   font-family: var(--font-inter), "Segoe UI", "Helvetica Neue", sans-serif;
   font-size: 13px;

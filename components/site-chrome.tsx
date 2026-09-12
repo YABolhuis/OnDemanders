@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 
-const rail = "hidden bg-[#fbfbfb] lg:block border-[#d0d0d0]";
+const rail = "site-rail hidden bg-[#fbfbfb] lg:block border-[#d0d0d0]";
 
 export function SiteChrome({
   header,

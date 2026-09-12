@@ -86,36 +86,36 @@
 }
 
 .dark {
-  --background: #171717;
-  --foreground: #ececec;
-  --card: #1f1f1f;
-  --card-foreground: #ececec;
-  --popover: #1f1f1f;
-  --popover-foreground: #ececec;
+  --background: #191919;
+  --foreground: #e8e8e6;
+  --card: #232323;
+  --card-foreground: #e8e8e6;
+  --popover: #232323;
+  --popover-foreground: #e8e8e6;
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --secondary: #2c2c2c;
+  --secondary-foreground: #e8e8e6;
+  --muted: #2c2c2c;
+  --muted-foreground: #9b9b97;
+  --accent: #2c2c2c;
+  --accent-foreground: #e8e8e6;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #3a3a3a;
-  --input: #3a3a3a;
+  --border: rgba(255, 255, 255, 0.07);
+  --input: rgba(255, 255, 255, 0.07);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --sidebar: #1a1a1a;
-  --sidebar-foreground: #ececec;
+  --sidebar: #202020;
+  --sidebar-foreground: #e8e8e6;
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: #3a3a3a;
+  --sidebar-accent: #2c2c2c;
+  --sidebar-accent-foreground: #e8e8e6;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
   --sidebar-ring: oklch(0.556 0 0);
 }
 
@@ -142,25 +142,34 @@
   }
 }
 
-/* Hardcoded light surfaces follow html.dark so Licht/Donker restyle the whole app. */
+/* Notion-like dark: canvas, slightly lighter rails, soft hairline borders. */
 html.dark {
   color-scheme: dark;
 }
 
-html.dark .bg-white,
 html.dark .bg-\[\#fbfbfb\],
 html.dark .bg-\[\#fafafa\],
-html.dark .bg-\[\#f5f5f5\],
 html.dark .bg-\[\#f0f0f0\],
 html.dark .bg-\[\#f0f1f2\],
 html.dark .bg-\[\#f3f3f3\],
 html.dark .bg-\[\#eee\] {
-  background-color: #1c1c1c;
+  background-color: #191919;
+}
+
+html.dark .site-rail {
+  background-color: #202020;
+}
+
+html.dark .bg-white {
+  background-color: #232323;
 }
 
 html.dark .bg-\[\#f9fafb\],
-html.dark .bg-\[\#f4f6f8\] {
-  background-color: #2a2a2a;
+html.dark .bg-\[\#f4f6f8\],
+html.dark .bg-\[\#f5f5f5\],
+html.dark .bg-\[\#eceff1\],
+html.dark .bg-\[\#e4e7ea\] {
+  background-color: #2c2c2c;
 }
 
 html.dark .text-\[\#1e3a5f\] {
@@ -176,21 +185,19 @@ html.dark .text-\[\#8b9aab\] {
 }
 
 html.dark .border-\[\#e4e5e7\] {
-  border-color: #3a3a3a;
+  border-color: rgba(255, 255, 255, 0.07);
 }
 
-html.dark .text-\[\#404145\] {
-  color: #ececec;
+html.dark .text-\[\#404145\],
+html.dark .text-\[\#1c1e21\] {
+  color: #e8e8e6;
 }
 
 html.dark .text-\[\#74767e\],
 html.dark .text-\[\#b2b2b8\],
-html.dark .text-\[\#b5b6ba\] {
-  color: #9a9a9a;
-}
-
-html.dark .bg-\[\#f5f5f5\] {
-  background-color: #2a2a2a;
+html.dark .text-\[\#b5b6ba\],
+html.dark .text-\[\#65676b\] {
+  color: #9b9b97;
 }
 
 html.dark .bg-\[\#e8f0fe\] {
@@ -200,8 +207,10 @@ html.dark .bg-\[\#e8f0fe\] {
 html.dark .hover\:bg-\[\#f5f5f5\]:hover,
 html.dark .hover\:bg-\[\#fafafa\]:hover,
 html.dark .hover\:bg-\[\#f0f0f0\]:hover,
-html.dark .hover\:bg-\[\#f5f7fa\]:hover {
-  background-color: #2a2a2a;
+html.dark .hover\:bg-\[\#f5f7fa\]:hover,
+html.dark .hover\:bg-\[\#eceff1\]:hover,
+html.dark .hover\:bg-\[\#e4e7ea\]:hover {
+  background-color: #2c2c2c;
 }
 
 html.dark .text-\[\#222\],
@@ -210,7 +219,7 @@ html.dark .text-\[\#333\],
 html.dark .text-\[\#1f2f46\],
 html.dark .text-\[\#163a6b\],
 html.dark .text-\[\#4a4a4a\] {
-  color: #ececec;
+  color: #e8e8e6;
 }
 
 html.dark .text-\[\#555\],
@@ -219,7 +228,7 @@ html.dark .text-\[\#6a6a6a\],
 html.dark .text-\[\#6b6b6b\],
 html.dark .text-\[\#777\],
 html.dark .text-\[\#8a8a8a\] {
-  color: #b4b4b4;
+  color: #9b9b97;
 }
 
 html.dark .border-\[\#e6e6e6\],
@@ -227,35 +236,38 @@ html.dark .border-\[\#d0d0d0\],
 html.dark .border-\[\#ececec\],
 html.dark .border-\[\#cfcfcf\],
 html.dark .border-\[\#bfc4cc\],
-html.dark .border-\[\#f0f0f0\] {
-  border-color: #3a3a3a;
+html.dark .border-\[\#f0f0f0\],
+html.dark .border-\[\#e5e7eb\],
+html.dark .border-\[\#c4c1bb\] {
+  border-color: rgba(255, 255, 255, 0.07);
 }
 
 html.dark .divide-\[\#e6e6e6\] > :not(:first-child),
 html.dark .divide-\[\#ececec\] > :not(:first-child) {
-  border-color: #3a3a3a;
+  border-color: rgba(255, 255, 255, 0.07);
 }
 
 html.dark .placeholder\:text-\[\#9aa0a6\]::placeholder,
 html.dark .placeholder\:text-\[\#b0b0b0\]::placeholder,
 html.dark .placeholder\:text-\[\#b2b2b8\]::placeholder {
-  color: #8a8a8a;
+  color: #7f7f7b;
 }
 
-html.dark .ring-white {
-  --tw-ring-color: #1c1c1c;
+html.dark .ring-white,
+html.dark .ring-\[\#fbfbfb\] {
+  --tw-ring-color: #202020;
 }
 
 html.dark .shadow-\[0_2px_6px_rgba\(0\,0\,0\,0\.08\)\] {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 
 html.dark img.theme-logo {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(0.91);
 }
 
 html.dark img.token-logo {
-  filter: brightness(0) invert(78%) !important;
+  filter: brightness(0) invert(72%) !important;
 }
 
 @keyframes chat-activate {
@@ -321,7 +333,7 @@ html.dark img.token-logo {
 }
 
 html.dark .site-nav-link {
-  color: #ececec;
+  color: #e8e8e6;
 }
 
 .header-account-type {

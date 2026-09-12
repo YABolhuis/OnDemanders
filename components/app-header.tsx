@@ -25,7 +25,7 @@ export function AppHeader({
   const ongelezen = aantalOngelezenBerichten();
 
   return (
-    <header className="relative z-50 w-full bg-[#fbfbfb]">
+    <header className="site-rail relative z-50 w-full bg-[#fbfbfb]">
       <div
         className={`w-full bg-[#fbfbfb] ${showEdge ? "border-b border-[#d0d0d0]" : ""}`}
       >

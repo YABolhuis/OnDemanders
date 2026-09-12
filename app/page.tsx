@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <SiteChrome
       header={
-        <header className="relative z-50 w-full bg-[#fbfbfb]">
+        <header className="site-rail relative z-50 w-full bg-[#fbfbfb]">
           <div className="w-full border-b border-[#d0d0d0] bg-[#fbfbfb]">
             <div className={`${SITE_WIDTH_CLASS} flex h-14 items-center px-10`}>
               <Link href="/">

@@ -250,6 +250,10 @@ html.dark .border-\[\#c4c1bb\] {
   border-color: rgba(255, 255, 255, 0.07);
 }
 
+html.dark .bg-\[\#e5e7eb\] {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
 html.dark .divide-\[\#e6e6e6\] > :not(:first-child),
 html.dark .divide-\[\#ececec\] > :not(:first-child) {
   border-color: rgba(255, 255, 255, 0.07);

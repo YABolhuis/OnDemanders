@@ -59,6 +59,10 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
 
   return (
     <div className="relative min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a] lg:pr-6">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-4 bottom-4 hidden w-px bg-[#e5e7eb] lg:block lg:right-[calc(1.5rem+300px)]"
+      />
       <Link
         href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
         className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"
@@ -71,21 +75,25 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
 
       <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-[minmax(0,1fr)_300px]">
         <div className="lg:pr-8">
-            <h1 className="text-[32px] font-bold">{klus.title}</h1>
-            <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#eceff1] px-3 py-1.5 text-[13px] text-[#333]">
-              <span className="size-1.5 shrink-0 rounded-full bg-[#5b8def]" aria-hidden />
-              <span>Geplaatst</span>
-              <span className="text-[#555]">{klus.when}</span>
+          <h1 className="text-[32px] font-bold">{klus.title}</h1>
+          <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#eceff1] px-3 py-1.5 text-[13px] text-[#333]">
+            <span className="size-1.5 shrink-0 rounded-full bg-[#5b8def]" aria-hidden />
+            <span>Geplaatst</span>
+            <span className="text-[#555]">{klus.when}</span>
+          </p>
+          <div className="relative mt-6 border-t border-[#e5e7eb] pt-5 lg:border-t-0">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute top-0 right-[-1.5rem] left-0 hidden h-px bg-[#e5e7eb] lg:block"
+            />
+            <h2 className="text-[15px] font-medium text-[#555]">Beschrijving</h2>
+            <p className="mt-3 pb-16 text-[15px] leading-6 text-[#333]">
+              {klus.description}
             </p>
-            <div className="mt-6 border-t border-[#e5e7eb] pt-5">
-              <h2 className="text-[15px] font-medium text-[#555]">Beschrijving</h2>
-              <p className="mt-3 pb-16 text-[15px] leading-6 text-[#333]">
-                {klus.description}
-              </p>
-            </div>
           </div>
+        </div>
 
-          <aside className="mt-8 border-t border-[#e5e7eb] pt-6 lg:mt-0 lg:w-[300px] lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+          <aside className="mt-8 border-t border-[#e5e7eb] pt-6 lg:mt-0 lg:w-[300px] lg:border-t-0 lg:pt-0 lg:pl-8">
             <div
               className={shakeActie ? "groene-shake" : ""}
               onAnimationEnd={() => setShakeActie(false)}

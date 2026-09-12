@@ -58,20 +58,19 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   }
 
   return (
-    <div className="min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a]">
-      <div className="mx-auto max-w-5xl">
-        <Link
-          href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
-          className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"
-        >
-          <span className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white">
-            <ArrowLeft className="size-4 text-[#6b6b6b]" strokeWidth={2} aria-hidden />
-          </span>
-          <span className="hover:underline">terug naar opdrachten</span>
-        </Link>
+    <div className="relative min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a] lg:pr-6">
+      <Link
+        href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
+        className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"
+      >
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white">
+          <ArrowLeft className="size-4 text-[#6b6b6b]" strokeWidth={2} aria-hidden />
+        </span>
+        <span className="hover:underline">terug naar opdrachten</span>
+      </Link>
 
-        <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-[minmax(0,1fr)_300px]">
-          <div className="lg:pr-8">
+      <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-[minmax(0,1fr)_300px]">
+        <div className="lg:pr-8">
             <h1 className="text-[32px] font-bold">{klus.title}</h1>
             <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#eceff1] px-3 py-1.5 text-[13px] text-[#333]">
               <span className="size-1.5 shrink-0 rounded-full bg-[#5b8def]" aria-hidden />
@@ -86,7 +85,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             </div>
           </div>
 
-          <aside className="mt-8 border-t border-[#e5e7eb] pt-6 lg:mt-0 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+          <aside className="mt-8 border-t border-[#e5e7eb] pt-6 lg:mt-0 lg:w-[300px] lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
             <div
               className={shakeActie ? "groene-shake" : ""}
               onAnimationEnd={() => setShakeActie(false)}
@@ -173,7 +172,6 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             </div>
           </aside>
         </div>
-      </div>
       <BerichtComposer
         naam={klus.seller}
         unlocked={unlocked}

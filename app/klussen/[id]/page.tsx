@@ -32,7 +32,7 @@ export default async function AdvertentieRoute({
   }
 
   return (
-    <AppShell gebruiker="Y.A. Bolhuis">
+    <AppShell gebruiker="Y.A. Bolhuis" spanRightRail>
       <AdvertentiePagina klus={klus} />
     </AppShell>
   );

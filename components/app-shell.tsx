@@ -7,17 +7,20 @@ export function AppShell({
   children,
   contentClassName = "bg-[#fbfbfb]",
   leftRail,
+  spanRightRail = false,
 }: {
   gebruiker: string;
   children: ReactNode;
   contentClassName?: string;
   leftRail?: ReactNode;
+  spanRightRail?: boolean;
 }) {
   return (
     <SiteChrome
       header={<AppHeader gebruiker={gebruiker} />}
       contentClassName={contentClassName}
       leftRail={leftRail}
+      spanRightRail={spanRightRail}
     >
       {children}
     </SiteChrome>

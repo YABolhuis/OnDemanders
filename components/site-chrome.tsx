@@ -9,18 +9,22 @@ export function SiteChrome({
   children,
   contentClassName = "bg-[#fbfbfb]",
   leftRail,
+  spanRightRail = false,
 }: {
   header: ReactNode;
   children: ReactNode;
   contentClassName?: string;
   leftRail?: ReactNode;
+  spanRightRail?: boolean;
 }) {
   return (
     <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
       {header}
 
       <aside aria-hidden className={`${rail} border-r`} />
-      <div className={`relative flex min-w-0 flex-col ${contentClassName}`}>
+      <div
+        className={`relative flex min-w-0 flex-col ${spanRightRail ? "lg:col-span-2" : ""} ${contentClassName}`}
+      >
         {leftRail ? (
           <div className="absolute top-0 -left-[240px] z-10 hidden w-[240px] lg:block">
             {leftRail}
@@ -31,7 +35,7 @@ export function SiteChrome({
         ) : null}
         {children}
       </div>
-      <aside aria-hidden className={railRight} />
+      {spanRightRail ? null : <aside aria-hidden className={railRight} />}
 
       <div aria-hidden className={`${rail} border-r border-t`} />
       <SiteFooter />

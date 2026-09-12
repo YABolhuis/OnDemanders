@@ -97,34 +97,34 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         />
       </div>
 
-      <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">
-        <div className="px-5 py-5">
+      <aside className="w-full shrink-0 lg:w-[380px]">
+        <div className="px-6 py-6">
           <div
-            className={`rounded-2xl bg-[#3a3a3a] p-4 shadow-[0_8px_28px_rgba(0,0,0,0.18)] ${
+            className={`rounded-2xl bg-[#3a3a3a] p-5 shadow-[0_8px_28px_rgba(0,0,0,0.18)] ${
               shakeActie ? "groene-shake" : ""
             }`}
             onAnimationEnd={() => setShakeActie(false)}
           >
-            <div className="flex overflow-hidden rounded-xl">
+            <div className="flex gap-2">
               <button
                 type="button"
                 onClick={startContact}
-                className="h-9 min-w-0 flex-1 bg-[#16a34a] px-3 text-[13px] font-semibold text-white hover:bg-[#15803d]"
+                className="h-11 min-w-0 flex-1 rounded-xl bg-[#16a34a] px-4 text-[14px] font-semibold text-white hover:bg-[#15803d]"
               >
                 Bieden
               </button>
               <button
                 type="button"
                 onClick={startContact}
-                className="h-9 min-w-0 flex-1 bg-[#dc2626] px-3 text-[13px] font-semibold text-white hover:bg-[#b91c1c]"
+                className="h-11 min-w-0 flex-1 rounded-xl bg-[#dc2626] px-4 text-[14px] font-semibold text-white hover:bg-[#b91c1c]"
               >
                 Direct aannemen
               </button>
             </div>
-            <label className="mt-3 block">
+            <label className="mt-4 block">
               <span className="sr-only">Jouw bod</span>
-              <span className="flex h-9 overflow-hidden rounded-xl bg-[#2a2a2a]">
-                <span className="flex items-center px-3 text-[13px] font-medium text-[#c8c8c8]">
+              <span className="flex h-11 overflow-hidden rounded-xl bg-[#2a2a2a]">
+                <span className="flex items-center px-4 text-[14px] font-medium text-[#c8c8c8]">
                   €
                 </span>
                 <input
@@ -133,7 +133,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   value={bod}
                   onChange={(event) => setBod(event.target.value)}
                   placeholder="Jouw bod"
-                  className="min-w-0 flex-1 bg-transparent px-3 text-[13px] text-white outline-none placeholder:text-[#8a8a8a]"
+                  className="min-w-0 flex-1 bg-transparent px-3 text-[14px] text-white outline-none placeholder:text-[#8a8a8a]"
                 />
               </span>
             </label>

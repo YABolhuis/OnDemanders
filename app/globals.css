@@ -160,6 +160,10 @@ html.dark .site-rail {
   background-color: #202020;
 }
 
+html.dark .site-rail.site-rail-right {
+  background-color: #141414;
+}
+
 html.dark .bg-white {
   background-color: #232323;
 }

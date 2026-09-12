@@ -128,6 +128,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 </span>
               </label>
             </div>
+            <div className="mt-4 border-y border-[#e5e7eb] py-4">
+              <h2 className="text-[15px] font-medium text-[#555]">
+                Biedingen (0)
+              </h2>
+              <p className="mt-3 text-center text-[13px] text-[#555]">
+                Geen biedingen geplaatst
+              </p>
+            </div>
             <div className="mt-4 flex items-start gap-3">
               <span
                 className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"

@@ -17,9 +17,7 @@ export function SiteChrome({
 }) {
   return (
     <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
-      <div aria-hidden className={`${rail} border-r border-b`} />
       {header}
-      <div aria-hidden className={`${railRight} border-b`} />
 
       <aside aria-hidden className={`${rail} border-r`} />
       <div className={`relative flex min-w-0 flex-col ${contentClassName}`}>

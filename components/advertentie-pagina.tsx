@@ -18,6 +18,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   const [chatOpen, setChatOpen] = useState(false);
   const [highlight, setHighlight] = useState(false);
   const [bod, setBod] = useState("");
+  const [shakeActie, setShakeActie] = useState(false);
   const openTimer = useRef<number | null>(null);
   const unlocked = isChatUnlocked(klus.id);
 
@@ -97,14 +98,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
       </div>
 
       <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">
-        <div className="border-b border-[#e6e6e6] px-5 py-5">
+        <div className="px-5 py-5">
           <div
-            className={`overflow-hidden rounded-[3px] ${
+            className={`rounded-2xl bg-[#2f2f2f] p-4 ${
               shakeActie ? "groene-shake" : ""
             }`}
             onAnimationEnd={() => setShakeActie(false)}
           >
-            <div className="flex">
+            <div className="flex overflow-hidden rounded-lg">
               <button
                 type="button"
                 onClick={startContact}
@@ -120,23 +121,23 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 Direct aannemen
               </button>
             </div>
-          </div>
-          <label className="mt-3 block">
-            <span className="sr-only">Jouw bod</span>
-            <span className="flex h-9 overflow-hidden rounded-[3px] border border-[#e5e7eb] bg-white">
-              <span className="flex items-center border-r border-[#e5e7eb] px-3 text-[13px] font-medium text-[#555]">
-                €
+            <label className="mt-3 block">
+              <span className="sr-only">Jouw bod</span>
+              <span className="flex h-9 overflow-hidden rounded-lg bg-[#252525]">
+                <span className="flex items-center px-3 text-[13px] font-medium text-[#c8c8c8]">
+                  €
+                </span>
+                <input
+                  type="text"
+                  inputMode="decimal"
+                  value={bod}
+                  onChange={(event) => setBod(event.target.value)}
+                  placeholder="Jouw bod"
+                  className="min-w-0 flex-1 bg-transparent px-3 text-[13px] text-white outline-none placeholder:text-[#8a8a8a]"
+                />
               </span>
-              <input
-                type="text"
-                inputMode="decimal"
-                value={bod}
-                onChange={(event) => setBod(event.target.value)}
-                placeholder="Jouw bod"
-                className="min-w-0 flex-1 bg-transparent px-3 text-[13px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6]"
-              />
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
         <div className="flex items-start gap-3 px-5 py-5">
           <span

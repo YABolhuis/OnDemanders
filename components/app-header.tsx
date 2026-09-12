@@ -26,7 +26,7 @@ export function AppHeader({
   return (
     <header className="site-rail relative z-50 w-full bg-[#fbfbfb] lg:col-span-3">
       <div
-        className={`grid h-14 w-full grid-cols-[auto_minmax(0,1fr)_auto] bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_auto] ${
+        className={`grid h-14 w-full grid-cols-[auto_minmax(0,1fr)_auto] bg-[#fbfbfb] lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)_auto] ${
           showEdge ? "border-b border-[#d0d0d0]" : ""
         }`}
       >

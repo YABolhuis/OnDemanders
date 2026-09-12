@@ -18,7 +18,7 @@ export function SiteChrome({
   spanRightRail?: boolean;
 }) {
   return (
-    <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
+    <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
       {header}
 
       <aside aria-hidden className={`${rail} border-r`} />
@@ -26,7 +26,7 @@ export function SiteChrome({
         className={`relative flex min-w-0 flex-col ${spanRightRail ? "lg:col-span-2" : ""} ${contentClassName}`}
       >
         {leftRail ? (
-          <div className="absolute top-0 -left-[240px] z-10 hidden w-[240px] lg:block">
+          <div className="absolute top-0 -left-[var(--site-rail-left)] z-10 hidden w-[var(--site-rail-left)] lg:block">
             {leftRail}
           </div>
         ) : null}

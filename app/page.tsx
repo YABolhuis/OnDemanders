@@ -8,7 +8,7 @@ export default function Home() {
     <SiteChrome
       header={
         <header className="site-rail relative z-50 w-full bg-[#fbfbfb] lg:col-span-3">
-          <div className="grid h-14 w-full grid-cols-[auto_minmax(0,1fr)_auto] border-b border-[#d0d0d0] bg-[#fbfbfb] lg:grid-cols-[240px_minmax(0,1fr)_auto]">
+          <div className="grid h-14 w-full grid-cols-[auto_minmax(0,1fr)_auto] border-b border-[#d0d0d0] bg-[#fbfbfb] lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)_auto]">
             <div className="site-rail flex items-center border-[#d0d0d0] px-4 lg:border-r lg:px-6">
               <Link href="/">
                 <Image

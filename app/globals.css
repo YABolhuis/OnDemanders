@@ -75,6 +75,7 @@
   --chart-5: oklch(0.269 0 0);
   --radius: 3px;
   --radius-control: 3px;
+  --site-rail-left: 288px;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -339,7 +340,7 @@ html.dark img.token-logo {
 
 @media (min-width: 1024px) {
   .chat-dock {
-    left: calc(240px + 20px);
+    left: calc(var(--site-rail-left) + 20px);
   }
 }
 

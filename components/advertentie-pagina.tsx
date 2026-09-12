@@ -70,7 +70,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           <span className="hover:underline">terug naar opdrachten</span>
         </Link>
 
-        <div className="mt-6 grid grid-cols-1 items-start gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="mt-6 grid grid-cols-1 items-start gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,1fr)_400px]">
           <div>
             <h1 className="text-[32px] font-bold">{klus.title}</h1>
             <p className="mt-1 text-[15px] text-[#555]">{klus.tags}</p>
@@ -92,7 +92,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
 
           <aside>
             <div
-              className={`relative rounded-xl border border-[#e5e7eb] bg-white px-5 py-5 ${
+              className={`relative rounded-xl border border-[#e5e7eb] bg-white px-5 py-6 ${
                 shakeActie ? "groene-shake" : ""
               }`}
               onAnimationEnd={() => setShakeActie(false)}
@@ -121,14 +121,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 <button
                   type="button"
                   onClick={startContact}
-                  className="h-11 min-w-0 flex-1 bg-[#16a34a] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#15803d]"
+                  className="h-11 min-w-0 flex-1 whitespace-nowrap bg-[#16a34a] px-3 font-sans text-[13px] font-medium text-white hover:bg-[#15803d]"
                 >
                   Bieden
                 </button>
                 <button
                   type="button"
                   onClick={startContact}
-                  className="h-11 min-w-0 flex-1 bg-[#dc2626] px-4 font-sans text-[13px] font-medium text-white hover:bg-[#b91c1c]"
+                  className="h-11 min-w-0 flex-1 whitespace-nowrap bg-[#dc2626] px-3 font-sans text-[13px] font-medium text-white hover:bg-[#b91c1c]"
                 >
                   Direct aannemen
                 </button>
@@ -147,11 +147,11 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   />
                 </span>
               </label>
-              <div className="mt-4 border-t border-[#e5e7eb] pt-4">
+              <div className="mt-4 border-t border-[#e5e7eb] pt-4 pb-2">
                 <h2 className="text-[15px] font-medium text-[#555]">
                   Biedingen (0)
                 </h2>
-                <p className="mt-3 text-center text-[13px] text-[#555]">
+                <p className="mt-5 mb-2 text-center text-[13px] text-[#555]">
                   Geen biedingen geplaatst
                 </p>
               </div>

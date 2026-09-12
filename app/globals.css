@@ -322,12 +322,12 @@ html.dark img.token-logo {
 }
 
 .chat-dock {
-  left: 1.5rem;
+  left: 20px;
 }
 
 @media (min-width: 1024px) {
   .chat-dock {
-    left: calc(240px + 0.75rem);
+    left: calc(240px + 20px);
   }
 }
 

@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Paperclip, Send, Smile, User, X } from "lucide-react";
 
 const MAX_LENGTH = 2500;
-const CHAT_BASIS_HOOGTE = 96;
-const FOOTER_RUIMTE = 20;
+const CHAT_RUIMTE = 20;
 
 export function BerichtComposer({
   naam,
@@ -24,7 +23,7 @@ export function BerichtComposer({
 }) {
   const [bericht, setBericht] = useState("");
   const [emojiOpen, setEmojiOpen] = useState(false);
-  const [bottomPx, setBottomPx] = useState(CHAT_BASIS_HOOGTE);
+  const [bottomPx, setBottomPx] = useState(CHAT_RUIMTE);
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -39,8 +38,8 @@ export function BerichtComposer({
         return;
       }
       const bovenFooter =
-        window.innerHeight - balk.getBoundingClientRect().top + FOOTER_RUIMTE;
-      setBottomPx(Math.max(CHAT_BASIS_HOOGTE, bovenFooter));
+        window.innerHeight - balk.getBoundingClientRect().top + CHAT_RUIMTE;
+      setBottomPx(Math.max(CHAT_RUIMTE, bovenFooter));
     }
 
     plaatsBovenFooter();

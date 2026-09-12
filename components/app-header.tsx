@@ -71,7 +71,7 @@ export function AppHeader({
               );
             })}
           </nav>
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex items-center gap-3">
             <LanguageMenu variant="compact" />
             <button
               type="button"

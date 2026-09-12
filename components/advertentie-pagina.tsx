@@ -97,7 +97,27 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               }`}
               onAnimationEnd={() => setShakeActie(false)}
             >
-              <div className="flex gap-2">
+              <div className="flex items-center gap-3">
+                <span
+                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
+                  aria-hidden
+                >
+                  <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
+                  <p className="mt-0.5 flex items-center gap-1 text-[13px] text-[#555]">
+                    <PlaatsPin />
+                    {klus.city}
+                    {klus.extra !== "Bezoek website" ? (
+                      <span className="text-[#777]">· {klus.extra}</span>
+                    ) : (
+                      <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
+                    )}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 flex gap-2">
                 <button
                   type="button"
                   onClick={startContact}
@@ -133,26 +153,6 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 </h2>
                 <p className="mt-3 text-center text-[13px] text-[#555]">
                   Geen biedingen geplaatst
-                </p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-start gap-3">
-              <span
-                className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
-                aria-hidden
-              >
-                <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
-              </span>
-              <div className="min-w-0">
-                <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
-                <p className="mt-1 flex items-center gap-1 text-[13px] text-[#555]">
-                  <PlaatsPin />
-                  {klus.city}
-                  {klus.extra !== "Bezoek website" ? (
-                    <span className="text-[#777]">· {klus.extra}</span>
-                  ) : (
-                    <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
-                  )}
                 </p>
               </div>
             </div>

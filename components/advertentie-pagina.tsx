@@ -70,15 +70,15 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           <span className="hover:underline">terug naar opdrachten</span>
         </Link>
 
-        <div className="mt-6 grid grid-cols-1 items-start gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,1fr)_300px]">
-          <div>
+        <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-[minmax(0,1fr)_300px]">
+          <div className="lg:pr-8">
             <h1 className="text-[32px] font-bold">{klus.title}</h1>
             <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#eceff1] px-3 py-1.5 text-[13px] text-[#333]">
               <span className="size-1.5 shrink-0 rounded-full bg-[#5b8def]" aria-hidden />
               <span>Geplaatst</span>
               <span className="text-[#555]">{klus.when}</span>
             </p>
-            <div className="mt-6 border-t border-[#e5e7eb] pt-4">
+            <div className="mt-6 border-t border-[#e5e7eb] pt-5">
               <h2 className="text-[15px] font-medium text-[#555]">Beschrijving</h2>
               <p className="mt-3 pb-16 text-[15px] leading-6 text-[#333]">
                 {klus.description}
@@ -86,11 +86,9 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             </div>
           </div>
 
-          <aside>
+          <aside className="mt-8 border-t border-[#e5e7eb] pt-6 lg:mt-0 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
             <div
-              className={`relative rounded-xl border border-[#e5e7eb] bg-white px-5 py-6 ${
-                shakeActie ? "groene-shake" : ""
-              }`}
+              className={shakeActie ? "groene-shake" : ""}
               onAnimationEnd={() => setShakeActie(false)}
             >
               <div>
@@ -118,7 +116,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               </p>
               <label className="mt-3 block">
                 <span className="sr-only">Jouw bod</span>
-                <span className="flex h-11 items-center gap-3 overflow-hidden rounded-xl border border-[#e5e7eb] bg-[#fbfbfb] px-3">
+                <span className="flex h-11 items-center gap-3 overflow-hidden rounded-[var(--radius-control)] border border-[#e5e7eb] bg-[#fbfbfb] px-3">
                   <span className="text-[15px] font-bold">€</span>
                   <input
                     type="text"
@@ -130,17 +128,19 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   />
                 </span>
               </label>
-              <div className="mt-4 border-t border-[#e5e7eb] pt-4 pb-2">
-                <h2 className="text-[15px] font-medium text-[#555]">
-                  Biedingen (0)
-                </h2>
-                <p className="mt-5 mb-2 text-center text-[13px] text-[#555]">
-                  Geen biedingen geplaatst
-                </p>
-              </div>
             </div>
-            <div className="mt-4 overflow-hidden rounded-xl border border-[#e5e7eb] bg-white">
-              <div className="flex items-center gap-3 px-5 py-4">
+
+            <div className="mt-5 border-t border-[#e5e7eb] pt-5">
+              <h2 className="text-[15px] font-medium text-[#555]">
+                Biedingen (0)
+              </h2>
+              <p className="mt-4 text-center text-[13px] text-[#555]">
+                Geen biedingen geplaatst
+              </p>
+            </div>
+
+            <div className="mt-5 border-t border-[#e5e7eb] pt-5">
+              <div className="flex items-center gap-3">
                 <span
                   className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
                   aria-hidden
@@ -160,7 +160,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   </p>
                 </div>
               </div>
-              <div className="h-[168px] border-t border-[#e5e7eb] bg-[#eceff1]">
+              <div className="mt-4 h-[168px] border-t border-[#e5e7eb] bg-[#eceff1]">
                 <iframe
                   title={`Kaart van ${klus.city} in Google Maps`}
                   src={`https://maps.google.com/maps?q=${encodeURIComponent(`${klus.city}, Nederland`)}&z=12&hl=nl&output=embed`}

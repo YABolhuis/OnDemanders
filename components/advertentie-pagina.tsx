@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Heart, User } from "lucide-react";
+import { ArrowLeft, User } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
 import { BerichtComposer } from "@/components/bericht-composer";
 import { useCredits } from "@/components/credits-provider";
@@ -15,10 +15,9 @@ const CHAT_KOST = 1;
 export function AdvertentiePagina({ klus }: { klus: Klus }) {
   const router = useRouter();
   const { spendCredits, isChatUnlocked, unlockChat } = useCredits();
-  const [saved, setSaved] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [highlight, setHighlight] = useState(false);
-  const [shakeGroen, setShakeGroen] = useState(false);
+  const [shakeActie, setShakeActie] = useState(false);
   const openTimer = useRef<number | null>(null);
   const unlocked = isChatUnlocked(klus.id);
 
@@ -30,14 +29,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
     };
   }, []);
 
-  function wijsNaarGroeneKnop() {
-    setShakeGroen(false);
+  function wijsNaarActieKnoppen() {
+    setShakeActie(false);
     window.requestAnimationFrame(() => {
-      setShakeGroen(true);
+      setShakeActie(true);
     });
   }
 
-  function directReageren() {
+  function startContact() {
     if (chatOpen) {
       return;
     }
@@ -93,42 +92,35 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           open={chatOpen}
           highlight={highlight}
           onOpenChange={setChatOpen}
-          onLockedClick={wijsNaarGroeneKnop}
+          onLockedClick={wijsNaarActieKnoppen}
         />
       </div>
 
       <aside className="w-full shrink-0 border-[#e6e6e6] lg:w-[320px] lg:border-l">
         <div className="border-b border-[#e6e6e6] px-5 py-5">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              aria-label={saved ? "Advertentie bewaard" : "Advertentie bewaren"}
-              aria-pressed={saved}
-              onClick={() => setSaved((value) => !value)}
-              className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
-            >
-              <Heart
-                className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#6b6b6b]"}`}
-                strokeWidth={2}
-                aria-hidden
-              />
-            </button>
-            <button
-              type="button"
-              onClick={directReageren}
-              onAnimationEnd={() => setShakeGroen(false)}
-              className={`flex h-8 min-w-0 flex-1 items-center justify-center rounded-[var(--radius-control)] bg-[#14a800] px-3 text-[13px] font-semibold text-white hover:bg-[#108a00] ${
-                shakeGroen ? "groene-shake" : ""
-              }`}
-            >
-              Direct reageren
-            </button>
+          <div
+            className={`overflow-hidden rounded-[3px] ${
+              shakeActie ? "groene-shake" : ""
+            }`}
+            onAnimationEnd={() => setShakeActie(false)}
+          >
+            <div className="flex">
+              <button
+                type="button"
+                onClick={startContact}
+                className="h-9 min-w-0 flex-1 bg-[#16a34a] px-3 text-[13px] font-semibold text-white hover:bg-[#15803d]"
+              >
+                Bieden
+              </button>
+              <button
+                type="button"
+                onClick={startContact}
+                className="h-9 min-w-0 flex-1 bg-[#dc2626] px-3 text-[13px] font-semibold text-white hover:bg-[#b91c1c]"
+              >
+                Direct aannemen
+              </button>
+            </div>
           </div>
-          {!unlocked ? (
-            <p className="mt-1.5 text-center text-[11px] text-[#777]">
-              Kost {CHAT_KOST} credit
-            </p>
-          ) : null}
         </div>
         <div className="flex items-start gap-3 px-5 py-5">
           <span

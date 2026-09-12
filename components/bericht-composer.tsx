@@ -39,7 +39,7 @@ export function BerichtComposer({
           highlight ? "chat-activate" : ""
         } ${unlocked ? "hover:shadow-[0_6px_20px_rgba(0,0,0,0.16)]" : ""}`}
         aria-label={
-          unlocked ? `Bericht ${naam}` : `Chat is vergrendeld. Gebruik Direct reageren.`
+          unlocked ? `Bericht ${naam}` : `Chat is vergrendeld. Gebruik Bieden of Direct aannemen.`
         }
       >
         <span className="relative inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">

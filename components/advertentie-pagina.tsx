@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, User } from "lucide-react";
+import { PlaatsPin } from "@/components/plaats-pin";
 import { BerichtComposer } from "@/components/bericht-composer";
 import { useCredits } from "@/components/credits-provider";
 import type { Klus } from "@/lib/klussen";
@@ -140,6 +141,38 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 <p className="mt-5 mb-2 text-center text-[13px] text-[#555]">
                   Geen biedingen geplaatst
                 </p>
+              </div>
+            </div>
+            <div className="mt-4 overflow-hidden rounded-xl border border-[#e5e7eb] bg-white">
+              <div className="flex items-center gap-3 px-5 py-4">
+                <span
+                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
+                  aria-hidden
+                >
+                  <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
+                  <p className="mt-0.5 flex items-center gap-1 text-[13px] text-[#555]">
+                    <PlaatsPin />
+                    {klus.city}
+                    {klus.extra !== "Bezoek website" ? (
+                      <span className="text-[#777]">· {klus.extra}</span>
+                    ) : (
+                      <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
+                    )}
+                  </p>
+                </div>
+              </div>
+              <div className="h-[168px] border-t border-[#e5e7eb] bg-[#eceff1]">
+                <iframe
+                  title={`Kaart van ${klus.city} in Google Maps`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(`${klus.city}, Nederland`)}&z=12&hl=nl&output=embed`}
+                  className="size-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </div>
           </aside>

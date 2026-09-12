@@ -58,10 +58,10 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   }
 
   return (
-    <div className="relative min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a] lg:pr-6">
+    <div className="relative min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-12 py-12 text-[#1a1a1a] lg:pr-12">
       <div
         aria-hidden
-        className="pointer-events-none absolute top-4 bottom-4 hidden w-px bg-[#e5e7eb] lg:block lg:right-[calc(1.5rem+300px)]"
+        className="pointer-events-none absolute top-5 bottom-5 hidden w-px bg-[#e5e7eb] lg:block lg:right-[calc(3rem+300px)]"
       />
       <Link
         href={`/klussen/vak/${vakSlugVanKlus(klus)}`}

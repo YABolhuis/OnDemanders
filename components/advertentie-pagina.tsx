@@ -17,7 +17,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   const { spendCredits, isChatUnlocked, unlockChat } = useCredits();
   const [chatOpen, setChatOpen] = useState(false);
   const [highlight, setHighlight] = useState(false);
-  const [shakeActie, setShakeActie] = useState(false);
+  const [bod, setBod] = useState("");
   const openTimer = useRef<number | null>(null);
   const unlocked = isChatUnlocked(klus.id);
 
@@ -121,6 +121,22 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               </button>
             </div>
           </div>
+          <label className="mt-3 block">
+            <span className="sr-only">Jouw bod</span>
+            <span className="flex h-9 overflow-hidden rounded-[3px] border border-[#e5e7eb] bg-white">
+              <span className="flex items-center border-r border-[#e5e7eb] px-3 text-[13px] font-medium text-[#555]">
+                €
+              </span>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={bod}
+                onChange={(event) => setBod(event.target.value)}
+                placeholder="Jouw bod"
+                className="min-w-0 flex-1 bg-transparent px-3 text-[13px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6]"
+              />
+            </span>
+          </label>
         </div>
         <div className="flex items-start gap-3 px-5 py-5">
           <span

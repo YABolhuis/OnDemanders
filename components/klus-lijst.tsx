@@ -203,10 +203,10 @@ export function KlusLijst({
 
   return (
     <div>
-      <div className="bg-[#fbfbfb] px-10 pt-6">
+      <div className="bg-[#fbfbfb] px-10 pt-6 lg:pr-6">
         <FreelancerPlusBanner />
       </div>
-      <div className="relative bg-[#fbfbfb] px-10 pt-4">
+      <div className="relative bg-[#fbfbfb] px-10 pt-4 lg:pr-6">
         <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
           {tabs.map((item) => {
             const actief = item.id === tab;
@@ -235,7 +235,7 @@ export function KlusLijst({
         <div aria-hidden className="h-px bg-[#e6e6e6]" />
       </div>
 
-      <div className="px-10 pt-4 pb-10">
+      <div className="px-10 pt-4 pb-10 lg:pr-6">
         <div className="mb-6 flex items-center justify-between gap-4">
           <div className="flex min-w-0 flex-1 items-center gap-3">
             <p className="text-[13px] text-[#555]">

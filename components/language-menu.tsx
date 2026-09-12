@@ -99,7 +99,7 @@ export function LanguageMenu({
         {compact ? (
           <>
             <Globe className="size-4 text-[#1a1a1a]" strokeWidth={2} aria-hidden />
-            <span className="text-[13px] font-medium">EN</span>
+            <span className="text-[13px] font-normal">EN</span>
           </>
         ) : (
           <>

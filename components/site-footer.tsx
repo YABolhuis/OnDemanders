@@ -42,9 +42,9 @@ function AndroidIcon() {
 export function SiteFooter({ showEdge = true }: { showEdge?: boolean }) {
   return (
     <footer
-      className={`site-rail mt-auto bg-[#fbfbfb] text-[#555] ${showEdge ? "border-t border-[#d0d0d0]" : ""}`}
+      className={`site-rail mt-auto bg-[#fbfbfb] text-[#555] lg:col-span-2 ${showEdge ? "border-t border-[#d0d0d0]" : ""}`}
     >
-      <div className="flex flex-wrap items-center justify-between gap-2 px-10 py-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-2 px-14 py-2.5">
         <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px]">
           <span>© 2026 Optisend</span>
           <Link href="/privacy" className="hover:text-[#1a1a1a] hover:underline">

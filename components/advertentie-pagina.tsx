@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, User } from "lucide-react";
-import { PlaatsPin } from "@/components/plaats-pin";
+import { ArrowLeft } from "lucide-react";
 import { BerichtComposer } from "@/components/bericht-composer";
 import { useCredits } from "@/components/credits-provider";
 import type { Klus } from "@/lib/klussen";
@@ -97,25 +96,9 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               }`}
               onAnimationEnd={() => setShakeActie(false)}
             >
-              <div className="flex items-center gap-3">
-                <span
-                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
-                  aria-hidden
-                >
-                  <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
-                  <p className="mt-0.5 flex items-center gap-1 text-[13px] text-[#555]">
-                    <PlaatsPin />
-                    {klus.city}
-                    {klus.extra !== "Bezoek website" ? (
-                      <span className="text-[#777]">· {klus.extra}</span>
-                    ) : (
-                      <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
-                    )}
-                  </p>
-                </div>
+              <div>
+                <p className="text-[13px] text-[#777]">Budget</p>
+                <p className="text-[20px] font-bold">{klus.price}</p>
               </div>
               <div className="mt-4 flex gap-2">
                 <button

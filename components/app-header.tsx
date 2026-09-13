@@ -9,8 +9,8 @@ import { AccountMenu } from "@/components/account-menu";
 import { aantalOngelezenBerichten } from "@/lib/berichten";
 
 const navItems = [
-  { href: "/klussen", label: "Vind opdrachten" },
-  { href: "/berichten", label: "Berichten" },
+  { href: "/klussen/vak/schilder", match: "/klussen", label: "Vind opdrachten" },
+  { href: "/berichten", match: "/berichten", label: "Berichten" },
 ] as const;
 
 export function AppHeader({
@@ -31,7 +31,7 @@ export function AppHeader({
         }`}
       >
         <div className="site-rail flex items-center border-[#d0d0d0] px-4 lg:border-r lg:px-6">
-          <Link href="/klussen">
+          <Link href="/klussen/vak/schilder">
             <Image
               src="/optisend-logo.png"
               alt="Optisend"
@@ -45,7 +45,7 @@ export function AppHeader({
         <nav className="hidden h-full items-stretch gap-12 px-10 lg:flex">
           {navItems.map((item) => {
             const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
+              pathname === item.match || pathname.startsWith(`${item.match}/`);
             return (
               <Link
                 key={item.href}

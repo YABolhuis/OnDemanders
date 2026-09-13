@@ -518,7 +518,7 @@ export function KlusLijst({
                     aria-label="Bewaar klus"
                     aria-pressed={saved}
                     onClick={() => toggleFavorite(klus.id)}
-                    className="absolute top-6 right-6 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
+                    className="absolute top-6 right-6 z-10 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
                   >
                     <Heart
                       className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#6b6b6b]"}`}
@@ -526,15 +526,13 @@ export function KlusLijst({
                     />
                   </button>
 
-                  <div className="flex gap-6">
+                  <Link
+                    href={`/klussen/${klus.id}`}
+                    className="flex gap-6 hover:[&_h2]:text-[#1d5fd1] hover:[&_h2]:underline"
+                  >
                     <div className="flex min-w-0 flex-1 flex-col">
                       <h2 className="text-[16px] font-bold text-[#1a1a1a]">
-                        <Link
-                          href={`/klussen/${klus.id}`}
-                          className="hover:text-[#1d5fd1] hover:underline"
-                        >
-                          {klus.title}
-                        </Link>
+                        {klus.title}
                       </h2>
                       <p className="mt-1 line-clamp-2 text-[13px] leading-5 text-[#666]">
                         {klus.description}
@@ -575,7 +573,7 @@ export function KlusLijst({
                         {klus.postedAt}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 </article>
               );
             })}

@@ -12,7 +12,7 @@ export default function AdvertentieNietGevonden() {
           Deze opdracht bestaat niet of is niet meer beschikbaar.
         </p>
         <Link
-          href="/klussen"
+          href="/klussen/vak/schilder"
           className="mt-6 inline-block text-[14px] text-[#1d5fd1] hover:underline"
         >
           Terug naar opdrachten

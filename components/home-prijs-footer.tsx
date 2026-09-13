@@ -12,13 +12,13 @@ export function HomePrijsFooter() {
         <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
           <Link
             href="/inloggen"
-            className="inline-flex h-9 items-center rounded-full bg-[#246b4d] px-4 text-[13px] font-medium text-white hover:bg-[#1f5e43]"
+            className="inline-flex h-9 items-center rounded-[var(--radius-control)] bg-[#246b4d] px-4 text-[13px] font-medium text-white hover:bg-[#1f5e43]"
           >
             Bereken direct je prijs
           </Link>
           <Link
             href="/inloggen"
-            className="inline-flex h-9 items-center rounded-full border border-[#3a3a3a] px-4 text-[13px] font-medium text-[#e8e8e6] hover:border-[#5a5a5a]"
+            className="inline-flex h-9 items-center rounded-[var(--radius-control)] border border-[#3a3a3a] px-4 text-[13px] font-medium text-[#e8e8e6] hover:border-[#5a5a5a]"
           >
             Bekijk opdrachten
           </Link>

@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["127.0.0.1", "localhost"],
+  allowedDevOrigins: [
+    "127.0.0.1",
+    "localhost",
+    "*.localhost",
+    "*.agent.cvm.dev",
+    "**.agent.cvm.dev",
+  ],
   async redirects() {
     return [
       { source: "/agenda", destination: "/klussen", permanent: false },

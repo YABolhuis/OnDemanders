@@ -9,20 +9,12 @@ export function HomePrijsFooter() {
           <span className="text-[#8a8a8a]">Benieuwd wat jouw </span>
           <span className="text-white">schilderklus kost?</span>
         </h2>
-        <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
-          <Link
-            href="/inloggen"
-            className="inline-flex h-9 items-center rounded-[var(--radius-control)] bg-[#246b4d] px-4 text-[13px] font-medium text-white hover:bg-[#1f5e43]"
-          >
-            Bereken direct je prijs
-          </Link>
-          <Link
-            href="/inloggen"
-            className="inline-flex h-9 items-center rounded-[var(--radius-control)] border border-[#3a3a3a] px-4 text-[13px] font-medium text-[#e8e8e6] hover:border-[#5a5a5a]"
-          >
-            Bekijk opdrachten
-          </Link>
-        </div>
+        <Link
+          href="/inloggen"
+          className="mt-7 inline-flex h-9 items-center rounded-[var(--radius-control)] bg-[#246b4d] px-4 text-[13px] font-medium text-white hover:bg-[#1f5e43]"
+        >
+          Bekijk opdrachten
+        </Link>
       </div>
 
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 pt-16 text-[13px] text-[#9b9b97] lg:flex-row lg:pt-10">

@@ -9,7 +9,7 @@ const veld =
 export function HomeHeroForm() {
   const [verzonden, setVerzonden] = useState(false);
 
-  function verstuur(event: React.FormEvent<HTMLFormElement>) {
+  function verstuur(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setVerzonden(true);
   }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { GoogleMark } from "@/components/google-mark";
+import { ChevronLeft, ChevronRight, Star, Check } from "lucide-react";
 
 const recensies = [
   {

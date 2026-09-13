@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SiteChrome } from "@/components/site-chrome";
+import { HomeHero } from "@/components/home-hero";
 
 export default function Home() {
   return (
     <SiteChrome
+      spanRightRail
       header={
         <header className="site-rail relative z-50 w-full bg-[#fbfbfb] lg:col-span-3">
           <div className="grid h-14 w-full grid-cols-[auto_minmax(0,1fr)_auto] border-b border-[#d0d0d0] bg-[#fbfbfb] lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)_auto]">
@@ -43,7 +45,9 @@ export default function Home() {
         </header>
       }
     >
-      <main className="flex-1 bg-[#fbfbfb]" />
+      <main className="flex flex-1 flex-col justify-center bg-[#fbfbfb] px-14 py-16 lg:px-16 lg:py-24">
+        <HomeHero />
+      </main>
     </SiteChrome>
   );
 }

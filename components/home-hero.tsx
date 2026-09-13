@@ -1,29 +1,20 @@
-import Link from "next/link";
 import { GoogleMark } from "@/components/google-mark";
 import { HomeHeroForm } from "@/components/home-hero-form";
 
 export function HomeHero() {
   return (
     <section className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:gap-12">
-      <div>
+      <div className="lg:pl-20 xl:pl-28">
         <h1 className="text-[28px] leading-[1.15] font-medium tracking-tight text-[#1a1a1a] sm:text-[32px] lg:text-[36px]">
           Vind werk in een weekend
           <span className="mt-0.5 block text-[#3ecf8e]">Groei naar heel Nederland</span>
         </h1>
-        <div className="mt-5 flex flex-wrap items-center gap-2">
-          <Link
-            href="/inloggen"
-            className="inline-flex h-8 items-center rounded-[var(--radius-control)] bg-[#16a34a] px-3.5 text-[13px] font-medium text-white hover:bg-[#15803d]"
-          >
-            Account openen
-          </Link>
-          <Link
-            href="/inloggen"
-            className="inline-flex h-8 items-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-transparent px-3.5 text-[13px] font-medium text-[#1a1a1a] hover:border-[#1a1a1a]"
-          >
-            Bekijk opdrachten
-          </Link>
-        </div>
+        <p className="mt-5 max-w-xl text-[14px] leading-6 text-[#555]">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
         <div className="mt-8 flex max-w-xl items-start gap-4">
           <GoogleMark className="mt-0.5 size-9 shrink-0" />
           <div className="min-w-0 flex-1">

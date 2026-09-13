@@ -9,6 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 
 export type SiteTheme = "licht" | "donker";
 
@@ -39,23 +40,28 @@ function readStoredTheme(): SiteTheme {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const landing = pathname === "/";
   const [theme, setThemeState] = useState<SiteTheme>("licht");
 
   useEffect(() => {
     const stored = readStoredTheme();
     setThemeState(stored);
-    applyTheme(stored);
-  }, []);
+    applyTheme(landing ? "licht" : stored);
+  }, [landing]);
 
-  const setTheme = useCallback((next: SiteTheme) => {
-    setThemeState(next);
-    applyTheme(next);
-    try {
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      /* ignore */
-    }
-  }, []);
+  const setTheme = useCallback(
+    (next: SiteTheme) => {
+      setThemeState(next);
+      applyTheme(landing ? "licht" : next);
+      try {
+        localStorage.setItem(STORAGE_KEY, next);
+      } catch {
+        /* ignore */
+      }
+    },
+    [landing]
+  );
 
   const value = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 

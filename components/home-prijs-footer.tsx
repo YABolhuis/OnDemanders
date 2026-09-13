@@ -1,48 +1,58 @@
 import Link from "next/link";
-import { ArrowRight, Shield, Star, Zap } from "lucide-react";
+import { Check, Star } from "lucide-react";
 
 export function HomePrijsFooter() {
   return (
-    <section className="home-prijs-footer mt-auto px-6 py-16 text-center lg:px-10 lg:py-20">
-      <h2 className="text-[28px] leading-tight font-semibold tracking-tight text-white sm:text-[32px]">
-        Benieuwd wat jouw schilderklus kost?
-      </h2>
-      <p className="mt-3 text-[14px] text-[#9b9b97]">
-        Bereken binnen 1 minuut jouw richtprijs
-      </p>
-      <Link
-        href="/inloggen"
-        className="mt-6 inline-flex h-10 items-center gap-2 rounded-lg bg-[#e2b48a] px-5 text-[14px] font-medium text-[#1a1a1a] hover:bg-[#d9a878]"
-      >
-        Bereken direct je prijs
-        <ArrowRight className="size-4" strokeWidth={2} aria-hidden />
-      </Link>
-      <div className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[13px] text-[#c5c5c3]">
-        <span className="inline-flex items-center gap-1.5">
-          <span className="inline-flex" aria-hidden>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <Star
-                key={index}
-                className="size-3.5 fill-[#fbbc04] text-[#fbbc04]"
-              />
-            ))}
-          </span>
-          4.9/5 op basis van 40+ projecten
-        </span>
-        <span className="text-[#6b6b6b]" aria-hidden>
-          /
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <Shield className="size-3.5 text-[#5b8def]" strokeWidth={2} aria-hidden />
-          Tot 5 jaar garantie op buitenwerk
-        </span>
-        <span className="text-[#6b6b6b]" aria-hidden>
-          /
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <Zap className="size-3.5 text-[#a78bfa]" strokeWidth={2} aria-hidden />
-          Reactie binnen 24 uur
-        </span>
+    <section className="mt-auto flex min-h-[360px] flex-col bg-[#171717] px-8 pt-16 pb-10 lg:min-h-[400px] lg:px-16 lg:pt-20 lg:pb-12">
+      <div className="flex flex-1 flex-col items-center justify-center text-center">
+        <h2 className="text-[22px] leading-snug font-medium tracking-tight sm:text-[26px] lg:text-[28px]">
+          <span className="text-[#8a8a8a]">Benieuwd wat jouw </span>
+          <span className="text-white">schilderklus kost?</span>
+        </h2>
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
+          <Link
+            href="/inloggen"
+            className="inline-flex h-9 items-center rounded-full bg-[#246b4d] px-4 text-[13px] font-medium text-white hover:bg-[#1f5e43]"
+          >
+            Bereken direct je prijs
+          </Link>
+          <Link
+            href="/inloggen"
+            className="inline-flex h-9 items-center rounded-full border border-[#3a3a3a] px-4 text-[13px] font-medium text-[#e8e8e6] hover:border-[#5a5a5a]"
+          >
+            Bekijk opdrachten
+          </Link>
+        </div>
+      </div>
+
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 pt-16 text-[13px] text-[#9b9b97] lg:flex-row lg:pt-10">
+        <p>
+          Bereken binnen 1 minuut jouw richtprijs.
+        </p>
+        <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <li className="inline-flex items-center gap-1.5">
+            <Check className="size-3.5 text-[#3ecf8e]" strokeWidth={2.5} aria-hidden />
+            <span className="inline-flex items-center gap-1">
+              <span className="inline-flex" aria-hidden>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star
+                    key={index}
+                    className="size-3 fill-[#fbbc04] text-[#fbbc04]"
+                  />
+                ))}
+              </span>
+              4.9/5 op basis van 40+ projecten
+            </span>
+          </li>
+          <li className="inline-flex items-center gap-1.5">
+            <Check className="size-3.5 text-[#3ecf8e]" strokeWidth={2.5} aria-hidden />
+            Tot 5 jaar garantie op buitenwerk
+          </li>
+          <li className="inline-flex items-center gap-1.5">
+            <Check className="size-3.5 text-[#3ecf8e]" strokeWidth={2.5} aria-hidden />
+            Reactie binnen 24 uur
+          </li>
+        </ul>
       </div>
     </section>
   );

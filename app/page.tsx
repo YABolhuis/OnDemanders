@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
+import { HomeReviews } from "@/components/home-reviews";
 
 export default function Home() {
   return (
@@ -45,8 +46,9 @@ export default function Home() {
         </header>
       }
     >
-      <main className="flex flex-1 flex-col bg-[#fbfbfb] px-14 pt-12 pb-10 lg:px-16 lg:pt-16">
+      <main className="flex flex-1 flex-col bg-[#fbfbfb] px-14 pt-12 pb-14 lg:px-16 lg:pt-16 lg:pb-16">
         <HomeHero />
+        <HomeReviews />
       </main>
     </SiteChrome>
   );

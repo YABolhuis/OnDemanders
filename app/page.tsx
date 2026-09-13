@@ -45,7 +45,7 @@ export default function Home() {
         </header>
       }
     >
-      <main className="flex flex-1 flex-col justify-center bg-[#fbfbfb] px-14 py-16 lg:px-16 lg:py-24">
+      <main className="flex flex-1 flex-col bg-[#fbfbfb] px-14 pt-12 pb-10 lg:px-16 lg:pt-16">
         <HomeHero />
       </main>
     </SiteChrome>

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { GoogleMark } from "@/components/google-mark";
+import { HomeHeroForm } from "@/components/home-hero-form";
 
 export function HomeHero() {
   return (
-    <section className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:gap-12">
+    <section className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:gap-12">
       <div>
         <h1 className="text-[28px] leading-[1.15] font-medium tracking-tight text-[#1a1a1a] sm:text-[32px] lg:text-[36px]">
           Vind werk in een weekend
@@ -43,11 +44,7 @@ export function HomeHero() {
           </div>
         </div>
       </div>
-      <p className="max-w-[20rem] text-[14px] leading-6 text-[#777] lg:pt-1">
-        Zet je vak op de kaart. Ontvang opdrachten bij jou in de buurt, bied op
-        klussen en laat opdrachtgevers jou vinden — van één klus tot een volle
-        agenda.
-      </p>
+      <HomeHeroForm />
     </section>
   );
 }

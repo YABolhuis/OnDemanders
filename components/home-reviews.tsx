@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { GoogleMark } from "@/components/google-mark";
 
 const recensies = [
   {
@@ -37,29 +37,6 @@ const recensies = [
 ] as const;
 
 const ZICHTBAAR = 3;
-
-function GoogleMark() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
-      <path
-        fill="#4285F4"
-        d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.4c-.3 1.5-1.1 2.7-2.4 3.5v2.9h3.9c2.3-2.1 3.6-5.2 3.6-8.5z"
-      />
-      <path
-        fill="#34A853"
-        d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-2.9c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3c2 4 6.1 6.5 10.6 6.5z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M5.4 14.5c-.2-.7-.4-1.4-.4-2.5s.1-1.8.4-2.5V6.5H1.4C.5 8.2 0 10 0 12s.5 3.8 1.4 5.5l4-3z"
-      />
-      <path
-        fill="#EA4335"
-        d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4C17.9 1.2 15.2 0 12 0 7.5 0 3.4 2.6 1.4 6.5l4 3c.9-2.8 3.5-4.7 6.6-4.7z"
-      />
-    </svg>
-  );
-}
 
 export function HomeReviews() {
   const [start, setStart] = useState(0);

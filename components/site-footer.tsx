@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { LANDING_SHELL } from "@/lib/site-width";
 
 function CircleIcon({
   href,
@@ -39,12 +40,22 @@ function AndroidIcon() {
   );
 }
 
-export function SiteFooter({ showEdge = true }: { showEdge?: boolean }) {
+export function SiteFooter({
+  showEdge = true,
+  inset = false,
+}: {
+  showEdge?: boolean;
+  inset?: boolean;
+}) {
   return (
     <footer
       className={`site-rail mt-auto bg-[#fbfbfb] text-[#555] lg:col-span-2 ${showEdge ? "border-t border-[#d0d0d0]" : ""}`}
     >
-      <div className="flex flex-wrap items-center justify-between gap-2 px-14 py-2.5">
+      <div
+        className={`flex flex-wrap items-center justify-between gap-2 py-2.5 ${
+          inset ? LANDING_SHELL : "px-14"
+        }`}
+      >
         <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px]">
           <span>© 2026 Optisend</span>
           <Link href="/privacy" className="hover:text-[#1a1a1a] hover:underline">

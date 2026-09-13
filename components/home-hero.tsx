@@ -1,41 +1,32 @@
-import { GoogleMark } from "@/components/google-mark";
-import { HomeHeroForm } from "@/components/home-hero-form";
+import Link from "next/link";
 
 export function HomeHero() {
   return (
-    <section className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:gap-12">
-      <div className="lg:pl-20 xl:pl-28">
-        <h1 className="text-[28px] leading-[1.15] font-medium tracking-tight text-[#1a1a1a] sm:text-[32px] lg:text-[36px]">
+    <section className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <h1 className="text-[40px] leading-[1.06] font-medium tracking-tight text-[#171717] sm:text-[48px] lg:text-[52px]">
           Vind werk in een weekend
-          <span className="mt-0.5 block text-[#3ecf8e]">Groei naar heel Nederland</span>
+          <span className="mt-1 block text-[#3ecf8e]">Groei naar heel Nederland</span>
         </h1>
-        <p className="mt-5 max-w-xl text-[14px] leading-6 text-[#555]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-        <div className="mt-8 flex max-w-xl items-start gap-4">
-          <GoogleMark className="mt-0.5 size-9 shrink-0" />
-          <div className="min-w-0 flex-1">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
-              <div className="shrink-0">
-                <p className="text-[18px] leading-6 font-semibold text-[#1a1a1a]">
-                  4.9/5 Google reviews
-                </p>
-                <p className="mt-0.5 text-[13px] text-[#777]">
-                  Gebaseerd op 2K+ reviews
-                </p>
-              </div>
-              <p className="text-[13px] leading-5 text-[#555] sm:max-w-[16rem]">
-                Meer dan 2.000 tevreden klanten achter ons, leveren we met trots
-                professionele oplossingen van topkwaliteit.
-              </p>
-            </div>
-          </div>
+        <div className="mt-8 flex flex-wrap items-center gap-2.5">
+          <Link
+            href="/inloggen"
+            className="landing-pill inline-flex h-9 items-center rounded-full bg-[#16a34a] px-4 text-[13px] font-medium text-white hover:bg-[#15803d]"
+          >
+            Account openen
+          </Link>
+          <Link
+            href="/inloggen"
+            className="landing-pill inline-flex h-9 items-center rounded-full border border-[#d4d4d4] bg-white px-4 text-[13px] font-medium text-[#171717] hover:border-[#171717]"
+          >
+            Bekijk opdrachten
+          </Link>
         </div>
       </div>
-      <HomeHeroForm />
+      <p className="max-w-[20.5rem] text-[15px] leading-7 text-[#737373] lg:justify-self-end lg:pt-3">
+        Zet je vak op de kaart. Ontvang opdrachten bij jou in de buurt. Bied op
+        klussen en laat opdrachtgevers jou vinden.
+      </p>
     </section>
   );
 }

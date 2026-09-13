@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
 import { HomeReviews } from "@/components/home-reviews";
+import { HomeHeroForm } from "@/components/home-hero-form";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
+import { LANDING_SHELL } from "@/lib/site-width";
 
 export default function Home() {
   return (
     <SiteChrome
       landing
       header={
-        <header className="relative z-50 w-full border-b border-[#d0d0d0] bg-[#fbfbfb]">
-          <div className="flex h-14 w-full items-center justify-between px-14 lg:px-16">
+        <header className="relative z-50 w-full border-b border-[#f0f0f0] bg-white">
+          <div className={`${LANDING_SHELL} flex h-16 items-center justify-between`}>
             <Link href="/">
               <Image
                 src="/optisend-logo.png"
@@ -23,17 +24,16 @@ export default function Home() {
                 priority
               />
             </Link>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <Link
                 href="/inloggen"
-                className="inline-flex items-center gap-1 border-b border-[#111] pb-px text-[14px] font-medium text-[#111] hover:opacity-70"
+                className="inline-flex h-8 items-center rounded-full px-3 text-[13px] font-medium text-[#171717] hover:bg-[#f5f5f5]"
               >
                 Inloggen
-                <ArrowUpRight className="size-3.5" strokeWidth={2} aria-hidden />
               </Link>
               <Link
                 href="/inloggen"
-                className="inline-flex h-9 items-center rounded-[3px] bg-[#171717] px-4 text-[14px] font-medium text-white hover:bg-[#0a0a0a]"
+                className="landing-pill inline-flex h-8 items-center rounded-full bg-[#16a34a] px-3.5 text-[13px] font-medium text-white hover:bg-[#15803d]"
               >
                 Account openen
               </Link>
@@ -42,10 +42,17 @@ export default function Home() {
         </header>
       }
     >
-      <main className="flex flex-1 flex-col bg-[#fbfbfb]">
-        <div className="px-14 pt-12 pb-14 lg:px-16 lg:pt-16 lg:pb-16">
+      <main className="flex flex-1 flex-col bg-white">
+        <div
+          className={`${LANDING_SHELL} flex min-h-[calc(100dvh-4rem)] flex-col pt-16 pb-10 lg:pt-24 lg:pb-12`}
+        >
           <HomeHero />
           <HomeReviews />
+        </div>
+        <div className={`${LANDING_SHELL} pb-16`}>
+          <div className="flex justify-end">
+            <HomeHeroForm />
+          </div>
         </div>
         <HomePrijsFooter />
       </main>

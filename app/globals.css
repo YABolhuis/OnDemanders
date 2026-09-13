@@ -355,6 +355,14 @@ html.dark .site-nav-link {
   color: #e8e8e6;
 }
 
+.home-prijs-footer {
+  background-color: #1c1c1c;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
 .header-account-type {
   font-family: var(--font-inter), "Segoe UI", "Helvetica Neue", sans-serif;
 }

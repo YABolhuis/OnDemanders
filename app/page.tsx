@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
 import { HomeReviews } from "@/components/home-reviews";
+import { HomePrijsFooter } from "@/components/home-prijs-footer";
 
 export default function Home() {
   return (
@@ -46,9 +47,12 @@ export default function Home() {
         </header>
       }
     >
-      <main className="flex flex-1 flex-col bg-[#fbfbfb] px-14 pt-12 pb-14 lg:px-16 lg:pt-16 lg:pb-16">
-        <HomeHero />
-        <HomeReviews />
+      <main className="flex flex-1 flex-col bg-[#fbfbfb]">
+        <div className="px-14 pt-12 pb-14 lg:px-16 lg:pt-16 lg:pb-16">
+          <HomeHero />
+          <HomeReviews />
+        </div>
+        <HomePrijsFooter />
       </main>
     </SiteChrome>
   );

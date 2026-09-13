@@ -9,13 +9,13 @@ const veld =
 export function HomeHeroForm() {
   const [verzonden, setVerzonden] = useState(false);
 
-  function verstuur(event: React.FormEvent<HTMLFormElement>) {
+  function verstuur(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setVerzonden(true);
   }
 
   return (
-    <div className="w-full rounded-2xl border border-[#2e2e2e] bg-[#1c1c1c] p-5 lg:max-w-[360px] lg:justify-self-end">
+    <div className="w-full rounded-2xl border border-[#2e2e2e] bg-[#1c1c1c] p-5">
       {verzonden ? (
         <p className="py-10 text-center text-[14px] leading-6 text-[#c5c5c3]">
           Bedankt. We hebben je gegevens ontvangen en nemen contact met je op.

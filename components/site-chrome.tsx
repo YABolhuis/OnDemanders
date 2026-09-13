@@ -10,13 +10,27 @@ export function SiteChrome({
   contentClassName = "bg-[#fbfbfb]",
   leftRail,
   spanRightRail = false,
+  landing = false,
 }: {
   header: ReactNode;
   children: ReactNode;
   contentClassName?: string;
   leftRail?: ReactNode;
   spanRightRail?: boolean;
+  landing?: boolean;
 }) {
+  if (landing) {
+    return (
+      <div className="flex min-h-screen flex-col bg-[#fbfbfb]">
+        {header}
+        <div className={`relative flex min-w-0 flex-1 flex-col ${contentClassName}`}>
+          {children}
+        </div>
+        <SiteFooter />
+      </div>
+    );
+  }
+
   return (
     <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
       {header}

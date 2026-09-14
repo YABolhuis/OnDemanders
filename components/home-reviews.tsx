@@ -56,7 +56,7 @@ export function HomeReviews() {
   }
 
   return (
-    <section aria-labelledby="recensies-titel">
+    <section aria-labelledby="recensies-titel" className="pt-8 lg:pt-12">
       <HomeSectionTitle id="recensies-titel" muted="Wat opdrachtgevers">
         zeggen over hun project
       </HomeSectionTitle>

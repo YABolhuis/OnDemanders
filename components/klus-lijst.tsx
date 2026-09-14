@@ -26,7 +26,6 @@ const tabs = [
   { id: "matches", label: "Beste overeenkomsten" },
   { id: "recent", label: "Meest recent" },
   { id: "opgeslagen", label: "Opgeslagen opdrachten" },
-  { id: "uitnodigingen", label: "Uitnodigingen" },
 ] as const;
 
 const sorteerOpties = [
@@ -129,9 +128,7 @@ export function KlusLijst({
 
   const gefilterd = useMemo(() => {
     let lijst: Klus[];
-    if (tab === "uitnodigingen") {
-      lijst = [];
-    } else if (tab === "opgeslagen") {
+    if (tab === "opgeslagen") {
       lijst = items.filter((klus) => favorites.includes(klus.id));
     } else {
       lijst = [...items];
@@ -197,9 +194,7 @@ export function KlusLijst({
   const leegTekst =
     tab === "opgeslagen"
       ? "Je hebt nog geen opgeslagen opdrachten."
-      : tab === "uitnodigingen"
-        ? "Je hebt nog geen uitnodigingen."
-        : "Geen opdrachten in dit vakgebied.";
+      : "Geen opdrachten in dit vakgebied.";
 
   return (
     <div>

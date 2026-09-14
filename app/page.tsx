@@ -8,8 +8,7 @@ import { HomeUitleg } from "@/components/home-uitleg";
 import { HomeReviews } from "@/components/home-reviews";
 import { HomeFaq } from "@/components/home-faq";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
-import { LandingThemeToggle } from "@/components/landing-theme-toggle";
-import { LanguageMenu } from "@/components/language-menu";
+import { LandingSideTab } from "@/components/landing-side-tab";
 import { LANDING_SHELL } from "@/lib/site-width";
 
 export default function Home() {
@@ -30,8 +29,6 @@ export default function Home() {
               />
             </Link>
             <div className="flex items-center gap-1">
-              <LanguageMenu variant="icon" />
-              <LandingThemeToggle />
               <Link
                 href="/inloggen"
                 className="inline-flex h-8 items-center gap-1 rounded-full px-2.5 text-[13px] font-medium text-[#e8e8e6] hover:bg-[#2c2c2c]"
@@ -50,6 +47,7 @@ export default function Home() {
         </header>
       }
     >
+      <LandingSideTab />
       <main className="flex flex-1 flex-col bg-[#171717]">
         <div className={`${LANDING_SHELL} flex flex-col pt-16 sm:pt-20 lg:pt-24`}>
           <HomeHero />

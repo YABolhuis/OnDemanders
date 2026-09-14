@@ -122,10 +122,25 @@ export function LanguageMenu({
           />
         )}
       </summary>
-      <ul className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10">
-        {dropdownLanguages.map((item) => (
+      <ul
+        className={
+          icon
+            ? "absolute top-0 right-full z-50 mr-2 min-w-[12rem] rounded-lg bg-[#1c1c1c] p-1 shadow-md ring-1 ring-white/10"
+            : "absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10"
+        }
+      >
+        {(icon
+          ? [{ id: "nl", label: "Nederlands", Flag: FlagNl }, ...dropdownLanguages]
+          : dropdownLanguages
+        ).map((item) => (
           <li key={item.id}>
-            <span className="flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] text-[#222]">
+            <span
+              className={
+                icon
+                  ? "flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] text-[#e8e8e6]"
+                  : "flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] text-[#222]"
+              }
+            >
               <RectFlag>
                 <item.Flag className="size-full" />
               </RectFlag>

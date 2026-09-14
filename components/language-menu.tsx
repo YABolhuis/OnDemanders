@@ -125,7 +125,7 @@ export function LanguageMenu({
       <ul
         className={
           icon
-            ? "absolute top-0 right-full z-50 mr-2 min-w-[12rem] rounded-lg bg-[#1c1c1c] p-1 shadow-md ring-1 ring-white/10"
+            ? "absolute top-0 left-full z-50 ml-2 min-w-[12rem] rounded-lg bg-[#1c1c1c] p-1 shadow-md ring-1 ring-white/10"
             : "absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10"
         }
       >

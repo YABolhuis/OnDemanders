@@ -27,18 +27,14 @@ export function HomeKenmerken() {
   return (
     <section className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8 lg:mt-20 lg:gap-12">
       {items.map((item) => (
-        <article key={item.title} className="flex items-start gap-3.5">
-          <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full border border-[#d4d4d4] text-[#171717]">
-            <item.icon className="size-4" strokeWidth={1.75} aria-hidden />
-          </span>
-          <div className="min-w-0">
-            <h2 className="text-[15px] font-medium tracking-tight text-[#171717]">
-              {item.title}
-            </h2>
-            <p className="mt-1.5 text-[14px] leading-6 text-[#737373]">
-              {item.body}
-            </p>
-          </div>
+        <article key={item.title} className="min-w-0">
+          <h2 className="flex items-center gap-2.5 text-[15px] font-medium tracking-tight text-[#171717]">
+            <item.icon className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
+            {item.title}
+          </h2>
+          <p className="mt-1.5 pl-[26px] text-[14px] leading-6 text-[#737373]">
+            {item.body}
+          </p>
         </article>
       ))}
     </section>

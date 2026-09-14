@@ -79,7 +79,7 @@ export function AppHeader({
             <button
               type="button"
               aria-label="Meldingen"
-              className="flex size-8 items-center justify-center rounded-[3px] bg-[#eceff1] text-[#1a1a1a] hover:bg-[#e4e7ea]"
+              className="flex size-8 items-center justify-center rounded-[3px] bg-transparent text-[#1a1a1a] hover:bg-[#f5f5f5]"
             >
               <Bell className="size-4" strokeWidth={2} aria-hidden />
             </button>

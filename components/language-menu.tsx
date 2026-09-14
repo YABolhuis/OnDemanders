@@ -95,7 +95,7 @@ export function LanguageMenu({
           icon
             ? "landing-pill flex size-8 cursor-pointer list-none items-center justify-center text-[#e8e8e6] outline-none hover:bg-[#2c2c2c] [&::-webkit-details-marker]:hidden"
             : compact
-              ? "flex h-8 cursor-pointer list-none items-center gap-1 rounded-[3px] bg-[#eceff1] px-2 text-[#1a1a1a] outline-none hover:bg-[#e4e7ea] [&::-webkit-details-marker]:hidden"
+              ? "flex h-8 cursor-pointer list-none items-center gap-1 rounded-[3px] bg-transparent px-2 text-[#1a1a1a] outline-none hover:bg-[#f5f5f5] [&::-webkit-details-marker]:hidden"
               : "flex h-7 cursor-pointer list-none items-center gap-2 text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden"
         }
       >

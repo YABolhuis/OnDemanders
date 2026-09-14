@@ -41,7 +41,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/inloggen"
-                className="landing-pill ml-2 inline-flex h-8 items-center rounded-full border border-white/25 bg-transparent px-3.5 text-[13px] font-medium text-[#e8e8e6] hover:border-white/40 hover:bg-white/5"
+                className="ml-2 inline-flex h-8 items-center rounded-[var(--radius-control)] border border-white/25 bg-transparent px-3.5 text-[13px] font-medium text-[#e8e8e6] hover:border-white/40 hover:bg-white/5"
               >
                 Opdracht plaatsen
               </Link>

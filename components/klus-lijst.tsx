@@ -507,14 +507,14 @@ export function KlusLijst({
               return (
                 <article
                   key={klus.id}
-                  className="relative rounded-xl border border-[#e5e7eb] bg-white px-7 py-7 pr-16"
+                  className="ad-panel relative p-5 pr-14"
                 >
                   <button
                     type="button"
                     aria-label="Bewaar klus"
                     aria-pressed={saved}
                     onClick={() => toggleFavorite(klus.id)}
-                    className="absolute top-6 right-6 z-10 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
+                    className="absolute top-5 right-5 z-10 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
                   >
                     <Heart
                       className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#6b6b6b]"}`}

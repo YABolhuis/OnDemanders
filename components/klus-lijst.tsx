@@ -24,7 +24,6 @@ const PER_PAGE_OPTIONS = [6, 8, 10] as const;
 
 const tabs = [
   { id: "matches", label: "Beste overeenkomsten" },
-  { id: "recent", label: "Meest recent" },
   { id: "opgeslagen", label: "Opgeslagen opdrachten" },
 ] as const;
 
@@ -154,7 +153,7 @@ export function KlusLijst({
     }
 
     const gesorteerd = [...lijst];
-    if (sorteer === "nieuwste" || tab === "recent") {
+    if (sorteer === "nieuwste") {
       gesorteerd.sort(
         (a, b) => postedTime(b.postedAt) - postedTime(a.postedAt)
       );

@@ -39,6 +39,12 @@ export default function Home() {
                 Inloggen
                 <ArrowUpRight className="size-3.5" strokeWidth={2} aria-hidden />
               </Link>
+              <Link
+                href="/inloggen"
+                className="landing-pill ml-2 inline-flex h-8 items-center rounded-full bg-[#16a34a] px-3.5 text-[13px] font-medium text-white hover:bg-[#15803d]"
+              >
+                Opdracht plaatsen
+              </Link>
             </div>
           </div>
         </header>

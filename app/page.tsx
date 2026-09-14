@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
 import { HomeKenmerken } from "@/components/home-kenmerken";
+import { HomeUitleg } from "@/components/home-uitleg";
 import { HomeReviews } from "@/components/home-reviews";
 import { HomeFaq } from "@/components/home-faq";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
@@ -51,6 +52,7 @@ export default function Home() {
         >
           <HomeHero />
           <HomeKenmerken />
+          <HomeUitleg />
           <HomeReviews />
           <HomeFaq />
         </div>

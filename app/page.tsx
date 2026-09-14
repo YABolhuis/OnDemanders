@@ -5,6 +5,7 @@ import { HomeHero } from "@/components/home-hero";
 import { HomeReviews } from "@/components/home-reviews";
 import { HomeHeroForm } from "@/components/home-hero-form";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
+import { LandingThemeToggle } from "@/components/landing-theme-toggle";
 import { LANDING_SHELL } from "@/lib/site-width";
 
 export default function Home() {
@@ -24,16 +25,17 @@ export default function Home() {
                 priority
               />
             </Link>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1">
+              <LandingThemeToggle />
               <Link
                 href="/inloggen"
-                className="inline-flex h-8 items-center rounded-full px-3 text-[13px] font-medium text-[#171717] hover:bg-[#f5f5f5]"
+                className="inline-flex h-8 items-center rounded-full px-2.5 text-[13px] font-medium text-[#171717] hover:bg-[#f5f5f5]"
               >
                 Inloggen
               </Link>
               <Link
                 href="/inloggen"
-                className="landing-pill inline-flex h-8 items-center rounded-full bg-[#16a34a] px-3.5 text-[13px] font-medium text-white hover:bg-[#15803d]"
+                className="landing-pill ml-2 inline-flex h-8 items-center rounded-full bg-[#16a34a] px-3.5 text-[13px] font-medium text-white hover:bg-[#15803d]"
               >
                 Account openen
               </Link>

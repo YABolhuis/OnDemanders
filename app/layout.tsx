@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description: "Platform voor pc",
 };
 
-const THEME_BOOTSTRAP = `(function(){try{if(localStorage.getItem("optisend-theme")==="donker"&&location.pathname!=="/"){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark";}}catch(e){}})();`;
+const THEME_BOOTSTRAP = `(function(){try{if(localStorage.getItem("optisend-theme")==="donker"){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark";}}catch(e){}})();`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

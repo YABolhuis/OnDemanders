@@ -21,7 +21,7 @@ export function SiteChrome({
 }) {
   if (landing) {
     return (
-      <div className="landing-light flex min-h-screen flex-col bg-white">
+      <div className="flex min-h-screen flex-col bg-white">
         {header}
         <div className="relative flex min-w-0 flex-1 flex-col bg-white">
           {children}

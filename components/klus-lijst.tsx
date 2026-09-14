@@ -507,7 +507,7 @@ export function KlusLijst({
               return (
                 <article
                   key={klus.id}
-                  className="ad-panel relative p-5 pr-14"
+                  className="ad-panel relative rounded-xl p-5 pr-14"
                 >
                   <button
                     type="button"

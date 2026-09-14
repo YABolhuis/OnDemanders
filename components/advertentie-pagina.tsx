@@ -93,9 +93,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               className={`rounded-[16px] border border-[#2e2e2e] bg-[#1c1c1c] p-5 ${shakeActie ? "groene-shake" : ""}`}
               onAnimationEnd={() => setShakeActie(false)}
             >
-              <div>
-                <p className="text-[13px] text-[#9b9b97]">Budget</p>
-                <p className="text-[20px] font-bold text-[#e8e8e6]">{klus.price}</p>
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-[13px] text-[#9b9b97]">Budget</p>
+                  <p className="text-[20px] font-bold text-[#e8e8e6]">{klus.price}</p>
+                </div>
+                <p className="pt-0.5 text-right text-[12px] text-[#9b9b97]">
+                  Deze klus kost {CHAT_KOST} credits
+                </p>
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <button
@@ -113,9 +118,6 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   Direct aannemen
                 </button>
               </div>
-              <p className="mt-2 text-center text-[12px] text-[#9b9b97]">
-                Deze klus kost {CHAT_KOST} credits
-              </p>
               <label className="mt-4 block">
                 <span className="sr-only">Jouw bod</span>
                 <span className="flex h-10 items-center gap-3 overflow-hidden rounded-lg border border-[#3a3a3a] bg-transparent px-3">
@@ -134,7 +136,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 <h2 className="text-[15px] font-medium text-[#e8e8e6]">
                   Biedingen (0)
                 </h2>
-                <p className="mt-4 text-center text-[13px] text-[#9b9b97]">
+                <p className="mt-1.5 text-[13px] text-[#9b9b97]">
                   Geen biedingen geplaatst
                 </p>
               </div>

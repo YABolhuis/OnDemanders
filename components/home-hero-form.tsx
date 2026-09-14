@@ -46,13 +46,13 @@ export function HomeHeroForm() {
             />
           </label>
           <label className="mt-3.5 text-[13px] text-[#e8e8e6]">
-            Zakelijk e-mailadres
+            E-mailadres
             <input
               name="email"
               type="email"
               autoComplete="email"
               required
-              placeholder="Zakelijk e-mailadres"
+              placeholder="E-mailadres"
               className={veld}
             />
           </label>

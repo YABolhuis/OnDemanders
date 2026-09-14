@@ -4,6 +4,7 @@ import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
 import { HomeKenmerken } from "@/components/home-kenmerken";
 import { HomeReviews } from "@/components/home-reviews";
+import { HomeFaq } from "@/components/home-faq";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
 import { LandingThemeToggle } from "@/components/landing-theme-toggle";
 import { LANDING_SHELL } from "@/lib/site-width";
@@ -51,6 +52,7 @@ export default function Home() {
           <HomeHero />
           <HomeKenmerken />
           <HomeReviews />
+          <HomeFaq />
         </div>
         <HomePrijsFooter />
       </main>

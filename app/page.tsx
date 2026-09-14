@@ -3,7 +3,6 @@ import Link from "next/link";
 import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
 import { HomeReviews } from "@/components/home-reviews";
-import { HomeHeroForm } from "@/components/home-hero-form";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
 import { LandingThemeToggle } from "@/components/landing-theme-toggle";
 import { LANDING_SHELL } from "@/lib/site-width";
@@ -50,11 +49,6 @@ export default function Home() {
         >
           <HomeHero />
           <HomeReviews />
-        </div>
-        <div className={`${LANDING_SHELL} pb-16`}>
-          <div className="flex justify-end">
-            <HomeHeroForm />
-          </div>
         </div>
         <HomePrijsFooter />
       </main>

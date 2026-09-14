@@ -163,14 +163,15 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   </p>
                 </div>
               </div>
-              <div className="mt-4 h-[168px] overflow-hidden rounded-lg bg-[#eceff1]">
+              <div className="mt-4 h-[120px] overflow-hidden rounded-lg bg-[#eceff1]">
                 <iframe
                   title={`Kaart van ${klus.city} in Google Maps`}
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(`${klus.city}, Nederland`)}&z=12&hl=nl&output=embed`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(`${klus.city}, Nederland`)}&z=13&hl=nl&ie=UTF8&output=embed&iwloc=near`}
                   className="size-full border-0"
-                  loading="lazy"
+                  loading="eager"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
+                  allow="fullscreen; geolocation"
                 />
               </div>
             </div>

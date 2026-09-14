@@ -1,4 +1,5 @@
 import { HomeHeroForm } from "@/components/home-hero-form";
+import { HomeGoogleProof } from "@/components/home-google-proof";
 
 export function HomeHero() {
   return (
@@ -12,6 +13,7 @@ export function HomeHero() {
           Zet je vak op de kaart. Ontvang opdrachten bij jou in de buurt. Bied op
           klussen en laat opdrachtgevers jou vinden.
         </p>
+        <HomeGoogleProof />
       </div>
       <HomeHeroForm />
     </section>

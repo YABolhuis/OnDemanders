@@ -10,13 +10,10 @@ import {
   CreditCard,
   Heart,
   LogOut,
-  Moon,
   Settings,
-  Sun,
   User,
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import { useTheme } from "@/components/theme-provider";
 import { useCredits } from "@/components/credits-provider";
 
 const itemClass =
@@ -24,15 +21,12 @@ const itemClass =
 
 export function AccountMenu({ gebruiker }: { gebruiker: string }) {
   const [open, setOpen] = useState(false);
-  const [themeOpen, setThemeOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
   const { saldo } = useCredits();
   const [online, setOnline] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) {
-      setThemeOpen(false);
       return;
     }
 
@@ -162,48 +156,6 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
                 <CreditCard className="size-4 shrink-0" strokeWidth={2} aria-hidden />
                 Abonement & credits
               </a>
-              <button
-                type="button"
-                aria-expanded={themeOpen}
-                onClick={() => setThemeOpen((value) => !value)}
-                className={itemClass}
-              >
-                {theme === "licht" ? (
-                  <Sun className="size-4 shrink-0" strokeWidth={2} aria-hidden />
-                ) : (
-                  <Moon className="size-4 shrink-0" strokeWidth={2} aria-hidden />
-                )}
-                <span className="min-w-0 flex-1">
-                  Thema: {theme === "licht" ? "Licht" : "Donker"}
-                </span>
-                {themeOpen ? (
-                  <ChevronUp className="size-4 shrink-0 text-[#555]" strokeWidth={2} aria-hidden />
-                ) : (
-                  <ChevronDown className="size-4 shrink-0 text-[#555]" strokeWidth={2} aria-hidden />
-                )}
-              </button>
-              {themeOpen ? (
-                <div className="pb-1 pl-11">
-                  <button
-                    type="button"
-                    onClick={() => setTheme("licht")}
-                    className={`flex h-8 w-full items-center text-left text-[13px] ${
-                      theme === "licht" ? "font-medium text-[#1d5fd1]" : "text-[#333] hover:text-[#1d5fd1]"
-                    }`}
-                  >
-                    Licht
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setTheme("donker")}
-                    className={`flex h-8 w-full items-center text-left text-[13px] ${
-                      theme === "donker" ? "font-medium text-[#1d5fd1]" : "text-[#333] hover:text-[#1d5fd1]"
-                    }`}
-                  >
-                    Donker
-                  </button>
-                </div>
-              ) : null}
               <a href="/profiel" className={itemClass}>
                 <Settings className="size-4 shrink-0" strokeWidth={2} aria-hidden />
                 Account instellingen
@@ -213,8 +165,15 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
             <hr className="border-0 border-t border-[#e6e6e6]" />
 
             <div className="py-1">
-              <a href="/" className={itemClass}>
-                <LogOut className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+              <a
+                href="/"
+                className="flex h-10 w-full items-center gap-3 px-4 text-left text-[13px] text-[#dc2626] hover:bg-[#f5f5f5]"
+              >
+                <LogOut
+                  className="size-4 shrink-0 -scale-x-100"
+                  strokeWidth={2}
+                  aria-hidden
+                />
                 Uitloggen
               </a>
             </div>

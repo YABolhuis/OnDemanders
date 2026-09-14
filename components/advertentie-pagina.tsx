@@ -59,10 +59,6 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
 
   return (
     <div className="relative min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-14 py-14 text-[#1a1a1a] lg:pr-14">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-6 bottom-6 hidden w-px bg-[#e5e7eb] lg:block lg:right-[calc(3.5rem+300px)]"
-      />
       <Link
         href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
         className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"
@@ -73,8 +69,8 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
         <span className="hover:underline">terug naar opdrachten</span>
       </Link>
 
-      <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-[minmax(0,1fr)_300px]">
-        <div className="lg:pr-8">
+      <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10">
+        <div>
           <h1 className="max-w-3xl text-[22px] font-medium leading-snug tracking-tight text-[#171717] sm:text-[24px]">
             <span>{klus.titleLead} </span>
             <span className="text-[#8a8a8a]">{klus.titleRest}</span>
@@ -84,11 +80,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
             <span>Geplaatst</span>
             <span className="text-[#555]">{klus.when}</span>
           </p>
-          <div className="relative mt-6 border-t border-[#e5e7eb] pt-5 lg:border-t-0">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute top-0 right-[-1.5rem] left-0 hidden h-px bg-[#e5e7eb] lg:block"
-            />
+          <div className="mt-6">
             <h2 className="text-[15px] font-medium text-[#555]">Beschrijving</h2>
             <p className="mt-3 pb-16 text-[15px] leading-6 text-[#333]">
               {klus.description}
@@ -96,14 +88,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
           </div>
         </div>
 
-          <aside className="mt-8 border-t border-[#e5e7eb] pt-6 lg:mt-0 lg:w-[300px] lg:border-t-0 lg:pt-0 lg:pl-8">
+          <aside className="mt-8 lg:mt-0 lg:w-[300px]">
             <div
-              className={shakeActie ? "groene-shake" : ""}
+              className={`rounded-[16px] border border-[#2e2e2e] bg-[#1c1c1c] p-5 ${shakeActie ? "groene-shake" : ""}`}
               onAnimationEnd={() => setShakeActie(false)}
             >
               <div>
-                <p className="text-[13px] text-[#777]">Budget</p>
-                <p className="text-[20px] font-bold">{klus.price}</p>
+                <p className="text-[13px] text-[#9b9b97]">Budget</p>
+                <p className="text-[20px] font-bold text-[#e8e8e6]">{klus.price}</p>
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <button
@@ -116,31 +108,31 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 <button
                   type="button"
                   onClick={startContact}
-                  className="ad-cta inline-flex h-9 min-w-0 flex-1 items-center justify-center border border-[#d0d0d0] bg-transparent px-4 font-sans text-[14px] font-medium whitespace-nowrap text-[#171717] hover:bg-[#f5f5f5]"
+                  className="ad-cta inline-flex h-9 shrink-0 items-center justify-center border border-white/20 bg-transparent px-4 font-sans text-[14px] font-medium whitespace-nowrap text-[#e8e8e6] hover:bg-white/5"
                 >
                   Direct aannemen
                 </button>
               </div>
-              <p className="mt-2 text-center text-[12px] text-[#555]">
+              <p className="mt-2 text-center text-[12px] text-[#9b9b97]">
                 Deze klus kost {CHAT_KOST} credits
               </p>
-              <label className="mt-3 block">
+              <label className="mt-4 block">
                 <span className="sr-only">Jouw bod</span>
-                <span className="flex h-11 items-center gap-3 overflow-hidden rounded-[var(--radius-control)] border border-[#e5e7eb] bg-[#fbfbfb] px-3">
-                  <span className="text-[15px] font-bold">€</span>
+                <span className="flex h-10 items-center gap-3 overflow-hidden rounded-lg border border-[#3a3a3a] bg-transparent px-3">
+                  <span className="text-[15px] font-bold text-[#e8e8e6]">€</span>
                   <input
                     type="text"
                     inputMode="decimal"
                     value={bod}
                     onChange={(event) => setBod(event.target.value)}
                     placeholder="Jouw bod"
-                    className="h-full min-w-0 flex-1 bg-transparent text-[14px] text-[#1a1a1a] outline-none placeholder:text-[#9aa0a6]"
+                    className="h-full min-w-0 flex-1 bg-transparent text-[14px] text-[#e8e8e6] outline-none placeholder:text-[#6b6b6b]"
                   />
                 </span>
               </label>
             </div>
 
-            <div className="mt-5 border-t border-[#e5e7eb] pt-5">
+            <div className="mt-6">
               <h2 className="text-[15px] font-medium text-[#555]">
                 Biedingen (0)
               </h2>
@@ -149,7 +141,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               </p>
             </div>
 
-            <div className="mt-5 border-t border-[#e5e7eb] pt-5">
+            <div className="mt-6">
               <div className="flex items-center gap-3">
                 <span
                   className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
@@ -170,7 +162,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   </p>
                 </div>
               </div>
-              <div className="mt-4 h-[168px] border-t border-[#e5e7eb] bg-[#eceff1]">
+              <div className="mt-4 h-[168px] bg-[#eceff1]">
                 <iframe
                   title={`Kaart van ${klus.city} in Google Maps`}
                   src={`https://maps.google.com/maps?q=${encodeURIComponent(`${klus.city}, Nederland`)}&z=12&hl=nl&output=embed`}

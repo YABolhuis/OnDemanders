@@ -151,6 +151,25 @@
   border-radius: 6px !important;
 }
 
+.advertentie-kaart.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #eceff1;
+  font: inherit;
+}
+
+.advertentie-kaart .leaflet-control-zoom a {
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+}
+
+.advertentie-kaart .leaflet-control-attribution {
+  font-size: 9px;
+  line-height: 1.2;
+  background: rgba(255, 255, 255, 0.75);
+}
+
 /* Notion-like dark: canvas, slightly lighter rails, soft hairline borders. */
 html.dark {
   color-scheme: dark;

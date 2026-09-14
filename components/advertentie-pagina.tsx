@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, User } from "lucide-react";
@@ -11,6 +12,15 @@ import type { Klus } from "@/lib/klussen";
 import { vakSlugVanKlus } from "@/lib/vakgebieden";
 
 const CHAT_KOST = 10;
+
+const AdvertentieKaart = dynamic(
+  () =>
+    import("@/components/advertentie-kaart").then((mod) => mod.AdvertentieKaart),
+  {
+    ssr: false,
+    loading: () => <div className="size-full bg-[#eceff1]" />,
+  }
+);
 
 export function AdvertentiePagina({ klus }: { klus: Klus }) {
   const router = useRouter();
@@ -163,16 +173,8 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   </p>
                 </div>
               </div>
-              <div className="mt-4 h-[120px] overflow-hidden rounded-lg bg-[#eceff1]">
-                <iframe
-                  title={`Kaart van ${klus.city} in Google Maps`}
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(`${klus.city}, Nederland`)}&z=13&hl=nl&ie=UTF8&output=embed&iwloc=near`}
-                  className="size-full border-0"
-                  loading="eager"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                  allow="fullscreen; geolocation"
-                />
+              <div className="mt-4 h-[120px] overflow-hidden rounded-lg">
+                <AdvertentieKaart stad={klus.city} />
               </div>
             </div>
           </aside>

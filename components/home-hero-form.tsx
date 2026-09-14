@@ -57,6 +57,17 @@ export function HomeHeroForm() {
               className={`mt-1.5 ${veld}`}
             />
           </label>
+          <label className="mt-3.5 text-[13px] text-[#e8e8e6]">
+            Telefoonnummer
+            <input
+              name="telefoonnummer"
+              type="tel"
+              autoComplete="tel"
+              required
+              placeholder="Telefoonnummer"
+              className={`mt-1.5 ${veld}`}
+            />
+          </label>
           <div className="mt-5 border-t border-[#2e2e2e] pt-4">
             <button
               type="submit"

@@ -4,7 +4,7 @@ import { LANDING_SHELL } from "@/lib/site-width";
 
 export function HomePrijsFooter() {
   return (
-    <section className="mt-auto flex min-h-[360px] flex-col bg-[#171717] pt-16 pb-10 lg:min-h-[400px] lg:pt-20 lg:pb-12">
+    <section className="flex min-h-[320px] flex-col bg-[#171717] pt-20 pb-10 sm:pt-24 lg:min-h-[380px] lg:pt-32 lg:pb-14">
       <div className={`${LANDING_SHELL} flex flex-1 flex-col`}>
         <div className="flex flex-1 flex-col items-center justify-center text-center">
           <h2 className="text-[22px] leading-snug font-medium tracking-tight sm:text-[26px] lg:text-[28px]">

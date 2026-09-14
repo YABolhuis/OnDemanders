@@ -27,7 +27,7 @@ function Beeldvlak({ icon: Icon }: { icon: typeof PaintRoller }) {
 
 export function HomeUitleg() {
   return (
-    <div className="mt-16 flex flex-col gap-16 lg:mt-20 lg:gap-20">
+    <div className="flex flex-col gap-14 lg:gap-20">
       <section className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <HomeSectionTitle className="mb-5" muted="Zonder gedoe naar">

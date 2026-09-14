@@ -31,7 +31,7 @@ export function HomeFaq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section aria-labelledby="faq-titel" className="mt-16 lg:mt-20">
+    <section aria-labelledby="faq-titel">
       <HomeSectionTitle id="faq-titel" muted="Antwoorden op">
         veelgestelde vragen
       </HomeSectionTitle>

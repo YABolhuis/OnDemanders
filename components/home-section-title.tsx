@@ -17,7 +17,7 @@ export function HomeSectionTitle({
       <h2
         id={id}
         className={cn(
-          "mb-8 text-[26px] leading-[1.15] font-medium tracking-tight sm:text-[30px] lg:text-[32px]",
+          "mb-8 text-[26px] leading-[1.15] font-medium tracking-tight sm:mb-10 sm:text-[30px] lg:text-[32px]",
           className
         )}
       >

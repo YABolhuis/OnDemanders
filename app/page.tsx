@@ -47,14 +47,14 @@ export default function Home() {
       }
     >
       <main className="flex flex-1 flex-col bg-[#171717]">
-        <div
-          className={`${LANDING_SHELL} flex min-h-[calc(100dvh-4rem)] flex-col pt-16 pb-10 lg:pt-24 lg:pb-12`}
-        >
+        <div className={`${LANDING_SHELL} flex flex-col pt-16 sm:pt-20 lg:pt-24`}>
           <HomeHero />
-          <HomeKenmerken />
-          <HomeUitleg />
-          <HomeReviews />
-          <HomeFaq />
+          <div className="mt-20 flex flex-col gap-20 sm:mt-24 sm:gap-24 lg:mt-32 lg:gap-32">
+            <HomeKenmerken />
+            <HomeUitleg />
+            <HomeReviews />
+            <HomeFaq />
+          </div>
         </div>
         <HomePrijsFooter />
       </main>

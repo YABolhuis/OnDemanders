@@ -55,7 +55,7 @@ export function HomeReviews() {
   }
 
   return (
-    <section aria-label="Google-recensies" className="mt-auto pt-16 lg:pt-20">
+    <section aria-label="Google-recensies" className="mt-16 pt-4 lg:mt-20">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {zichtbaar.map((recensie, index) => (
           <article

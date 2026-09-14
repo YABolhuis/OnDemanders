@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
+import { HomeKenmerken } from "@/components/home-kenmerken";
 import { HomeReviews } from "@/components/home-reviews";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
 import { LandingThemeToggle } from "@/components/landing-theme-toggle";
@@ -48,6 +49,7 @@ export default function Home() {
           className={`${LANDING_SHELL} flex min-h-[calc(100dvh-4rem)] flex-col pt-16 pb-10 lg:pt-24 lg:pb-12`}
         >
           <HomeHero />
+          <HomeKenmerken />
           <HomeReviews />
         </div>
         <HomePrijsFooter />

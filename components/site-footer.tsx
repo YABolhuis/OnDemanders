@@ -43,13 +43,15 @@ function AndroidIcon() {
 export function SiteFooter({
   showEdge = true,
   inset = false,
+  innerClassName,
 }: {
   showEdge?: boolean;
   inset?: boolean;
+  innerClassName?: string;
 }) {
   return (
     <footer
-      className={`site-rail mt-auto lg:col-span-2 ${
+      className={`site-rail mt-auto ${
         inset
           ? "bg-[#171717] text-[#9b9b97]"
           : "bg-[#fbfbfb] text-[#555]"
@@ -57,7 +59,7 @@ export function SiteFooter({
     >
       <div
         className={`flex flex-wrap items-center justify-between gap-2 py-2.5 ${
-          inset ? LANDING_SHELL : "px-14"
+          innerClassName ?? (inset ? LANDING_SHELL : "px-14")
         }`}
       >
         <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px]">

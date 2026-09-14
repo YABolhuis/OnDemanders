@@ -1,9 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { LandingSideTab } from "@/components/landing-side-tab";
-
-const rail = "site-rail hidden bg-[#fbfbfb] lg:block border-[#d0d0d0]";
-const railRight = `${rail} site-rail-right`;
+import { APP_SHELL } from "@/lib/site-width";
 
 export function SiteChrome({
   header,
@@ -12,6 +10,7 @@ export function SiteChrome({
   leftRail,
   spanRightRail = false,
   landing = false,
+  centered = false,
 }: {
   header: ReactNode;
   children: ReactNode;
@@ -19,7 +18,10 @@ export function SiteChrome({
   leftRail?: ReactNode;
   spanRightRail?: boolean;
   landing?: boolean;
+  centered?: boolean;
 }) {
+  void spanRightRail;
+
   if (landing) {
     return (
       <div className="landing-page flex min-h-screen flex-col bg-[#171717]">
@@ -34,28 +36,24 @@ export function SiteChrome({
   }
 
   return (
-    <div className="grid min-h-screen grid-cols-1 bg-[#fbfbfb] lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)_240px] lg:grid-rows-[auto_1fr_auto]">
-      <LandingSideTab />
+    <div className="flex min-h-screen flex-col bg-[#fbfbfb]">
+      {centered ? null : <LandingSideTab />}
       {header}
-
-      <aside aria-hidden className={`${rail} border-r`} />
       <div
-        className={`relative flex min-w-0 flex-col ${spanRightRail ? "lg:col-span-2" : ""} ${contentClassName}`}
+        className={`relative flex min-w-0 flex-1 flex-col ${
+          leftRail ? "lg:grid lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)]" : ""
+        }`}
       >
         {leftRail ? (
-          <div className="absolute top-0 -left-[var(--site-rail-left)] z-10 hidden w-[var(--site-rail-left)] lg:block">
+          <div className="site-rail border-b border-[#e6e6e6] bg-[#fbfbfb] lg:border-r lg:border-b-0 lg:border-[#d0d0d0]">
             {leftRail}
           </div>
         ) : null}
-        {leftRail ? (
-          <div className="border-b border-[#e6e6e6] lg:hidden">{leftRail}</div>
-        ) : null}
-        {children}
+        <div className={`relative flex min-w-0 flex-1 flex-col ${contentClassName}`}>
+          {children}
+        </div>
       </div>
-      {spanRightRail ? null : <aside aria-hidden className={railRight} />}
-
-      <div aria-hidden className={`${rail} border-r border-t`} />
-      <SiteFooter />
+      <SiteFooter innerClassName={centered ? APP_SHELL : undefined} />
     </div>
   );
 }

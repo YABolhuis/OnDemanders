@@ -7,6 +7,7 @@ import { Bell } from "lucide-react";
 import { LanguageMenu } from "@/components/language-menu";
 import { AccountMenu } from "@/components/account-menu";
 import { aantalOngelezenBerichten } from "@/lib/berichten";
+import { APP_SHELL } from "@/lib/site-width";
 
 const navItems = [
   { href: "/klussen/vak/schilder", match: "/klussen", label: "Vind opdrachten" },
@@ -16,22 +17,28 @@ const navItems = [
 export function AppHeader({
   gebruiker,
   showEdge = true,
+  inset = false,
 }: {
   gebruiker: string;
   showEdge?: boolean;
+  inset?: boolean;
 }) {
   const pathname = usePathname();
   const ongelezen = aantalOngelezenBerichten();
 
   return (
-    <header className="site-rail relative z-50 w-full bg-[#fbfbfb] lg:col-span-3">
+    <header
+      className={`relative z-50 w-full bg-[#fbfbfb] ${
+        showEdge ? "border-b border-[#d0d0d0]" : ""
+      }`}
+    >
       <div
-        className={`grid h-14 w-full grid-cols-[auto_minmax(0,1fr)_auto] bg-[#fbfbfb] lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)_auto] ${
-          showEdge ? "border-b border-[#d0d0d0]" : ""
+        className={`flex h-14 items-center justify-between gap-6 ${
+          inset ? APP_SHELL : "w-full px-4 lg:px-10"
         }`}
       >
-        <div className="site-rail flex items-center border-[#d0d0d0] px-4 lg:border-r lg:px-6">
-          <Link href="/klussen/vak/schilder">
+        <div className="flex min-w-0 items-center gap-6 lg:gap-10">
+          <Link href="/klussen/vak/schilder" className="shrink-0">
             <Image
               src="/optisend-logo.png"
               alt="Optisend"
@@ -41,50 +48,48 @@ export function AppHeader({
               priority
             />
           </Link>
-        </div>
-        <nav className="hidden h-full items-stretch gap-12 px-10 lg:flex">
-          {navItems.map((item) => {
-            const active =
-              pathname === item.match || pathname.startsWith(`${item.match}/`);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="site-nav-link relative flex items-center hover:text-[#222]"
-              >
-                <span className="relative inline-block">
-                  {item.label}
-                  {item.href === "/berichten" && ongelezen > 0 ? (
+          <nav className="hidden h-14 items-stretch gap-10 lg:flex">
+            {navItems.map((item) => {
+              const active =
+                pathname === item.match || pathname.startsWith(`${item.match}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="site-nav-link relative flex items-center hover:text-[#222]"
+                >
+                  <span className="relative inline-block">
+                    {item.label}
+                    {item.href === "/berichten" && ongelezen > 0 ? (
+                      <span
+                        className="absolute -top-2 -right-2.5 z-10 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 text-[10px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+                        aria-label={`${ongelezen} ongelezen berichten`}
+                      >
+                        {ongelezen}
+                      </span>
+                    ) : null}
+                  </span>
+                  {active ? (
                     <span
-                      className="absolute -top-2 -right-2.5 z-10 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 text-[10px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
-                      aria-label={`${ongelezen} ongelezen berichten`}
-                    >
-                      {ongelezen}
-                    </span>
+                      aria-hidden
+                      className="absolute inset-x-0 bottom-0 h-[3px] bg-[#2f6fed]"
+                    />
                   ) : null}
-                </span>
-                {active ? (
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 bottom-0 h-[3px] bg-[#2f6fed]"
-                  />
-                ) : null}
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="site-rail-right flex items-center justify-end px-4 lg:px-6">
-          <div className="flex items-center gap-3">
-            <LanguageMenu variant="compact" />
-            <button
-              type="button"
-              aria-label="Meldingen"
-              className="flex size-8 items-center justify-center rounded-[3px] bg-transparent text-[#1a1a1a] hover:bg-[#f5f5f5]"
-            >
-              <Bell className="size-4" strokeWidth={2} aria-hidden />
-            </button>
-            <AccountMenu gebruiker={gebruiker} />
-          </div>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+        <div className="flex items-center gap-3">
+          <LanguageMenu variant="compact" />
+          <button
+            type="button"
+            aria-label="Meldingen"
+            className="flex size-8 items-center justify-center rounded-[3px] bg-transparent text-[#1a1a1a] hover:bg-[#f5f5f5]"
+          >
+            <Bell className="size-4" strokeWidth={2} aria-hidden />
+          </button>
+          <AccountMenu gebruiker={gebruiker} />
         </div>
       </div>
     </header>

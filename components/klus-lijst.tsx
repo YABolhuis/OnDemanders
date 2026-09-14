@@ -19,6 +19,7 @@ import { LocatieZoek } from "@/components/locatie-zoek";
 import { klussen, type Klus } from "@/lib/klussen";
 import { DISTANCES } from "@/components/distance-slider";
 import { vakgebieden } from "@/lib/vakgebieden";
+import { APP_SHELL } from "@/lib/site-width";
 
 const PER_PAGE_OPTIONS = [6, 8, 10] as const;
 
@@ -196,11 +197,11 @@ export function KlusLijst({
       : "Geen opdrachten in dit vakgebied.";
 
   return (
-    <div>
-      <div className="bg-[#fbfbfb] px-14 pt-10 lg:pr-14">
+    <div className={APP_SHELL}>
+      <div className="bg-[#fbfbfb] pt-10">
         <FreelancerPlusBanner />
       </div>
-      <div className="relative bg-[#fbfbfb] px-14 pt-6 lg:pr-14">
+      <div className="relative bg-[#fbfbfb] pt-6">
         <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
           {tabs.map((item) => {
             const actief = item.id === tab;
@@ -225,7 +226,7 @@ export function KlusLijst({
         </span>
       </div>
 
-      <div className="px-14 pt-6 pb-14 lg:pr-14">
+      <div className="pt-6 pb-14">
         <div className="mb-6 flex items-center justify-between gap-4">
           <div className="flex min-w-0 flex-1 items-center gap-3">
             <p className="text-[13px] text-[#555]">

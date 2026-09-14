@@ -250,6 +250,7 @@ html.dark .hover\:border-\[\#171717\]:hover,
 html.dark .hover\:border-\[\#1a1a1a\]:hover {
   border-color: #cfcfcf;
 }
+html.dark .border-\[\#e6e6e6\],
 html.dark .border-\[\#d0d0d0\],
 html.dark .border-\[\#ececec\],
 html.dark .border-\[\#cfcfcf\],

@@ -102,11 +102,11 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   Deze klus kost {CHAT_KOST} credits
                 </p>
               </div>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
+              <div className="mt-4 flex w-full items-center gap-2">
                 <button
                   type="button"
                   onClick={startContact}
-                  className="ad-cta inline-flex h-9 shrink-0 items-center justify-center bg-[#006239] px-5 font-sans text-[14px] font-medium whitespace-nowrap text-white shadow-[inset_0_0_0_1px_#138253] hover:bg-[#007548]"
+                  className="ad-cta inline-flex h-9 min-w-0 flex-1 items-center justify-center bg-[#006239] px-5 font-sans text-[14px] font-medium whitespace-nowrap text-white shadow-[inset_0_0_0_1px_#138253] hover:bg-[#007548]"
                 >
                   Bieden
                 </button>

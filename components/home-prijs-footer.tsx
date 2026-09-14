@@ -19,8 +19,7 @@ export function HomePrijsFooter() {
           </Link>
         </div>
 
-        <div className="flex w-full flex-col items-center justify-between gap-4 pt-16 text-[13px] text-[#9b9b97] lg:flex-row lg:pt-10">
-          <p>Bereken binnen 1 minuut jouw richtprijs.</p>
+        <div className="flex w-full justify-center pt-16 text-[13px] text-[#9b9b97] lg:pt-10">
           <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <li className="inline-flex items-center gap-1.5">
               <Check

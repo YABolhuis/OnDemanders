@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import Link from "next/link";
 
 const veld =
-  "mt-1.5 h-10 w-full rounded-lg border border-[#3a3a3a] bg-transparent px-3 text-[14px] text-[#e8e8e6] outline-none placeholder:text-[#6b6b6b] focus:border-[#5a5a5a]";
+  "h-10 w-full rounded-lg border border-[#3a3a3a] bg-transparent px-3 text-[14px] text-[#e8e8e6] outline-none placeholder:text-[#6b6b6b] focus:border-[#5a5a5a]";
 
 export function HomeHeroForm() {
   const [verzonden, setVerzonden] = useState(false);
@@ -23,28 +23,29 @@ export function HomeHeroForm() {
         </p>
       ) : (
         <form className="flex flex-col" onSubmit={verstuur}>
-          <label className="text-[13px] text-[#e8e8e6]">
-            Voornaam
-            <input
-              name="voornaam"
-              type="text"
-              autoComplete="given-name"
-              required
-              placeholder="Voornaam"
-              className={veld}
-            />
-          </label>
-          <label className="mt-3.5 text-[13px] text-[#e8e8e6]">
-            Achternaam
-            <input
-              name="achternaam"
-              type="text"
-              autoComplete="family-name"
-              required
-              placeholder="Achternaam"
-              className={veld}
-            />
-          </label>
+          <div>
+            <p className="text-[13px] text-[#e8e8e6]">Naam</p>
+            <div className="mt-1.5 grid grid-cols-2 gap-2">
+              <input
+                name="voornaam"
+                type="text"
+                autoComplete="given-name"
+                required
+                aria-label="Voornaam"
+                placeholder="Voornaam"
+                className={veld}
+              />
+              <input
+                name="achternaam"
+                type="text"
+                autoComplete="family-name"
+                required
+                aria-label="Achternaam"
+                placeholder="Achternaam"
+                className={veld}
+              />
+            </div>
+          </div>
           <label className="mt-3.5 text-[13px] text-[#e8e8e6]">
             E-mailadres
             <input
@@ -53,7 +54,7 @@ export function HomeHeroForm() {
               autoComplete="email"
               required
               placeholder="E-mailadres"
-              className={veld}
+              className={`mt-1.5 ${veld}`}
             />
           </label>
           <div className="mt-5 border-t border-[#2e2e2e] pt-4">

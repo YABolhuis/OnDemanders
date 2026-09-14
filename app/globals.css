@@ -138,13 +138,17 @@
     textarea,
     [role="button"],
     [role="combobox"]
-  ):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(.landing-pill) {
+  ):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(.landing-pill):not(.ad-cta) {
     border-radius: var(--radius-control);
   }
 }
 
 .landing-pill {
   border-radius: 9999px !important;
+}
+
+.ad-cta {
+  border-radius: 10px !important;
 }
 
 /* Notion-like dark: canvas, slightly lighter rails, soft hairline borders. */

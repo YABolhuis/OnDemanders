@@ -142,28 +142,28 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-4 rounded-[16px] border border-[#2e2e2e] bg-[#1c1c1c] p-5">
               <div className="flex items-center gap-3">
                 <span
-                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]"
+                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#2a2a2a]"
                   aria-hidden
                 >
-                  <User className="size-5 text-[#6a6a6a]" strokeWidth={2} />
+                  <User className="size-5 text-[#9b9b97]" strokeWidth={2} />
                 </span>
                 <div className="min-w-0">
                   <p className="text-[13px] font-bold text-[#1d5fd1]">{klus.seller}</p>
-                  <p className="mt-0.5 flex items-center gap-1 text-[13px] text-[#555]">
+                  <p className="mt-0.5 flex items-center gap-1 text-[13px] text-[#9b9b97]">
                     <PlaatsPin />
                     {klus.city}
                     {klus.extra !== "Bezoek website" ? (
-                      <span className="text-[#777]">· {klus.extra}</span>
+                      <span>· {klus.extra}</span>
                     ) : (
                       <span className="font-medium text-[#1d5fd1]">· {klus.extra}</span>
                     )}
                   </p>
                 </div>
               </div>
-              <div className="mt-4 h-[168px] bg-[#eceff1]">
+              <div className="mt-4 h-[168px] overflow-hidden rounded-lg bg-[#eceff1]">
                 <iframe
                   title={`Kaart van ${klus.city} in Google Maps`}
                   src={`https://maps.google.com/maps?q=${encodeURIComponent(`${klus.city}, Nederland`)}&z=12&hl=nl&output=embed`}

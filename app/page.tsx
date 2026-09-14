@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { SiteChrome } from "@/components/site-chrome";
 import { HomeHero } from "@/components/home-hero";
 import { HomeKenmerken } from "@/components/home-kenmerken";
@@ -31,15 +32,10 @@ export default function Home() {
               <LandingThemeToggle />
               <Link
                 href="/inloggen"
-                className="inline-flex h-8 items-center rounded-full px-2.5 text-[13px] font-medium text-[#e8e8e6] hover:bg-[#2c2c2c]"
+                className="inline-flex h-8 items-center gap-1 rounded-full px-2.5 text-[13px] font-medium text-[#e8e8e6] hover:bg-[#2c2c2c]"
               >
                 Inloggen
-              </Link>
-              <Link
-                href="/inloggen"
-                className="landing-pill ml-2 inline-flex h-8 items-center rounded-full bg-[#16a34a] px-3.5 text-[13px] font-medium text-white hover:bg-[#15803d]"
-              >
-                Account openen
+                <ArrowUpRight className="size-3.5" strokeWidth={2} aria-hidden />
               </Link>
             </div>
           </div>

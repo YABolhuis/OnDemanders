@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
-import { HomeSectionTitle } from "@/components/home-section-title";
 
 const veld =
   "mt-1.5 h-10 w-full rounded-lg border border-[#3a3a3a] bg-transparent px-3 text-[14px] text-[#e8e8e6] outline-none placeholder:text-[#6b6b6b] focus:border-[#5a5a5a]";
@@ -17,7 +16,6 @@ export function HomeHeroForm() {
 
   return (
     <div className="w-full lg:max-w-[360px] lg:justify-self-end">
-      <HomeSectionTitle>Aanmelden</HomeSectionTitle>
       <div className="rounded-[16px] border border-[#2e2e2e] bg-[#1c1c1c] p-5">
       {verzonden ? (
         <p className="py-10 text-center text-[14px] leading-6 text-[#c5c5c3]">

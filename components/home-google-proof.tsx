@@ -9,11 +9,8 @@ export function HomeGoogleProof() {
           <p className="whitespace-nowrap text-[13px] font-semibold leading-[1.2] tracking-tight text-[#e8e8e6]">
             4.9/5 Google reviews
           </p>
-          <p className="flex w-full justify-between text-[11px] leading-[1.35] text-[#9b9b97]">
-            <span>Gebaseerd</span>
-            <span>op</span>
-            <span>2K+</span>
-            <span>reviews</span>
+          <p className="w-full whitespace-nowrap text-justify text-[11px] leading-[1.35] text-[#9b9b97] [text-align-last:justify]">
+            Gebaseerd op 2K+ reviews
           </p>
         </div>
       </div>

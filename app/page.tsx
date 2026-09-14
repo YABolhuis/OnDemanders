@@ -9,6 +9,7 @@ import { HomeReviews } from "@/components/home-reviews";
 import { HomeFaq } from "@/components/home-faq";
 import { HomePrijsFooter } from "@/components/home-prijs-footer";
 import { LandingThemeToggle } from "@/components/landing-theme-toggle";
+import { LanguageMenu } from "@/components/language-menu";
 import { LANDING_SHELL } from "@/lib/site-width";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
               />
             </Link>
             <div className="flex items-center gap-1">
+              <LanguageMenu variant="icon" />
               <LandingThemeToggle />
               <Link
                 href="/inloggen"

@@ -82,21 +82,26 @@ const dropdownLanguages = [
 export function LanguageMenu({
   variant = "bar",
 }: {
-  variant?: "bar" | "compact";
+  variant?: "bar" | "compact" | "icon";
 }) {
   const compact = variant === "compact";
+  const icon = variant === "icon";
 
   return (
     <details className="relative">
       <summary
         aria-label="Taal kiezen"
         className={
-          compact
-            ? "flex h-8 cursor-pointer list-none items-center gap-1 rounded-[3px] bg-[#eceff1] px-2 text-[#1a1a1a] outline-none hover:bg-[#e4e7ea] [&::-webkit-details-marker]:hidden"
-            : "flex h-7 cursor-pointer list-none items-center gap-2 text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden"
+          icon
+            ? "landing-pill flex size-8 cursor-pointer list-none items-center justify-center text-[#e8e8e6] outline-none hover:bg-[#2c2c2c] [&::-webkit-details-marker]:hidden"
+            : compact
+              ? "flex h-8 cursor-pointer list-none items-center gap-1 rounded-[3px] bg-[#eceff1] px-2 text-[#1a1a1a] outline-none hover:bg-[#e4e7ea] [&::-webkit-details-marker]:hidden"
+              : "flex h-7 cursor-pointer list-none items-center gap-2 text-[13px] text-white outline-none [&::-webkit-details-marker]:hidden"
         }
       >
-        {compact ? (
+        {icon ? (
+          <Globe className="size-5" strokeWidth={1.75} aria-hidden />
+        ) : compact ? (
           <>
             <Globe className="size-4 text-[#1a1a1a]" strokeWidth={2} aria-hidden />
             <span className="text-[13px] font-normal">EN</span>
@@ -109,11 +114,13 @@ export function LanguageMenu({
             <span>Nederlands</span>
           </>
         )}
-        <ChevronDown
-          className={compact ? "size-3.5 text-[#1a1a1a]" : "size-3.5 text-white"}
-          strokeWidth={2}
-          aria-hidden
-        />
+        {icon ? null : (
+          <ChevronDown
+            className={compact ? "size-3.5 text-[#1a1a1a]" : "size-3.5 text-white"}
+            strokeWidth={2}
+            aria-hidden
+          />
+        )}
       </summary>
       <ul className="absolute top-[calc(100%+4px)] right-0 z-50 min-w-[12rem] rounded-lg bg-white p-1 shadow-md ring-1 ring-black/10">
         {dropdownLanguages.map((item) => (

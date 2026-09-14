@@ -37,7 +37,7 @@ export function SiteChrome({
 
   return (
     <div className="flex min-h-screen flex-col bg-[#fbfbfb]">
-      {centered ? null : <LandingSideTab />}
+      <LandingSideTab />
       {header}
       <div
         className={`relative flex min-w-0 flex-1 flex-col ${

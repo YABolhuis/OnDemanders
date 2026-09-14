@@ -105,18 +105,18 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 <p className="text-[13px] text-[#777]">Budget</p>
                 <p className="text-[20px] font-bold">{klus.price}</p>
               </div>
-              <div className="mt-4 flex gap-2">
+              <div className="mt-4 flex flex-wrap items-center gap-2">
                 <button
                   type="button"
                   onClick={startContact}
-                  className="ad-cta h-11 min-w-0 flex-1 whitespace-nowrap bg-[#15803d] px-4 font-sans text-[14px] font-medium text-white hover:bg-[#166534]"
+                  className="ad-cta inline-flex h-9 shrink-0 items-center justify-center bg-[#006239] px-5 font-sans text-[14px] font-medium whitespace-nowrap text-white shadow-[inset_0_0_0_1px_#138253] hover:bg-[#007548]"
                 >
                   Bieden
                 </button>
                 <button
                   type="button"
                   onClick={startContact}
-                  className="ad-cta h-11 min-w-0 flex-1 whitespace-nowrap bg-[#dc2626] px-4 font-sans text-[14px] font-medium text-white hover:bg-[#b91c1c]"
+                  className="ad-cta inline-flex h-9 min-w-0 flex-1 items-center justify-center border border-[#d0d0d0] bg-transparent px-4 font-sans text-[14px] font-medium whitespace-nowrap text-[#171717] hover:bg-[#f5f5f5]"
                 >
                   Direct aannemen
                 </button>

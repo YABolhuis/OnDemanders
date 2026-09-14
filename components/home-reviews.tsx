@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { GoogleMark } from "@/components/google-mark";
+import { HomeSectionTitle } from "@/components/home-section-title";
 import { ChevronLeft, ChevronRight, Star, Check } from "lucide-react";
 
 const recensies = [
@@ -55,7 +56,8 @@ export function HomeReviews() {
   }
 
   return (
-    <section aria-label="Google-recensies" className="mt-16 pt-4 lg:mt-20">
+    <section aria-labelledby="recensies-titel" className="mt-16 pt-4 lg:mt-20">
+      <HomeSectionTitle id="recensies-titel">Recensies</HomeSectionTitle>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {zichtbaar.map((recensie, index) => (
           <article

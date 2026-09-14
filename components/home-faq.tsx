@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
+import { HomeSectionTitle } from "@/components/home-section-title";
 
 const vragen = [
   {
@@ -31,9 +32,7 @@ export function HomeFaq() {
 
   return (
     <section aria-labelledby="faq-titel" className="mt-16 lg:mt-20">
-      <h2 id="faq-titel" className="sr-only">
-        Veelgestelde vragen
-      </h2>
+      <HomeSectionTitle id="faq-titel">Veelgestelde vragen</HomeSectionTitle>
       <div className="border-t border-[#ececec]">
         {vragen.map((item, index) => {
           const isOpen = open === index;

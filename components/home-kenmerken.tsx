@@ -1,5 +1,6 @@
 import { Link2, RefreshCcw, Shield } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { HomeSectionTitle } from "@/components/home-section-title";
 
 const items: {
   icon: LucideIcon;
@@ -25,18 +26,21 @@ const items: {
 
 export function HomeKenmerken() {
   return (
-    <section className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8 lg:mt-20 lg:gap-12">
+    <section className="mt-16 lg:mt-20">
+      <HomeSectionTitle>Kenmerken</HomeSectionTitle>
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
       {items.map((item) => (
         <article key={item.title} className="min-w-0">
-          <h2 className="flex items-center gap-2.5 pl-[26px] text-[15px] font-medium tracking-tight text-[#171717]">
+          <h3 className="flex items-center gap-2.5 pl-[26px] text-[15px] font-medium tracking-tight text-[#171717]">
             <item.icon className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
             {item.title}
-          </h2>
+          </h3>
           <p className="mt-1.5 pl-[26px] text-[14px] leading-6 text-[#737373]">
             {item.body}
           </p>
         </article>
       ))}
+      </div>
     </section>
   );
 }

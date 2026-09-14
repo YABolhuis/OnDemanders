@@ -222,17 +222,13 @@ export function KlusLijst({
                 }`}
               >
                 {item.label}
-                {actief ? (
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 bottom-0 z-10 h-[3px] rounded-full bg-[#333]"
-                  />
-                ) : null}
               </button>
             );
           })}
         </nav>
-        <div aria-hidden className="h-px bg-[#e6e6e6]" />
+        <span aria-hidden className="relative block h-px w-full bg-[#e6e6e6] dark:bg-white/12">
+          <span className="absolute top-1/2 left-0 h-[2px] w-9 -translate-y-1/2 bg-[#8a8a8a] dark:bg-white/45" />
+        </span>
       </div>
 
       <div className="px-14 pt-6 pb-14 lg:pr-14">

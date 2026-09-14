@@ -32,7 +32,9 @@ export function HomeFaq() {
 
   return (
     <section aria-labelledby="faq-titel" className="mt-16 lg:mt-20">
-      <HomeSectionTitle id="faq-titel">Veelgestelde vragen</HomeSectionTitle>
+      <HomeSectionTitle id="faq-titel" muted="Antwoorden op">
+        veelgestelde vragen
+      </HomeSectionTitle>
       <div className="border-t border-[#ececec]">
         {vragen.map((item, index) => {
           const isOpen = open === index;

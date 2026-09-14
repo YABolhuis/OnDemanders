@@ -57,7 +57,9 @@ export function HomeReviews() {
 
   return (
     <section aria-labelledby="recensies-titel" className="mt-16 pt-4 lg:mt-20">
-      <HomeSectionTitle id="recensies-titel">Recensies</HomeSectionTitle>
+      <HomeSectionTitle id="recensies-titel" muted="Wat opdrachtgevers">
+        zeggen over hun project
+      </HomeSectionTitle>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {zichtbaar.map((recensie, index) => (
           <article

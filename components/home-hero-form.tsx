@@ -27,6 +27,16 @@ const vakgebieden = [
   "Ontwerper",
   "Schilder",
   "Schoonmaakbedrijf",
+  "Sloopbedrijf",
+  "Stoffeerder",
+  "Stratenmaker",
+  "Stukadoor",
+  "Tegelzetter",
+  "Timmerman",
+  "Verhuisbedrijf",
+  "Vloerspecialist",
+  "Voertuig monteur",
+  "Witgoed monteur",
 ] as const;
 
 export function HomeHeroForm() {

@@ -31,7 +31,7 @@ export function HomeKenmerken() {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
       {items.map((item) => (
         <article key={item.title} className="min-w-0">
-          <h3 className="flex items-center gap-2.5 pl-[26px] text-[15px] font-medium tracking-tight text-[#171717]">
+          <h3 className="flex items-center gap-2.5 pl-[26px] text-[15px] font-medium tracking-tight text-[#e8e8e6]">
             <item.icon className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
             {item.title}
           </h3>

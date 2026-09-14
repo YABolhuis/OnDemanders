@@ -22,7 +22,7 @@ export function HomeSectionTitle({
         )}
       >
         <span className="block text-[#8a8a8a]">{muted}</span>
-        <span className="mt-0.5 block text-[#171717]">{children}</span>
+        <span className="mt-0.5 block text-[#e8e8e6]">{children}</span>
       </h2>
     );
   }
@@ -31,7 +31,7 @@ export function HomeSectionTitle({
     <h2
       id={id}
       className={cn(
-        "mb-7 text-[20px] font-medium tracking-tight text-[#171717] sm:text-[22px]",
+        "mb-7 text-[20px] font-medium tracking-tight text-[#e8e8e6] sm:text-[22px]",
         className
       )}
     >

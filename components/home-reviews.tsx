@@ -64,7 +64,7 @@ export function HomeReviews() {
         {zichtbaar.map((recensie, index) => (
           <article
             key={`${recensie.klus}-${start}-${index}`}
-            className={`flex min-h-[220px] flex-col rounded-[16px] border border-[#e8e8e8] bg-white px-6 py-6 ${
+            className={`flex min-h-[220px] flex-col rounded-[16px] border border-white/10 bg-[#171717] px-6 py-6 ${
               index === 0
                 ? ""
                 : index === 1
@@ -72,7 +72,7 @@ export function HomeReviews() {
                   : "hidden lg:flex"
             }`}
           >
-            <p className="text-[15px] leading-6 text-[#171717]">
+            <p className="text-[15px] leading-6 text-[#e8e8e6]">
               “{recensie.quote}”
             </p>
             <div className="mt-auto pt-8">
@@ -111,7 +111,7 @@ export function HomeReviews() {
           type="button"
           aria-label="Vorige recensies"
           onClick={vorige}
-          className="landing-pill flex size-9 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#555] hover:border-[#cfcfcf]"
+          className="landing-pill flex size-9 items-center justify-center rounded-full border border-white/10 bg-[#171717] text-[#9b9b97] hover:border-white/25"
         >
           <ChevronLeft className="size-4" strokeWidth={2} />
         </button>
@@ -119,7 +119,7 @@ export function HomeReviews() {
           type="button"
           aria-label="Volgende recensies"
           onClick={volgende}
-          className="landing-pill flex size-9 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#555] hover:border-[#cfcfcf]"
+          className="landing-pill flex size-9 items-center justify-center rounded-full border border-white/10 bg-[#171717] text-[#9b9b97] hover:border-white/25"
         >
           <ChevronRight className="size-4" strokeWidth={2} />
         </button>

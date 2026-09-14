@@ -17,7 +17,7 @@ function CircleIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex size-7 items-center justify-center rounded-full border border-[#d0d0d0] text-[#222] hover:border-[#1a1a1a]"
+      className="flex size-7 items-center justify-center rounded-full border border-[#d0d0d0] text-current hover:border-[#e8e8e6]"
     >
       {children}
     </a>
@@ -49,7 +49,11 @@ export function SiteFooter({
 }) {
   return (
     <footer
-      className={`site-rail mt-auto bg-[#fbfbfb] text-[#555] lg:col-span-2 ${showEdge ? "border-t border-[#d0d0d0]" : ""}`}
+      className={`site-rail mt-auto lg:col-span-2 ${
+        inset
+          ? "bg-[#171717] text-[#9b9b97]"
+          : "bg-[#fbfbfb] text-[#555]"
+      } ${showEdge ? "border-t border-[#d0d0d0]" : ""}`}
     >
       <div
         className={`flex flex-wrap items-center justify-between gap-2 py-2.5 ${

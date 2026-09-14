@@ -15,7 +15,7 @@ export default function Home() {
     <SiteChrome
       landing
       header={
-        <header className="relative z-50 w-full border-b border-[#f0f0f0] bg-white">
+        <header className="relative z-50 w-full border-b border-white/10 bg-[#171717]">
           <div className={`${LANDING_SHELL} flex h-16 items-center justify-between`}>
             <Link href="/">
               <Image
@@ -31,7 +31,7 @@ export default function Home() {
               <LandingThemeToggle />
               <Link
                 href="/inloggen"
-                className="inline-flex h-8 items-center rounded-full px-2.5 text-[13px] font-medium text-[#171717] hover:bg-[#f5f5f5]"
+                className="inline-flex h-8 items-center rounded-full px-2.5 text-[13px] font-medium text-[#e8e8e6] hover:bg-[#2c2c2c]"
               >
                 Inloggen
               </Link>
@@ -46,7 +46,7 @@ export default function Home() {
         </header>
       }
     >
-      <main className="flex flex-1 flex-col bg-white">
+      <main className="flex flex-1 flex-col bg-[#171717]">
         <div
           className={`${LANDING_SHELL} flex min-h-[calc(100dvh-4rem)] flex-col pt-16 pb-10 lg:pt-24 lg:pb-12`}
         >

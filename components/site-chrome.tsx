@@ -21,9 +21,9 @@ export function SiteChrome({
 }) {
   if (landing) {
     return (
-      <div className="flex min-h-screen flex-col bg-white">
+      <div className="landing-page flex min-h-screen flex-col bg-[#171717]">
         {header}
-        <div className="relative flex min-w-0 flex-1 flex-col bg-white">
+        <div className="relative flex min-w-0 flex-1 flex-col bg-[#171717]">
           {children}
         </div>
         <SiteFooter inset />

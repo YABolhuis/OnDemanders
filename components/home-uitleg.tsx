@@ -18,9 +18,9 @@ function Beeldvlak({ icon: Icon }: { icon: typeof PaintRoller }) {
   return (
     <div
       aria-hidden
-      className="flex min-h-[240px] items-center justify-center rounded-[16px] border border-[#e8e8e8] bg-white lg:min-h-[280px]"
+      className="flex min-h-[240px] items-center justify-center rounded-[16px] border border-white/10 bg-[#171717] lg:min-h-[280px]"
     >
-      <Icon className="size-16 text-[#171717]" strokeWidth={1.25} />
+      <Icon className="size-16 text-[#e8e8e6]" strokeWidth={1.25} />
     </div>
   );
 }
@@ -37,7 +37,7 @@ export function HomeUitleg() {
             Je weet vooraf waar je aan toe bent. Ik luister naar je wensen, maak
             duidelijke afspraken en lever netjes op.
           </p>
-          <ul className="mt-5 space-y-2 text-[14px] leading-6 text-[#171717]">
+          <ul className="mt-5 space-y-2 text-[14px] leading-6 text-[#e8e8e6]">
             {stappen.map((stap) => (
               <li key={stap}>{stap}</li>
             ))}
@@ -55,7 +55,7 @@ export function HomeUitleg() {
             Goede voorbereiding, kwaliteitsmaterialen en een rustige, zorgvuldige
             uitvoering. Zo wordt jouw woning weer een plek waar alles klopt.
           </p>
-          <ul className="mt-5 space-y-2.5 text-[14px] leading-6 text-[#171717]">
+          <ul className="mt-5 space-y-2.5 text-[14px] leading-6 text-[#e8e8e6]">
             {oplevering.map((punt) => (
               <li key={punt} className="flex items-start gap-2.5">
                 <Check

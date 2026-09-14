@@ -374,3 +374,78 @@ html.dark .site-nav-link {
 input.sidebar-zoek {
   border-radius: 9999px;
 }
+
+/* Logged-out homepage canvas matches the prijs-footer (#171717), in light and dark. */
+html:has(.landing-page),
+body:has(.landing-page),
+.landing-page,
+.landing-page header,
+.landing-page main,
+.landing-page footer.site-rail,
+html.dark:has(.landing-page),
+html.dark .landing-page,
+html.dark .landing-page header,
+html.dark .landing-page main,
+html.dark .landing-page footer.site-rail {
+  background-color: #171717 !important;
+  color-scheme: dark;
+}
+
+.landing-page .bg-white,
+.landing-page .bg-\[\#fbfbfb\],
+html.dark .landing-page .bg-white,
+html.dark .landing-page .bg-\[\#fbfbfb\] {
+  background-color: #171717 !important;
+}
+
+.landing-page footer.site-rail {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #9b9b97;
+}
+
+.landing-page .text-\[\#171717\],
+.landing-page .text-\[\#1a1a1a\],
+.landing-page .text-\[\#222\],
+html.dark .landing-page .text-\[\#171717\],
+html.dark .landing-page .text-\[\#1a1a1a\],
+html.dark .landing-page .text-\[\#222\] {
+  color: #e8e8e6 !important;
+}
+
+.landing-page .text-\[\#737373\],
+.landing-page .text-\[\#555\],
+.landing-page .text-\[\#8a8a8a\],
+html.dark .landing-page .text-\[\#737373\],
+html.dark .landing-page .text-\[\#555\],
+html.dark .landing-page .text-\[\#8a8a8a\] {
+  color: #9b9b97 !important;
+}
+
+.landing-page .border-\[\#f0f0f0\],
+.landing-page .border-\[\#ececec\],
+.landing-page .border-\[\#e8e8e8\],
+.landing-page .border-\[\#e5e7eb\],
+.landing-page .border-\[\#d4d4d4\],
+.landing-page .border-\[\#d0d0d0\],
+html.dark .landing-page .border-\[\#f0f0f0\],
+html.dark .landing-page .border-\[\#ececec\],
+html.dark .landing-page .border-\[\#e8e8e8\],
+html.dark .landing-page .border-\[\#e5e7eb\],
+html.dark .landing-page .border-\[\#d4d4d4\],
+html.dark .landing-page .border-\[\#d0d0d0\] {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.landing-page .hover\:bg-\[\#f5f5f5\]:hover,
+html.dark .landing-page .hover\:bg-\[\#f5f5f5\]:hover {
+  background-color: #2c2c2c !important;
+}
+
+.landing-page img.theme-logo,
+html.dark .landing-page img.theme-logo {
+  filter: brightness(0) invert(0.91);
+}
+
+.landing-page footer.site-rail a:hover {
+  color: #e8e8e6;
+}

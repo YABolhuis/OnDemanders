@@ -46,7 +46,7 @@ export function HomeFaq() {
                 onClick={() => setOpen(isOpen ? null : index)}
                 className="flex w-full items-center justify-between gap-6 py-5 text-left"
               >
-                <span className="text-[15px] font-medium text-[#171717]">
+                <span className="text-[15px] font-medium text-[#e8e8e6]">
                   {item.vraag}
                 </span>
                 {isOpen ? (

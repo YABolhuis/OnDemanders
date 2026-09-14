@@ -130,15 +130,14 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                   />
                 </span>
               </label>
-            </div>
-
-            <div className="mt-6">
-              <h2 className="text-[15px] font-medium text-[#555]">
-                Biedingen (0)
-              </h2>
-              <p className="mt-4 text-center text-[13px] text-[#555]">
-                Geen biedingen geplaatst
-              </p>
+              <div className="mt-5">
+                <h2 className="text-[15px] font-medium text-[#e8e8e6]">
+                  Biedingen (0)
+                </h2>
+                <p className="mt-4 text-center text-[13px] text-[#9b9b97]">
+                  Geen biedingen geplaatst
+                </p>
+              </div>
             </div>
 
             <div className="mt-6">

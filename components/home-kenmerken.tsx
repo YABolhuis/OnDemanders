@@ -18,10 +18,11 @@ export function HomeKenmerken() {
     <section aria-label="Stappen">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
         {items.map((item) => (
-          <article
-            key={item.stap}
-            className="min-w-0 border-t border-white/15 pt-5"
-          >
+          <article key={item.stap} className="min-w-0">
+            <span
+              aria-hidden
+              className="mb-5 block h-px w-9 bg-white/35"
+            />
             <h3 className="text-[18px] font-medium tracking-tight text-[#e8e8e6] sm:text-[20px]">
               {item.stap}
             </h3>

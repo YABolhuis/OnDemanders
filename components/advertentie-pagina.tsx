@@ -75,9 +75,9 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
 
       <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-[minmax(0,1fr)_300px]">
         <div className="lg:pr-8">
-          <h1 className="text-[32px] font-medium leading-[1.12] tracking-tight sm:text-[36px]">
-            <span className="block text-[#171717]">{klus.titleLead}</span>
-            <span className="mt-0.5 block text-[#8a8a8a]">{klus.titleRest}</span>
+          <h1 className="max-w-3xl text-[22px] font-medium leading-snug tracking-tight text-[#171717] sm:text-[24px]">
+            <span>{klus.titleLead} </span>
+            <span className="text-[#8a8a8a]">{klus.titleRest}</span>
           </h1>
           <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#eceff1] px-3 py-1.5 text-[13px] text-[#333]">
             <span className="size-1.5 shrink-0 rounded-full bg-[#5b8def]" aria-hidden />

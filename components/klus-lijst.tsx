@@ -502,7 +502,7 @@ export function KlusLijst({
               return (
                 <article
                   key={klus.id}
-                  className="ad-panel relative px-5 py-8 pr-14"
+                  className="ad-panel relative border-b border-[#e6e6e6] px-5 py-8 pr-14"
                 >
                   <button
                     type="button"

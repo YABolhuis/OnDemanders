@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   BellOff,
-  MessageSquarePlus,
   MoreVertical,
   Plus,
   Search,
@@ -109,14 +108,6 @@ export function BerichtenPagina() {
               style={{ color: "var(--wa-icon)" }}
             >
               <MoreVertical className="size-5" strokeWidth={1.75} />
-            </button>
-            <button
-              type="button"
-              aria-label="Nieuw gesprek"
-              className="wa-reset inline-flex size-10 items-center justify-center rounded-full"
-              style={{ background: "#00a884", color: "#e9edef" }}
-            >
-              <MessageSquarePlus className="size-5" strokeWidth={1.75} />
             </button>
           </div>
 

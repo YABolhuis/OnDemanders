@@ -92,7 +92,7 @@ export function BerichtenPagina() {
   const toonBanner = !meldingenAan && !bannerWeg;
 
   return (
-    <div className="grid h-full min-h-0 min-w-0 flex-1 grid-cols-[400px_minmax(0,1fr)] overflow-hidden">
+    <div className="grid h-full min-h-0 min-w-0 flex-1 grid-cols-[400px_minmax(0,1fr)] overflow-hidden rounded-lg">
       <aside className="wa-list flex min-h-0 flex-col overflow-hidden">
         <div className="flex h-[60px] shrink-0 items-center gap-2 px-4">
           <h1 className="min-w-0 flex-1 truncate text-[22px] font-semibold">

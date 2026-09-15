@@ -90,7 +90,7 @@ export function BerichtenPagina() {
           onSelect={setSelectedId}
         />
       </FilterSidebar>
-      <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 items-stretch justify-center bg-[#f3f2f1] px-20 py-8">
+      <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 items-stretch justify-center bg-[#fbfbfb] px-20 py-8">
         {gesprek ? (
           <div className="h-[calc(100vh-57px-4rem)] w-full">
             <BerichtenVenster key={gesprek.id} gesprek={gesprek} />

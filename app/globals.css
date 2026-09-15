@@ -165,12 +165,12 @@
   --wa-tick: #53bdeb;
   --wa-quote: #53bdeb;
   --wa-quote-bg: rgba(17, 27, 33, 0.05);
-  --wa-list-bg: #ffffff;
+  --wa-list-bg: #1c1c1c;
   --wa-list-search: #f0f2f5;
-  --wa-list-hover: #f5f6f6;
-  --wa-list-active: #f0f2f5;
-  --wa-list-line: #e9edef;
-  --wa-chip: #e9edef;
+  --wa-list-hover: #252525;
+  --wa-list-active: #2a2a2a;
+  --wa-list-line: #2e2e2e;
+  --wa-chip: #252525;
   --wa-banner: #006239;
   color: var(--wa-text);
 }
@@ -189,12 +189,12 @@ html.dark .wa-list {
   --wa-tick: #53bdeb;
   --wa-quote: #53bdeb;
   --wa-quote-bg: rgba(11, 20, 26, 0.45);
-  --wa-list-bg: #111b21;
+  --wa-list-bg: #1c1c1c;
   --wa-list-search: #202c33;
-  --wa-list-hover: #202c33;
-  --wa-list-active: #2a3942;
-  --wa-list-line: #222d34;
-  --wa-chip: #202c33;
+  --wa-list-hover: #252525;
+  --wa-list-active: #2a2a2a;
+  --wa-list-line: #2e2e2e;
+  --wa-chip: #252525;
   --wa-banner: #006239;
 }
 
@@ -274,7 +274,11 @@ html.dark .wa-list {
 }
 
 .wa-list {
-  background: var(--wa-list-bg);
+  --wa-text: #e8e8e6;
+  --wa-muted: #9b9b97;
+  --wa-icon: #9b9b97;
+  background: #1c1c1c;
+  color: var(--wa-text);
 }
 
 .wa-chip {

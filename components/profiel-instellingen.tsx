@@ -1,8 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Calendar, Camera } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import {
+  abonneerNotificaties,
+  BERICHT_NOTIFICATIE_ID,
+  leesNotificatie,
+  schrijfNotificatie,
+} from "@/lib/notificaties";
 
 type Tab = "persoonlijk" | "account";
 
@@ -202,8 +208,15 @@ export function ProfielInstellingen() {
 
               <NotificatieSectie
                 titel="WhatsApp notificaties"
-                beschrijving="Pas hier je WhatsApp notificatie instellingen aan."
-                items={[{ id: "wa-chat", label: "Update nieuwe opdrachten" }]}
+                beschrijving="Pas hier je WhatsApp- en berichtmeldingen aan."
+                items={[
+                  {
+                    id: BERICHT_NOTIFICATIE_ID,
+                    label: "Berichtmeldingen",
+                    startAan: true,
+                  },
+                  { id: "wa-chat", label: "Update nieuwe opdrachten" },
+                ]}
               />
             </div>
           )}
@@ -231,6 +244,23 @@ function NotificatieSectie({
     Object.fromEntries(items.map((item) => [item.id, item.startAan !== false]))
   );
 
+  useEffect(() => {
+    function lees() {
+      setAan(
+        Object.fromEntries(
+          items.map((item) => [
+            item.id,
+            leesNotificatie(item.id, item.startAan !== false),
+          ])
+        )
+      );
+    }
+    lees();
+    return abonneerNotificaties(lees);
+    // Hydrate from storage; item ids are stable per section.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <section className="flex flex-col gap-6 border-t border-[#e6e6e6] pt-12 lg:flex-row lg:items-start lg:gap-16">
       <div className="w-full shrink-0 lg:w-[250px]">
@@ -245,9 +275,10 @@ function NotificatieSectie({
           >
             <Switch
               checked={aan[item.id]}
-              onCheckedChange={(checked) =>
-                setAan((huidig) => ({ ...huidig, [item.id]: checked }))
-              }
+              onCheckedChange={(checked) => {
+                setAan((huidig) => ({ ...huidig, [item.id]: checked }));
+                schrijfNotificatie(item.id, checked);
+              }}
               className="data-checked:bg-[#2bbbad] data-unchecked:bg-[#5d6e78]"
               aria-label={item.label}
             />

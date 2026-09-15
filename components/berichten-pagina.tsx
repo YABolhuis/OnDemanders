@@ -92,8 +92,8 @@ export function BerichtenPagina() {
   const toonBanner = !meldingenAan && !bannerWeg;
 
   return (
-    <div className="flex min-h-0 flex-1">
-      <aside className="wa-list flex h-full min-h-0 w-[400px] shrink-0 flex-col">
+    <div className="grid h-full min-h-0 min-w-0 flex-1 grid-cols-[400px_minmax(0,1fr)] overflow-hidden">
+      <aside className="wa-list flex min-h-0 flex-col overflow-hidden">
         <div className="flex h-[60px] shrink-0 items-center gap-2 px-4">
           <h1 className="min-w-0 flex-1 truncate text-[22px] font-semibold">
             Berichten
@@ -133,7 +133,7 @@ export function BerichtenPagina() {
               className="wa-list-search wa-reset h-9 w-full border-0 pr-3 pl-10 text-[14px] outline-none"
             />
           </div>
-          <div className="mt-3 flex items-center gap-2 overflow-x-auto pb-1">
+          <div className="mt-3 flex items-center gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {chips.map((chip) => {
               const aan = filter === chip.id;
               return (
@@ -191,9 +191,9 @@ export function BerichtenPagina() {
           />
         </div>
       </aside>
-      <main className="flex min-h-0 min-w-0 flex-1 bg-[#fbfbfb]">
+      <main className="flex min-h-0 min-w-0 flex-col overflow-hidden bg-[#fbfbfb]">
         {gesprek ? (
-          <div className="h-full min-h-0 w-full min-w-0">
+          <div className="flex h-full min-h-0 w-full min-w-0 flex-col">
             <BerichtenVenster key={gesprek.id} gesprek={gesprek} />
           </div>
         ) : (

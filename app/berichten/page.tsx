@@ -9,7 +9,7 @@ export default function BerichtenPage() {
       contentClassName="bg-[#fbfbfb]"
       insetClassName={LANDING_SHELL}
     >
-      <div className={`${LANDING_SHELL} flex min-h-0 flex-1 flex-col`}>
+      <div className={`${LANDING_SHELL} flex h-full min-h-0 flex-1 flex-col`}>
         <BerichtenPagina />
       </div>
     </AppShell>

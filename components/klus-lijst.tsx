@@ -496,20 +496,20 @@ export function KlusLijst({
             {leegTekst}
           </p>
         ) : (
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col">
             {zichtbaar.map((klus) => {
               const saved = favorites.includes(klus.id);
               return (
                 <article
                   key={klus.id}
-                  className="ad-panel relative rounded-xl p-5 pr-14"
+                  className="ad-panel relative px-5 py-8 pr-14"
                 >
                   <button
                     type="button"
                     aria-label="Bewaar klus"
                     aria-pressed={saved}
                     onClick={() => toggleFavorite(klus.id)}
-                    className="absolute top-5 right-5 z-10 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
+                    className="absolute top-8 right-5 z-10 flex size-8 items-center justify-center rounded-[var(--radius-control)] border border-[#d0d0d0] bg-white"
                   >
                     <Heart
                       className={`size-4 ${saved ? "fill-[#d91222] text-[#d91222]" : "text-[#6b6b6b]"}`}

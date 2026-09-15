@@ -315,12 +315,10 @@ html.dark .wa-list {
 }
 
 .ad-panel {
-  border: 1px solid #e5e7eb;
   background-color: #fff;
 }
 
 html.dark .ad-panel {
-  border-color: #2e2e2e;
   background-color: #1c1c1c;
 }
 

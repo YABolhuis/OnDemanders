@@ -583,7 +583,7 @@ export function KlusLijst({
                     );
                     setPage(1);
                   }}
-                  className="h-8 appearance-none border border-[#d0d0d0] bg-white pr-8 pl-2 text-[13px] text-[#333] outline-none focus:border-[#1d5fd1]"
+                  className="h-8 appearance-none rounded-none border-0 border-b border-[#d0d0d0] bg-transparent pr-8 pl-2 text-[13px] text-[#333] outline-none focus:border-[#1d5fd1]"
                 >
                   {PER_PAGE_OPTIONS.map((option) => (
                     <option key={option} value={option}>

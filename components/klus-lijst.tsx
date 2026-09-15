@@ -250,7 +250,7 @@ export function KlusLijst({
                   setAfstandOpen(false);
                   setDienstOpen(false);
                 }}
-                className="vorm-hosted wa-reset inline-flex h-9 items-center gap-2 rounded-[16px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
+                className="wa-reset inline-flex h-9 items-center gap-2 rounded-none border-0 border-b border-[#d0d0d0] bg-transparent px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
               >
                 Filters
                 <ChevronDown className="size-3.5 text-[#555]" strokeWidth={2} aria-hidden />
@@ -453,7 +453,7 @@ export function KlusLijst({
                 setAfstandOpen(false);
                 setDienstOpen(false);
               }}
-              className="vorm-hosted wa-reset inline-flex h-9 items-center gap-2 rounded-[16px] border border-[#d0d0d0] bg-white px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
+              className="wa-reset inline-flex h-9 items-center gap-2 rounded-none border-0 border-b border-[#d0d0d0] bg-transparent px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
             >
               <ArrowUpDown className="size-3.5" strokeWidth={2} aria-hidden />
               Sorteren op

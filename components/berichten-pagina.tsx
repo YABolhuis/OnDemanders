@@ -161,7 +161,7 @@ export function BerichtenPagina() {
                 <button
                   type="button"
                   onClick={zetMeldingenAan}
-                  className="wa-reset font-medium text-[#25d366] underline-offset-2 hover:underline"
+                  className="wa-reset font-medium text-[#006239] underline-offset-2 hover:underline"
                 >
                   Zet aan
                 </button>

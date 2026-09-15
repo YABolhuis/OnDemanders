@@ -156,7 +156,7 @@
   --wa-header: #f0f2f5;
   --wa-wallpaper: #1c1c1c;
   --wa-in: #ffffff;
-  --wa-out: #d9fdd3;
+  --wa-out: #006239;
   --wa-composer: #f0f2f5;
   --wa-input: #ffffff;
   --wa-text: #111b21;
@@ -171,7 +171,7 @@
   --wa-list-active: #f0f2f5;
   --wa-list-line: #e9edef;
   --wa-chip: #e9edef;
-  --wa-banner: #005c4b;
+  --wa-banner: #006239;
   color: var(--wa-text);
 }
 
@@ -180,7 +180,7 @@ html.dark .wa-list {
   --wa-header: #202c33;
   --wa-wallpaper: #1c1c1c;
   --wa-in: #202c33;
-  --wa-out: #005c4b;
+  --wa-out: #006239;
   --wa-composer: #202c33;
   --wa-input: #2a3942;
   --wa-text: #e9edef;
@@ -195,7 +195,7 @@ html.dark .wa-list {
   --wa-list-active: #2a3942;
   --wa-list-line: #222d34;
   --wa-chip: #202c33;
-  --wa-banner: #005c4b;
+  --wa-banner: #006239;
 }
 
 .wa-thread {
@@ -221,7 +221,9 @@ html.dark .wa-list {
 
 .wa-bubble-out {
   background: var(--wa-out);
+  color: #ffffff;
   border-radius: 8px 0 8px 8px;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13), inset 0 0 0 1px #138253;
 }
 
 .wa-bubble-in.wa-grouped {
@@ -280,8 +282,9 @@ html.dark .wa-list {
 }
 
 .wa-chip-on {
-  background: #0b5c4b;
-  color: #e9edef;
+  background: #006239;
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px #138253;
 }
 
 .wa-chip-off {
@@ -291,6 +294,7 @@ html.dark .wa-list {
 
 .wa-banner {
   background: var(--wa-banner);
+  box-shadow: inset 0 0 0 1px #138253;
 }
 
 .wa-row:hover {

@@ -118,7 +118,7 @@ export function HomeHeroForm() {
           <div className="mt-5 border-t border-[#2e2e2e] pt-4">
             <button
               type="submit"
-              className="h-10 w-full rounded-[var(--radius-control)] bg-[#16a34a] text-[14px] font-medium text-white hover:bg-[#15803d]"
+              className="h-10 w-full rounded-[var(--radius-control)] bg-[#006239] text-[14px] font-medium text-white shadow-[inset_0_0_0_1px_#138253] hover:bg-[#007548]"
             >
               Sign up for free
             </button>

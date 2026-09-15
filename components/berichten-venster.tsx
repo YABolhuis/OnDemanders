@@ -206,8 +206,7 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
             <button
               type="submit"
               aria-label="Versturen"
-              className="wa-reset ml-1 inline-flex size-9 shrink-0 items-center justify-center rounded-full"
-              style={{ background: "#25d366", color: "#ffffff" }}
+              className="wa-reset ml-1 inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#006239] text-white shadow-[inset_0_0_0_1px_#138253]"
             >
               <svg
                 viewBox="0 0 24 24"

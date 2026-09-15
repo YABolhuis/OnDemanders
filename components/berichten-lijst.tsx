@@ -63,7 +63,7 @@ export function BerichtenLijst({
                     className="shrink-0 text-[12px]"
                     style={{
                       color:
-                        gesprek.ongelezen > 0 ? "#00a884" : "var(--wa-muted)",
+                        gesprek.ongelezen > 0 ? "#006239" : "var(--wa-muted)",
                     }}
                   >
                     {gesprek.tijd}
@@ -85,7 +85,7 @@ export function BerichtenLijst({
                     <span className="truncate">{gesprek.bericht}</span>
                   </span>
                   {gesprek.ongelezen > 0 ? (
-                    <span className="flex h-[19px] min-w-[19px] shrink-0 items-center justify-center rounded-full bg-[#00a884] px-1 text-[11px] font-semibold text-white">
+                    <span className="flex h-[19px] min-w-[19px] shrink-0 items-center justify-center rounded-full bg-[#006239] px-1 text-[11px] font-semibold text-white shadow-[inset_0_0_0_1px_#138253]">
                       {gesprek.ongelezen}
                     </span>
                   ) : null}

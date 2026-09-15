@@ -64,7 +64,7 @@ export function AppHeader({
                     {item.label}
                     {item.href === "/berichten" && ongelezen > 0 ? (
                       <span
-                        className="absolute -top-2 -right-2.5 z-10 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 text-[10px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+                        className="absolute -top-2 -right-2.5 z-10 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#006239] px-1 text-[10px] font-semibold text-white shadow-[inset_0_0_0_1px_#138253]"
                         aria-label={`${ongelezen} ongelezen berichten`}
                       >
                         {ongelezen}

@@ -212,22 +212,22 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
               style={{ color: "var(--wa-text)" }}
             />
             <input ref={fileRef} type="file" className="hidden" />
-          </div>
-          <button
-            type="submit"
-            aria-label="Versturen"
-            className="wa-reset inline-flex size-12 shrink-0 items-center justify-center rounded-full"
-            style={{ background: "#25d366", color: "#ffffff" }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              className="size-6 translate-x-px"
-              fill="currentColor"
-              aria-hidden
+            <button
+              type="submit"
+              aria-label="Versturen"
+              className="wa-reset ml-1 inline-flex size-9 shrink-0 items-center justify-center rounded-full"
+              style={{ background: "#25d366", color: "#ffffff" }}
             >
-              <path d="M3.4 20.2 21 12 3.4 3.8l.1 6.4L15 12 3.5 13.8z" />
-            </svg>
-          </button>
+              <svg
+                viewBox="0 0 24 24"
+                className="size-4 translate-x-px"
+                fill="currentColor"
+                aria-hidden
+              >
+                <path d="M3.4 20.2 21 12 3.4 3.8l.1 6.4L15 12 3.5 13.8z" />
+              </svg>
+            </button>
+          </div>
         </form>
       </div>
     </section>

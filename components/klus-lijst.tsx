@@ -250,7 +250,7 @@ export function KlusLijst({
                   setAfstandOpen(false);
                   setDienstOpen(false);
                 }}
-                className="wa-reset inline-flex h-9 items-center gap-2 rounded-none border-0 border-b border-[#d0d0d0] bg-transparent px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
+                className="onderstreep wa-reset inline-flex h-9 items-center gap-2 px-3 text-[13px] text-[#222]"
               >
                 Filters
                 <ChevronDown className="size-3.5 text-[#555]" strokeWidth={2} aria-hidden />
@@ -453,7 +453,7 @@ export function KlusLijst({
                 setAfstandOpen(false);
                 setDienstOpen(false);
               }}
-              className="wa-reset inline-flex h-9 items-center gap-2 rounded-none border-0 border-b border-[#d0d0d0] bg-transparent px-3 text-[13px] text-[#222] hover:border-[#1d5fd1]"
+              className="onderstreep wa-reset inline-flex h-9 items-center gap-2 px-3 text-[13px] text-[#222]"
             >
               <ArrowUpDown className="size-3.5" strokeWidth={2} aria-hidden />
               Sorteren op
@@ -583,7 +583,7 @@ export function KlusLijst({
                     );
                     setPage(1);
                   }}
-                  className="h-8 appearance-none rounded-none border-0 border-b border-[#d0d0d0] bg-transparent pr-8 pl-2 text-[13px] text-[#333] outline-none focus:border-[#1d5fd1]"
+                  className="onderstreep h-8 appearance-none pr-8 pl-2 text-[13px] text-[#333] outline-none"
                 >
                   {PER_PAGE_OPTIONS.map((option) => (
                     <option key={option} value={option}>

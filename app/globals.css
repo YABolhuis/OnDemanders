@@ -151,6 +151,22 @@
   border-radius: 6px !important;
 }
 
+.onderstreep {
+  border: none !important;
+  border-bottom: 1px solid #d0d0d0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+
+html.dark .onderstreep {
+  border-bottom-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.onderstreep:hover,
+.onderstreep:focus {
+  border-bottom-color: #1d5fd1 !important;
+}
+
 .wa-chat,
 .wa-list {
   --wa-header: #f0f2f5;

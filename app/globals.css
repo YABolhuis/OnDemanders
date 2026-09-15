@@ -154,7 +154,7 @@
 .wa-chat,
 .wa-list {
   --wa-header: #f0f2f5;
-  --wa-wallpaper: #efeae2;
+  --wa-wallpaper: #1c1c1c;
   --wa-in: #ffffff;
   --wa-out: #d9fdd3;
   --wa-composer: #f0f2f5;
@@ -178,7 +178,7 @@
 html.dark .wa-chat,
 html.dark .wa-list {
   --wa-header: #202c33;
-  --wa-wallpaper: #0b141a;
+  --wa-wallpaper: #1c1c1c;
   --wa-in: #202c33;
   --wa-out: #005c4b;
   --wa-composer: #202c33;
@@ -200,18 +200,8 @@ html.dark .wa-list {
 
 .wa-thread {
   background-color: var(--wa-wallpaper);
-}
-
-.wa-doodle {
-  background-image: url("/wa-chat-doodle.svg");
-  background-repeat: repeat;
-  background-size: 420px 420px;
-  opacity: 0.055;
-}
-
-html.dark .wa-doodle {
-  filter: invert(1);
-  opacity: 0.078;
+  background-image: radial-gradient(circle, #3a3a3a 1px, transparent 1.15px);
+  background-size: 14px 14px;
 }
 
 .wa-bubble {

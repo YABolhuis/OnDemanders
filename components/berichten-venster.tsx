@@ -81,7 +81,6 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
       </header>
 
       <div className="wa-thread relative flex min-h-0 flex-1 flex-col">
-        <div className="wa-doodle pointer-events-none absolute inset-0" aria-hidden />
         <div className="relative min-h-0 flex-1 overflow-y-auto px-8 py-3">
           {berichten.map((bericht, index) => {
             const vanMij = bericht.van === "ik";

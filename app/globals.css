@@ -151,6 +151,10 @@
   border-radius: 6px !important;
 }
 
+.vorm-hosted {
+  border-radius: 12px !important;
+}
+
 .wa-chat,
 .wa-list {
   --wa-header: #f0f2f5;

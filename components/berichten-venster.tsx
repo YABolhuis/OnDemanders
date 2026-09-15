@@ -5,10 +5,8 @@ import {
   CheckCheck,
   MoreVertical,
   Paperclip,
-  Phone,
   Search,
   Smile,
-  Video,
 } from "lucide-react";
 import type { Gesprek } from "@/lib/berichten";
 
@@ -73,12 +71,6 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
           </p>
         </div>
         <div className="flex shrink-0 items-center gap-0.5" style={{ color: "var(--wa-icon)" }}>
-          <button type="button" aria-label="Videogesprek" className="wa-reset inline-flex size-10 items-center justify-center">
-            <Video className="size-5" strokeWidth={1.75} />
-          </button>
-          <button type="button" aria-label="Bellen" className="wa-reset inline-flex size-10 items-center justify-center">
-            <Phone className="size-5" strokeWidth={1.75} />
-          </button>
           <button type="button" aria-label="Zoeken in chat" className="wa-reset inline-flex size-10 items-center justify-center">
             <Search className="size-5" strokeWidth={1.75} />
           </button>

@@ -90,13 +90,13 @@ export function BerichtenPagina() {
           onSelect={setSelectedId}
         />
       </FilterSidebar>
-      <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 items-stretch justify-center bg-[#fbfbfb] px-20 py-8">
+      <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 bg-[#fbfbfb]">
         {gesprek ? (
-          <div className="h-[calc(100vh-57px-4rem)] w-full">
+          <div className="h-[calc(100vh-57px)] w-full min-w-0">
             <BerichtenVenster key={gesprek.id} gesprek={gesprek} />
           </div>
         ) : (
-          <p className="self-center text-[13px] text-[#667781]">
+          <p className="m-auto text-[13px] text-[#667781]">
             Kies een gesprek in de lijst links.
           </p>
         )}

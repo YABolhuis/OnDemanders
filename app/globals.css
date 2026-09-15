@@ -138,7 +138,7 @@
     textarea,
     [role="button"],
     [role="combobox"]
-  ):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(.landing-pill):not(.ad-cta) {
+  ):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(.landing-pill):not(.ad-cta):not(.wa-reset) {
     border-radius: var(--radius-control);
   }
 }
@@ -149,6 +149,124 @@
 
 .ad-cta {
   border-radius: 6px !important;
+}
+
+.wa-chat {
+  --wa-header: #f0f2f5;
+  --wa-wallpaper: #efeae2;
+  --wa-in: #ffffff;
+  --wa-out: #d9fdd3;
+  --wa-composer: #f0f2f5;
+  --wa-input: #ffffff;
+  --wa-text: #111b21;
+  --wa-muted: #667781;
+  --wa-icon: #54656f;
+  --wa-tick: #53bdeb;
+  --wa-quote: #53bdeb;
+  --wa-quote-bg: rgba(17, 27, 33, 0.05);
+  color: var(--wa-text);
+}
+
+html.dark .wa-chat {
+  --wa-header: #202c33;
+  --wa-wallpaper: #0b141a;
+  --wa-in: #202c33;
+  --wa-out: #005c4b;
+  --wa-composer: #202c33;
+  --wa-input: #2a3942;
+  --wa-text: #e9edef;
+  --wa-muted: #8696a0;
+  --wa-icon: #aebac1;
+  --wa-tick: #53bdeb;
+  --wa-quote: #53bdeb;
+  --wa-quote-bg: rgba(11, 20, 26, 0.45);
+}
+
+.wa-chat-header {
+  background: var(--wa-header);
+}
+
+.wa-thread {
+  background-color: var(--wa-wallpaper);
+}
+
+.wa-doodle {
+  background-image: url("/wa-chat-doodle.svg");
+  background-repeat: repeat;
+  background-size: 420px 420px;
+  opacity: 0.055;
+}
+
+html.dark .wa-doodle {
+  filter: invert(1);
+  opacity: 0.078;
+}
+
+.wa-bubble {
+  position: relative;
+  display: inline-block;
+  max-width: min(65%, 42rem);
+  padding: 6px 8px 4px 9px;
+  font-size: 14.2px;
+  line-height: 1.35;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+}
+
+.wa-bubble-in {
+  background: var(--wa-in);
+  border-radius: 0 8px 8px 8px;
+}
+
+.wa-bubble-out {
+  background: var(--wa-out);
+  border-radius: 8px 0 8px 8px;
+}
+
+.wa-bubble-in.wa-grouped {
+  border-radius: 8px;
+}
+
+.wa-bubble-out.wa-grouped {
+  border-radius: 8px;
+}
+
+.wa-bubble-in:not(.wa-grouped)::before,
+.wa-bubble-out:not(.wa-grouped)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 13px;
+}
+
+.wa-bubble-in:not(.wa-grouped)::before {
+  left: -8px;
+  background: var(--wa-in);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.wa-bubble-out:not(.wa-grouped)::before {
+  right: -8px;
+  background: var(--wa-out);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.wa-bubble-meta {
+  float: right;
+  margin: 6px 0 -2px 12px;
+  font-size: 11px;
+  line-height: 15px;
+  color: var(--wa-muted);
+  white-space: nowrap;
+}
+
+.wa-composer {
+  border-radius: 24px !important;
+  background: var(--wa-input);
+}
+
+.wa-composer textarea::placeholder {
+  color: var(--wa-muted);
 }
 
 .ad-panel {

@@ -3,6 +3,10 @@ export type ChatBericht = {
   van: "zij" | "ik";
   tekst: string;
   tijd: string;
+  citaat?: {
+    label: string;
+    tekst: string;
+  };
 };
 
 export type Gesprek = {
@@ -35,6 +39,10 @@ export const gesprekken: Gesprek[] = [
         van: "zij",
         tekst: "Donderdag is lastig. Kunnen jullie morgen langs komen voor de woonkamer?",
         tijd: "18:24",
+        citaat: {
+          label: "Jij",
+          tekst: "Goedemiddag, we kunnen donderdag of vrijdag langs komen voor de woonkamer. Wat schikt het beste?",
+        },
       },
     ],
   },

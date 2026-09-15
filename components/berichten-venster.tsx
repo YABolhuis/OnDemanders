@@ -57,7 +57,7 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
       className="wa-chat flex h-full min-h-0 w-full flex-col overflow-hidden"
       aria-label={`Chat met ${gesprek.naam}`}
     >
-      <header className="wa-chat-header flex h-[60px] shrink-0 items-center gap-3 px-4">
+      <header className="flex h-[60px] shrink-0 items-center gap-3 border-b border-[#2e2e2e] bg-transparent px-4">
         <span
           className="flex size-10 shrink-0 items-center justify-center rounded-full text-[14px] font-medium"
           style={{ background: "color-mix(in srgb, var(--wa-icon) 22%, transparent)", color: "var(--wa-icon)" }}

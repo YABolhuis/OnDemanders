@@ -198,10 +198,6 @@ html.dark .wa-list {
   --wa-banner: #005c4b;
 }
 
-.wa-chat-header {
-  background: var(--wa-header);
-}
-
 .wa-thread {
   background-color: var(--wa-wallpaper);
 }

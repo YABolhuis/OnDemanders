@@ -3,12 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import {
   CheckCheck,
-  Mic,
   MoreVertical,
   Paperclip,
   Phone,
   Search,
-  Send,
   Smile,
   Video,
 } from "lucide-react";
@@ -29,7 +27,6 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
   const [emojiOpen, setEmojiOpen] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const eindeRef = useRef<HTMLDivElement>(null);
-  const kanVersturen = tekst.trim().length > 0;
 
   useEffect(() => {
     eindeRef.current?.scrollIntoView({ block: "end" });
@@ -215,26 +212,22 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
               style={{ color: "var(--wa-text)" }}
             />
             <input ref={fileRef} type="file" className="hidden" />
-            {kanVersturen ? (
-              <button
-                type="submit"
-                aria-label="Versturen"
-                className="wa-reset ml-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full"
-                style={{ background: "#00a884", color: "#e9edef" }}
-              >
-                <Send className="size-4" strokeWidth={2} />
-              </button>
-            ) : (
-              <button
-                type="button"
-                aria-label="Spraakbericht"
-                className="wa-reset inline-flex size-10 shrink-0 items-center justify-center"
-                style={{ color: "var(--wa-icon)" }}
-              >
-                <Mic className="size-5" strokeWidth={1.75} />
-              </button>
-            )}
           </div>
+          <button
+            type="submit"
+            aria-label="Versturen"
+            className="wa-reset inline-flex size-12 shrink-0 items-center justify-center rounded-full"
+            style={{ background: "#25d366", color: "#ffffff" }}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="size-6 translate-x-px"
+              fill="currentColor"
+              aria-hidden
+            >
+              <path d="M3.4 20.2 21 12 3.4 3.8l.1 6.4L15 12 3.5 13.8z" />
+            </svg>
+          </button>
         </form>
       </div>
     </section>

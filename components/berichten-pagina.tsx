@@ -92,8 +92,8 @@ export function BerichtenPagina() {
   const toonBanner = !meldingenAan && !bannerWeg;
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] flex-1">
-      <aside className="wa-list flex h-[calc(100vh-57px)] w-[400px] shrink-0 flex-col">
+    <div className="flex min-h-0 flex-1">
+      <aside className="wa-list flex h-full min-h-0 w-[400px] shrink-0 flex-col">
         <div className="flex h-[60px] shrink-0 items-center gap-2 px-4">
           <h1 className="min-w-0 flex-1 truncate text-[22px] font-semibold">
             Berichten
@@ -191,9 +191,9 @@ export function BerichtenPagina() {
           />
         </div>
       </aside>
-      <main className="flex min-h-[calc(100vh-57px)] min-w-0 flex-1 bg-[#fbfbfb]">
+      <main className="flex min-h-0 min-w-0 flex-1 bg-[#fbfbfb]">
         {gesprek ? (
-          <div className="h-[calc(100vh-57px)] w-full min-w-0">
+          <div className="h-full min-h-0 w-full min-w-0">
             <BerichtenVenster key={gesprek.id} gesprek={gesprek} />
           </div>
         ) : (

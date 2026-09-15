@@ -18,10 +18,12 @@ export function AppHeader({
   gebruiker,
   showEdge = true,
   inset = false,
+  insetClassName,
 }: {
   gebruiker: string;
   showEdge?: boolean;
   inset?: boolean;
+  insetClassName?: string;
 }) {
   const pathname = usePathname();
   const ongelezen = aantalOngelezenBerichten();
@@ -34,7 +36,7 @@ export function AppHeader({
     >
       <div
         className={`flex h-14 items-center justify-between gap-6 ${
-          inset ? APP_SHELL : "w-full px-4 lg:px-10"
+          insetClassName ?? (inset ? APP_SHELL : "w-full px-4 lg:px-10")
         }`}
       >
         <div className="flex min-w-0 items-center gap-6 lg:gap-10">

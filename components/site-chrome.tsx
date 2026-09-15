@@ -11,6 +11,7 @@ export function SiteChrome({
   spanRightRail = false,
   landing = false,
   centered = false,
+  insetClassName,
 }: {
   header: ReactNode;
   children: ReactNode;
@@ -19,6 +20,7 @@ export function SiteChrome({
   spanRightRail?: boolean;
   landing?: boolean;
   centered?: boolean;
+  insetClassName?: string;
 }) {
   void spanRightRail;
 
@@ -40,7 +42,7 @@ export function SiteChrome({
       <LandingSideTab />
       {header}
       <div
-        className={`relative flex min-w-0 flex-1 flex-col ${
+        className={`relative flex min-h-0 min-w-0 flex-1 flex-col ${
           leftRail ? "lg:grid lg:grid-cols-[var(--site-rail-left)_minmax(0,1fr)]" : ""
         }`}
       >
@@ -49,11 +51,11 @@ export function SiteChrome({
             {leftRail}
           </div>
         ) : null}
-        <div className={`relative flex min-w-0 flex-1 flex-col ${contentClassName}`}>
+        <div className={`relative flex min-h-0 min-w-0 flex-1 flex-col ${contentClassName}`}>
           {children}
         </div>
       </div>
-      <SiteFooter innerClassName={centered ? APP_SHELL : undefined} />
+      <SiteFooter innerClassName={insetClassName ?? (centered ? APP_SHELL : undefined)} />
     </div>
   );
 }

@@ -123,8 +123,7 @@ export function BerichtenPagina() {
           <div className="px-3 pb-2">
             <div className="relative">
               <Search
-                className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
-                style={{ color: "var(--wa-muted)" }}
+                className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-[#6b6b6b]"
                 strokeWidth={2}
                 aria-hidden
               />
@@ -134,7 +133,7 @@ export function BerichtenPagina() {
                 onChange={(event) => setZoek(event.target.value)}
                 placeholder="Zoek of start een nieuw gesprek"
                 aria-label="Zoek of start een nieuw gesprek"
-                className="wa-list-search wa-reset h-9 w-full border-0 pr-3 pl-10 text-[14px] outline-none"
+                className="wa-reset h-10 w-full rounded-[16px] border border-[#2e2e2e] bg-[#1c1c1c] pr-3 pl-10 text-[14px] text-[#e8e8e6] outline-none placeholder:text-[#6b6b6b] focus:border-[#5a5a5a]"
               />
             </div>
             <div className="mt-3 flex items-center gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

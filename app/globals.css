@@ -275,16 +275,6 @@ html.dark .wa-list {
   background: var(--wa-list-bg);
 }
 
-.wa-list-search {
-  border-radius: 8px !important;
-  background: var(--wa-list-search);
-  color: var(--wa-text);
-}
-
-.wa-list-search::placeholder {
-  color: var(--wa-muted);
-}
-
 .wa-chip {
   border-radius: 9999px !important;
 }

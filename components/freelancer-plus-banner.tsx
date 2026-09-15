@@ -38,7 +38,7 @@ export function FreelancerPlusBanner() {
   }
 
   return (
-    <div className="flex w-full items-center gap-2 rounded-md bg-linear-to-r from-[#c8e86a] to-[#eef6b0] px-4 py-2.5 text-[#1a1a1a]">
+    <div className="mt-4 flex w-full items-center gap-2 rounded-md bg-linear-to-r from-[#c8e86a] to-[#eef6b0] px-4 py-2.5 text-[#1a1a1a]">
       <Tag className="size-4 shrink-0" strokeWidth={2} aria-hidden />
       <p className="min-w-0 flex-1 text-[13px]">
         Vind opdrachten sneller: ontvang persoonlijke meldingen en pak de beste

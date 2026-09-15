@@ -198,10 +198,8 @@ export function KlusLijst({
 
   return (
     <div className={APP_SHELL}>
-      <div className="bg-[#fbfbfb] pt-10">
-        <FreelancerPlusBanner />
-      </div>
-      <div className="relative bg-[#fbfbfb] pt-6">
+      <FreelancerPlusBanner />
+      <div className="relative bg-[#fbfbfb] pt-4">
         <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
           {tabs.map((item) => {
             const actief = item.id === tab;

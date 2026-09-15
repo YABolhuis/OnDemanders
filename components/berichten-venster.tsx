@@ -43,7 +43,7 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
 
   return (
     <section
-      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-[4px] border border-[#e6e6e6] bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
+      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-[4px] border border-[#e6e6e6] bg-[#f3f2f1] shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
       aria-label={`Chat met ${gesprek.naam}`}
     >
       <header className="flex shrink-0 items-center gap-3 px-6 py-4">
@@ -61,7 +61,7 @@ export function BerichtenVenster({ gesprek }: { gesprek: Gesprek }) {
         </div>
       </header>
 
-      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto bg-white px-6 py-4">
+      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto bg-[#f3f2f1] px-6 py-4">
         {berichten.map((bericht) => {
           const vanMij = bericht.van === "ik";
           return (

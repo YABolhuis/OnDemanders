@@ -317,10 +317,6 @@ html.dark .wa-doodle {
   background: var(--wa-banner);
 }
 
-.wa-list {
-  border-right: 1px solid var(--wa-list-line);
-}
-
 .wa-row:hover {
   background: var(--wa-list-hover);
 }

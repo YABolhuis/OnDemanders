@@ -326,6 +326,14 @@ html.dark .wa-list {
   background: var(--wa-list-active);
 }
 
+.ingelogd-canvas {
+  background-color: #343A40;
+}
+
+html.dark .ingelogd-canvas {
+  background-color: #343A40;
+}
+
 .ad-panel {
   background-color: #fff;
   transition: background-color 0.15s ease;
@@ -373,11 +381,15 @@ html.dark .bg-\[\#f0f0f0\],
 html.dark .bg-\[\#f0f1f2\],
 html.dark .bg-\[\#f3f3f3\],
 html.dark .bg-\[\#eee\] {
-  background-color: #191919;
+  background-color: #343A40;
 }
 
 html.dark .site-rail {
   background-color: #202020;
+}
+
+html.dark .site-rail.ingelogd-canvas {
+  background-color: #343A40;
 }
 
 html.dark .site-rail.site-rail-right {
@@ -385,7 +397,7 @@ html.dark .site-rail.site-rail-right {
 }
 
 html.dark footer.site-rail {
-  background-color: #191919;
+  background-color: #343A40;
 }
 
 html.dark .bg-white {

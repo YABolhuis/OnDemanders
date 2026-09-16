@@ -68,7 +68,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
   }
 
   return (
-    <div className="relative min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-14 py-14 text-[#1a1a1a] lg:pr-14">
+    <div className="relative min-h-[calc(100vh-57px)] ingelogd-canvas px-14 py-14 text-[#1a1a1a] lg:pr-14">
       <Link
         href={`/klussen/vak/${vakSlugVanKlus(klus)}`}
         className="inline-flex items-center gap-2.5 text-[13px] text-[#222]"

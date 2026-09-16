@@ -6,7 +6,7 @@ import { APP_SHELL } from "@/lib/site-width";
 export function AppShell({
   gebruiker,
   children,
-  contentClassName = "bg-[#fbfbfb]",
+  contentClassName = "ingelogd-canvas",
   leftRail,
   spanRightRail = false,
   centered = false,

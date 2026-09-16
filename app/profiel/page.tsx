@@ -6,7 +6,7 @@ export default function ProfielPage() {
   return (
     <AppShell
       gebruiker="Y.A. Bolhuis"
-      contentClassName="bg-[#fbfbfb]"
+      contentClassName="ingelogd-canvas"
       leftRail={<AccountSidebar />}
     >
       <ProfielInstellingen />

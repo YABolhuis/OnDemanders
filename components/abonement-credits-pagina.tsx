@@ -26,7 +26,7 @@ export function AbonementCreditsPagina() {
   }, []);
 
   return (
-    <div className="min-h-[calc(100vh-57px)] bg-[#fbfbfb] px-10 py-10 text-[#1a1a1a]">
+    <div className="min-h-[calc(100vh-57px)] ingelogd-canvas px-10 py-10 text-[#1a1a1a]">
         <div className="mx-auto max-w-5xl">
           <h1 className="text-[32px] font-bold">Abonement & credits</h1>
           <p className="mt-1 text-[15px] text-[#555]">

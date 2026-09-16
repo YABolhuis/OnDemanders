@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AbonnementPage() {
   return (
-    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="bg-[#fbfbfb]">
+    <AppShell gebruiker="Y.A. Bolhuis" contentClassName="ingelogd-canvas">
       <AbonnementKopenPagina />
     </AppShell>
   );

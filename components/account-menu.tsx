@@ -70,7 +70,7 @@ export function AccountMenu({ gebruiker }: { gebruiker: string }) {
         <span className="relative inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#d9d9d9]">
           <User className="size-4 text-[#6a6a6a]" strokeWidth={2} aria-hidden />
           <span
-            className={`absolute -top-0.5 -right-0.5 size-2.5 rounded-full ring-2 ring-[#fbfbfb] ${
+            className={`absolute -top-0.5 -right-0.5 size-2.5 rounded-full ring-2 ring-[#343A40] ${
               online ? "bg-[#2d9b4f]" : "bg-[#e31c3d]"
             }`}
             aria-hidden

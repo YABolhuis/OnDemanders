@@ -6,7 +6,7 @@ export default function AbonementCreditsPage() {
   return (
     <AppShell
       gebruiker="Y.A. Bolhuis"
-      contentClassName="bg-[#fbfbfb]"
+      contentClassName="ingelogd-canvas"
       leftRail={<AccountSidebar />}
     >
       <AbonementCreditsPagina />

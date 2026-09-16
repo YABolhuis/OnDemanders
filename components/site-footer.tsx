@@ -54,7 +54,7 @@ export function SiteFooter({
       className={`site-rail mt-auto ${
         inset
           ? "bg-[#171717] text-[#9b9b97]"
-          : "bg-[#fbfbfb] text-[#555]"
+          : "ingelogd-canvas text-[#555]"
       } ${showEdge ? "border-t border-[#d0d0d0]" : ""}`}
     >
       <div

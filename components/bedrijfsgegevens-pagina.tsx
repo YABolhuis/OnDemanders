@@ -47,8 +47,8 @@ export function BedrijfsgegevensPagina() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-57px)] bg-[#fbfbfb] text-[#1a1a1a]">
-      <aside className="site-rail min-h-[calc(100vh-57px)] w-[280px] shrink-0 border-r border-[#e6e6e6] bg-[#fbfbfb] px-4 py-6">
+    <div className="flex min-h-[calc(100vh-57px)] ingelogd-canvas text-[#1a1a1a]">
+      <aside className="site-rail ingelogd-canvas min-h-[calc(100vh-57px)] w-[280px] shrink-0 border-r border-[#e6e6e6] px-4 py-6">
         <p className="mb-4 px-2 text-[13px] font-semibold text-[#6b6b6b]">
           Menu
         </p>

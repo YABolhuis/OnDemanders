@@ -6,7 +6,7 @@ import { APP_SHELL } from "@/lib/site-width";
 export function SiteChrome({
   header,
   children,
-  contentClassName = "bg-[#fbfbfb]",
+  contentClassName = "ingelogd-canvas",
   leftRail,
   spanRightRail = false,
   landing = false,
@@ -38,7 +38,7 @@ export function SiteChrome({
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#fbfbfb]">
+    <div className="flex min-h-screen flex-col ingelogd-canvas">
       <LandingSideTab />
       {header}
       <div
@@ -47,7 +47,7 @@ export function SiteChrome({
         }`}
       >
         {leftRail ? (
-          <div className="site-rail border-b border-[#e6e6e6] bg-[#fbfbfb] lg:border-r lg:border-b-0 lg:border-[#d0d0d0]">
+          <div className="site-rail border-b border-[#e6e6e6] ingelogd-canvas lg:border-r lg:border-b-0 lg:border-[#d0d0d0]">
             {leftRail}
           </div>
         ) : null}

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Bell } from "lucide-react";
 import { LanguageMenu } from "@/components/language-menu";
 import { AccountMenu } from "@/components/account-menu";
+import { IngelogdMeldingsbalk } from "@/components/ingelogd-meldingsbalk";
 import { aantalOngelezenBerichten } from "@/lib/berichten";
 import { APP_SHELL } from "@/lib/site-width";
 
@@ -27,17 +28,18 @@ export function AppHeader({
 }) {
   const pathname = usePathname();
   const ongelezen = aantalOngelezenBerichten();
+  const shell = insetClassName ?? (inset ? APP_SHELL : "w-full px-4 lg:px-10");
 
   return (
-    <header
-      className={`relative z-50 w-full bg-[#fbfbfb] ${
-        showEdge ? "border-b border-[#d0d0d0]" : ""
-      }`}
-    >
-      <div
-        className={`flex h-14 items-center justify-between gap-6 ${
-          insetClassName ?? (inset ? APP_SHELL : "w-full px-4 lg:px-10")
+    <div className="relative z-50 w-full">
+      <IngelogdMeldingsbalk insetClassName={shell} />
+      <header
+        className={`w-full bg-[#fbfbfb] ${
+          showEdge ? "border-b border-[#d0d0d0]" : ""
         }`}
+      >
+      <div
+        className={`flex h-14 items-center justify-between gap-6 ${shell}`}
       >
         <div className="flex min-w-0 items-center gap-6 lg:gap-10">
           <Link href="/klussen/vak/schilder" className="shrink-0">
@@ -95,5 +97,6 @@ export function AppHeader({
         </div>
       </div>
     </header>
+    </div>
   );
 }

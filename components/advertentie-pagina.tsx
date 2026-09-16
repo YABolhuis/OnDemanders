@@ -123,7 +123,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
                 <button
                   type="button"
                   onClick={startContact}
-                  className="ad-cta inline-flex h-9 shrink-0 items-center justify-center border border-white/20 bg-transparent px-4 font-sans text-[14px] font-medium whitespace-nowrap text-[#e8e8e6] hover:bg-white/5"
+                  className="ad-cta inline-flex h-9 shrink-0 items-center justify-center bg-[#dc2626] px-4 font-sans text-[14px] font-medium whitespace-nowrap text-white shadow-[inset_0_0_0_1px_#ef4444] hover:bg-[#b91c1c]"
                 >
                   Direct aannemen
                 </button>

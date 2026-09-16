@@ -334,6 +334,14 @@ html.dark .ingelogd-canvas {
   background-color: #343A40;
 }
 
+.app-menubar {
+  background-color: #fbfbfb;
+}
+
+html.dark .app-menubar {
+  background-color: #191919;
+}
+
 .ad-panel {
   background-color: #fff;
   transition: background-color 0.15s ease;
@@ -381,7 +389,7 @@ html.dark .bg-\[\#f0f0f0\],
 html.dark .bg-\[\#f0f1f2\],
 html.dark .bg-\[\#f3f3f3\],
 html.dark .bg-\[\#eee\] {
-  background-color: #343A40;
+  background-color: #191919;
 }
 
 html.dark .site-rail {

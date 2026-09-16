@@ -14,7 +14,6 @@ import {
   Search,
 } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
-import { FreelancerPlusBanner } from "@/components/freelancer-plus-banner";
 import { LocatieZoek } from "@/components/locatie-zoek";
 import { klussen, type Klus } from "@/lib/klussen";
 import { DISTANCES } from "@/components/distance-slider";
@@ -198,7 +197,6 @@ export function KlusLijst({
 
   return (
     <div className={APP_SHELL}>
-      <FreelancerPlusBanner />
       <div className="relative ingelogd-canvas pt-10">
         <nav aria-label="Opdrachten filteren" className="flex min-w-0 flex-wrap gap-8">
           {tabs.map((item) => {

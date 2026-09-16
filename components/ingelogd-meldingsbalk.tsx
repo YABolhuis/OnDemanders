@@ -38,11 +38,11 @@ export function IngelogdMeldingsbalk({
   return (
     <div className="w-full bg-[#00C878] text-[#171717]">
       <div
-        className={`flex min-h-9 items-center justify-between gap-3 py-2 ${
+        className={`flex min-h-7 items-center justify-between gap-3 py-1 ${
           insetClassName ?? APP_SHELL
         }`}
       >
-        <p className="min-w-0 flex-1 text-center text-[13px] font-medium">
+        <p className="min-w-0 flex-1 text-center text-[12px] font-medium leading-tight">
           Je bent ingelogd. Nieuwe opdrachten in jouw vakgebied staan klaar.{" "}
           <Link
             href="/klussen"
@@ -55,9 +55,9 @@ export function IngelogdMeldingsbalk({
           type="button"
           aria-label="Melding sluiten"
           onClick={sluiten}
-          className="flex size-7 shrink-0 items-center justify-center text-[#171717] hover:opacity-70"
+          className="flex size-6 shrink-0 items-center justify-center text-[#171717] hover:opacity-70"
         >
-          <X className="size-4" strokeWidth={2} />
+          <X className="size-3.5" strokeWidth={2} />
         </button>
       </div>
     </div>

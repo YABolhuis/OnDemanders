@@ -34,7 +34,7 @@ export function AppHeader({
     <div className="relative z-50 w-full">
       <IngelogdMeldingsbalk insetClassName={shell} />
       <header
-        className={`app-menubar w-full ${
+        className={`w-full ingelogd-canvas ${
           showEdge ? "border-b border-[#d0d0d0]" : ""
         }`}
       >

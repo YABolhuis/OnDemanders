@@ -307,3 +307,19 @@ export const klussen: Klus[] = [
 export function getKlus(id: string) {
   return klussen.find((klus) => klus.id === id);
 }
+
+const SLUIT_VENSTER_MS = 36 * 60 * 60 * 1000;
+
+export function sluitTijdVoorKlus(id: string, nu = Date.now()) {
+  let seed = 0;
+  for (let i = 0; i < id.length; i += 1) {
+    seed = (seed * 31 + id.charCodeAt(i)) >>> 0;
+  }
+  const fase = seed % SLUIT_VENSTER_MS;
+  const cyclus = Math.floor(nu / SLUIT_VENSTER_MS) * SLUIT_VENSTER_MS;
+  let einde = cyclus + fase;
+  if (einde - nu < 90_000) {
+    einde += SLUIT_VENSTER_MS;
+  }
+  return einde;
+}

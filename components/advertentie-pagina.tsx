@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, User } from "lucide-react";
 import { PlaatsPin } from "@/components/plaats-pin";
+import { BiedAfteller } from "@/components/bied-afteller";
 import { BerichtComposer } from "@/components/bericht-composer";
 import { useCredits } from "@/components/credits-provider";
 import type { Klus } from "@/lib/klussen";
@@ -103,6 +104,7 @@ export function AdvertentiePagina({ klus }: { klus: Klus }) {
               className={`rounded-[16px] border border-[#2e2e2e] bg-[#1c1c1c] p-5 ${shakeActie ? "groene-shake" : ""}`}
               onAnimationEnd={() => setShakeActie(false)}
             >
+              <BiedAfteller klusId={klus.id} />
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-[13px] text-[#9b9b97]">Budget</p>

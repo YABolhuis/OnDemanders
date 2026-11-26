@@ -1,7 +1,10 @@
+import Constants, { ExecutionEnvironment } from 'expo-constants';
 import * as Location from 'expo-location';
 import { useEffect, useRef, useState } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, type Region } from 'react-native-maps';
+
+import { EmbeddedGoogleMap } from './EmbeddedGoogleMap';
 
 export type ExploreMapHandle = {
   zoomIn: () => void;
@@ -21,7 +24,16 @@ const MAX_DELTA = 90;
 
 type Props = { onReady: (handle: ExploreMapHandle) => void };
 
-export function ExploreMap({ onReady }: Props) {
+// Expo Go ships its own Google Maps key. A standalone Android build has none yet, and the native
+// Google map crashes without one, so it shows the keyless embed instead.
+const nativeMapAvailable =
+  Platform.OS !== 'android' || Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+
+export function ExploreMap(props: Props) {
+  return nativeMapAvailable ? <NativeMap {...props} /> : <EmbeddedGoogleMap {...props} />;
+}
+
+function NativeMap({ onReady }: Props) {
   const map = useRef<MapView>(null);
   const region = useRef<Region>(INITIAL_REGION);
   const [hasLocation, setHasLocation] = useState(false);

@@ -50,6 +50,7 @@ export function ChatActions({ actions, bottom }: { actions: ChatAction[]; bottom
             <Pressable
               key={action.label}
               accessibilityRole="menuitem"
+              accessibilityLabel={action.label}
               onPress={() => {
                 setOpen(false);
                 action.onPress();

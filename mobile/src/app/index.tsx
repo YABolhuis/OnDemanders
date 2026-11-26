@@ -1,13 +1,13 @@
-import { StyleSheet, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, View } from 'react-native';
 
-import { colors, fonts } from '@/theme';
+import { Wordmark } from '@/components/Wordmark';
+import { colors } from '@/theme';
 
 export default function StartScreen() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>OnDemanders</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Wordmark />
+    </View>
   );
 }
 
@@ -17,11 +17,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.background,
-  },
-  title: {
-    fontFamily: fonts.regular,
-    fontSize: 28,
-    fontWeight: '600',
-    color: colors.text,
   },
 });

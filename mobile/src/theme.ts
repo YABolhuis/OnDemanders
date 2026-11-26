@@ -1,17 +1,14 @@
-import { Platform } from 'react-native';
-
-// Neutral placeholder values. Replace with the real palette and typography once the designs arrive.
 export const colors = {
-  background: '#FFFFFF',
-  text: '#111111',
-  textMuted: '#6B6B6B',
-  border: '#E5E5E5',
+  background: '#0C0C0C',
+  text: '#FFFFFF',
+  accent: '#02F922',
+  progressTrack: '#292828',
+  progressFill: '#EBEBEB',
 };
 
 export const fonts = {
-  regular: Platform.select({
-    ios: 'System',
-    android: 'sans-serif',
-    default: 'system-ui, -apple-system, sans-serif',
-  }),
+  regular: 'Outfit_400Regular',
+  medium: 'Outfit_500Medium',
+  semibold: 'Outfit_600SemiBold',
+  bold: 'Outfit_700Bold',
 };

@@ -40,6 +40,14 @@
         {
           "locationWhenInUsePermission": "OnDemanders uses your location to show tasks near you on the map."
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "extraProguardRules": "-keep class * extends androidx.room.RoomDatabase { <init>(); }\n-keep class androidx.work.impl.WorkDatabase_Impl { *; }\n-keep class androidx.work.** { *; }"
+          }
+        }
       ]
     ],
     "experiments": {

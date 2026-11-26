@@ -34,7 +34,13 @@
           "imageWidth": 76
         }
       ],
-      "expo-sqlite"
+      "expo-sqlite",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "OnDemanders uses your location to show tasks near you on the map."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

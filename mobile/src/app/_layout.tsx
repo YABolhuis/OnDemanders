@@ -1,3 +1,5 @@
+import { Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato';
+import { Montserrat_600SemiBold, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import {
   Outfit_400Regular,
   Outfit_500Medium,
@@ -32,6 +34,10 @@ function RootStack() {
     Outfit_500Medium,
     Outfit_600SemiBold,
     Outfit_700Bold,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+    Lato_400Regular,
+    Lato_700Bold,
   });
   const { loading: sessionLoading } = useSession();
   const [loaderDone, setLoaderDone] = useState(false);

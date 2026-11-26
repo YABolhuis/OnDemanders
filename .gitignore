@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 assets/
+
+# mobile app (Expo) commits its public env file and assets
+!mobile/.env
+!mobile/assets/

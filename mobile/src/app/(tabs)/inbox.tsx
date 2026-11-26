@@ -1,14 +1,22 @@
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, Platform, Pressable, StyleSheet, TextInput, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { AppHeader } from '@/components/AppHeader';
+import { ChatActions } from '@/components/ChatActions';
 import { EmptyState } from '@/components/EmptyState';
 import { ChatBubbles } from '@/components/Illustrations';
 import { TopTabs } from '@/components/TopTabs';
 import { colors, fonts } from '@/theme';
 
 type Tab = 'messages' | 'notifications';
+
+function confirmDelivery() {
+  Alert.alert('Oplevering goedkeuren', 'Weet je zeker dat je de oplevering wilt goedkeuren?', [
+    { text: 'Annuleren', style: 'cancel' },
+    { text: 'Goedkeuren' },
+  ]);
+}
 
 export default function InboxScreen() {
   const [tab, setTab] = useState<Tab>('messages');
@@ -30,11 +38,23 @@ export default function InboxScreen() {
       />
       {tab === 'messages' ? (
         <>
-          <EmptyState
-            illustration={<ChatBubbles />}
-            title="No messages yet"
-            subtitle="Chat messages will show up here"
-          />
+          <View style={styles.messages}>
+            <EmptyState
+              illustration={<ChatBubbles />}
+              title="No messages yet"
+              subtitle="Chat messages will show up here"
+            />
+            <ChatActions
+              bottom={12}
+              actions={[
+                {
+                  icon: 'checkmark-done-outline',
+                  label: 'Oplevering goedkeuren',
+                  onPress: confirmDelivery,
+                },
+              ]}
+            />
+          </View>
           <View style={styles.composer}>
             <TextInput
               value={message}
@@ -68,6 +88,9 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.screen,
+  },
+  messages: {
+    flex: 1,
   },
   composer: {
     flexDirection: 'row',

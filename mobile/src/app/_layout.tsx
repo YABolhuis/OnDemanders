@@ -14,6 +14,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 
 import { LoadingScreen } from '@/components/LoadingScreen';
+import { hasCompletedOnboarding } from '@/lib/onboarding';
 import { SessionProvider, useSession } from '@/lib/session';
 import { colors } from '@/theme';
 
@@ -42,6 +43,8 @@ function RootStack() {
   const { session, loading: sessionLoading } = useSession();
   const [loaderDone, setLoaderDone] = useState(false);
   const fontsReady = fontsLoaded || !!fontError;
+  const onboarded = hasCompletedOnboarding(session?.user);
+  const home = !session ? '/welcome' : onboarded ? '/' : '/onboarding';
 
   // The native splash is a plain dark screen; hand over to the animated loader as soon as
   // its font can render.
@@ -66,12 +69,16 @@ function RootStack() {
             contentStyle: { backgroundColor: colors.background },
           }}
         >
-          <Stack.Protected guard={!session} redirectTo="/">
+          <Stack.Protected guard={!session} redirectTo={home}>
             <Stack.Screen name="welcome" />
             <Stack.Screen name="signup" />
             <Stack.Screen name="login" />
           </Stack.Protected>
-          <Stack.Protected guard={!!session} redirectTo="/welcome">
+          <Stack.Protected guard={!!session && !onboarded} redirectTo={home}>
+            <Stack.Screen name="onboarding/index" />
+            <Stack.Screen name="onboarding/work-type" />
+          </Stack.Protected>
+          <Stack.Protected guard={!!session && onboarded} redirectTo={home}>
             <Stack.Screen name="(tabs)" />
           </Stack.Protected>
           <Stack.Screen name="auth/callback" />

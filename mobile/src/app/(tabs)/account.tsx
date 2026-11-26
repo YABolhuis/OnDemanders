@@ -4,6 +4,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { AppHeader } from '@/components/AppHeader';
 import { Button } from '@/components/Button';
+import { countryFlag, countryName } from '@/lib/countries';
+import { onboardingAnswers, WORK_TYPES } from '@/lib/onboarding';
 import { useSession } from '@/lib/session';
 import { supabase } from '@/lib/supabase';
 import { colors, fonts } from '@/theme';
@@ -32,6 +34,13 @@ export default function AccountScreen() {
     (user?.user_metadata?.name as string | undefined) ??
     (email.split('@')[0] || 'My account');
   const initial = (email || name).charAt(0).toUpperCase();
+  const { country, workType } = onboardingAnswers(user);
+  const workSummary = [
+    country && `${countryFlag(country)} ${countryName(country)}`,
+    WORK_TYPES.find((option) => option.value === workType)?.title,
+  ]
+    .filter(Boolean)
+    .join(' · ');
 
   return (
     <View style={styles.screen}>
@@ -48,6 +57,11 @@ export default function AccountScreen() {
             {!!email && (
               <Text style={styles.email} numberOfLines={1}>
                 {email}
+              </Text>
+            )}
+            {!!workSummary && (
+              <Text style={styles.email} numberOfLines={1}>
+                {workSummary}
               </Text>
             )}
           </View>

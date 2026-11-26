@@ -48,6 +48,15 @@ export function CheckIcon({ color, size = 18 }: IconProps) {
   );
 }
 
+export function SearchIcon({ color, size = 18 }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Circle cx={11} cy={11} r={6.5} stroke={color} {...stroke} />
+      <Path d="M16 16l4.5 4.5" stroke={color} {...stroke} />
+    </Svg>
+  );
+}
+
 /** Open while the password shows, struck through while it is hidden. */
 export function EyeIcon({ color, size = 18, struck }: IconProps & { struck?: boolean }) {
   return (

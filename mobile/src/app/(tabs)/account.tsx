@@ -5,25 +5,33 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { AppHeader } from '@/components/AppHeader';
 import { Button } from '@/components/Button';
 import { useSession } from '@/lib/session';
+import { supabase } from '@/lib/supabase';
 import { colors, fonts } from '@/theme';
 
-const FALLBACK_NAME = 'Yan Bolhuis';
-const FALLBACK_EMAIL = 'bolhuisyan@gmail.com';
+function signOut() {
+  supabase.auth.signOut().then(({ error }) => {
+    if (error) console.warn('Supabase sign-out failed', error);
+  });
+}
 
-const MENU: { icon: ComponentProps<typeof Ionicons>['name']; label: string }[] = [
+const MENU: { icon: ComponentProps<typeof Ionicons>['name']; label: string; onPress?: () => void }[] = [
   { icon: 'list-outline', label: 'Activity Log' },
   { icon: 'ribbon-outline', label: 'OnDemanders Pro' },
   { icon: 'documents-outline', label: 'Documents' },
   { icon: 'paper-plane-outline', label: 'Invite a Friend' },
   { icon: 'help-buoy-outline', label: 'Help & Support' },
-  { icon: 'log-out-outline', label: 'Logout' },
+  { icon: 'log-out-outline', label: 'Logout', onPress: signOut },
 ];
 
 export default function AccountScreen() {
   const { session } = useSession();
   const user = session?.user;
-  const name = (user?.user_metadata?.full_name as string | undefined) ?? FALLBACK_NAME;
-  const email = user?.email ?? FALLBACK_EMAIL;
+  const email = user?.email ?? '';
+  const name =
+    (user?.user_metadata?.full_name as string | undefined) ??
+    (user?.user_metadata?.name as string | undefined) ??
+    (email.split('@')[0] || 'My account');
+  const initial = (email || name).charAt(0).toUpperCase();
 
   return (
     <View style={styles.screen}>
@@ -31,15 +39,17 @@ export default function AccountScreen() {
       <ScrollView contentContainerStyle={styles.content}>
         <View style={[styles.card, styles.profile]}>
           <View style={styles.avatar}>
-            <Text style={styles.avatarLetter}>{name.charAt(0).toUpperCase()}</Text>
+            <Text style={styles.avatarLetter}>{initial}</Text>
           </View>
           <View style={styles.profileText}>
             <Text style={styles.name} numberOfLines={1}>
               {name}
             </Text>
-            <Text style={styles.email} numberOfLines={1}>
-              {email}
-            </Text>
+            {!!email && (
+              <Text style={styles.email} numberOfLines={1}>
+                {email}
+              </Text>
+            )}
           </View>
           <Pressable accessibilityRole="button" accessibilityLabel="Edit profile" hitSlop={8}>
             <Ionicons name="pencil" size={18} color={colors.ink} />
@@ -63,7 +73,12 @@ export default function AccountScreen() {
 
         <View style={styles.menu}>
           {MENU.map((item) => (
-            <Pressable key={item.label} style={styles.menuRow} accessibilityRole="button">
+            <Pressable
+              key={item.label}
+              onPress={item.onPress}
+              style={styles.menuRow}
+              accessibilityRole="button"
+            >
               <Ionicons name={item.icon} size={21} color={colors.ink} />
               <Text style={styles.menuLabel}>{item.label}</Text>
               <Ionicons name="chevron-forward" size={18} color={colors.ink} />

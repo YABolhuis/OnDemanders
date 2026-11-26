@@ -6,19 +6,23 @@ type Props = {
   label: string;
   onPress?: () => void;
   variant?: 'primary' | 'outline';
+  disabled?: boolean;
   style?: StyleProp<ViewStyle>;
 };
 
-export function Button({ label, onPress, variant = 'primary', style }: Props) {
+export function Button({ label, onPress, variant = 'primary', disabled, style }: Props) {
   const outline = variant === 'outline';
   return (
     <Pressable
       onPress={onPress}
+      disabled={disabled}
       accessibilityRole="button"
+      accessibilityState={{ disabled }}
       style={({ pressed }) => [
         styles.base,
         outline ? styles.outline : styles.primary,
         pressed && styles.pressed,
+        disabled && styles.disabled,
         style,
       ]}
     >
@@ -45,6 +49,9 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.85,
+  },
+  disabled: {
+    opacity: 0.4,
   },
   label: {
     fontFamily: fonts.bodyBold,

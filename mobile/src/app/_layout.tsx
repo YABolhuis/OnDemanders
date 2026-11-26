@@ -16,6 +16,7 @@ import { View } from 'react-native';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { hasCompletedOnboarding } from '@/lib/onboarding';
 import { SessionProvider, useSession } from '@/lib/session';
+import { TasksProvider } from '@/lib/tasks';
 import { colors } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
@@ -23,8 +24,10 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   return (
     <SessionProvider>
-      <RootStack />
-      <StatusBar style="light" />
+      <TasksProvider>
+        <RootStack />
+        <StatusBar style="light" />
+      </TasksProvider>
     </SessionProvider>
   );
 }
@@ -80,6 +83,7 @@ function RootStack() {
           </Stack.Protected>
           <Stack.Protected guard={!!session && onboarded} redirectTo={home}>
             <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="chat/[id]" />
           </Stack.Protected>
           <Stack.Screen name="auth/callback" />
         </Stack>

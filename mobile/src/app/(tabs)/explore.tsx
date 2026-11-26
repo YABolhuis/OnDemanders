@@ -1,15 +1,41 @@
 import { useCallback, useState } from 'react';
-import { Pressable, StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  type StyleProp,
+  type ViewStyle,
+} from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import type { ComponentProps } from 'react';
 
 import { AppHeader } from '@/components/AppHeader';
-import { ExploreMap, type ExploreMapHandle } from '@/components/ExploreMap';
-import { colors } from '@/theme';
+import { BottomSheet } from '@/components/BottomSheet';
+import { ExploreMap, type ExploreMapHandle, type MapPin } from '@/components/ExploreMap';
+import { TaskCard } from '@/components/TaskCard';
+import { PLACES, useTasks } from '@/lib/tasks';
+import { colors, fonts } from '@/theme';
+
+const PINS: MapPin[] = PLACES.map((place) => ({
+  id: place.name,
+  ...place.coordinate,
+  count: place.tasks.length,
+}));
 
 export default function ExploreScreen() {
   const [map, setMap] = useState<ExploreMapHandle | null>(null);
   const onReady = useCallback((handle: ExploreMapHandle) => setMap(handle), []);
+  const [placeName, setPlaceName] = useState<string | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const place = PLACES.find((entry) => entry.name === placeName);
+  const { accepted, accept } = useTasks();
+
+  const openPlace = useCallback((name: string) => {
+    setPlaceName(name);
+    setSheetOpen(true);
+  }, []);
 
   return (
     <View style={styles.screen}>
@@ -21,7 +47,7 @@ export default function ExploreScreen() {
         ]}
       />
       <View style={styles.mapArea}>
-        <ExploreMap onReady={onReady} />
+        <ExploreMap onReady={onReady} pins={PINS} onPinPress={openPlace} />
         <MapButton icon="options-outline" label="Filters" style={styles.filters} />
         <MapButton
           icon="locate-outline"
@@ -49,6 +75,26 @@ export default function ExploreScreen() {
           </Pressable>
         </View>
       </View>
+
+      <BottomSheet visible={sheetOpen} onClose={() => setSheetOpen(false)}>
+        {place && (
+          <>
+            <Text style={styles.sheetTitle}>
+              {place.name} · {place.tasks.length} {place.tasks.length === 1 ? 'task' : 'tasks'}
+            </Text>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              {place.tasks.map((task) => (
+                <TaskCard
+                  key={task.id}
+                  task={task}
+                  accepted={accepted.includes(task.id)}
+                  onAccept={() => accept(task.id)}
+                />
+              ))}
+            </ScrollView>
+          </>
+        )}
+      </BottomSheet>
     </View>
   );
 }
@@ -127,5 +173,11 @@ const styles = StyleSheet.create({
     height: StyleSheet.hairlineWidth,
     marginHorizontal: 6,
     backgroundColor: colors.line,
+  },
+  sheetTitle: {
+    marginBottom: 14,
+    fontFamily: fonts.title,
+    fontSize: 15,
+    color: colors.muted,
   },
 });

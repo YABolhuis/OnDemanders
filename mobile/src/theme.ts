@@ -22,6 +22,9 @@ export const colors = {
   tabIcon: '#7A7A7A',
   tabIconActive: '#131413',
   input: '#F2F2F2',
+  price: '#F07B3F',
+  chip: '#E3F2FD',
+  chipText: '#1E88E5',
 
   /** Welcome, log in and sign up, which sit on the header's dark green-black. */
   authBackground: '#131413',

@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react';
 import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+import { useTasks } from '@/lib/tasks';
 import { colors } from '@/theme';
 
 type IconName = ComponentProps<typeof Ionicons>['name'];
@@ -19,6 +20,8 @@ function tabIcon(outline: IconName, filled: IconName) {
 }
 
 export default function TabsLayout() {
+  const client = useTasks().mode === 'client';
+
   return (
     <Tabs
       screenOptions={{
@@ -39,11 +42,21 @@ export default function TabsLayout() {
         name="explore"
         options={{ title: 'Explore', tabBarIcon: tabIcon('location-outline', 'location') }}
       />
+      {/* The middle tab depends on the account mode chosen on My Account. */}
       <Tabs.Screen
         name="my-tasks"
         options={{
           title: 'My tasks',
+          href: client ? null : undefined,
           tabBarIcon: tabIcon('checkmark-circle-outline', 'checkmark-circle'),
+        }}
+      />
+      <Tabs.Screen
+        name="post-task"
+        options={{
+          title: 'Post a task',
+          href: client ? undefined : null,
+          tabBarIcon: tabIcon('add-circle-outline', 'add-circle'),
         }}
       />
       <Tabs.Screen

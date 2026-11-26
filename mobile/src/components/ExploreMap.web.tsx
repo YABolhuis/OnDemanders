@@ -1,13 +1,13 @@
 import { createElement, useEffect } from 'react';
 
-import type { ExploreMapHandle } from './ExploreMap';
+import type { ExploreMapProps } from './ExploreMap';
 
-export type { ExploreMapHandle } from './ExploreMap';
+export type { ExploreMapHandle, MapPin } from './ExploreMap';
 
 const EMBED_CARD_HEIGHT = 64;
 
-// react-native-maps has no web support; the browser preview embeds Google Maps instead.
-export function ExploreMap({ onReady }: { onReady: (handle: ExploreMapHandle) => void }) {
+// react-native-maps has no web support; the browser preview embeds Google Maps, without pins.
+export function ExploreMap({ onReady }: ExploreMapProps) {
   useEffect(() => {
     onReady({ zoomIn: () => {}, zoomOut: () => {}, locate: () => {} });
   }, [onReady]);

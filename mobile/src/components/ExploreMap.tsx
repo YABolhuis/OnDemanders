@@ -2,14 +2,23 @@ import Constants, { ExecutionEnvironment } from 'expo-constants';
 import * as Location from 'expo-location';
 import { useEffect, useRef, useState } from 'react';
 import { Platform, StyleSheet } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, type Region } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE, type Region } from 'react-native-maps';
 
 import { EmbeddedGoogleMap } from './EmbeddedGoogleMap';
+import { TaskPin } from './TaskPin';
 
 export type ExploreMapHandle = {
   zoomIn: () => void;
   zoomOut: () => void;
   locate: () => void;
+};
+
+export type MapPin = { id: string; latitude: number; longitude: number; count: number };
+
+export type ExploreMapProps = {
+  onReady: (handle: ExploreMapHandle) => void;
+  pins: MapPin[];
+  onPinPress: (id: string) => void;
 };
 
 export const INITIAL_REGION: Region = {
@@ -22,24 +31,26 @@ export const INITIAL_REGION: Region = {
 const MIN_DELTA = 0.0005;
 const MAX_DELTA = 90;
 
-type Props = { onReady: (handle: ExploreMapHandle) => void };
-
 // Expo Go ships its own Google Maps key. A standalone Android build has none yet, and the native
-// Google map crashes without one, so it shows the keyless embed instead.
+// Google map crashes without one, so it shows a WebView map instead.
 const nativeMapAvailable =
   Platform.OS !== 'android' || Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
 
-export function ExploreMap(props: Props) {
+export function ExploreMap(props: ExploreMapProps) {
   return nativeMapAvailable ? <NativeMap {...props} /> : <EmbeddedGoogleMap {...props} />;
 }
 
-function NativeMap({ onReady }: Props) {
+function NativeMap({ onReady, pins, onPinPress }: ExploreMapProps) {
   const map = useRef<MapView>(null);
   const region = useRef<Region>(INITIAL_REGION);
   const [hasLocation, setHasLocation] = useState(false);
+  // Android snapshots custom markers; they must track changes until the SVG has drawn once.
+  const [pinsDrawn, setPinsDrawn] = useState(false);
 
   useEffect(() => {
     Location.requestForegroundPermissionsAsync().then(({ granted }) => setHasLocation(granted));
+    const timer = setTimeout(() => setPinsDrawn(true), 800);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -94,6 +105,18 @@ function NativeMap({ onReady }: Props) {
       showsCompass={false}
       toolbarEnabled={false}
       zoomControlEnabled={false}
-    />
+    >
+      {pins.map((pin) => (
+        <Marker
+          key={pin.id}
+          coordinate={pin}
+          anchor={{ x: 0.5, y: 1 }}
+          tracksViewChanges={!pinsDrawn}
+          onPress={() => onPinPress(pin.id)}
+        >
+          <TaskPin count={pin.count} />
+        </Marker>
+      ))}
+    </MapView>
   );
 }

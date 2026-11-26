@@ -7,6 +7,7 @@ import { Button } from '@/components/Button';
 import { countryFlag, countryName } from '@/lib/countries';
 import { onboardingAnswers, WORK_TYPES } from '@/lib/onboarding';
 import { useSession } from '@/lib/session';
+import { type AccountMode, formatPrice, useTasks } from '@/lib/tasks';
 import { supabase } from '@/lib/supabase';
 import { colors, fonts } from '@/theme';
 
@@ -25,6 +26,11 @@ const MENU: { icon: ComponentProps<typeof Ionicons>['name']; label: string; onPr
   { icon: 'log-out-outline', label: 'Logout', onPress: signOut },
 ];
 
+const MODES: { value: AccountMode; label: string; icon: ComponentProps<typeof Ionicons>['name'] }[] = [
+  { value: 'freelancer', label: 'Freelancer', icon: 'construct-outline' },
+  { value: 'client', label: 'Client', icon: 'briefcase-outline' },
+];
+
 export default function AccountScreen() {
   const { session } = useSession();
   const user = session?.user;
@@ -34,6 +40,7 @@ export default function AccountScreen() {
     (user?.user_metadata?.name as string | undefined) ??
     (email.split('@')[0] || 'My account');
   const initial = (email || name).charAt(0).toUpperCase();
+  const { mode, balances, setMode } = useTasks();
   const { country, workType } = onboardingAnswers(user);
   const workSummary = [
     country && `${countryFlag(country)} ${countryName(country)}`,
@@ -70,9 +77,37 @@ export default function AccountScreen() {
           </Pressable>
         </View>
 
+        <View style={[styles.card, styles.modeCard]}>
+          <View style={styles.modes} accessibilityRole="radiogroup">
+            {MODES.map((option) => {
+              const selected = option.value === mode;
+              return (
+                <Pressable
+                  key={option.value}
+                  accessibilityRole="radio"
+                  accessibilityState={{ checked: selected }}
+                  onPress={() => setMode(option.value)}
+                  style={[styles.mode, selected && styles.modeSelected]}
+                >
+                  <Ionicons
+                    name={option.icon}
+                    size={17}
+                    color={selected ? colors.primaryText : colors.inkSoft}
+                  />
+                  <Text style={[styles.modeText, selected && styles.modeTextSelected]}>
+                    {option.label}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </View>
+
         <View style={[styles.card, styles.balance]}>
-          <Text style={styles.balanceLabel}>Current Balance</Text>
-          <Text style={styles.balanceValue}>€ 0,00</Text>
+          <Text style={styles.balanceLabel}>
+            Current Balance · {mode === 'client' ? 'Client' : 'Freelancer'}
+          </Text>
+          <Text style={styles.balanceValue}>{formatPrice(balances[mode])}</Text>
           <Button label="Payout" style={styles.payout} />
           <Button label="Transaction History" variant="outline" style={styles.history} />
         </View>
@@ -149,6 +184,36 @@ const styles = StyleSheet.create({
     fontFamily: fonts.body,
     fontSize: 13,
     color: colors.inkSoft,
+  },
+  modeCard: {
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+  },
+  modes: {
+    flexDirection: 'row',
+    padding: 4,
+    borderRadius: 8,
+    backgroundColor: colors.input,
+  },
+  mode: {
+    flex: 1,
+    height: 38,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderRadius: 6,
+  },
+  modeSelected: {
+    backgroundColor: colors.primary,
+  },
+  modeText: {
+    fontFamily: fonts.bodyBold,
+    fontSize: 15,
+    color: colors.inkSoft,
+  },
+  modeTextSelected: {
+    color: colors.primaryText,
   },
   balance: {
     alignItems: 'center',

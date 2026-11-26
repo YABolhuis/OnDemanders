@@ -1,6 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useState } from 'react';
+import { type ComponentRef, useCallback, useEffect, useRef, useState } from 'react';
 import {
+  Dimensions,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -30,6 +31,26 @@ export default function PostTaskScreen() {
   const [address, setAddress] = useState('');
   const [notice, setNotice] = useState<Notice | null>(null);
 
+  const scroller = useRef<ComponentRef<typeof ScrollView>>(null);
+  const offset = useRef(0);
+
+  // Android draws edge to edge, so the keyboard covers the form: scroll the focused field above it.
+  const reveal = useCallback(() => {
+    const field = TextInput.State.currentlyFocusedInput();
+    if (!field || !keyboard) return;
+    field.measureInWindow((_x, y, _width, height) => {
+      const below = y + height + 24 - (Dimensions.get('screen').height - keyboard);
+      if (below > 0) scroller.current?.scrollTo({ y: offset.current + below, animated: true });
+    });
+  }, [keyboard]);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(reveal);
+    return () => cancelAnimationFrame(frame);
+  }, [reveal]);
+
+  const onFieldFocus = () => setTimeout(reveal, 50);
+
   const cents = parsePrice(price);
   const complete = !!title.trim() && !!address.trim() && !!cents;
 
@@ -56,8 +77,13 @@ export default function PostTaskScreen() {
     <View style={styles.screen}>
       <AppHeader title="Post a task" />
       <ScrollView
+        ref={scroller}
         contentContainerStyle={[styles.content, { paddingBottom: 24 + keyboard }]}
         keyboardShouldPersistTaps="handled"
+        scrollEventThrottle={16}
+        onScroll={(event) => {
+          offset.current = event.nativeEvent.contentOffset.y;
+        }}
       >
         <View style={styles.balance}>
           <Text style={styles.balanceLabel}>Available balance</Text>
@@ -65,7 +91,13 @@ export default function PostTaskScreen() {
         </View>
 
         <View style={styles.card}>
-          <Field label="What needs to be done?" value={title} onChangeText={setTitle} placeholder="e.g. Mow the lawn" />
+          <Field
+            label="What needs to be done?"
+            value={title}
+            onChangeText={setTitle}
+            placeholder="e.g. Mow the lawn"
+            onFocus={onFieldFocus}
+          />
           <Field
             label="Description"
             value={description}
@@ -73,6 +105,7 @@ export default function PostTaskScreen() {
             placeholder="Tell freelancers what the task involves"
             multiline
             style={styles.multiline}
+            onFocus={onFieldFocus}
           />
 
           <Text style={styles.label}>Category</Text>
@@ -101,8 +134,15 @@ export default function PostTaskScreen() {
             onChangeText={setPrice}
             placeholder="25,00"
             keyboardType="decimal-pad"
+            onFocus={onFieldFocus}
           />
-          <Field label="Address" value={address} onChangeText={setAddress} placeholder="Street, town" />
+          <Field
+            label="Address"
+            value={address}
+            onChangeText={setAddress}
+            placeholder="Street, town"
+            onFocus={onFieldFocus}
+          />
 
           {notice && (
             <View style={[styles.notice, notice.kind === 'error' && styles.noticeError]}>

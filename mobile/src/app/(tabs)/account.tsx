@@ -108,7 +108,7 @@ export default function AccountScreen() {
             Current Balance · {mode === 'client' ? 'Client' : 'Freelancer'}
           </Text>
           <Text style={styles.balanceValue}>{formatPrice(balances[mode])}</Text>
-          <Button label="Payout" style={styles.payout} />
+          <Button label={mode === 'client' ? 'Top up' : 'Payout'} style={styles.payout} />
           <Button label="Transaction History" variant="outline" style={styles.history} />
         </View>
 

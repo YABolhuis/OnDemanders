@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { colors, fonts } from '@/theme';
 
@@ -40,12 +41,31 @@ export function AppHeader({ title, actions = [] }: { title: string; actions?: Ac
   );
 }
 
-export function LogoMark() {
+/** Same geometry as assets/brand/logo.svg. */
+export function LogoMark({ size = 28 }: { size?: number }) {
   return (
-    <View style={styles.logo} accessibilityLabel="OnDemanders">
-      <Text style={styles.logoLetter}>O</Text>
-      <View style={styles.logoDot} />
-    </View>
+    <Svg width={size} height={size} viewBox="0 0 1024 1024" accessibilityLabel="OnDemanders">
+      <Defs>
+        <LinearGradient id="logoBg" x1="0" y1="0" x2="0" y2="1">
+          <Stop offset="0" stopColor="#1B1C1B" />
+          <Stop offset="1" stopColor="#0D0E0D" />
+        </LinearGradient>
+      </Defs>
+      {/* The faint rim keeps the tile visible on the equally dark header. */}
+      <Rect
+        x={16}
+        y={16}
+        width={992}
+        height={992}
+        rx={214}
+        fill="url(#logoBg)"
+        stroke="#FFFFFF"
+        strokeOpacity={0.18}
+        strokeWidth={32}
+      />
+      <Circle cx={492} cy={500} r={186} fill="none" stroke="#FFFFFF" strokeWidth={96} />
+      <Rect x={719} y={622} width={92} height={92} fill={colors.accent} />
+    </Svg>
   );
 }
 
@@ -58,28 +78,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 14,
-  },
-  logo: {
-    width: 28,
-    height: 28,
-    borderRadius: 7,
-    backgroundColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoLetter: {
-    color: colors.primaryText,
-    fontFamily: fonts.bold,
-    fontSize: 19,
-    lineHeight: 22,
-  },
-  logoDot: {
-    position: 'absolute',
-    right: 4,
-    bottom: 5,
-    width: 4,
-    height: 4,
-    backgroundColor: colors.accent,
   },
   title: {
     flex: 1,

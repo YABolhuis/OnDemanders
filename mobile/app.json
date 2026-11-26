@@ -13,7 +13,7 @@
     "android": {
       "package": "com.ondemanders.app",
       "adaptiveIcon": {
-        "backgroundColor": "#0C0C0C",
+        "backgroundColor": "#131413",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"

@@ -22,6 +22,18 @@ export const colors = {
   tabIcon: '#7A7A7A',
   tabIconActive: '#131413',
   input: '#F2F2F2',
+
+  /** Welcome, log in and sign up, which sit on the header's dark green-black. */
+  authBackground: '#131413',
+  authTextSoft: '#DDDDDD',
+  authTextMuted: '#878787',
+  authLine: '#717171',
+  authInputBorder: '#555555',
+  danger: '#FF5252',
+};
+
+export const radius = {
+  button: 6,
 };
 
 export const fonts = {
@@ -33,4 +45,5 @@ export const fonts = {
   titleSemibold: 'Montserrat_600SemiBold',
   body: 'Lato_400Regular',
   bodyBold: 'Lato_700Bold',
+  button: 'Outfit_600SemiBold',
 };

@@ -39,7 +39,7 @@ function RootStack() {
     Lato_400Regular,
     Lato_700Bold,
   });
-  const { loading: sessionLoading } = useSession();
+  const { session, loading: sessionLoading } = useSession();
   const [loaderDone, setLoaderDone] = useState(false);
   const fontsReady = fontsLoaded || !!fontError;
 
@@ -65,7 +65,17 @@ function RootStack() {
             headerShown: false,
             contentStyle: { backgroundColor: colors.background },
           }}
-        />
+        >
+          <Stack.Protected guard={!session} redirectTo="/">
+            <Stack.Screen name="welcome" />
+            <Stack.Screen name="signup" />
+            <Stack.Screen name="login" />
+          </Stack.Protected>
+          <Stack.Protected guard={!!session} redirectTo="/welcome">
+            <Stack.Screen name="(tabs)" />
+          </Stack.Protected>
+          <Stack.Screen name="auth/callback" />
+        </Stack>
       )}
       {!loaderDone && <LoadingScreen ready={!sessionLoading} onFinished={finishLoader} />}
     </View>
